@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,11 +41,18 @@ namespace David_Arduino
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            btnStart.Enabled = false;
-            btnStart.Visible = false;
-            btnStop.Enabled = true;
-            btnStop.Visible = true;
-            dFunc.openPort();
+            try
+            {
+                dFunc.openPort();
+                btnStart.Enabled = false;
+                btnStart.Visible = false;
+                btnStop.Enabled = true;
+                btnStop.Visible = true;
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Please Connect The Arduino Before Proceeding", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -115,15 +123,15 @@ namespace David_Arduino
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            dFunc.openPort();
-            if(dFunc.port.IsOpen)
+            try
             {
+                dFunc.openPort();
                 MessageBox.Show("The Arduino is connected");
                 dFunc.port.Close();
             }
-            else
+            catch (IOException)
             {
-                MessageBox.Show("The Arduino is not connected");
+                MessageBox.Show("The Arduino is not connected", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
