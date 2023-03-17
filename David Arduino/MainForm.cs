@@ -31,6 +31,10 @@ namespace David_Arduino
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            if(dFunc.port.IsOpen)
+            {
+                dFunc.port.Close(); 
+            }
             Close();
         }
 
@@ -40,6 +44,7 @@ namespace David_Arduino
             btnStart.Visible = false;
             btnStop.Enabled = true;
             btnStop.Visible = true;
+            dFunc.openPort();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -48,20 +53,33 @@ namespace David_Arduino
             btnStop.Visible = false;
             btnStart.Enabled = true;
             btnStart.Visible = true;
+            dFunc.closePort();
         }
 
         private void btnSettingsClose_Click(object sender, EventArgs e)
         {
+            if (dFunc.port.IsOpen)
+            {
+                dFunc.port.Close();
+            }
             Close();
         }
 
         private void btnGraphClose_Click(object sender, EventArgs e)
         {
+            if (dFunc.port.IsOpen)
+            {
+                dFunc.port.Close();
+            }
             Close();
         }
 
         private void btnStatsClose_Click(object sender, EventArgs e)
         {
+            if (dFunc.port.IsOpen)
+            {
+                dFunc.port.Close();
+            }
             Close();
         }
 
@@ -97,9 +115,11 @@ namespace David_Arduino
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
+            dFunc.openPort();
             if(dFunc.port.IsOpen)
             {
                 MessageBox.Show("The Arduino is connected");
+                dFunc.port.Close();
             }
             else
             {

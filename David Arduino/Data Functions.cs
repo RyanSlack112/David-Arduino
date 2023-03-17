@@ -17,9 +17,19 @@ namespace David_Arduino
 
         public Data_Functions() 
         {
-            port = new SerialPort("0x68", 9600);
+            port = new SerialPort("COM4", 9600);
             acceleration = 0;
             force = 0;
+        }
+
+        public void openPort()
+        { 
+            port.Open();
+        }
+
+        public void closePort() 
+        {
+            port.Close();
         }
 
         public float getMass() //Mass Getter
