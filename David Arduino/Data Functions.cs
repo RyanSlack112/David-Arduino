@@ -15,19 +15,22 @@ namespace David_Arduino
         private float acceleration; //Acceleration Variable
         private float force; //Force Variable
 
-        public Data_Functions() 
+        public Data_Functions() //Constructor
         {
-            port = new SerialPort("COM4", 9600);
+            port = new SerialPort("COM4", 9600); //Intialize Port
+            /*
+             * Default Values
+             */
             acceleration = 0;
             force = 0;
         }
 
-        public void openPort()
+        public void openPort() //Opens Port to Arduino
         { 
             port.Open();
         }
 
-        public void closePort() 
+        public void closePort() //Closes Port to Arduino
         {
             port.Close();
         }
@@ -52,6 +55,9 @@ namespace David_Arduino
             return force;
         }
 
+        /*
+         * Calculates the Acceleration from the X, Y, Z inputs from Accelerometer
+         */
         private float calcAccel(float accel_x, float accel_y, float accel_z)
         {
             accel_z -= gravity;
@@ -59,14 +65,25 @@ namespace David_Arduino
             return accel;
         }
 
+        /*
+         * Calculates the Force using the Acceleration from the Accelerometer
+         * and Mass defined within the program
+         */
         private float calcForce(float accel, float mass)
         {
             float force = accel * mass;
             return force;
         }
 
+        /*
+         * Populates the X, Y and Z values from the Arduino data and performs calculations
+         * of Acceleration and Force.
+         */
         public float getArduinoOutput()
         {
+            /*
+             * Default Values
+             */
             float x = 0;
             float y = 0;
             float z = 0;
@@ -74,16 +91,20 @@ namespace David_Arduino
             {
                 if(port.IsOpen)
                 {
-                    string data = port.ReadLine();
-                    string[] values = data.Split(',');
+                    string data = port.ReadLine(); //Data from the Arduino
+                    string[] values = data.Split(','); //Split the String from the Arduino using comma as seperation char
+                    /*
+                     * If greater than 3 values after splitting use the first 3 elements to
+                     * populate the X, Y and Z values.
+                     */
                     if(values.Length > 3) 
                     {
                         x = float.Parse(values[0]);
                         y = float.Parse(values[1]);
                         z = float.Parse(values[2]);
                     }
-                    acceleration = calcAccel(x, y, z);
-                    force = calcForce(acceleration, mass);
+                    acceleration = calcAccel(x, y, z); //Calculate Acceleration
+                    force = calcForce(acceleration, mass); //Calculate Force
                 }
             }
             catch (TimeoutException) 

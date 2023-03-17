@@ -18,32 +18,38 @@ namespace David_Arduino
     public partial class MainForm : MaterialForm
     {
         Data_Functions dFunc;
+        MaterialSkinManager skinManager = MaterialSkinManager.Instance;
         public MainForm()
         {
             InitializeComponent();
-            dFunc = new Data_Functions();
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            dFunc = new Data_Functions(); //Arduino Data and Connection Object
+            /*
+             * Material Skin Initialization Code
+             */
+            skinManager.AddFormToManage(this);
+            skinManager.Theme = MaterialSkinManager.Themes.DARK;
+            skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
 
-        MaterialSkinManager skinManager = MaterialSkinManager.Instance;
+        
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if(dFunc.port.IsOpen)
+            if(dFunc.port.IsOpen) //Before Closing checks if port is closed
             {
-                dFunc.port.Close(); 
+                dFunc.port.Close(); //Closes Arduino Port
             }
-            Close();
+            Close(); //Closes Program
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             try
             {
-                dFunc.openPort();
+                dFunc.openPort(); //Opens port to Arduino and connects
+                /*
+                 * Button Visibility and Enabling Changes
+                 */
                 btnStart.Enabled = false;
                 btnStart.Visible = false;
                 btnStop.Enabled = true;
@@ -57,34 +63,38 @@ namespace David_Arduino
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            /*
+             * Button Visibility and Enabling Changes
+             */
             btnStop.Enabled = false;
             btnStop.Visible = false;
             btnStart.Enabled = true;
             btnStart.Visible = true;
-            dFunc.closePort();
+
+            dFunc.closePort(); //Closes port to the Arduino
         }
 
         private void btnSettingsClose_Click(object sender, EventArgs e)
         {
-            if (dFunc.port.IsOpen)
+            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
             {
-                dFunc.port.Close();
+                dFunc.port.Close();//Closes Arduino Port
             }
-            Close();
+            Close(); //Closes Program
         }
 
         private void btnGraphClose_Click(object sender, EventArgs e)
         {
-            if (dFunc.port.IsOpen)
+            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
             {
-                dFunc.port.Close();
+                dFunc.port.Close(); //Closes Arduino Port
             }
-            Close();
+            Close(); //Closes Program
         }
 
         private void btnStatsClose_Click(object sender, EventArgs e)
         {
-            if (dFunc.port.IsOpen)
+            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
             {
                 dFunc.port.Close();
             }
@@ -93,14 +103,17 @@ namespace David_Arduino
 
         private void btnLight_Click(object sender, EventArgs e)
         {
-            skinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            skinManager.Theme = MaterialSkinManager.Themes.LIGHT; //Changes Material Skin Theme to Light
         }
 
         private void btnDark_Click(object sender, EventArgs e)
         {
-            skinManager.Theme = MaterialSkinManager.Themes.DARK;
+            skinManager.Theme = MaterialSkinManager.Themes.DARK; //Changes Material Skin Theme to Dark
         }
 
+        /*
+         * Changes the Title Text of the program depending on the selected Tab
+         */
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(tabs.SelectedTab == tabMain)
@@ -121,15 +134,18 @@ namespace David_Arduino
             }
         }
 
+        /*
+         * Checks the connection of the Arduino
+         */
         private void btnCheck_Click(object sender, EventArgs e)
         {
             try
             {
-                dFunc.openPort();
-                MessageBox.Show("The Arduino is connected");
-                dFunc.port.Close();
+                dFunc.openPort(); //Opens Arduino Port
+                MessageBox.Show("The Arduino is connected", "Connection Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dFunc.port.Close(); //Closes Arduino Port
             }
-            catch (IOException)
+            catch (IOException) //Exception if Arduino is not connected
             {
                 MessageBox.Show("The Arduino is not connected", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
