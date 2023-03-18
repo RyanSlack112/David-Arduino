@@ -60,6 +60,7 @@
             this.btnGraphClose = new MaterialSkin.Controls.MaterialButton();
             this.pnlGraphControls = new System.Windows.Forms.Panel();
             this.pnlButtons = new System.Windows.Forms.Panel();
+            this.btnTest = new MaterialSkin.Controls.MaterialButton();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlOutputControls.SuspendLayout();
@@ -128,6 +129,7 @@
             // pnlOutputControls
             // 
             this.pnlOutputControls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlOutputControls.Controls.Add(this.btnTest);
             this.pnlOutputControls.Controls.Add(this.lblUnit);
             this.pnlOutputControls.Controls.Add(this.cmbUnit);
             this.pnlOutputControls.Location = new System.Drawing.Point(853, 6);
@@ -498,6 +500,26 @@
             this.pnlButtons.Size = new System.Drawing.Size(155, 46);
             this.pnlButtons.TabIndex = 5;
             // 
+            // btnTest
+            // 
+            this.btnTest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnTest.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnTest.Depth = 0;
+            this.btnTest.HighEmphasis = true;
+            this.btnTest.Icon = null;
+            this.btnTest.Location = new System.Drawing.Point(11, 124);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnTest.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnTest.Name = "btnTest";
+            this.btnTest.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnTest.Size = new System.Drawing.Size(158, 36);
+            this.btnTest.TabIndex = 2;
+            this.btnTest.Text = "Test";
+            this.btnTest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnTest.UseAccentColor = false;
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -562,6 +584,7 @@
         private System.Windows.Forms.Panel pnlGraphControls;
         private MaterialSkin.Controls.MaterialButton btnGraphClose;
         private System.Windows.Forms.Panel pnlButtons;
+        private MaterialSkin.Controls.MaterialButton btnTest;
     }
 }
 

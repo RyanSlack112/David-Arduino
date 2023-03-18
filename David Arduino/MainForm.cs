@@ -32,7 +32,31 @@ namespace David_Arduino
             
         }
 
-        
+        public string getOutputLabelText()
+        {
+            return lblOutput.Text;
+        }
+
+        public void setOutputLabel(string outputText)
+        {
+            lblOutput.Text = outputText;
+        }
+
+        public string getComboUnitText()
+        {
+            if(cmbUnit.SelectedItem.ToString() == "Force")
+            {
+                return "Force";
+            }
+            else if(cmbUnit.SelectedItem.ToString() == "Acceleration")
+            {
+                return "Acceleration";
+            }
+            else 
+            {
+                return "";
+            }
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -150,6 +174,11 @@ namespace David_Arduino
             {
                 MessageBox.Show("The Arduino is not connected", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            setOutputLabel(getComboUnitText());
         }
     }
 }
