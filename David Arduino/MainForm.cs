@@ -136,6 +136,10 @@ namespace David_Arduino
             {
                 this.Text = "Main Page";
             }
+            else if(tabs.SelectedTab == tabHitCounter)
+            {
+                this.Text = "Hit Counter";
+            }
             else if (tabs.SelectedTab == tabGraph) 
             {
                 this.Text = "Graph View";
