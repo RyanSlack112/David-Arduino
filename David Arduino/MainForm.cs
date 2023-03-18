@@ -178,6 +178,7 @@ namespace David_Arduino
             {
                 float newMass = float.Parse(txtMassInput.Text);
                 dFunc.setMass(newMass);
+                MessageBox.Show("Mass Changed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (FormatException)
             {
