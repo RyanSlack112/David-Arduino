@@ -36,15 +36,22 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabs = new MaterialSkin.Controls.MaterialTabControl();
             this.tabMain = new System.Windows.Forms.TabPage();
+            this.pnlButtons = new System.Windows.Forms.Panel();
+            this.btnClose = new MaterialSkin.Controls.MaterialButton();
+            this.btnStart = new MaterialSkin.Controls.MaterialButton();
+            this.btnStop = new MaterialSkin.Controls.MaterialButton();
             this.pnlOutputControls = new System.Windows.Forms.Panel();
+            this.btnTest = new MaterialSkin.Controls.MaterialButton();
             this.lblUnit = new MaterialSkin.Controls.MaterialLabel();
             this.cmbUnit = new MaterialSkin.Controls.MaterialComboBox();
             this.pnlOutput = new System.Windows.Forms.Panel();
             this.lblOutput = new MaterialSkin.Controls.MaterialLabel();
-            this.btnStart = new MaterialSkin.Controls.MaterialButton();
-            this.btnClose = new MaterialSkin.Controls.MaterialButton();
-            this.btnStop = new MaterialSkin.Controls.MaterialButton();
             this.tabGraph = new System.Windows.Forms.TabPage();
+            this.pnlGraphControls = new System.Windows.Forms.Panel();
+            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            this.lblChooseUnit = new MaterialSkin.Controls.MaterialLabel();
+            this.pnlClose = new System.Windows.Forms.Panel();
+            this.btnGraphClose = new MaterialSkin.Controls.MaterialButton();
             this.tabStatistics = new System.Windows.Forms.TabPage();
             this.btnStatsClose = new MaterialSkin.Controls.MaterialButton();
             this.tabSettings = new System.Windows.Forms.TabPage();
@@ -57,21 +64,35 @@
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.btnSettingsClose = new MaterialSkin.Controls.MaterialButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnGraphClose = new MaterialSkin.Controls.MaterialButton();
-            this.pnlGraphControls = new System.Windows.Forms.Panel();
-            this.pnlButtons = new System.Windows.Forms.Panel();
-            this.btnTest = new MaterialSkin.Controls.MaterialButton();
+            this.pnlCMBUnit = new System.Windows.Forms.Panel();
+            this.pnlGraphButtons = new System.Windows.Forms.Panel();
+            this.lblGraphControls = new MaterialSkin.Controls.MaterialLabel();
+            this.btnGenerateGraph = new MaterialSkin.Controls.MaterialButton();
+            this.btnClearGraph = new MaterialSkin.Controls.MaterialButton();
+            this.pnlGraph = new System.Windows.Forms.Panel();
+            this.dgvGraph = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtMassInput = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblMass = new MaterialSkin.Controls.MaterialLabel();
+            this.btnChangeMass = new MaterialSkin.Controls.MaterialButton();
+            this.btnTestMass = new MaterialSkin.Controls.MaterialButton();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
+            this.pnlButtons.SuspendLayout();
             this.pnlOutputControls.SuspendLayout();
             this.pnlOutput.SuspendLayout();
             this.tabGraph.SuspendLayout();
+            this.pnlGraphControls.SuspendLayout();
+            this.pnlClose.SuspendLayout();
             this.tabStatistics.SuspendLayout();
             this.tabSettings.SuspendLayout();
             this.pnlCheck.SuspendLayout();
             this.pnlTheme.SuspendLayout();
-            this.pnlGraphControls.SuspendLayout();
-            this.pnlButtons.SuspendLayout();
+            this.pnlCMBUnit.SuspendLayout();
+            this.pnlGraphButtons.SuspendLayout();
+            this.pnlGraph.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGraph)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -126,9 +147,84 @@
             this.tabMain.Text = "Main";
             this.tabMain.UseVisualStyleBackColor = true;
             // 
+            // pnlButtons
+            // 
+            this.pnlButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlButtons.Controls.Add(this.btnClose);
+            this.pnlButtons.Controls.Add(this.btnStart);
+            this.pnlButtons.Controls.Add(this.btnStop);
+            this.pnlButtons.Location = new System.Drawing.Point(898, 480);
+            this.pnlButtons.Name = "pnlButtons";
+            this.pnlButtons.Size = new System.Drawing.Size(155, 46);
+            this.pnlButtons.TabIndex = 5;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClose.Depth = 0;
+            this.btnClose.HighEmphasis = true;
+            this.btnClose.Icon = null;
+            this.btnClose.Location = new System.Drawing.Point(88, 10);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClose.Size = new System.Drawing.Size(66, 36);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "Close";
+            this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClose.UseAccentColor = false;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStart.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStart.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStart.Depth = 0;
+            this.btnStart.HighEmphasis = true;
+            this.btnStart.Icon = null;
+            this.btnStart.Location = new System.Drawing.Point(13, 10);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStart.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStart.Name = "btnStart";
+            this.btnStart.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStart.Size = new System.Drawing.Size(67, 36);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "Start";
+            this.btnStart.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStart.UseAccentColor = false;
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStop.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStop.Depth = 0;
+            this.btnStop.HighEmphasis = true;
+            this.btnStop.Icon = null;
+            this.btnStop.Location = new System.Drawing.Point(16, 10);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStop.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStop.Name = "btnStop";
+            this.btnStop.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStop.Size = new System.Drawing.Size(64, 36);
+            this.btnStop.TabIndex = 2;
+            this.btnStop.Text = "Stop";
+            this.btnStop.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStop.UseAccentColor = false;
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
             // pnlOutputControls
             // 
             this.pnlOutputControls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlOutputControls.Controls.Add(this.btnTestMass);
             this.pnlOutputControls.Controls.Add(this.btnTest);
             this.pnlOutputControls.Controls.Add(this.lblUnit);
             this.pnlOutputControls.Controls.Add(this.cmbUnit);
@@ -137,17 +233,39 @@
             this.pnlOutputControls.Size = new System.Drawing.Size(185, 247);
             this.pnlOutputControls.TabIndex = 4;
             // 
+            // btnTest
+            // 
+            this.btnTest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnTest.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnTest.Depth = 0;
+            this.btnTest.HighEmphasis = true;
+            this.btnTest.Icon = null;
+            this.btnTest.Location = new System.Drawing.Point(11, 124);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnTest.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnTest.Name = "btnTest";
+            this.btnTest.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnTest.Size = new System.Drawing.Size(64, 36);
+            this.btnTest.TabIndex = 2;
+            this.btnTest.Text = "Test";
+            this.btnTest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnTest.UseAccentColor = false;
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // lblUnit
             // 
-            this.lblUnit.AutoSize = true;
+            this.lblUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUnit.Depth = 0;
             this.lblUnit.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblUnit.Location = new System.Drawing.Point(18, 15);
             this.lblUnit.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(80, 19);
+            this.lblUnit.Size = new System.Drawing.Size(151, 19);
             this.lblUnit.TabIndex = 1;
             this.lblUnit.Text = "Select Unit:";
+            this.lblUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmbUnit
             // 
@@ -200,72 +318,11 @@
             this.lblOutput.Text = "6000.56N";
             this.lblOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnStart
-            // 
-            this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStart.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnStart.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnStart.Depth = 0;
-            this.btnStart.HighEmphasis = true;
-            this.btnStart.Icon = null;
-            this.btnStart.Location = new System.Drawing.Point(13, 10);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnStart.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnStart.Name = "btnStart";
-            this.btnStart.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnStart.Size = new System.Drawing.Size(67, 36);
-            this.btnStart.TabIndex = 1;
-            this.btnStart.Text = "Start";
-            this.btnStart.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnStart.UseAccentColor = false;
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnClose.Depth = 0;
-            this.btnClose.HighEmphasis = true;
-            this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(88, 10);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClose.Size = new System.Drawing.Size(66, 36);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "Close";
-            this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnClose.UseAccentColor = false;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnStop
-            // 
-            this.btnStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnStop.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnStop.Depth = 0;
-            this.btnStop.HighEmphasis = true;
-            this.btnStop.Icon = null;
-            this.btnStop.Location = new System.Drawing.Point(16, 10);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnStop.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnStop.Name = "btnStop";
-            this.btnStop.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnStop.Size = new System.Drawing.Size(64, 36);
-            this.btnStop.TabIndex = 2;
-            this.btnStop.Text = "Stop";
-            this.btnStop.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnStop.UseAccentColor = false;
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
             // tabGraph
             // 
+            this.tabGraph.Controls.Add(this.pnlGraph);
             this.tabGraph.Controls.Add(this.pnlGraphControls);
+            this.tabGraph.Controls.Add(this.pnlClose);
             this.tabGraph.ImageKey = "Graph.png";
             this.tabGraph.Location = new System.Drawing.Point(4, 39);
             this.tabGraph.Name = "tabGraph";
@@ -274,6 +331,88 @@
             this.tabGraph.TabIndex = 1;
             this.tabGraph.Text = "Graph View";
             this.tabGraph.UseVisualStyleBackColor = true;
+            // 
+            // pnlGraphControls
+            // 
+            this.pnlGraphControls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphControls.Controls.Add(this.pnlGraphButtons);
+            this.pnlGraphControls.Controls.Add(this.pnlCMBUnit);
+            this.pnlGraphControls.Location = new System.Drawing.Point(842, 6);
+            this.pnlGraphControls.Name = "pnlGraphControls";
+            this.pnlGraphControls.Size = new System.Drawing.Size(210, 468);
+            this.pnlGraphControls.TabIndex = 3;
+            // 
+            // materialComboBox1
+            // 
+            this.materialComboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialComboBox1.AutoResize = false;
+            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBox1.Depth = 0;
+            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBox1.DropDownHeight = 174;
+            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBox1.DropDownWidth = 121;
+            this.materialComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBox1.FormattingEnabled = true;
+            this.materialComboBox1.IntegralHeight = false;
+            this.materialComboBox1.ItemHeight = 43;
+            this.materialComboBox1.Items.AddRange(new object[] {
+            "Force",
+            "Acceleration"});
+            this.materialComboBox1.Location = new System.Drawing.Point(24, 42);
+            this.materialComboBox1.MaxDropDownItems = 4;
+            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBox1.Name = "materialComboBox1";
+            this.materialComboBox1.Size = new System.Drawing.Size(158, 49);
+            this.materialComboBox1.StartIndex = 0;
+            this.materialComboBox1.TabIndex = 1;
+            // 
+            // lblChooseUnit
+            // 
+            this.lblChooseUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblChooseUnit.Depth = 0;
+            this.lblChooseUnit.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblChooseUnit.Location = new System.Drawing.Point(24, 20);
+            this.lblChooseUnit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblChooseUnit.Name = "lblChooseUnit";
+            this.lblChooseUnit.Size = new System.Drawing.Size(158, 19);
+            this.lblChooseUnit.TabIndex = 0;
+            this.lblChooseUnit.Text = "Choose Unit:";
+            this.lblChooseUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlClose
+            // 
+            this.pnlClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlClose.Controls.Add(this.btnGraphClose);
+            this.pnlClose.Location = new System.Drawing.Point(898, 480);
+            this.pnlClose.Name = "pnlClose";
+            this.pnlClose.Size = new System.Drawing.Size(158, 49);
+            this.pnlClose.TabIndex = 2;
+            // 
+            // btnGraphClose
+            // 
+            this.btnGraphClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGraphClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGraphClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnGraphClose.Depth = 0;
+            this.btnGraphClose.HighEmphasis = true;
+            this.btnGraphClose.Icon = null;
+            this.btnGraphClose.Location = new System.Drawing.Point(88, 7);
+            this.btnGraphClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGraphClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGraphClose.Name = "btnGraphClose";
+            this.btnGraphClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnGraphClose.Size = new System.Drawing.Size(66, 36);
+            this.btnGraphClose.TabIndex = 1;
+            this.btnGraphClose.Text = "Close";
+            this.btnGraphClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGraphClose.UseAccentColor = false;
+            this.btnGraphClose.UseVisualStyleBackColor = true;
+            this.btnGraphClose.Click += new System.EventHandler(this.btnGraphClose_Click);
             // 
             // tabStatistics
             // 
@@ -309,6 +448,7 @@
             // 
             // tabSettings
             // 
+            this.tabSettings.Controls.Add(this.panel1);
             this.tabSettings.Controls.Add(this.pnlCheck);
             this.tabSettings.Controls.Add(this.pnlTheme);
             this.tabSettings.Controls.Add(this.btnSettingsClose);
@@ -361,6 +501,7 @@
             this.lblCheck.Size = new System.Drawing.Size(128, 19);
             this.lblCheck.TabIndex = 0;
             this.lblCheck.Text = "Check Connection";
+            this.lblCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlTheme
             // 
@@ -376,15 +517,15 @@
             // 
             this.lblTheme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTheme.AutoSize = true;
             this.lblTheme.Depth = 0;
             this.lblTheme.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblTheme.Location = new System.Drawing.Point(51, 13);
+            this.lblTheme.Location = new System.Drawing.Point(39, 13);
             this.lblTheme.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTheme.Name = "lblTheme";
-            this.lblTheme.Size = new System.Drawing.Size(108, 19);
+            this.lblTheme.Size = new System.Drawing.Size(129, 19);
             this.lblTheme.TabIndex = 3;
             this.lblTheme.Text = "Change Theme";
+            this.lblTheme.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDark
             // 
@@ -459,66 +600,202 @@
             this.imageList1.Images.SetKeyName(2, "Settings.png");
             this.imageList1.Images.SetKeyName(3, "Statistics.png");
             // 
-            // btnGraphClose
+            // pnlCMBUnit
             // 
-            this.btnGraphClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGraphClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnGraphClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnGraphClose.Depth = 0;
-            this.btnGraphClose.HighEmphasis = true;
-            this.btnGraphClose.Icon = null;
-            this.btnGraphClose.Location = new System.Drawing.Point(983, 484);
-            this.btnGraphClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnGraphClose.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnGraphClose.Name = "btnGraphClose";
-            this.btnGraphClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnGraphClose.Size = new System.Drawing.Size(66, 36);
-            this.btnGraphClose.TabIndex = 0;
-            this.btnGraphClose.Text = "Close";
-            this.btnGraphClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnGraphClose.UseAccentColor = false;
-            this.btnGraphClose.UseVisualStyleBackColor = true;
-            this.btnGraphClose.Click += new System.EventHandler(this.btnGraphClose_Click);
+            this.pnlCMBUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCMBUnit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlCMBUnit.Controls.Add(this.materialComboBox1);
+            this.pnlCMBUnit.Controls.Add(this.lblChooseUnit);
+            this.pnlCMBUnit.Location = new System.Drawing.Point(4, 13);
+            this.pnlCMBUnit.Name = "pnlCMBUnit";
+            this.pnlCMBUnit.Size = new System.Drawing.Size(203, 125);
+            this.pnlCMBUnit.TabIndex = 2;
             // 
-            // pnlGraphControls
+            // pnlGraphButtons
             // 
-            this.pnlGraphControls.Controls.Add(this.btnGraphClose);
-            this.pnlGraphControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGraphControls.Location = new System.Drawing.Point(3, 3);
-            this.pnlGraphControls.Name = "pnlGraphControls";
-            this.pnlGraphControls.Size = new System.Drawing.Size(1053, 526);
-            this.pnlGraphControls.TabIndex = 3;
+            this.pnlGraphButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphButtons.Controls.Add(this.btnClearGraph);
+            this.pnlGraphButtons.Controls.Add(this.btnGenerateGraph);
+            this.pnlGraphButtons.Controls.Add(this.lblGraphControls);
+            this.pnlGraphButtons.Location = new System.Drawing.Point(4, 145);
+            this.pnlGraphButtons.Name = "pnlGraphButtons";
+            this.pnlGraphButtons.Size = new System.Drawing.Size(203, 151);
+            this.pnlGraphButtons.TabIndex = 3;
             // 
-            // pnlButtons
+            // lblGraphControls
             // 
-            this.pnlButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlButtons.Controls.Add(this.btnClose);
-            this.pnlButtons.Controls.Add(this.btnStart);
-            this.pnlButtons.Controls.Add(this.btnStop);
-            this.pnlButtons.Location = new System.Drawing.Point(898, 480);
-            this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(155, 46);
-            this.pnlButtons.TabIndex = 5;
+            this.lblGraphControls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGraphControls.Depth = 0;
+            this.lblGraphControls.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblGraphControls.Location = new System.Drawing.Point(26, 11);
+            this.lblGraphControls.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblGraphControls.Name = "lblGraphControls";
+            this.lblGraphControls.Size = new System.Drawing.Size(154, 19);
+            this.lblGraphControls.TabIndex = 0;
+            this.lblGraphControls.Text = "Graph Controls";
+            this.lblGraphControls.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnTest
+            // btnGenerateGraph
             // 
-            this.btnTest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnTest.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnTest.Depth = 0;
-            this.btnTest.HighEmphasis = true;
-            this.btnTest.Icon = null;
-            this.btnTest.Location = new System.Drawing.Point(11, 124);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnTest.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnTest.Name = "btnTest";
-            this.btnTest.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnTest.Size = new System.Drawing.Size(158, 36);
-            this.btnTest.TabIndex = 2;
-            this.btnTest.Text = "Test";
-            this.btnTest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnTest.UseAccentColor = false;
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            this.btnGenerateGraph.AutoSize = false;
+            this.btnGenerateGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGenerateGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnGenerateGraph.Depth = 0;
+            this.btnGenerateGraph.HighEmphasis = true;
+            this.btnGenerateGraph.Icon = null;
+            this.btnGenerateGraph.Location = new System.Drawing.Point(26, 36);
+            this.btnGenerateGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGenerateGraph.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGenerateGraph.Name = "btnGenerateGraph";
+            this.btnGenerateGraph.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnGenerateGraph.Size = new System.Drawing.Size(148, 36);
+            this.btnGenerateGraph.TabIndex = 1;
+            this.btnGenerateGraph.Text = "Generate Graph";
+            this.btnGenerateGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGenerateGraph.UseAccentColor = false;
+            this.btnGenerateGraph.UseVisualStyleBackColor = true;
+            // 
+            // btnClearGraph
+            // 
+            this.btnClearGraph.AutoSize = false;
+            this.btnClearGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClearGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClearGraph.Depth = 0;
+            this.btnClearGraph.HighEmphasis = true;
+            this.btnClearGraph.Icon = null;
+            this.btnClearGraph.Location = new System.Drawing.Point(26, 84);
+            this.btnClearGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClearGraph.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClearGraph.Name = "btnClearGraph";
+            this.btnClearGraph.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClearGraph.Size = new System.Drawing.Size(148, 36);
+            this.btnClearGraph.TabIndex = 2;
+            this.btnClearGraph.Text = "Clear Graph";
+            this.btnClearGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClearGraph.UseAccentColor = false;
+            this.btnClearGraph.UseVisualStyleBackColor = true;
+            // 
+            // pnlGraph
+            // 
+            this.pnlGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraph.Controls.Add(this.dgvGraph);
+            this.pnlGraph.Location = new System.Drawing.Point(129, 7);
+            this.pnlGraph.Name = "pnlGraph";
+            this.pnlGraph.Size = new System.Drawing.Size(685, 467);
+            this.pnlGraph.TabIndex = 4;
+            // 
+            // dgvGraph
+            // 
+            this.dgvGraph.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvGraph.Location = new System.Drawing.Point(0, 0);
+            this.dgvGraph.Name = "dgvGraph";
+            this.dgvGraph.Size = new System.Drawing.Size(685, 467);
+            this.dgvGraph.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnChangeMass);
+            this.panel1.Controls.Add(this.lblMass);
+            this.panel1.Controls.Add(this.txtMassInput);
+            this.panel1.Location = new System.Drawing.Point(244, 15);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 151);
+            this.panel1.TabIndex = 6;
+            // 
+            // txtMassInput
+            // 
+            this.txtMassInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMassInput.AnimateReadOnly = false;
+            this.txtMassInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtMassInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtMassInput.Depth = 0;
+            this.txtMassInput.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtMassInput.HideSelection = true;
+            this.txtMassInput.Hint = "Input Mass Here";
+            this.txtMassInput.LeadingIcon = null;
+            this.txtMassInput.Location = new System.Drawing.Point(17, 38);
+            this.txtMassInput.MaxLength = 32767;
+            this.txtMassInput.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtMassInput.Name = "txtMassInput";
+            this.txtMassInput.PasswordChar = '\0';
+            this.txtMassInput.PrefixSuffixText = null;
+            this.txtMassInput.ReadOnly = false;
+            this.txtMassInput.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtMassInput.SelectedText = "";
+            this.txtMassInput.SelectionLength = 0;
+            this.txtMassInput.SelectionStart = 0;
+            this.txtMassInput.ShortcutsEnabled = true;
+            this.txtMassInput.Size = new System.Drawing.Size(167, 48);
+            this.txtMassInput.TabIndex = 0;
+            this.txtMassInput.TabStop = false;
+            this.txtMassInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtMassInput.TrailingIcon = null;
+            this.txtMassInput.UseSystemPasswordChar = false;
+            // 
+            // lblMass
+            // 
+            this.lblMass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMass.Depth = 0;
+            this.lblMass.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblMass.Location = new System.Drawing.Point(17, 13);
+            this.lblMass.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblMass.Name = "lblMass";
+            this.lblMass.Size = new System.Drawing.Size(167, 19);
+            this.lblMass.TabIndex = 1;
+            this.lblMass.Text = "Change Mass";
+            this.lblMass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnChangeMass
+            // 
+            this.btnChangeMass.AutoSize = false;
+            this.btnChangeMass.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnChangeMass.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnChangeMass.Depth = 0;
+            this.btnChangeMass.HighEmphasis = true;
+            this.btnChangeMass.Icon = null;
+            this.btnChangeMass.Location = new System.Drawing.Point(17, 95);
+            this.btnChangeMass.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnChangeMass.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnChangeMass.Name = "btnChangeMass";
+            this.btnChangeMass.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnChangeMass.Size = new System.Drawing.Size(167, 36);
+            this.btnChangeMass.TabIndex = 2;
+            this.btnChangeMass.Text = "Change Mass";
+            this.btnChangeMass.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnChangeMass.UseAccentColor = false;
+            this.btnChangeMass.UseVisualStyleBackColor = true;
+            this.btnChangeMass.Click += new System.EventHandler(this.btnChangeMass_Click);
+            // 
+            // btnTestMass
+            // 
+            this.btnTestMass.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnTestMass.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnTestMass.Depth = 0;
+            this.btnTestMass.HighEmphasis = true;
+            this.btnTestMass.Icon = null;
+            this.btnTestMass.Location = new System.Drawing.Point(11, 170);
+            this.btnTestMass.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnTestMass.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnTestMass.Name = "btnTestMass";
+            this.btnTestMass.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnTestMass.Size = new System.Drawing.Size(158, 36);
+            this.btnTestMass.TabIndex = 3;
+            this.btnTestMass.Text = "Test Mass";
+            this.btnTestMass.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnTestMass.UseAccentColor = false;
+            this.btnTestMass.UseVisualStyleBackColor = true;
+            this.btnTestMass.Click += new System.EventHandler(this.btnTestMass_Click);
             // 
             // MainForm
             // 
@@ -533,10 +810,15 @@
             this.Text = "Main Page";
             this.tabs.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
+            this.pnlButtons.ResumeLayout(false);
+            this.pnlButtons.PerformLayout();
             this.pnlOutputControls.ResumeLayout(false);
             this.pnlOutputControls.PerformLayout();
             this.pnlOutput.ResumeLayout(false);
             this.tabGraph.ResumeLayout(false);
+            this.pnlGraphControls.ResumeLayout(false);
+            this.pnlClose.ResumeLayout(false);
+            this.pnlClose.PerformLayout();
             this.tabStatistics.ResumeLayout(false);
             this.tabStatistics.PerformLayout();
             this.tabSettings.ResumeLayout(false);
@@ -544,11 +826,11 @@
             this.pnlCheck.ResumeLayout(false);
             this.pnlCheck.PerformLayout();
             this.pnlTheme.ResumeLayout(false);
-            this.pnlTheme.PerformLayout();
-            this.pnlGraphControls.ResumeLayout(false);
-            this.pnlGraphControls.PerformLayout();
-            this.pnlButtons.ResumeLayout(false);
-            this.pnlButtons.PerformLayout();
+            this.pnlCMBUnit.ResumeLayout(false);
+            this.pnlGraphButtons.ResumeLayout(false);
+            this.pnlGraph.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGraph)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -581,10 +863,25 @@
         private MaterialSkin.Controls.MaterialComboBox cmbUnit;
         private MaterialSkin.Controls.MaterialLabel lblUnit;
         private MaterialSkin.Controls.MaterialLabel lblOutput;
-        private System.Windows.Forms.Panel pnlGraphControls;
-        private MaterialSkin.Controls.MaterialButton btnGraphClose;
         private System.Windows.Forms.Panel pnlButtons;
         private MaterialSkin.Controls.MaterialButton btnTest;
+        private System.Windows.Forms.Panel pnlGraphControls;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private MaterialSkin.Controls.MaterialLabel lblChooseUnit;
+        private System.Windows.Forms.Panel pnlClose;
+        private MaterialSkin.Controls.MaterialButton btnGraphClose;
+        private System.Windows.Forms.Panel pnlCMBUnit;
+        private System.Windows.Forms.Panel pnlGraphButtons;
+        private MaterialSkin.Controls.MaterialButton btnClearGraph;
+        private MaterialSkin.Controls.MaterialButton btnGenerateGraph;
+        private MaterialSkin.Controls.MaterialLabel lblGraphControls;
+        private System.Windows.Forms.Panel pnlGraph;
+        private System.Windows.Forms.DataGridView dgvGraph;
+        private System.Windows.Forms.Panel panel1;
+        private MaterialSkin.Controls.MaterialButton btnChangeMass;
+        private MaterialSkin.Controls.MaterialLabel lblMass;
+        private MaterialSkin.Controls.MaterialTextBox2 txtMassInput;
+        private MaterialSkin.Controls.MaterialButton btnTestMass;
     }
 }
 

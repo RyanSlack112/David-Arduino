@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace David_Arduino
         public SerialPort port; //Serial Port to interact with the Arduino
         private float acceleration; //Acceleration Variable
         private float force; //Force Variable
+        MainForm mainForm;
 
         public Data_Functions() //Constructor
         {
@@ -23,6 +25,7 @@ namespace David_Arduino
              */
             acceleration = 0;
             force = 0;
+            mainForm = (MainForm)Application.OpenForms.Cast<Form>().FirstOrDefault(x => x.Name == "MainForm");
         }
 
         public void openPort() //Opens Port to Arduino
@@ -104,7 +107,15 @@ namespace David_Arduino
                         z = float.Parse(values[2]);
                     }
                     acceleration = calcAccel(x, y, z); //Calculate Acceleration
+                    if(mainForm.getComboUnitText() == "Acceleration")
+                    {
+                        mainForm.setOutputLabel(acceleration.ToString() + " m/s^2");
+                    }
                     force = calcForce(acceleration, mass); //Calculate Force
+                    if(mainForm.getComboUnitText() == "Force")
+                    {
+                        mainForm.setOutputLabel(force.ToString() + " N");
+                    }
                 }
             }
             catch (TimeoutException) 

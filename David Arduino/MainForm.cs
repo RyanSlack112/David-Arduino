@@ -1,5 +1,6 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,12 +33,12 @@ namespace David_Arduino
             
         }
 
-        public string getOutputLabelText()
+        public string getOutputLabelText() //Output Label Getter
         {
             return lblOutput.Text;
         }
 
-        public void setOutputLabel(string outputText)
+        public void setOutputLabel(string outputText) //Output Label Setter
         {
             lblOutput.Text = outputText;
         }
@@ -68,6 +69,7 @@ namespace David_Arduino
                 btnStart.Visible = false;
                 btnStop.Enabled = true;
                 btnStop.Visible = true;
+                dFunc.getArduinoOutput();
             }
             catch (IOException)
             {
@@ -168,6 +170,24 @@ namespace David_Arduino
         private void btnTest_Click(object sender, EventArgs e)
         {
             setOutputLabel(getComboUnitText());
+        }
+
+        private void btnChangeMass_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float newMass = float.Parse(txtMassInput.Text);
+                dFunc.setMass(newMass);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please input a number in Kilograms", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnTestMass_Click(object sender, EventArgs e)
+        {
+            setOutputLabel(dFunc.getMass().ToString());
         }
     }
 }
