@@ -42,20 +42,9 @@ namespace David_Arduino
             lblOutput.Text = outputText;
         }
 
-        public string getComboUnitText()
+        public string getComboUnitText() //Returns the value of the combo box on the page
         {
-            if(cmbUnit.SelectedItem.ToString() == "Force")
-            {
-                return "Force";
-            }
-            else if(cmbUnit.SelectedItem.ToString() == "Acceleration")
-            {
-                return "Acceleration";
-            }
-            else 
-            {
-                return "";
-            }
+            return cmbUnit.SelectedItem.ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
