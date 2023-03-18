@@ -29,6 +29,7 @@ namespace David_Arduino
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            
         }
 
         
@@ -96,9 +97,9 @@ namespace David_Arduino
         {
             if (dFunc.port.IsOpen) //Before Closing checks if port is closed
             {
-                dFunc.port.Close();
+                dFunc.port.Close(); //Closes Arduino Port
             }
-            Close();
+            Close(); //Closes Program
         }
 
         private void btnLight_Click(object sender, EventArgs e)
@@ -118,7 +119,7 @@ namespace David_Arduino
         {
             if(tabs.SelectedTab == tabMain)
             {
-                this.Text = "Main Menu";
+                this.Text = "Main Page";
             }
             else if (tabs.SelectedTab == tabGraph) 
             {
