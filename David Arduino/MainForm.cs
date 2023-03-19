@@ -52,15 +52,14 @@ namespace David_Arduino
 
         private void startRunning()
         {
-            Task t = new Task(() => //Create a new Thread to run the loop
+            Task readArduinoThread = new Task(() => //Create a new Thread to run the loop
             {
                 while (isRunning) //Continuously Read the Data from the Arduino
                 {
                     dFunc.getArduinoOutput();
                 }
             });
-            t.Start(); //Start the Thread
-
+            readArduinoThread.Start(); //Start the Thread
         }
 
         private void btnClose_Click(object sender, EventArgs e)
