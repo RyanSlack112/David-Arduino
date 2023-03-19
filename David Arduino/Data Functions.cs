@@ -13,19 +13,34 @@ namespace David_Arduino
         private const float gravity = 9.8f; //Constant of Gravity
         private float mass = 17.4f; //Mass of the bag
         public SerialPort port; //Serial Port to interact with the Arduino
+        private string portName; //Port Name
         private float acceleration; //Acceleration Variable
         private float force; //Force Variable
         MainForm mainForm;
 
         public Data_Functions() //Constructor
         {
-            port = new SerialPort("COM4", 9600); //Intialize Port
+            portName = getPortName();
+            port = new SerialPort(portName, 9600); //Intialize Port
             /*
              * Default Values
              */
             acceleration = 0;
             force = 0;
             mainForm = (MainForm)Application.OpenForms.Cast<Form>().FirstOrDefault(x => x.Name == "MainForm");
+        }
+
+        private string getPortName()
+        {
+            string[] ports = SerialPort.GetPortNames();
+            foreach (string _port in ports)
+            {
+                if(_port.StartsWith("COM") && _port.EndsWith("Arduino"))
+                {
+                    return portName;
+                }
+            }
+            return null;
         }
 
         public void openPort() //Opens Port to Arduino
