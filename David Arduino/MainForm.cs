@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.Design;
 using System.Windows.Forms;
+using System.Media;
 
 
 namespace David_Arduino
@@ -62,15 +63,6 @@ namespace David_Arduino
             readArduinoThread.Start(); //Start the Thread
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            if(dFunc.port.IsOpen) //Before Closing checks if port is closed
-            {
-                dFunc.port.Close(); //Closes Arduino Port
-            }
-            Close(); //Closes Program
-        }
-
         private void btnStart_Click(object sender, EventArgs e)
         {
             try
@@ -110,11 +102,29 @@ namespace David_Arduino
             dFunc.closePort(); //Closes port to the Arduino
         }
 
-        private void btnSettingsClose_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             if (dFunc.port.IsOpen) //Before Closing checks if port is closed
             {
-                dFunc.port.Close();//Closes Arduino Port
+                dFunc.port.Close(); //Closes Arduino Port
+            }
+            Close(); //Closes Program
+        }
+
+        private void btnHitCounterClose_Click(object sender, EventArgs e)
+        {
+            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
+            {
+                dFunc.port.Close(); //Closes Arduino Port
+            }
+            Close(); //Closes Program
+        }
+
+        private void btnControlClose_Click(object sender, EventArgs e)
+        {
+            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
+            {
+                dFunc.port.Close(); //Closes Arduino Port
             }
             Close(); //Closes Program
         }
@@ -133,6 +143,15 @@ namespace David_Arduino
             if (dFunc.port.IsOpen) //Before Closing checks if port is closed
             {
                 dFunc.port.Close(); //Closes Arduino Port
+            }
+            Close(); //Closes Program
+        }
+
+        private void btnSettingsClose_Click(object sender, EventArgs e)
+        {
+            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
+            {
+                dFunc.port.Close();//Closes Arduino Port
             }
             Close(); //Closes Program
         }
@@ -159,6 +178,10 @@ namespace David_Arduino
             else if(tabs.SelectedTab == tabHitCounter)
             {
                 this.Text = "Hit Counter";
+            }
+            else if(tabs.SelectedTab == tabControl)
+            {
+                this.Text = "Control";
             }
             else if (tabs.SelectedTab == tabGraph) 
             {
@@ -213,6 +236,38 @@ namespace David_Arduino
         private void btnTestMass_Click(object sender, EventArgs e)
         {
             setOutputLabel(dFunc.getMass().ToString());
+        }
+
+        private void btnHitCounterStart_Click(object sender, EventArgs e)
+        {
+            btnHitCounterStart.Enabled = false;
+            btnHitCounterStart.Visible = false;
+            btnHitCounterStop.Enabled = true;
+            btnHitCounterStop.Visible = true;
+        }
+
+        private void btnHitCounterStop_Click(object sender, EventArgs e)
+        {
+            btnHitCounterStart.Enabled = true;
+            btnHitCounterStart.Visible = true;
+            btnHitCounterStop.Enabled = false;
+            btnHitCounterStop.Visible = false;
+        }
+
+        private void btnControlStart_Click(object sender, EventArgs e)
+        {
+            btnControlStart.Enabled = false;
+            btnControlStart.Visible = false;
+            btnControlStop.Enabled = true;
+            btnControlStop.Visible = true;
+        }
+
+        private void btnControlStop_Click(object sender, EventArgs e)
+        {
+            btnControlStart.Enabled = true;
+            btnControlStart.Visible = true;
+            btnControlStop.Enabled = false;
+            btnControlStop.Visible = false;
         }
     }
 }

@@ -64,7 +64,7 @@
             this.tabStatistics = new System.Windows.Forms.TabPage();
             this.btnStatsClose = new MaterialSkin.Controls.MaterialButton();
             this.tabSettings = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlMassInput = new System.Windows.Forms.Panel();
             this.btnChangeMass = new MaterialSkin.Controls.MaterialButton();
             this.lblMass = new MaterialSkin.Controls.MaterialLabel();
             this.txtMassInput = new MaterialSkin.Controls.MaterialTextBox2();
@@ -76,12 +76,24 @@
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.btnSettingsClose = new MaterialSkin.Controls.MaterialButton();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imgList = new System.Windows.Forms.ImageList(this.components);
+            this.tabControl = new System.Windows.Forms.TabPage();
+            this.pnlHitCounterButtons = new System.Windows.Forms.Panel();
+            this.btnHitCounterClose = new MaterialSkin.Controls.MaterialButton();
+            this.btnHitCounterStart = new MaterialSkin.Controls.MaterialButton();
+            this.pnlStatsButtons = new System.Windows.Forms.Panel();
+            this.pnlControlButtons = new System.Windows.Forms.Panel();
+            this.btnControlClose = new MaterialSkin.Controls.MaterialButton();
+            this.pnlSettingsClose = new System.Windows.Forms.Panel();
+            this.btnControlStart = new MaterialSkin.Controls.MaterialButton();
+            this.btnControlStop = new MaterialSkin.Controls.MaterialButton();
+            this.btnHitCounterStop = new MaterialSkin.Controls.MaterialButton();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.pnlOutputControls.SuspendLayout();
             this.pnlOutput.SuspendLayout();
+            this.tabHitCounter.SuspendLayout();
             this.tabGraph.SuspendLayout();
             this.pnlGraph.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGraph)).BeginInit();
@@ -91,9 +103,14 @@
             this.pnlClose.SuspendLayout();
             this.tabStatistics.SuspendLayout();
             this.tabSettings.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlMassInput.SuspendLayout();
             this.pnlCheck.SuspendLayout();
             this.pnlTheme.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.pnlHitCounterButtons.SuspendLayout();
+            this.pnlStatsButtons.SuspendLayout();
+            this.pnlControlButtons.SuspendLayout();
+            this.pnlSettingsClose.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -120,12 +137,13 @@
             // 
             this.tabs.Controls.Add(this.tabMain);
             this.tabs.Controls.Add(this.tabHitCounter);
+            this.tabs.Controls.Add(this.tabControl);
             this.tabs.Controls.Add(this.tabGraph);
             this.tabs.Controls.Add(this.tabStatistics);
             this.tabs.Controls.Add(this.tabSettings);
             this.tabs.Depth = 0;
             this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabs.ImageList = this.imageList1;
+            this.tabs.ImageList = this.imgList;
             this.tabs.Location = new System.Drawing.Point(3, 64);
             this.tabs.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabs.Multiline = true;
@@ -155,7 +173,7 @@
             this.pnlButtons.Controls.Add(this.btnClose);
             this.pnlButtons.Controls.Add(this.btnStart);
             this.pnlButtons.Controls.Add(this.btnStop);
-            this.pnlButtons.Location = new System.Drawing.Point(898, 480);
+            this.pnlButtons.Location = new System.Drawing.Point(901, 483);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(155, 46);
             this.pnlButtons.TabIndex = 5;
@@ -168,7 +186,7 @@
             this.btnClose.Depth = 0;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(88, 4);
+            this.btnClose.Location = new System.Drawing.Point(85, 7);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -189,7 +207,7 @@
             this.btnStart.Depth = 0;
             this.btnStart.HighEmphasis = true;
             this.btnStart.Icon = null;
-            this.btnStart.Location = new System.Drawing.Point(13, 4);
+            this.btnStart.Location = new System.Drawing.Point(10, 7);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnStart.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnStart.Name = "btnStart";
@@ -210,7 +228,7 @@
             this.btnStop.Depth = 0;
             this.btnStop.HighEmphasis = true;
             this.btnStop.Icon = null;
-            this.btnStop.Location = new System.Drawing.Point(13, 4);
+            this.btnStop.Location = new System.Drawing.Point(13, 6);
             this.btnStop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnStop.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnStop.Name = "btnStop";
@@ -342,6 +360,7 @@
             // 
             // tabHitCounter
             // 
+            this.tabHitCounter.Controls.Add(this.pnlHitCounterButtons);
             this.tabHitCounter.ImageKey = "Hit Counter.png";
             this.tabHitCounter.Location = new System.Drawing.Point(4, 39);
             this.tabHitCounter.Name = "tabHitCounter";
@@ -533,7 +552,7 @@
             this.btnGraphClose.Depth = 0;
             this.btnGraphClose.HighEmphasis = true;
             this.btnGraphClose.Icon = null;
-            this.btnGraphClose.Location = new System.Drawing.Point(88, 7);
+            this.btnGraphClose.Location = new System.Drawing.Point(88, 10);
             this.btnGraphClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnGraphClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGraphClose.Name = "btnGraphClose";
@@ -548,7 +567,7 @@
             // 
             // tabStatistics
             // 
-            this.tabStatistics.Controls.Add(this.btnStatsClose);
+            this.tabStatistics.Controls.Add(this.pnlStatsButtons);
             this.tabStatistics.ImageKey = "Statistics.png";
             this.tabStatistics.Location = new System.Drawing.Point(4, 39);
             this.tabStatistics.Name = "tabStatistics";
@@ -565,7 +584,7 @@
             this.btnStatsClose.Depth = 0;
             this.btnStatsClose.HighEmphasis = true;
             this.btnStatsClose.Icon = null;
-            this.btnStatsClose.Location = new System.Drawing.Point(989, 490);
+            this.btnStatsClose.Location = new System.Drawing.Point(18, 12);
             this.btnStatsClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnStatsClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnStatsClose.Name = "btnStatsClose";
@@ -580,10 +599,10 @@
             // 
             // tabSettings
             // 
-            this.tabSettings.Controls.Add(this.panel1);
+            this.tabSettings.Controls.Add(this.pnlSettingsClose);
+            this.tabSettings.Controls.Add(this.pnlMassInput);
             this.tabSettings.Controls.Add(this.pnlCheck);
             this.tabSettings.Controls.Add(this.pnlTheme);
-            this.tabSettings.Controls.Add(this.btnSettingsClose);
             this.tabSettings.ImageKey = "Settings.png";
             this.tabSettings.Location = new System.Drawing.Point(4, 39);
             this.tabSettings.Name = "tabSettings";
@@ -592,15 +611,15 @@
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // pnlMassInput
             // 
-            this.panel1.Controls.Add(this.btnChangeMass);
-            this.panel1.Controls.Add(this.lblMass);
-            this.panel1.Controls.Add(this.txtMassInput);
-            this.panel1.Location = new System.Drawing.Point(244, 15);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 151);
-            this.panel1.TabIndex = 6;
+            this.pnlMassInput.Controls.Add(this.btnChangeMass);
+            this.pnlMassInput.Controls.Add(this.lblMass);
+            this.pnlMassInput.Controls.Add(this.txtMassInput);
+            this.pnlMassInput.Location = new System.Drawing.Point(244, 15);
+            this.pnlMassInput.Name = "pnlMassInput";
+            this.pnlMassInput.Size = new System.Drawing.Size(200, 151);
+            this.pnlMassInput.TabIndex = 6;
             // 
             // btnChangeMass
             // 
@@ -787,7 +806,7 @@
             this.btnSettingsClose.Depth = 0;
             this.btnSettingsClose.HighEmphasis = true;
             this.btnSettingsClose.Icon = null;
-            this.btnSettingsClose.Location = new System.Drawing.Point(989, 490);
+            this.btnSettingsClose.Location = new System.Drawing.Point(16, 12);
             this.btnSettingsClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSettingsClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSettingsClose.Name = "btnSettingsClose";
@@ -800,15 +819,195 @@
             this.btnSettingsClose.UseVisualStyleBackColor = true;
             this.btnSettingsClose.Click += new System.EventHandler(this.btnSettingsClose_Click);
             // 
-            // imageList1
+            // imgList
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Graph.png");
-            this.imageList1.Images.SetKeyName(1, "home.png");
-            this.imageList1.Images.SetKeyName(2, "Settings.png");
-            this.imageList1.Images.SetKeyName(3, "Statistics.png");
-            this.imageList1.Images.SetKeyName(4, "Hit Counter.png");
+            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
+            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgList.Images.SetKeyName(0, "Graph.png");
+            this.imgList.Images.SetKeyName(1, "home.png");
+            this.imgList.Images.SetKeyName(2, "Settings.png");
+            this.imgList.Images.SetKeyName(3, "Statistics.png");
+            this.imgList.Images.SetKeyName(4, "Hit Counter.png");
+            this.imgList.Images.SetKeyName(5, "Control.png");
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.pnlControlButtons);
+            this.tabControl.ImageKey = "Control.png";
+            this.tabControl.Location = new System.Drawing.Point(4, 39);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.Size = new System.Drawing.Size(1059, 532);
+            this.tabControl.TabIndex = 5;
+            this.tabControl.Text = "Control";
+            this.tabControl.UseVisualStyleBackColor = true;
+            // 
+            // pnlHitCounterButtons
+            // 
+            this.pnlHitCounterButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHitCounterButtons.Controls.Add(this.btnHitCounterClose);
+            this.pnlHitCounterButtons.Controls.Add(this.btnHitCounterStart);
+            this.pnlHitCounterButtons.Controls.Add(this.btnHitCounterStop);
+            this.pnlHitCounterButtons.Location = new System.Drawing.Point(884, 474);
+            this.pnlHitCounterButtons.Name = "pnlHitCounterButtons";
+            this.pnlHitCounterButtons.Size = new System.Drawing.Size(172, 55);
+            this.pnlHitCounterButtons.TabIndex = 0;
+            // 
+            // btnHitCounterClose
+            // 
+            this.btnHitCounterClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHitCounterClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHitCounterClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnHitCounterClose.Depth = 0;
+            this.btnHitCounterClose.HighEmphasis = true;
+            this.btnHitCounterClose.Icon = null;
+            this.btnHitCounterClose.Location = new System.Drawing.Point(102, 16);
+            this.btnHitCounterClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnHitCounterClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHitCounterClose.Name = "btnHitCounterClose";
+            this.btnHitCounterClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnHitCounterClose.Size = new System.Drawing.Size(66, 36);
+            this.btnHitCounterClose.TabIndex = 0;
+            this.btnHitCounterClose.Text = "Close";
+            this.btnHitCounterClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnHitCounterClose.UseAccentColor = false;
+            this.btnHitCounterClose.UseVisualStyleBackColor = true;
+            this.btnHitCounterClose.Click += new System.EventHandler(this.btnHitCounterClose_Click);
+            // 
+            // btnHitCounterStart
+            // 
+            this.btnHitCounterStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHitCounterStart.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHitCounterStart.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnHitCounterStart.Depth = 0;
+            this.btnHitCounterStart.HighEmphasis = true;
+            this.btnHitCounterStart.Icon = null;
+            this.btnHitCounterStart.Location = new System.Drawing.Point(27, 16);
+            this.btnHitCounterStart.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnHitCounterStart.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHitCounterStart.Name = "btnHitCounterStart";
+            this.btnHitCounterStart.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnHitCounterStart.Size = new System.Drawing.Size(67, 36);
+            this.btnHitCounterStart.TabIndex = 1;
+            this.btnHitCounterStart.Text = "Start";
+            this.btnHitCounterStart.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnHitCounterStart.UseAccentColor = false;
+            this.btnHitCounterStart.UseVisualStyleBackColor = true;
+            this.btnHitCounterStart.Click += new System.EventHandler(this.btnHitCounterStart_Click);
+            // 
+            // pnlStatsButtons
+            // 
+            this.pnlStatsButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStatsButtons.Controls.Add(this.btnStatsClose);
+            this.pnlStatsButtons.Location = new System.Drawing.Point(968, 478);
+            this.pnlStatsButtons.Name = "pnlStatsButtons";
+            this.pnlStatsButtons.Size = new System.Drawing.Size(88, 51);
+            this.pnlStatsButtons.TabIndex = 1;
+            // 
+            // pnlControlButtons
+            // 
+            this.pnlControlButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlControlButtons.Controls.Add(this.btnControlClose);
+            this.pnlControlButtons.Controls.Add(this.btnControlStart);
+            this.pnlControlButtons.Controls.Add(this.btnControlStop);
+            this.pnlControlButtons.Location = new System.Drawing.Point(882, 481);
+            this.pnlControlButtons.Name = "pnlControlButtons";
+            this.pnlControlButtons.Size = new System.Drawing.Size(174, 48);
+            this.pnlControlButtons.TabIndex = 0;
+            // 
+            // btnControlClose
+            // 
+            this.btnControlClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnControlClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnControlClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnControlClose.Depth = 0;
+            this.btnControlClose.HighEmphasis = true;
+            this.btnControlClose.Icon = null;
+            this.btnControlClose.Location = new System.Drawing.Point(104, 9);
+            this.btnControlClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnControlClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnControlClose.Name = "btnControlClose";
+            this.btnControlClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnControlClose.Size = new System.Drawing.Size(66, 36);
+            this.btnControlClose.TabIndex = 1;
+            this.btnControlClose.Text = "Close";
+            this.btnControlClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnControlClose.UseAccentColor = false;
+            this.btnControlClose.UseVisualStyleBackColor = true;
+            this.btnControlClose.Click += new System.EventHandler(this.btnControlClose_Click);
+            // 
+            // pnlSettingsClose
+            // 
+            this.pnlSettingsClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlSettingsClose.Controls.Add(this.btnSettingsClose);
+            this.pnlSettingsClose.Location = new System.Drawing.Point(970, 478);
+            this.pnlSettingsClose.Name = "pnlSettingsClose";
+            this.pnlSettingsClose.Size = new System.Drawing.Size(86, 51);
+            this.pnlSettingsClose.TabIndex = 7;
+            // 
+            // btnControlStart
+            // 
+            this.btnControlStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnControlStart.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnControlStart.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnControlStart.Depth = 0;
+            this.btnControlStart.HighEmphasis = true;
+            this.btnControlStart.Icon = null;
+            this.btnControlStart.Location = new System.Drawing.Point(29, 9);
+            this.btnControlStart.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnControlStart.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnControlStart.Name = "btnControlStart";
+            this.btnControlStart.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnControlStart.Size = new System.Drawing.Size(67, 36);
+            this.btnControlStart.TabIndex = 1;
+            this.btnControlStart.Text = "Start";
+            this.btnControlStart.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnControlStart.UseAccentColor = false;
+            this.btnControlStart.UseVisualStyleBackColor = true;
+            this.btnControlStart.Click += new System.EventHandler(this.btnControlStart_Click);
+            // 
+            // btnControlStop
+            // 
+            this.btnControlStop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnControlStop.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnControlStop.Depth = 0;
+            this.btnControlStop.HighEmphasis = true;
+            this.btnControlStop.Icon = null;
+            this.btnControlStop.Location = new System.Drawing.Point(32, 9);
+            this.btnControlStop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnControlStop.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnControlStop.Name = "btnControlStop";
+            this.btnControlStop.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnControlStop.Size = new System.Drawing.Size(64, 36);
+            this.btnControlStop.TabIndex = 1;
+            this.btnControlStop.Text = "Stop";
+            this.btnControlStop.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnControlStop.UseAccentColor = false;
+            this.btnControlStop.UseVisualStyleBackColor = true;
+            this.btnControlStop.Visible = false;
+            this.btnControlStop.Click += new System.EventHandler(this.btnControlStop_Click);
+            // 
+            // btnHitCounterStop
+            // 
+            this.btnHitCounterStop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHitCounterStop.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnHitCounterStop.Depth = 0;
+            this.btnHitCounterStop.HighEmphasis = true;
+            this.btnHitCounterStop.Icon = null;
+            this.btnHitCounterStop.Location = new System.Drawing.Point(30, 16);
+            this.btnHitCounterStop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnHitCounterStop.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHitCounterStop.Name = "btnHitCounterStop";
+            this.btnHitCounterStop.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnHitCounterStop.Size = new System.Drawing.Size(64, 36);
+            this.btnHitCounterStop.TabIndex = 1;
+            this.btnHitCounterStop.Text = "Stop";
+            this.btnHitCounterStop.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnHitCounterStop.UseAccentColor = false;
+            this.btnHitCounterStop.UseVisualStyleBackColor = true;
+            this.btnHitCounterStop.Visible = false;
+            this.btnHitCounterStop.Click += new System.EventHandler(this.btnHitCounterStop_Click);
             // 
             // MainForm
             // 
@@ -828,6 +1027,7 @@
             this.pnlOutputControls.ResumeLayout(false);
             this.pnlOutputControls.PerformLayout();
             this.pnlOutput.ResumeLayout(false);
+            this.tabHitCounter.ResumeLayout(false);
             this.tabGraph.ResumeLayout(false);
             this.pnlGraph.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGraph)).EndInit();
@@ -837,13 +1037,20 @@
             this.pnlClose.ResumeLayout(false);
             this.pnlClose.PerformLayout();
             this.tabStatistics.ResumeLayout(false);
-            this.tabStatistics.PerformLayout();
             this.tabSettings.ResumeLayout(false);
-            this.tabSettings.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.pnlMassInput.ResumeLayout(false);
             this.pnlCheck.ResumeLayout(false);
             this.pnlCheck.PerformLayout();
             this.pnlTheme.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.pnlHitCounterButtons.ResumeLayout(false);
+            this.pnlHitCounterButtons.PerformLayout();
+            this.pnlStatsButtons.ResumeLayout(false);
+            this.pnlStatsButtons.PerformLayout();
+            this.pnlControlButtons.ResumeLayout(false);
+            this.pnlControlButtons.PerformLayout();
+            this.pnlSettingsClose.ResumeLayout(false);
+            this.pnlSettingsClose.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -858,7 +1065,7 @@
         private System.Windows.Forms.TabPage tabGraph;
         private System.Windows.Forms.TabPage tabStatistics;
         private System.Windows.Forms.TabPage tabSettings;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imgList;
         private MaterialSkin.Controls.MaterialButton btnStart;
         private MaterialSkin.Controls.MaterialButton btnClose;
         private MaterialSkin.Controls.MaterialButton btnStop;
@@ -890,12 +1097,23 @@
         private MaterialSkin.Controls.MaterialLabel lblGraphControls;
         private System.Windows.Forms.Panel pnlGraph;
         private System.Windows.Forms.DataGridView dgvGraph;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlMassInput;
         private MaterialSkin.Controls.MaterialButton btnChangeMass;
         private MaterialSkin.Controls.MaterialLabel lblMass;
         private MaterialSkin.Controls.MaterialTextBox2 txtMassInput;
         private MaterialSkin.Controls.MaterialButton btnTestMass;
         private System.Windows.Forms.TabPage tabHitCounter;
+        private System.Windows.Forms.TabPage tabControl;
+        private System.Windows.Forms.Panel pnlHitCounterButtons;
+        private MaterialSkin.Controls.MaterialButton btnHitCounterStart;
+        private MaterialSkin.Controls.MaterialButton btnHitCounterClose;
+        private System.Windows.Forms.Panel pnlControlButtons;
+        private MaterialSkin.Controls.MaterialButton btnControlStart;
+        private MaterialSkin.Controls.MaterialButton btnControlClose;
+        private System.Windows.Forms.Panel pnlStatsButtons;
+        private System.Windows.Forms.Panel pnlSettingsClose;
+        private MaterialSkin.Controls.MaterialButton btnHitCounterStop;
+        private MaterialSkin.Controls.MaterialButton btnControlStop;
     }
 }
 
