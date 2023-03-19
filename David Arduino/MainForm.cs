@@ -100,6 +100,29 @@ namespace David_Arduino
 
             isRunning = false; //Stop the Loop and stop the reading of the data from the Arduino
             dFunc.closePort(); //Closes port to the Arduino
+
+            CheckStatsDialog(tabMain);
+        }
+
+        private void CheckStatsDialog(TabPage currentTab)
+        {
+            if(currentTab == tabMain)
+            {
+                Console.WriteLine("Main Page");
+            }
+            else if(currentTab == tabHitCounter) 
+            {
+                Console.WriteLine("Hit Counter");
+            }
+            else if(currentTab == tabControl)
+            {
+                Console.WriteLine("Control");
+            }
+            DialogResult dialog = MessageBox.Show("Would you like to view the Statistics of the Last Session?", "Statistics", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == DialogResult.Yes)
+            {
+                tabs.SelectedTab = tabStatistics;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -252,6 +275,8 @@ namespace David_Arduino
             btnHitCounterStart.Visible = true;
             btnHitCounterStop.Enabled = false;
             btnHitCounterStop.Visible = false;
+
+            CheckStatsDialog(tabHitCounter);
         }
 
         private void btnControlStart_Click(object sender, EventArgs e)
@@ -268,6 +293,8 @@ namespace David_Arduino
             btnControlStart.Visible = true;
             btnControlStop.Enabled = false;
             btnControlStop.Visible = false;
+
+            CheckStatsDialog(tabControl);
         }
     }
 }
