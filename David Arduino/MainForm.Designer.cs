@@ -168,7 +168,7 @@
             this.btnClose.Depth = 0;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(88, 10);
+            this.btnClose.Location = new System.Drawing.Point(88, 4);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -189,7 +189,7 @@
             this.btnStart.Depth = 0;
             this.btnStart.HighEmphasis = true;
             this.btnStart.Icon = null;
-            this.btnStart.Location = new System.Drawing.Point(13, 10);
+            this.btnStart.Location = new System.Drawing.Point(13, 4);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnStart.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnStart.Name = "btnStart";
@@ -210,7 +210,7 @@
             this.btnStop.Depth = 0;
             this.btnStop.HighEmphasis = true;
             this.btnStop.Icon = null;
-            this.btnStop.Location = new System.Drawing.Point(16, 10);
+            this.btnStop.Location = new System.Drawing.Point(13, 4);
             this.btnStop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnStop.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnStop.Name = "btnStop";

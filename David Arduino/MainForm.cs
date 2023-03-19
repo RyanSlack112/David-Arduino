@@ -20,6 +20,8 @@ namespace David_Arduino
     {
         Data_Functions dFunc;
         MaterialSkinManager skinManager = MaterialSkinManager.Instance;
+        bool isRunning;
+
         public MainForm()
         {
             InitializeComponent();
@@ -48,6 +50,19 @@ namespace David_Arduino
             return cmbUnit.SelectedItem.ToString();
         }
 
+        private void startRunning()
+        {
+            Task t = new Task(() => //Create a new Thread to run the loop
+            {
+                while (isRunning) //Continuously Read the Data from the Arduino
+                {
+                    dFunc.getArduinoOutput();
+                }
+            });
+            t.Start(); //Start the Thread
+
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             if(dFunc.port.IsOpen) //Before Closing checks if port is closed
@@ -69,7 +84,12 @@ namespace David_Arduino
                 btnStart.Visible = false;
                 btnStop.Enabled = true;
                 btnStop.Visible = true;
-                dFunc.getArduinoOutput();
+
+                /*
+                 * Enable the reading of the Data from the Arduino
+                 */
+                isRunning = true;
+                startRunning(); //Start reading from the Arduino
             }
             catch (IOException)
             {
@@ -87,6 +107,7 @@ namespace David_Arduino
             btnStart.Enabled = true;
             btnStart.Visible = true;
 
+            isRunning = false; //Stop the Loop and stop the reading of the data from the Arduino
             dFunc.closePort(); //Closes port to the Arduino
         }
 
@@ -180,11 +201,11 @@ namespace David_Arduino
         {
             try
             {
-                float newMass = float.Parse(txtMassInput.Text);
-                dFunc.setMass(newMass);
-                MessageBox.Show("Mass Changed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                float newMass = float.Parse(txtMassInput.Text); //Take the input from the Mass Input Textbox
+                dFunc.setMass(newMass); //Set the new Mass
+                MessageBox.Show("Mass Changed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); //Display a MessageBox indicating the successful changing of the Mass
             }
-            catch (FormatException)
+            catch (FormatException) //Invalid Input
             {
                 MessageBox.Show("Please input a number in Kilograms", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

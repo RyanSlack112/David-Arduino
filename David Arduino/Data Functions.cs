@@ -82,7 +82,7 @@ namespace David_Arduino
          * Populates the X, Y and Z values from the Arduino data and performs calculations
          * of Acceleration and Force.
          */
-        public float getArduinoOutput()
+        public void getArduinoOutput()
         {
             /*
              * Default Values
@@ -107,26 +107,27 @@ namespace David_Arduino
                         z = float.Parse(values[2]);
                     }
                     acceleration = calcAccel(x, y, z); //Calculate Acceleration
-                    if(mainForm.getComboUnitText() == "Acceleration")
+                    if(mainForm.getComboUnitText() == "Acceleration") //Check if Acceleration is Checked
                     {
-                        mainForm.setOutputLabel(acceleration.ToString() + " m/s^2");
+                        mainForm.setOutputLabel(acceleration.ToString() + " m/s^2"); //Display the value of the acceleration on Screen
                     }
                     force = calcForce(acceleration, mass); //Calculate Force
-                    if(mainForm.getComboUnitText() == "Force")
+                    if(mainForm.getComboUnitText() == "Force") //Check if Force is Checked
                     {
-                        mainForm.setOutputLabel(force.ToString() + " N");
+                        mainForm.setOutputLabel(force.ToString() + " N"); //Display the value of the Force on the screen
                     }
                 }
             }
             catch (TimeoutException) 
             {
                 force = 0;
+                acceleration = 0;
             }
             catch (FormatException)
             {
                 force = 0;
+                acceleration = 0;
             }
-            return force;
         }
     }
 }
