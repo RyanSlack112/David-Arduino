@@ -35,12 +35,13 @@ namespace David_Arduino
             string[] ports = SerialPort.GetPortNames();
             foreach (string _port in ports)
             {
-                if(_port.StartsWith("COM") && _port.EndsWith("Arduino"))
+                if (_port.StartsWith("COM") && _port.EndsWith("Arduino"))
                 {
-                    return portName;
+                    Console.WriteLine(_port);
+                    return _port;
                 }
             }
-            return null;
+            return "COM4";
         }
 
         public void openPort() //Opens Port to Arduino

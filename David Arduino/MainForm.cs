@@ -26,7 +26,6 @@ namespace David_Arduino
         public MainForm()
         {
             InitializeComponent();
-            dFunc = new Data_Functions(); //Arduino Data and Connection Object
             /*
              * Material Skin Initialization Code
              */
@@ -34,6 +33,15 @@ namespace David_Arduino
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             
+        }
+
+        private void checkDFunc()
+        {
+            if (dFunc == null)
+            {
+                dFunc = new Data_Functions(); //Arduino Data and Connection Object
+                Console.WriteLine("Created");
+            }
         }
 
         public string getOutputLabelText() //Output Label Getter
@@ -53,6 +61,7 @@ namespace David_Arduino
 
         private void startRunning()
         {
+            checkDFunc();
             Task readArduinoThread = new Task(() => //Create a new Thread to run the loop
             {
                 while (isRunning) //Continuously Read the Data from the Arduino
@@ -67,6 +76,7 @@ namespace David_Arduino
         {
             try
             {
+                checkDFunc();
                 dFunc.openPort(); //Opens port to Arduino and connects
                 /*
                  * Button Visibility and Enabling Changes
@@ -227,6 +237,7 @@ namespace David_Arduino
         {
             try
             {
+                checkDFunc();
                 dFunc.openPort(); //Opens Arduino Port
                 MessageBox.Show("The Arduino is connected", "Connection Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dFunc.port.Close(); //Closes Arduino Port
@@ -246,6 +257,7 @@ namespace David_Arduino
         {
             try
             {
+                checkDFunc();
                 float newMass = float.Parse(txtMassInput.Text); //Take the input from the Mass Input Textbox
                 dFunc.setMass(newMass); //Set the new Mass
                 MessageBox.Show("Mass Changed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); //Display a MessageBox indicating the successful changing of the Mass
@@ -263,6 +275,7 @@ namespace David_Arduino
 
         private void btnHitCounterStart_Click(object sender, EventArgs e)
         {
+            checkDFunc();
             btnHitCounterStart.Enabled = false;
             btnHitCounterStart.Visible = false;
             btnHitCounterStop.Enabled = true;
@@ -281,6 +294,7 @@ namespace David_Arduino
 
         private void btnControlStart_Click(object sender, EventArgs e)
         {
+            checkDFunc();
             btnControlStart.Enabled = false;
             btnControlStart.Visible = false;
             btnControlStop.Enabled = true;
