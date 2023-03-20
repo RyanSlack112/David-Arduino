@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO.Ports;  
+using System.IO.Ports;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace David_Arduino
 {
@@ -28,7 +30,7 @@ namespace David_Arduino
              */
             acceleration = 0;
             force = 0;
-            mainForm = (MainForm)Application.OpenForms.Cast<Form>().FirstOrDefault(x => x.Name == "MainForm");
+            mainForm = (MainForm)Application.OpenForms.Cast<MaterialForm>().FirstOrDefault(x => x.Name == "MainForm");
         }
 
         /*private string getPortName()
