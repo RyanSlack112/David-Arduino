@@ -48,6 +48,11 @@
             this.pnlOutput = new System.Windows.Forms.Panel();
             this.lblOutput = new MaterialSkin.Controls.MaterialLabel();
             this.tabHitCounter = new System.Windows.Forms.TabPage();
+            this.pnlTimerCtrls = new System.Windows.Forms.Panel();
+            this.cbHitTimer = new MaterialSkin.Controls.MaterialCheckbox();
+            this.lblHitTimer = new MaterialSkin.Controls.MaterialLabel();
+            this.btnHitTimer = new MaterialSkin.Controls.MaterialButton();
+            this.txtHitTimer = new MaterialSkin.Controls.MaterialTextBox2();
             this.pnlHitCounterButtons = new System.Windows.Forms.Panel();
             this.btnHitCounterClose = new MaterialSkin.Controls.MaterialButton();
             this.btnHitCounterStart = new MaterialSkin.Controls.MaterialButton();
@@ -76,7 +81,6 @@
             this.tabStatsMain = new System.Windows.Forms.TabPage();
             this.tabStatsHitCounter = new System.Windows.Forms.TabPage();
             this.tabStatsControl = new System.Windows.Forms.TabPage();
-            this.imgList = new System.Windows.Forms.ImageList(this.components);
             this.pnlStatsButtons = new System.Windows.Forms.Panel();
             this.btnStatsClose = new MaterialSkin.Controls.MaterialButton();
             this.tabSettings = new System.Windows.Forms.TabPage();
@@ -93,12 +97,14 @@
             this.lblTheme = new MaterialSkin.Controls.MaterialLabel();
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
+            this.imgList = new System.Windows.Forms.ImageList(this.components);
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.pnlOutputControls.SuspendLayout();
             this.pnlOutput.SuspendLayout();
             this.tabHitCounter.SuspendLayout();
+            this.pnlTimerCtrls.SuspendLayout();
             this.pnlHitCounterButtons.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.pnlControlButtons.SuspendLayout();
@@ -366,6 +372,7 @@
             // 
             // tabHitCounter
             // 
+            this.tabHitCounter.Controls.Add(this.pnlTimerCtrls);
             this.tabHitCounter.Controls.Add(this.pnlHitCounterButtons);
             this.tabHitCounter.ImageKey = "Hit Counter.png";
             this.tabHitCounter.Location = new System.Drawing.Point(4, 39);
@@ -374,6 +381,107 @@
             this.tabHitCounter.TabIndex = 4;
             this.tabHitCounter.Text = "Hit Counter";
             this.tabHitCounter.UseVisualStyleBackColor = true;
+            // 
+            // pnlTimerCtrls
+            // 
+            this.pnlTimerCtrls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlTimerCtrls.Controls.Add(this.cbHitTimer);
+            this.pnlTimerCtrls.Controls.Add(this.lblHitTimer);
+            this.pnlTimerCtrls.Controls.Add(this.btnHitTimer);
+            this.pnlTimerCtrls.Controls.Add(this.txtHitTimer);
+            this.pnlTimerCtrls.Location = new System.Drawing.Point(856, 3);
+            this.pnlTimerCtrls.Name = "pnlTimerCtrls";
+            this.pnlTimerCtrls.Size = new System.Drawing.Size(200, 188);
+            this.pnlTimerCtrls.TabIndex = 1;
+            // 
+            // cbHitTimer
+            // 
+            this.cbHitTimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbHitTimer.Depth = 0;
+            this.cbHitTimer.Location = new System.Drawing.Point(20, 11);
+            this.cbHitTimer.Margin = new System.Windows.Forms.Padding(0);
+            this.cbHitTimer.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cbHitTimer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cbHitTimer.Name = "cbHitTimer";
+            this.cbHitTimer.ReadOnly = false;
+            this.cbHitTimer.Ripple = true;
+            this.cbHitTimer.Size = new System.Drawing.Size(162, 37);
+            this.cbHitTimer.TabIndex = 3;
+            this.cbHitTimer.Text = "Enable Timer";
+            this.cbHitTimer.UseVisualStyleBackColor = true;
+            this.cbHitTimer.CheckedChanged += new System.EventHandler(this.cbHitTimer_CheckedChanged);
+            // 
+            // lblHitTimer
+            // 
+            this.lblHitTimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHitTimer.Depth = 0;
+            this.lblHitTimer.Enabled = false;
+            this.lblHitTimer.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblHitTimer.Location = new System.Drawing.Point(17, 58);
+            this.lblHitTimer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblHitTimer.Name = "lblHitTimer";
+            this.lblHitTimer.Size = new System.Drawing.Size(165, 19);
+            this.lblHitTimer.TabIndex = 2;
+            this.lblHitTimer.Text = "Set Timer";
+            this.lblHitTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnHitTimer
+            // 
+            this.btnHitTimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHitTimer.AutoSize = false;
+            this.btnHitTimer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHitTimer.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnHitTimer.Depth = 0;
+            this.btnHitTimer.Enabled = false;
+            this.btnHitTimer.HighEmphasis = true;
+            this.btnHitTimer.Icon = null;
+            this.btnHitTimer.Location = new System.Drawing.Point(20, 137);
+            this.btnHitTimer.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnHitTimer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHitTimer.Name = "btnHitTimer";
+            this.btnHitTimer.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnHitTimer.Size = new System.Drawing.Size(162, 36);
+            this.btnHitTimer.TabIndex = 1;
+            this.btnHitTimer.Text = "Set Timer";
+            this.btnHitTimer.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnHitTimer.UseAccentColor = false;
+            this.btnHitTimer.UseVisualStyleBackColor = true;
+            // 
+            // txtHitTimer
+            // 
+            this.txtHitTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtHitTimer.AnimateReadOnly = false;
+            this.txtHitTimer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtHitTimer.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtHitTimer.Depth = 0;
+            this.txtHitTimer.Enabled = false;
+            this.txtHitTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtHitTimer.HideSelection = true;
+            this.txtHitTimer.Hint = "Time In Seconds";
+            this.txtHitTimer.LeadingIcon = null;
+            this.txtHitTimer.Location = new System.Drawing.Point(20, 80);
+            this.txtHitTimer.MaxLength = 32767;
+            this.txtHitTimer.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtHitTimer.Name = "txtHitTimer";
+            this.txtHitTimer.PasswordChar = '\0';
+            this.txtHitTimer.PrefixSuffixText = null;
+            this.txtHitTimer.ReadOnly = false;
+            this.txtHitTimer.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtHitTimer.SelectedText = "";
+            this.txtHitTimer.SelectionLength = 0;
+            this.txtHitTimer.SelectionStart = 0;
+            this.txtHitTimer.ShortcutsEnabled = true;
+            this.txtHitTimer.Size = new System.Drawing.Size(162, 48);
+            this.txtHitTimer.TabIndex = 0;
+            this.txtHitTimer.TabStop = false;
+            this.txtHitTimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtHitTimer.TrailingIcon = null;
+            this.txtHitTimer.UseSystemPasswordChar = false;
             // 
             // pnlHitCounterButtons
             // 
@@ -792,10 +900,10 @@
             // tabStatsHitCounter
             // 
             this.tabStatsHitCounter.ImageKey = "Hit Counter.png";
-            this.tabStatsHitCounter.Location = new System.Drawing.Point(4, 39);
+            this.tabStatsHitCounter.Location = new System.Drawing.Point(4, 22);
             this.tabStatsHitCounter.Name = "tabStatsHitCounter";
             this.tabStatsHitCounter.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStatsHitCounter.Size = new System.Drawing.Size(1048, 384);
+            this.tabStatsHitCounter.Size = new System.Drawing.Size(1048, 413);
             this.tabStatsHitCounter.TabIndex = 1;
             this.tabStatsHitCounter.Text = "Hit Counter";
             this.tabStatsHitCounter.UseVisualStyleBackColor = true;
@@ -803,23 +911,12 @@
             // tabStatsControl
             // 
             this.tabStatsControl.ImageKey = "Control.png";
-            this.tabStatsControl.Location = new System.Drawing.Point(4, 39);
+            this.tabStatsControl.Location = new System.Drawing.Point(4, 22);
             this.tabStatsControl.Name = "tabStatsControl";
-            this.tabStatsControl.Size = new System.Drawing.Size(1048, 384);
+            this.tabStatsControl.Size = new System.Drawing.Size(1048, 413);
             this.tabStatsControl.TabIndex = 2;
             this.tabStatsControl.Text = "Control";
             this.tabStatsControl.UseVisualStyleBackColor = true;
-            // 
-            // imgList
-            // 
-            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
-            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgList.Images.SetKeyName(0, "Graph.png");
-            this.imgList.Images.SetKeyName(1, "home.png");
-            this.imgList.Images.SetKeyName(2, "Settings.png");
-            this.imgList.Images.SetKeyName(3, "Statistics.png");
-            this.imgList.Images.SetKeyName(4, "Hit Counter.png");
-            this.imgList.Images.SetKeyName(5, "Control.png");
             // 
             // pnlStatsButtons
             // 
@@ -1082,6 +1179,17 @@
             this.btnLight.UseVisualStyleBackColor = true;
             this.btnLight.Click += new System.EventHandler(this.btnLight_Click);
             // 
+            // imgList
+            // 
+            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
+            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgList.Images.SetKeyName(0, "Graph.png");
+            this.imgList.Images.SetKeyName(1, "home.png");
+            this.imgList.Images.SetKeyName(2, "Settings.png");
+            this.imgList.Images.SetKeyName(3, "Statistics.png");
+            this.imgList.Images.SetKeyName(4, "Hit Counter.png");
+            this.imgList.Images.SetKeyName(5, "Control.png");
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1101,6 +1209,7 @@
             this.pnlOutputControls.PerformLayout();
             this.pnlOutput.ResumeLayout(false);
             this.tabHitCounter.ResumeLayout(false);
+            this.pnlTimerCtrls.ResumeLayout(false);
             this.pnlHitCounterButtons.ResumeLayout(false);
             this.pnlHitCounterButtons.PerformLayout();
             this.tabControl.ResumeLayout(false);
@@ -1193,6 +1302,11 @@
         private System.Windows.Forms.TabPage tabStatsHitCounter;
         private System.Windows.Forms.TabPage tabStatsControl;
         private MaterialSkin.Controls.MaterialTabSelector tsStats;
+        private System.Windows.Forms.Panel pnlTimerCtrls;
+        private MaterialSkin.Controls.MaterialLabel lblHitTimer;
+        private MaterialSkin.Controls.MaterialButton btnHitTimer;
+        private MaterialSkin.Controls.MaterialTextBox2 txtHitTimer;
+        private MaterialSkin.Controls.MaterialCheckbox cbHitTimer;
     }
 }
 

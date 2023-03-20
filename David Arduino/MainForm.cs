@@ -19,9 +19,9 @@ namespace David_Arduino
 {
     public partial class MainForm : MaterialForm
     {
-        Data_Functions dFunc;
-        MaterialSkinManager skinManager = MaterialSkinManager.Instance;
-        bool isRunning;
+        Data_Functions dFunc; //Data Function Object
+        MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
+        bool isRunning; //If Program is Running
 
         public MainForm()
         {
@@ -35,7 +35,7 @@ namespace David_Arduino
             
         }
 
-        private void checkDFunc()
+        private void checkDFunc() //Checks if Data Function Object exists and creates it if it doesn't
         {
             if (dFunc == null)
             {
@@ -59,9 +59,12 @@ namespace David_Arduino
             return cmbUnit.SelectedItem.ToString();
         }
 
+        /*
+         * Start Running the Program and initiate the Thread for the background
+         */
         private void startRunning()
         {
-            checkDFunc();
+            checkDFunc(); //Check whether Data Function Object exists
             Task readArduinoThread = new Task(() => //Create a new Thread to run the loop
             {
                 while (isRunning) //Continuously Read the Data from the Arduino
@@ -116,22 +119,26 @@ namespace David_Arduino
 
         private void CheckStatsDialog(TabPage currentTab)
         {
-            TabPage switchTab = null;
-            if(currentTab == tabMain)
+            TabPage switchTab = null; //Variable to store the tab within Statistics to switch to.
+            if(currentTab == tabMain) //switchTab is Main Page
             {
                 Console.WriteLine("Main Page");
                 switchTab = tabStatsMain;
             }
-            else if(currentTab == tabHitCounter) 
+            else if(currentTab == tabHitCounter) //switchTab is Hit Counter
             {
                 Console.WriteLine("Hit Counter");
                 switchTab = tabStatsHitCounter;
             }
-            else if(currentTab == tabControl)
+            else if(currentTab == tabControl) //switchTab is Control
             {
                 Console.WriteLine("Control");
                 switchTab = tabStatsControl;
             }
+
+            /*
+             * Show Dialog on whether to switch to the tab after the function is finished.
+             */
             DialogResult dialog = MessageBox.Show("Would you like to view the Statistics of the Last Session?", "Statistics", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {
@@ -218,7 +225,7 @@ namespace David_Arduino
         {
             try
             {
-                checkDFunc();
+                checkDFunc(); //Check whether Data Function Object exists
                 dFunc.openPort(); //Opens Arduino Port
                 MessageBox.Show("The Arduino is connected", "Connection Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dFunc.port.Close(); //Closes Arduino Port
@@ -238,7 +245,7 @@ namespace David_Arduino
         {
             try
             {
-                checkDFunc();
+                checkDFunc(); //Check whether Data Function Object exists
                 float newMass = float.Parse(txtMassInput.Text); //Take the input from the Mass Input Textbox
                 dFunc.setMass(newMass); //Set the new Mass
                 MessageBox.Show("Mass Changed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); //Display a MessageBox indicating the successful changing of the Mass
@@ -256,7 +263,11 @@ namespace David_Arduino
 
         private void btnHitCounterStart_Click(object sender, EventArgs e)
         {
-            checkDFunc();
+            checkDFunc(); //Check whether Data Function Object exists
+
+            /*
+             * Button Visibilty
+             */
             btnHitCounterStart.Enabled = false;
             btnHitCounterStart.Visible = false;
             btnHitCounterStop.Enabled = true;
@@ -265,17 +276,25 @@ namespace David_Arduino
 
         private void btnHitCounterStop_Click(object sender, EventArgs e)
         {
+
+            /*
+             * Button Visibility
+             */
             btnHitCounterStart.Enabled = true;
             btnHitCounterStart.Visible = true;
             btnHitCounterStop.Enabled = false;
             btnHitCounterStop.Visible = false;
 
-            CheckStatsDialog(tabHitCounter);
+            CheckStatsDialog(tabHitCounter); //Checks current tab and switches to the Stats tab if Dialog is Yes
         }
 
         private void btnControlStart_Click(object sender, EventArgs e)
         {
-            checkDFunc();
+            checkDFunc(); //Check whether Data Function Object exists
+
+            /*
+             * Button Visibility
+             */
             btnControlStart.Enabled = false;
             btnControlStart.Visible = false;
             btnControlStop.Enabled = true;
@@ -284,12 +303,32 @@ namespace David_Arduino
 
         private void btnControlStop_Click(object sender, EventArgs e)
         {
+
+            /*
+             * Button Visibility
+             */
             btnControlStart.Enabled = true;
             btnControlStart.Visible = true;
             btnControlStop.Enabled = false;
             btnControlStop.Visible = false;
 
-            CheckStatsDialog(tabControl);
+            CheckStatsDialog(tabControl); //Checks current tab and switches to the Stats tab if Dialog is Yes
+        }
+
+        private void cbHitTimer_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbHitTimer.Checked)
+            {
+                lblHitTimer.Enabled = true;
+                txtHitTimer.Enabled = true;
+                btnHitTimer.Enabled = true;
+            }
+            else if(!cbHitTimer.Checked)
+            {
+                lblHitTimer.Enabled = false;
+                txtHitTimer.Enabled = false;
+                btnHitTimer.Enabled = false;
+            }
         }
     }
 }
