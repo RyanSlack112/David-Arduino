@@ -116,76 +116,57 @@ namespace David_Arduino
 
         private void CheckStatsDialog(TabPage currentTab)
         {
+            TabPage switchTab = null;
             if(currentTab == tabMain)
             {
                 Console.WriteLine("Main Page");
+                switchTab = tabStatsMain;
             }
             else if(currentTab == tabHitCounter) 
             {
                 Console.WriteLine("Hit Counter");
+                switchTab = tabStatsHitCounter;
             }
             else if(currentTab == tabControl)
             {
                 Console.WriteLine("Control");
+                switchTab = tabStatsControl;
             }
             DialogResult dialog = MessageBox.Show("Would you like to view the Statistics of the Last Session?", "Statistics", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {
                 tabs.SelectedTab = tabStatistics;
+                tabsStatistics.SelectedTab = switchTab;
             }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
-            {
-                dFunc.port.Close(); //Closes Arduino Port
-            }
             Close(); //Closes Program
         }
 
         private void btnHitCounterClose_Click(object sender, EventArgs e)
         {
-            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
-            {
-                dFunc.port.Close(); //Closes Arduino Port
-            }
             Close(); //Closes Program
         }
 
         private void btnControlClose_Click(object sender, EventArgs e)
         {
-            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
-            {
-                dFunc.port.Close(); //Closes Arduino Port
-            }
             Close(); //Closes Program
         }
 
         private void btnGraphClose_Click(object sender, EventArgs e)
         {
-            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
-            {
-                dFunc.port.Close(); //Closes Arduino Port
-            }
             Close(); //Closes Program
         }
 
         private void btnStatsClose_Click(object sender, EventArgs e)
         {
-            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
-            {
-                dFunc.port.Close(); //Closes Arduino Port
-            }
             Close(); //Closes Program
         }
 
         private void btnSettingsClose_Click(object sender, EventArgs e)
         {
-            if (dFunc.port.IsOpen) //Before Closing checks if port is closed
-            {
-                dFunc.port.Close();//Closes Arduino Port
-            }
             Close(); //Closes Program
         }
 
