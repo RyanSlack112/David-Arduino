@@ -71,6 +71,12 @@
             this.pnlClose = new System.Windows.Forms.Panel();
             this.btnGraphClose = new MaterialSkin.Controls.MaterialButton();
             this.tabStatistics = new System.Windows.Forms.TabPage();
+            this.tsStats = new MaterialSkin.Controls.MaterialTabSelector();
+            this.tabsStatistics = new MaterialSkin.Controls.MaterialTabControl();
+            this.tabStatsMain = new System.Windows.Forms.TabPage();
+            this.tabStatsHitCounter = new System.Windows.Forms.TabPage();
+            this.tabStatsControl = new System.Windows.Forms.TabPage();
+            this.imgList = new System.Windows.Forms.ImageList(this.components);
             this.pnlStatsButtons = new System.Windows.Forms.Panel();
             this.btnStatsClose = new MaterialSkin.Controls.MaterialButton();
             this.tabSettings = new System.Windows.Forms.TabPage();
@@ -87,12 +93,6 @@
             this.lblTheme = new MaterialSkin.Controls.MaterialLabel();
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
-            this.imgList = new System.Windows.Forms.ImageList(this.components);
-            this.tabsStatistics = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabStatsMain = new System.Windows.Forms.TabPage();
-            this.tabStatsHitCounter = new System.Windows.Forms.TabPage();
-            this.tabStatsControl = new System.Windows.Forms.TabPage();
-            this.tsStats = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -110,13 +110,13 @@
             this.pnlCMBUnit.SuspendLayout();
             this.pnlClose.SuspendLayout();
             this.tabStatistics.SuspendLayout();
+            this.tabsStatistics.SuspendLayout();
             this.pnlStatsButtons.SuspendLayout();
             this.tabSettings.SuspendLayout();
             this.pnlSettingsClose.SuspendLayout();
             this.pnlMassInput.SuspendLayout();
             this.pnlCheck.SuspendLayout();
             this.pnlTheme.SuspendLayout();
-            this.tabsStatistics.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -745,6 +745,82 @@
             this.tabStatistics.Text = "Statistics";
             this.tabStatistics.UseVisualStyleBackColor = true;
             // 
+            // tsStats
+            // 
+            this.tsStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tsStats.BaseTabControl = this.tabsStatistics;
+            this.tsStats.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
+            this.tsStats.Depth = 0;
+            this.tsStats.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tsStats.Location = new System.Drawing.Point(-4, 0);
+            this.tsStats.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tsStats.Name = "tsStats";
+            this.tsStats.Size = new System.Drawing.Size(1073, 37);
+            this.tsStats.TabIndex = 3;
+            this.tsStats.TabIndicatorHeight = 1;
+            this.tsStats.Text = "materialTabSelector1";
+            // 
+            // tabsStatistics
+            // 
+            this.tabsStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabsStatistics.Controls.Add(this.tabStatsMain);
+            this.tabsStatistics.Controls.Add(this.tabStatsHitCounter);
+            this.tabsStatistics.Controls.Add(this.tabStatsControl);
+            this.tabsStatistics.Depth = 0;
+            this.tabsStatistics.Location = new System.Drawing.Point(3, 33);
+            this.tabsStatistics.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabsStatistics.Multiline = true;
+            this.tabsStatistics.Name = "tabsStatistics";
+            this.tabsStatistics.SelectedIndex = 0;
+            this.tabsStatistics.Size = new System.Drawing.Size(1056, 439);
+            this.tabsStatistics.TabIndex = 2;
+            // 
+            // tabStatsMain
+            // 
+            this.tabStatsMain.ImageKey = "home.png";
+            this.tabStatsMain.Location = new System.Drawing.Point(4, 22);
+            this.tabStatsMain.Name = "tabStatsMain";
+            this.tabStatsMain.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStatsMain.Size = new System.Drawing.Size(1048, 413);
+            this.tabStatsMain.TabIndex = 0;
+            this.tabStatsMain.Text = "Main";
+            this.tabStatsMain.UseVisualStyleBackColor = true;
+            // 
+            // tabStatsHitCounter
+            // 
+            this.tabStatsHitCounter.ImageKey = "Hit Counter.png";
+            this.tabStatsHitCounter.Location = new System.Drawing.Point(4, 39);
+            this.tabStatsHitCounter.Name = "tabStatsHitCounter";
+            this.tabStatsHitCounter.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStatsHitCounter.Size = new System.Drawing.Size(1048, 384);
+            this.tabStatsHitCounter.TabIndex = 1;
+            this.tabStatsHitCounter.Text = "Hit Counter";
+            this.tabStatsHitCounter.UseVisualStyleBackColor = true;
+            // 
+            // tabStatsControl
+            // 
+            this.tabStatsControl.ImageKey = "Control.png";
+            this.tabStatsControl.Location = new System.Drawing.Point(4, 39);
+            this.tabStatsControl.Name = "tabStatsControl";
+            this.tabStatsControl.Size = new System.Drawing.Size(1048, 384);
+            this.tabStatsControl.TabIndex = 2;
+            this.tabStatsControl.Text = "Control";
+            this.tabStatsControl.UseVisualStyleBackColor = true;
+            // 
+            // imgList
+            // 
+            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
+            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgList.Images.SetKeyName(0, "Graph.png");
+            this.imgList.Images.SetKeyName(1, "home.png");
+            this.imgList.Images.SetKeyName(2, "Settings.png");
+            this.imgList.Images.SetKeyName(3, "Statistics.png");
+            this.imgList.Images.SetKeyName(4, "Hit Counter.png");
+            this.imgList.Images.SetKeyName(5, "Control.png");
+            // 
             // pnlStatsButtons
             // 
             this.pnlStatsButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -1006,82 +1082,6 @@
             this.btnLight.UseVisualStyleBackColor = true;
             this.btnLight.Click += new System.EventHandler(this.btnLight_Click);
             // 
-            // imgList
-            // 
-            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
-            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgList.Images.SetKeyName(0, "Graph.png");
-            this.imgList.Images.SetKeyName(1, "home.png");
-            this.imgList.Images.SetKeyName(2, "Settings.png");
-            this.imgList.Images.SetKeyName(3, "Statistics.png");
-            this.imgList.Images.SetKeyName(4, "Hit Counter.png");
-            this.imgList.Images.SetKeyName(5, "Control.png");
-            // 
-            // tabsStatistics
-            // 
-            this.tabsStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabsStatistics.Controls.Add(this.tabStatsMain);
-            this.tabsStatistics.Controls.Add(this.tabStatsHitCounter);
-            this.tabsStatistics.Controls.Add(this.tabStatsControl);
-            this.tabsStatistics.Depth = 0;
-            this.tabsStatistics.ImageList = this.imgList;
-            this.tabsStatistics.Location = new System.Drawing.Point(3, 45);
-            this.tabsStatistics.MouseState = MaterialSkin.MouseState.HOVER;
-            this.tabsStatistics.Multiline = true;
-            this.tabsStatistics.Name = "tabsStatistics";
-            this.tabsStatistics.SelectedIndex = 0;
-            this.tabsStatistics.Size = new System.Drawing.Size(1056, 427);
-            this.tabsStatistics.TabIndex = 2;
-            // 
-            // tabStatsMain
-            // 
-            this.tabStatsMain.ImageKey = "home.png";
-            this.tabStatsMain.Location = new System.Drawing.Point(4, 39);
-            this.tabStatsMain.Name = "tabStatsMain";
-            this.tabStatsMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStatsMain.Size = new System.Drawing.Size(1048, 384);
-            this.tabStatsMain.TabIndex = 0;
-            this.tabStatsMain.Text = "Main";
-            this.tabStatsMain.UseVisualStyleBackColor = true;
-            // 
-            // tabStatsHitCounter
-            // 
-            this.tabStatsHitCounter.ImageKey = "Hit Counter.png";
-            this.tabStatsHitCounter.Location = new System.Drawing.Point(4, 39);
-            this.tabStatsHitCounter.Name = "tabStatsHitCounter";
-            this.tabStatsHitCounter.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStatsHitCounter.Size = new System.Drawing.Size(1048, 426);
-            this.tabStatsHitCounter.TabIndex = 1;
-            this.tabStatsHitCounter.Text = "Hit Counter";
-            this.tabStatsHitCounter.UseVisualStyleBackColor = true;
-            // 
-            // tabStatsControl
-            // 
-            this.tabStatsControl.ImageKey = "Control.png";
-            this.tabStatsControl.Location = new System.Drawing.Point(4, 39);
-            this.tabStatsControl.Name = "tabStatsControl";
-            this.tabStatsControl.Size = new System.Drawing.Size(1048, 426);
-            this.tabStatsControl.TabIndex = 2;
-            this.tabStatsControl.Text = "Control";
-            this.tabStatsControl.UseVisualStyleBackColor = true;
-            // 
-            // tsStats
-            // 
-            this.tsStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tsStats.BaseTabControl = this.tabsStatistics;
-            this.tsStats.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
-            this.tsStats.Depth = 0;
-            this.tsStats.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.tsStats.Location = new System.Drawing.Point(-4, 0);
-            this.tsStats.MouseState = MaterialSkin.MouseState.HOVER;
-            this.tsStats.Name = "tsStats";
-            this.tsStats.Size = new System.Drawing.Size(1067, 39);
-            this.tsStats.TabIndex = 3;
-            this.tsStats.Text = "materialTabSelector1";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1115,6 +1115,7 @@
             this.pnlClose.ResumeLayout(false);
             this.pnlClose.PerformLayout();
             this.tabStatistics.ResumeLayout(false);
+            this.tabsStatistics.ResumeLayout(false);
             this.pnlStatsButtons.ResumeLayout(false);
             this.pnlStatsButtons.PerformLayout();
             this.tabSettings.ResumeLayout(false);
@@ -1124,7 +1125,6 @@
             this.pnlCheck.ResumeLayout(false);
             this.pnlCheck.PerformLayout();
             this.pnlTheme.ResumeLayout(false);
-            this.tabsStatistics.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
