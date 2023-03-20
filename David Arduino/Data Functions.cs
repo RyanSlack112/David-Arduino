@@ -18,7 +18,7 @@ namespace David_Arduino
         private string portName; //Port Name
         private float acceleration; //Acceleration Variable
         private float force; //Force Variable
-        MainForm mainForm;
+        MaterialForm mainForm;
 
         public Data_Functions() //Constructor
         {
@@ -30,7 +30,7 @@ namespace David_Arduino
              */
             acceleration = 0;
             force = 0;
-            mainForm = (MainForm)Application.OpenForms.Cast<MaterialForm>().FirstOrDefault(x => x.Name == "MainForm");
+            mainForm =Application.OpenForms.Cast<MaterialForm>().FirstOrDefault(x => x.Name == "MainForm");
         }
 
         /*private string getPortName()
