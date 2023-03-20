@@ -99,6 +99,38 @@ namespace David_Arduino
             return force;
         }
 
+        private void checkComboBox(float force, float acceleration)
+        {
+            if(_mainForm.getMainComboBox().InvokeRequired)
+            {
+                _mainForm.getMainComboBox().Invoke(new Func<string>(() => _mainForm.getComboUnitText()));
+            }
+            else
+            {
+                if (_mainForm.getComboUnitText() == "Acceleration") //Check if Acceleration is Checked
+                {
+                    changeMainLabel(acceleration.ToString() + " N");
+                }
+                else if (_mainForm.getComboUnitText() == "Force") //Check if Acceleration is Checked
+                {
+                    changeMainLabel(force.ToString() + " m/s^2"); //Display the value of the acceleration on Screen
+                }
+            }
+            
+        }
+
+        private void changeMainLabel(string labelText)
+        {
+            if(_mainForm.getMainLabel().InvokeRequired)
+            {
+                _mainForm.getMainLabel().Invoke(new Action<string>(changeMainLabel), labelText);
+            }
+            else
+            {
+                _mainForm.setOutputLabel(labelText); //Display the value of the acceleration on Screen
+            }
+        }
+
         /*
          * Populates the X, Y and Z values from the Arduino data and performs calculations
          * of Acceleration and Force.
@@ -128,15 +160,8 @@ namespace David_Arduino
                         z = float.Parse(values[2]);
                     }
                     acceleration = calcAccel(x, y, z); //Calculate Acceleration
-                    if(_mainForm.getComboUnitText() == "Acceleration") //Check if Acceleration is Checked
-                    {
-                        _mainForm.setOutputLabel(acceleration.ToString() + " m/s^2"); //Display the value of the acceleration on Screen
-                    }
                     force = calcForce(acceleration, mass); //Calculate Force
-                    if(_mainForm.getComboUnitText() == "Force") //Check if Force is Checked
-                    {
-                        _mainForm.setOutputLabel(force.ToString() + " N"); //Display the value of the Force on the screen
-                    }
+                    checkComboBox(force, acceleration);
                 }
             }
             catch (TimeoutException) 

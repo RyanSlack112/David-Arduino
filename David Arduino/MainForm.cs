@@ -44,6 +44,11 @@ namespace David_Arduino
             }
         }
 
+        public MaterialLabel getMainLabel()
+        {
+            return lblOutput;
+        }
+
         public string getOutputLabelText() //Output Label Getter
         {
             return lblOutput.Text;
@@ -52,6 +57,11 @@ namespace David_Arduino
         public void setOutputLabel(string outputText) //Output Label Setter
         {
             lblOutput.Text = outputText;
+        }
+
+        public MaterialComboBox getMainComboBox()
+        {
+            return cmbUnit;
         }
 
         public string getComboUnitText() //Returns the value of the combo box on the page
