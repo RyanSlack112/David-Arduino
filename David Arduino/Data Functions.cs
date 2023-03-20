@@ -18,9 +18,9 @@ namespace David_Arduino
         private string portName; //Port Name
         private float acceleration; //Acceleration Variable
         private float force; //Force Variable
-        MainForm mainForm;
+        MainForm _mainForm;
 
-        public Data_Functions() //Constructor
+        public Data_Functions(MainForm mainForm) //Constructor
         {
             //portName = getPortName();
             port = new SerialPort("COM4", 9600); //Intialize Port
@@ -30,19 +30,7 @@ namespace David_Arduino
              */
             acceleration = 0;
             force = 0;
-            mainForm = getMainForm();
-        }
-
-        private MainForm getMainForm()
-        {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.GetType() == typeof(MainForm))
-                {
-                    return (MainForm)form;
-                }
-            }
-            return mainForm;
+            _mainForm = mainForm;
         }
 
         /*private string getPortName()
@@ -140,14 +128,14 @@ namespace David_Arduino
                         z = float.Parse(values[2]);
                     }
                     acceleration = calcAccel(x, y, z); //Calculate Acceleration
-                    if(mainForm.getComboUnitText() == "Acceleration") //Check if Acceleration is Checked
+                    if(_mainForm.getComboUnitText() == "Acceleration") //Check if Acceleration is Checked
                     {
-                        mainForm.setOutputLabel(acceleration.ToString() + " m/s^2"); //Display the value of the acceleration on Screen
+                        _mainForm.setOutputLabel(acceleration.ToString() + " m/s^2"); //Display the value of the acceleration on Screen
                     }
                     force = calcForce(acceleration, mass); //Calculate Force
-                    if(mainForm.getComboUnitText() == "Force") //Check if Force is Checked
+                    if(_mainForm.getComboUnitText() == "Force") //Check if Force is Checked
                     {
-                        mainForm.setOutputLabel(force.ToString() + " N"); //Display the value of the Force on the screen
+                        _mainForm.setOutputLabel(force.ToString() + " N"); //Display the value of the Force on the screen
                     }
                 }
             }

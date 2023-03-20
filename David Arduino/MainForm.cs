@@ -39,7 +39,7 @@ namespace David_Arduino
         {
             if (dFunc == null)
             {
-                dFunc = new Data_Functions(); //Arduino Data and Connection Object
+                dFunc = new Data_Functions(this); //Arduino Data and Connection Object
                 Console.WriteLine("Created");
             }
         }
