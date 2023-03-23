@@ -91,7 +91,7 @@ namespace David_Arduino
             try
             {
                 checkDFunc();
-                //dFunc.openPort(); //Opens port to Arduino and connects
+                dFunc.openPort(); //Opens port to Arduino and connects
                 /*
                  * Button Visibility and Enabling Changes
                  */
