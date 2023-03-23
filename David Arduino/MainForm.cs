@@ -26,13 +26,15 @@ namespace David_Arduino
         public MainForm()
         {
             InitializeComponent();
+
             /*
              * Material Skin Initialization Code
              */
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-            
+            dFunc = new Data_Functions(this);
+            txtCurrentMass.Text = dFunc.getMass().ToString() + " KGs";
         }
 
         private void checkDFunc() //Checks if Data Function Object exists and creates it if it doesn't
@@ -92,6 +94,7 @@ namespace David_Arduino
             {
                 checkDFunc();
                 dFunc.openPort(); //Opens port to Arduino and connects
+
                 /*
                  * Button Visibility and Enabling Changes
                  */
@@ -133,17 +136,14 @@ namespace David_Arduino
             TabPage switchTab = null; //Variable to store the tab within Statistics to switch to.
             if(currentTab == tabMain) //switchTab is Main Page
             {
-                Console.WriteLine("Main Page");
                 switchTab = tabStatsMain;
             }
             else if(currentTab == tabHitCounter) //switchTab is Hit Counter
             {
-                Console.WriteLine("Hit Counter");
                 switchTab = tabStatsHitCounter;
             }
             else if(currentTab == tabControl) //switchTab is Control
             {
-                Console.WriteLine("Control");
                 switchTab = tabStatsControl;
             }
 
@@ -259,7 +259,8 @@ namespace David_Arduino
                 checkDFunc(); //Check whether Data Function Object exists
                 float newMass = float.Parse(txtMassInput.Text); //Take the input from the Mass Input Textbox
                 dFunc.setMass(newMass); //Set the new Mass
-                MessageBox.Show("Mass Changed Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); //Display a MessageBox indicating the successful changing of the Mass
+                txtCurrentMass.Text = dFunc.getMass().ToString() + " KGs";
+                MessageBox.Show("Mass Changed Successfully to " + newMass.ToString() + " KGs", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); //Display a MessageBox indicating the successful changing of the Mass
             }
             catch (FormatException) //Invalid Input
             {

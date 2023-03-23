@@ -98,6 +98,8 @@
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
+            this.lblCurrentMass = new MaterialSkin.Controls.MaterialLabel();
+            this.txtCurrentMass = new MaterialSkin.Controls.MaterialTextBox();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -996,12 +998,14 @@
             // 
             // pnlMassInput
             // 
+            this.pnlMassInput.Controls.Add(this.txtCurrentMass);
+            this.pnlMassInput.Controls.Add(this.lblCurrentMass);
             this.pnlMassInput.Controls.Add(this.btnChangeMass);
             this.pnlMassInput.Controls.Add(this.lblMass);
             this.pnlMassInput.Controls.Add(this.txtMassInput);
             this.pnlMassInput.Location = new System.Drawing.Point(244, 15);
             this.pnlMassInput.Name = "pnlMassInput";
-            this.pnlMassInput.Size = new System.Drawing.Size(200, 151);
+            this.pnlMassInput.Size = new System.Drawing.Size(200, 247);
             this.pnlMassInput.TabIndex = 6;
             // 
             // btnChangeMass
@@ -1012,7 +1016,7 @@
             this.btnChangeMass.Depth = 0;
             this.btnChangeMass.HighEmphasis = true;
             this.btnChangeMass.Icon = null;
-            this.btnChangeMass.Location = new System.Drawing.Point(17, 95);
+            this.btnChangeMass.Location = new System.Drawing.Point(20, 196);
             this.btnChangeMass.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnChangeMass.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnChangeMass.Name = "btnChangeMass";
@@ -1031,7 +1035,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMass.Depth = 0;
             this.lblMass.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblMass.Location = new System.Drawing.Point(17, 13);
+            this.lblMass.Location = new System.Drawing.Point(20, 117);
             this.lblMass.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblMass.Name = "lblMass";
             this.lblMass.Size = new System.Drawing.Size(167, 19);
@@ -1052,7 +1056,7 @@
             this.txtMassInput.HideSelection = true;
             this.txtMassInput.Hint = "Input Mass Here";
             this.txtMassInput.LeadingIcon = null;
-            this.txtMassInput.Location = new System.Drawing.Point(17, 38);
+            this.txtMassInput.Location = new System.Drawing.Point(20, 139);
             this.txtMassInput.MaxLength = 32767;
             this.txtMassInput.MouseState = MaterialSkin.MouseState.OUT;
             this.txtMassInput.Name = "txtMassInput";
@@ -1192,6 +1196,38 @@
             this.imgList.Images.SetKeyName(4, "Hit Counter.png");
             this.imgList.Images.SetKeyName(5, "Control.png");
             // 
+            // lblCurrentMass
+            // 
+            this.lblCurrentMass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentMass.Depth = 0;
+            this.lblCurrentMass.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCurrentMass.Location = new System.Drawing.Point(20, 13);
+            this.lblCurrentMass.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblCurrentMass.Name = "lblCurrentMass";
+            this.lblCurrentMass.Size = new System.Drawing.Size(167, 23);
+            this.lblCurrentMass.TabIndex = 3;
+            this.lblCurrentMass.Text = "Current Mass";
+            this.lblCurrentMass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtCurrentMass
+            // 
+            this.txtCurrentMass.AnimateReadOnly = false;
+            this.txtCurrentMass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCurrentMass.Depth = 0;
+            this.txtCurrentMass.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCurrentMass.LeadingIcon = null;
+            this.txtCurrentMass.Location = new System.Drawing.Point(23, 40);
+            this.txtCurrentMass.MaxLength = 50;
+            this.txtCurrentMass.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCurrentMass.Multiline = false;
+            this.txtCurrentMass.Name = "txtCurrentMass";
+            this.txtCurrentMass.ReadOnly = true;
+            this.txtCurrentMass.Size = new System.Drawing.Size(164, 50);
+            this.txtCurrentMass.TabIndex = 4;
+            this.txtCurrentMass.Text = "";
+            this.txtCurrentMass.TrailingIcon = null;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1309,6 +1345,8 @@
         private MaterialSkin.Controls.MaterialButton btnHitTimer;
         private MaterialSkin.Controls.MaterialTextBox2 txtHitTimer;
         private MaterialSkin.Controls.MaterialCheckbox cbHitTimer;
+        private MaterialSkin.Controls.MaterialTextBox txtCurrentMass;
+        private MaterialSkin.Controls.MaterialLabel lblCurrentMass;
     }
 }
 
