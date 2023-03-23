@@ -23,8 +23,8 @@ namespace David_Arduino
 
         public Data_Functions(MainForm mainForm) //Constructor
         {
-            portName = getPortName();
-            port = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One); //Intialize Port
+            //portName = getPortName();
+            port = new SerialPort("COM4", 9600, Parity.None, 8, StopBits.One); //Intialize Port
 
             /*
              * Default Values
