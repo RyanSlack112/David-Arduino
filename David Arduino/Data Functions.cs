@@ -166,7 +166,7 @@ namespace David_Arduino
                      * If greater than 3 values after splitting use the first 3 elements to
                      * populate the X, Y and Z values.
                      */
-                    if(values.Length > 3) 
+                    if(values.Length >= 3) 
                     {
                         x = float.Parse(values[0]);
                         y = float.Parse(values[1]);
