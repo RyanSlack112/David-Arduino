@@ -22,8 +22,8 @@ namespace David_Arduino
 
         public Data_Functions(MainForm mainForm) //Constructor
         {
-            //portName = getPortName();
-            port = new SerialPort("COM4", 9600); //Intialize Port
+            portName = getPortName();
+            port = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One); //Intialize Port
 
             /*
              * Default Values
@@ -33,21 +33,21 @@ namespace David_Arduino
             _mainForm = mainForm;
         }
 
-        /*private string getPortName()
+        private string getPortName()
         {
-            string portStr = "";
-             string[] ports = SerialPort.GetPortNames();
-             foreach (string _port in ports)
-             {
-                if (_port.StartsWith("COM") && _port.EndsWith("Arduino"))
-                 {
+            string portStr = "COM3";
+            string[] ports = SerialPort.GetPortNames();
+            foreach (string _port in ports)
+            {
+                if (_port.Contains("Arduino") || _port.StartsWith("COM"))
+                {
                     Console.WriteLine(_port);
                     portStr = _port;
                     return portStr;
-                }
+                }            
             }
             return portStr;
-        }*/
+        }
 
         public void openPort() //Opens Port to Arduino
         { 

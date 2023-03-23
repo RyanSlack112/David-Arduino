@@ -340,5 +340,10 @@ namespace David_Arduino
                 btnHitTimer.Enabled = false;
             }
         }
+
+        private void btnHitTimer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

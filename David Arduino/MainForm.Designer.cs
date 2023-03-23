@@ -385,6 +385,7 @@
             // pnlTimerCtrls
             // 
             this.pnlTimerCtrls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlTimerCtrls.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlTimerCtrls.Controls.Add(this.cbHitTimer);
             this.pnlTimerCtrls.Controls.Add(this.lblHitTimer);
             this.pnlTimerCtrls.Controls.Add(this.btnHitTimer);
@@ -406,7 +407,7 @@
             this.cbHitTimer.Name = "cbHitTimer";
             this.cbHitTimer.ReadOnly = false;
             this.cbHitTimer.Ripple = true;
-            this.cbHitTimer.Size = new System.Drawing.Size(162, 37);
+            this.cbHitTimer.Size = new System.Drawing.Size(158, 37);
             this.cbHitTimer.TabIndex = 3;
             this.cbHitTimer.Text = "Enable Timer";
             this.cbHitTimer.UseVisualStyleBackColor = true;
@@ -422,7 +423,7 @@
             this.lblHitTimer.Location = new System.Drawing.Point(17, 58);
             this.lblHitTimer.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblHitTimer.Name = "lblHitTimer";
-            this.lblHitTimer.Size = new System.Drawing.Size(165, 19);
+            this.lblHitTimer.Size = new System.Drawing.Size(161, 19);
             this.lblHitTimer.TabIndex = 2;
             this.lblHitTimer.Text = "Set Timer";
             this.lblHitTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -438,17 +439,18 @@
             this.btnHitTimer.Enabled = false;
             this.btnHitTimer.HighEmphasis = true;
             this.btnHitTimer.Icon = null;
-            this.btnHitTimer.Location = new System.Drawing.Point(20, 137);
+            this.btnHitTimer.Location = new System.Drawing.Point(20, 133);
             this.btnHitTimer.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnHitTimer.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnHitTimer.Name = "btnHitTimer";
             this.btnHitTimer.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnHitTimer.Size = new System.Drawing.Size(162, 36);
+            this.btnHitTimer.Size = new System.Drawing.Size(158, 36);
             this.btnHitTimer.TabIndex = 1;
             this.btnHitTimer.Text = "Set Timer";
             this.btnHitTimer.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnHitTimer.UseAccentColor = false;
             this.btnHitTimer.UseVisualStyleBackColor = true;
+            this.btnHitTimer.Click += new System.EventHandler(this.btnHitTimer_Click);
             // 
             // txtHitTimer
             // 
@@ -476,7 +478,7 @@
             this.txtHitTimer.SelectionLength = 0;
             this.txtHitTimer.SelectionStart = 0;
             this.txtHitTimer.ShortcutsEnabled = true;
-            this.txtHitTimer.Size = new System.Drawing.Size(162, 48);
+            this.txtHitTimer.Size = new System.Drawing.Size(158, 48);
             this.txtHitTimer.TabIndex = 0;
             this.txtHitTimer.TabStop = false;
             this.txtHitTimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
