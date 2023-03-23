@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.IO.Ports;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.Threading;
 
 namespace David_Arduino
 {
@@ -131,6 +132,18 @@ namespace David_Arduino
             }
         }
 
+        public void TestLabel()
+        {
+
+            while(_mainForm.isRunning)
+            {
+                Random rnd = new Random();
+                int testVal = rnd.Next();
+                Thread.Sleep(1000);
+                changeMainLabel(testVal.ToString());
+            }
+        }
+
         /*
          * Populates the X, Y and Z values from the Arduino data and performs calculations
          * of Acceleration and Force.
@@ -168,11 +181,13 @@ namespace David_Arduino
             {
                 force = 0;
                 acceleration = 0;
+                MessageBox.Show("Timeout Exception");
             }
             catch (FormatException)
             {
                 force = 0;
                 acceleration = 0;
+                MessageBox.Show("Format Exception");
             }
         }
     }

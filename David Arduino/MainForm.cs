@@ -21,7 +21,7 @@ namespace David_Arduino
     {
         Data_Functions dFunc; //Data Function Object
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
-        bool isRunning; //If Program is Running
+        public bool isRunning; //If Program is Running
 
         public MainForm()
         {
@@ -79,6 +79,7 @@ namespace David_Arduino
             {
                 while (isRunning) //Continuously Read the Data from the Arduino
                 {
+                    //dFunc.TestLabel();
                     dFunc.getArduinoOutput();
                 }
             });
@@ -90,7 +91,7 @@ namespace David_Arduino
             try
             {
                 checkDFunc();
-                dFunc.openPort(); //Opens port to Arduino and connects
+                //dFunc.openPort(); //Opens port to Arduino and connects
                 /*
                  * Button Visibility and Enabling Changes
                  */
