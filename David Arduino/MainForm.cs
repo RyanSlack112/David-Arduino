@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Web.UI.Design;
 using System.Windows.Forms;
 using System.Media;
-
+using System.Data.SqlClient;
 
 namespace David_Arduino
 {
@@ -22,6 +22,7 @@ namespace David_Arduino
         Data_Functions dFunc; //Data Function Object
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
         public bool isRunning; //If Program is Running
+        SqlConnection connection;
 
         public MainForm()
         {
@@ -35,6 +36,16 @@ namespace David_Arduino
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             dFunc = new Data_Functions(this);
             txtCurrentMass.Text = dFunc.getMass().ToString() + " KGs";
+            connectToDB();
+            connection.Open();
+        }
+
+        private void connectToDB()
+        {
+            connection = new SqlConnection();
+            connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;"
+                + "AttachDbFilename = E:\\Documents\\Visual Studio Projects\\David Arduino\\David Arduino\\DavidArduino.mdf;"
+                + "Integrated Security = True";
         }
 
         private void checkDFunc() //Checks if Data Function Object exists and creates it if it doesn't
@@ -160,31 +171,37 @@ namespace David_Arduino
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            connection.Close();
             Close(); //Closes Program
         }
 
         private void btnHitCounterClose_Click(object sender, EventArgs e)
         {
+            connection.Close();
             Close(); //Closes Program
         }
 
         private void btnControlClose_Click(object sender, EventArgs e)
         {
+            connection.Close();
             Close(); //Closes Program
         }
 
         private void btnGraphClose_Click(object sender, EventArgs e)
         {
+            connection.Close();
             Close(); //Closes Program
         }
 
         private void btnStatsClose_Click(object sender, EventArgs e)
         {
+            connection.Close();
             Close(); //Closes Program
         }
 
         private void btnSettingsClose_Click(object sender, EventArgs e)
         {
+            connection.Close();
             Close(); //Closes Program
         }
 
