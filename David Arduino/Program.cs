@@ -21,7 +21,7 @@ namespace David_Arduino
 
             if(login.isLoggedIn)
             {
-                Application.Run(new MainForm());
+                Application.Run(login.main);
             }
         }
         

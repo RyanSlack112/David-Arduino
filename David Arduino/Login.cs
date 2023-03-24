@@ -16,6 +16,7 @@ namespace David_Arduino
     public partial class Login : MaterialForm
     {
         SqlConnection connection;
+        public MainForm main;
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
         public bool isLoggedIn { get; set; }
 
@@ -40,6 +41,7 @@ namespace David_Arduino
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            main = new MainForm(connection);
             this.Close();
             isLoggedIn = true;
         }

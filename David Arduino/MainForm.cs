@@ -24,7 +24,7 @@ namespace David_Arduino
         public bool isRunning; //If Program is Running
         SqlConnection connection;
 
-        public MainForm()
+        public MainForm(SqlConnection con)
         {
             InitializeComponent();
 
@@ -36,8 +36,9 @@ namespace David_Arduino
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             dFunc = new Data_Functions(this);
             txtCurrentMass.Text = dFunc.getMass().ToString() + " KGs";
-            connectToDB();
-            connection.Open();
+            connection = con;
+            //connectToDB();
+            //connection.Open();
         }
 
         private void connectToDB()
@@ -363,6 +364,14 @@ namespace David_Arduino
         private void btnHitTimer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDBCheck_Click(object sender, EventArgs e)
+        {
+            if(connection.State == ConnectionState.Open)
+            {
+                MessageBox.Show("The Database is connected", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

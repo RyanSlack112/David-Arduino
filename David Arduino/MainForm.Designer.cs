@@ -63,6 +63,41 @@
             this.btnControlStart = new MaterialSkin.Controls.MaterialButton();
             this.btnControlStop = new MaterialSkin.Controls.MaterialButton();
             this.tabGraph = new System.Windows.Forms.TabPage();
+            this.tabsGraphView = new MaterialSkin.Controls.MaterialTabControl();
+            this.tabGraphMain = new System.Windows.Forms.TabPage();
+            this.pnlGraphMainControls = new System.Windows.Forms.Panel();
+            this.pnlGraphMainButtons = new System.Windows.Forms.Panel();
+            this.btnGraphMainClearGraph = new MaterialSkin.Controls.MaterialButton();
+            this.btnGraphMainGenerateGraph = new MaterialSkin.Controls.MaterialButton();
+            this.pnlGraphMainDate = new System.Windows.Forms.Panel();
+            this.lblGraphMainSetDate = new MaterialSkin.Controls.MaterialLabel();
+            this.dtpGraphMainDate = new System.Windows.Forms.DateTimePicker();
+            this.pnlGraphMainUnits = new System.Windows.Forms.Panel();
+            this.cmbGraphMainUnits = new MaterialSkin.Controls.MaterialComboBox();
+            this.lblGraphMainChooseUnit = new MaterialSkin.Controls.MaterialLabel();
+            this.tabGraphHitCounter = new System.Windows.Forms.TabPage();
+            this.pnlGraphHitCounter = new System.Windows.Forms.Panel();
+            this.pnlGraphHitCounterButtons = new System.Windows.Forms.Panel();
+            this.btnGraphHitCounterClearGraph = new MaterialSkin.Controls.MaterialButton();
+            this.btnGraphHitCounterGenerateGraph = new MaterialSkin.Controls.MaterialButton();
+            this.pnlGraphHitCounterDate = new System.Windows.Forms.Panel();
+            this.lblGraphHitCounterDate = new MaterialSkin.Controls.MaterialLabel();
+            this.dtpGraphHitCounterDate = new System.Windows.Forms.DateTimePicker();
+            this.pnlGraphHitCounterUnits = new System.Windows.Forms.Panel();
+            this.cbGraphHitCounterUnits = new MaterialSkin.Controls.MaterialComboBox();
+            this.lblGraphHitCounterChooseUnit = new MaterialSkin.Controls.MaterialLabel();
+            this.tabGraphControl = new System.Windows.Forms.TabPage();
+            this.pnlGraphControl = new System.Windows.Forms.Panel();
+            this.pnlGraphControlButtons = new System.Windows.Forms.Panel();
+            this.btnGraphControlClearGraph = new MaterialSkin.Controls.MaterialButton();
+            this.btnGraphControlGenerateGraph = new MaterialSkin.Controls.MaterialButton();
+            this.pnlGraphControlDate = new System.Windows.Forms.Panel();
+            this.lblGraphControlDate = new MaterialSkin.Controls.MaterialLabel();
+            this.dtpGraphControlDate = new System.Windows.Forms.DateTimePicker();
+            this.pnlGraphControlUnits = new System.Windows.Forms.Panel();
+            this.cbGraphControlUnits = new MaterialSkin.Controls.MaterialComboBox();
+            this.lblGraphControlChooseUnit = new MaterialSkin.Controls.MaterialLabel();
+            this.tsGraphView = new MaterialSkin.Controls.MaterialTabSelector();
             this.pnlClose = new System.Windows.Forms.Panel();
             this.btnGraphClose = new MaterialSkin.Controls.MaterialButton();
             this.tabStatistics = new System.Windows.Forms.TabPage();
@@ -77,6 +112,8 @@
             this.pnlSettingsClose = new System.Windows.Forms.Panel();
             this.btnSettingsClose = new MaterialSkin.Controls.MaterialButton();
             this.pnlMassInput = new System.Windows.Forms.Panel();
+            this.txtCurrentMass = new MaterialSkin.Controls.MaterialTextBox();
+            this.lblCurrentMass = new MaterialSkin.Controls.MaterialLabel();
             this.btnChangeMass = new MaterialSkin.Controls.MaterialButton();
             this.lblMass = new MaterialSkin.Controls.MaterialLabel();
             this.txtMassInput = new MaterialSkin.Controls.MaterialTextBox2();
@@ -88,43 +125,9 @@
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
-            this.lblCurrentMass = new MaterialSkin.Controls.MaterialLabel();
-            this.txtCurrentMass = new MaterialSkin.Controls.MaterialTextBox();
-            this.tsGraphView = new MaterialSkin.Controls.MaterialTabSelector();
-            this.tabsGraphView = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabGraphMain = new System.Windows.Forms.TabPage();
-            this.tabGraphHitCounter = new System.Windows.Forms.TabPage();
-            this.tabGraphControl = new System.Windows.Forms.TabPage();
-            this.pnlGraphMainControls = new System.Windows.Forms.Panel();
-            this.pnlGraphMainUnits = new System.Windows.Forms.Panel();
-            this.lblGraphMainChooseUnit = new MaterialSkin.Controls.MaterialLabel();
-            this.cmbGraphMainUnits = new MaterialSkin.Controls.MaterialComboBox();
-            this.pnlGraphMainDate = new System.Windows.Forms.Panel();
-            this.dtpGraphMainDate = new System.Windows.Forms.DateTimePicker();
-            this.lblGraphMainSetDate = new MaterialSkin.Controls.MaterialLabel();
-            this.pnlGraphMainButtons = new System.Windows.Forms.Panel();
-            this.btnGraphMainGenerateGraph = new MaterialSkin.Controls.MaterialButton();
-            this.btnGraphMainClearGraph = new MaterialSkin.Controls.MaterialButton();
-            this.pnlGraphHitCounter = new System.Windows.Forms.Panel();
-            this.pnlGraphHitCounterButtons = new System.Windows.Forms.Panel();
-            this.btnGraphHitCounterClearGraph = new MaterialSkin.Controls.MaterialButton();
-            this.btnGraphHitCounterGenerateGraph = new MaterialSkin.Controls.MaterialButton();
-            this.pnlGraphHitCounterDate = new System.Windows.Forms.Panel();
-            this.lblGraphHitCounterDate = new MaterialSkin.Controls.MaterialLabel();
-            this.dtpGraphHitCounterDate = new System.Windows.Forms.DateTimePicker();
-            this.pnlGraphHitCounterUnits = new System.Windows.Forms.Panel();
-            this.cbGraphHitCounterUnits = new MaterialSkin.Controls.MaterialComboBox();
-            this.lblGraphHitCounterChooseUnit = new MaterialSkin.Controls.MaterialLabel();
-            this.pnlGraphControl = new System.Windows.Forms.Panel();
-            this.pnlGraphControlButtons = new System.Windows.Forms.Panel();
-            this.btnGraphControlClearGraph = new MaterialSkin.Controls.MaterialButton();
-            this.btnGraphControlGenerateGraph = new MaterialSkin.Controls.MaterialButton();
-            this.pnlGraphControlDate = new System.Windows.Forms.Panel();
-            this.lblGraphControlDate = new MaterialSkin.Controls.MaterialLabel();
-            this.dtpGraphControlDate = new System.Windows.Forms.DateTimePicker();
-            this.pnlGraphControlUnits = new System.Windows.Forms.Panel();
-            this.cbGraphControlUnits = new MaterialSkin.Controls.MaterialComboBox();
-            this.lblGraphControlChooseUnit = new MaterialSkin.Controls.MaterialLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDBCheck = new MaterialSkin.Controls.MaterialLabel();
+            this.btnDBCheck = new MaterialSkin.Controls.MaterialButton();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -136,6 +139,22 @@
             this.tabControl.SuspendLayout();
             this.pnlControlButtons.SuspendLayout();
             this.tabGraph.SuspendLayout();
+            this.tabsGraphView.SuspendLayout();
+            this.tabGraphMain.SuspendLayout();
+            this.pnlGraphMainControls.SuspendLayout();
+            this.pnlGraphMainButtons.SuspendLayout();
+            this.pnlGraphMainDate.SuspendLayout();
+            this.pnlGraphMainUnits.SuspendLayout();
+            this.tabGraphHitCounter.SuspendLayout();
+            this.pnlGraphHitCounter.SuspendLayout();
+            this.pnlGraphHitCounterButtons.SuspendLayout();
+            this.pnlGraphHitCounterDate.SuspendLayout();
+            this.pnlGraphHitCounterUnits.SuspendLayout();
+            this.tabGraphControl.SuspendLayout();
+            this.pnlGraphControl.SuspendLayout();
+            this.pnlGraphControlButtons.SuspendLayout();
+            this.pnlGraphControlDate.SuspendLayout();
+            this.pnlGraphControlUnits.SuspendLayout();
             this.pnlClose.SuspendLayout();
             this.tabStatistics.SuspendLayout();
             this.tabsStatistics.SuspendLayout();
@@ -145,22 +164,7 @@
             this.pnlMassInput.SuspendLayout();
             this.pnlCheck.SuspendLayout();
             this.pnlTheme.SuspendLayout();
-            this.tabsGraphView.SuspendLayout();
-            this.tabGraphMain.SuspendLayout();
-            this.tabGraphHitCounter.SuspendLayout();
-            this.tabGraphControl.SuspendLayout();
-            this.pnlGraphMainControls.SuspendLayout();
-            this.pnlGraphMainUnits.SuspendLayout();
-            this.pnlGraphMainDate.SuspendLayout();
-            this.pnlGraphMainButtons.SuspendLayout();
-            this.pnlGraphHitCounter.SuspendLayout();
-            this.pnlGraphHitCounterButtons.SuspendLayout();
-            this.pnlGraphHitCounterDate.SuspendLayout();
-            this.pnlGraphHitCounterUnits.SuspendLayout();
-            this.pnlGraphControl.SuspendLayout();
-            this.pnlGraphControlButtons.SuspendLayout();
-            this.pnlGraphControlDate.SuspendLayout();
-            this.pnlGraphControlUnits.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -698,6 +702,535 @@
             this.tabGraph.Text = "Graph View";
             this.tabGraph.UseVisualStyleBackColor = true;
             // 
+            // tabsGraphView
+            // 
+            this.tabsGraphView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabsGraphView.Controls.Add(this.tabGraphMain);
+            this.tabsGraphView.Controls.Add(this.tabGraphHitCounter);
+            this.tabsGraphView.Controls.Add(this.tabGraphControl);
+            this.tabsGraphView.Depth = 0;
+            this.tabsGraphView.Location = new System.Drawing.Point(3, 42);
+            this.tabsGraphView.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabsGraphView.Multiline = true;
+            this.tabsGraphView.Name = "tabsGraphView";
+            this.tabsGraphView.SelectedIndex = 0;
+            this.tabsGraphView.Size = new System.Drawing.Size(1053, 432);
+            this.tabsGraphView.TabIndex = 4;
+            // 
+            // tabGraphMain
+            // 
+            this.tabGraphMain.Controls.Add(this.pnlGraphMainControls);
+            this.tabGraphMain.Location = new System.Drawing.Point(4, 22);
+            this.tabGraphMain.Name = "tabGraphMain";
+            this.tabGraphMain.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGraphMain.Size = new System.Drawing.Size(1045, 406);
+            this.tabGraphMain.TabIndex = 0;
+            this.tabGraphMain.Text = "Main";
+            this.tabGraphMain.UseVisualStyleBackColor = true;
+            // 
+            // pnlGraphMainControls
+            // 
+            this.pnlGraphMainControls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphMainControls.Controls.Add(this.pnlGraphMainButtons);
+            this.pnlGraphMainControls.Controls.Add(this.pnlGraphMainDate);
+            this.pnlGraphMainControls.Controls.Add(this.pnlGraphMainUnits);
+            this.pnlGraphMainControls.Location = new System.Drawing.Point(839, 6);
+            this.pnlGraphMainControls.Name = "pnlGraphMainControls";
+            this.pnlGraphMainControls.Size = new System.Drawing.Size(200, 394);
+            this.pnlGraphMainControls.TabIndex = 0;
+            // 
+            // pnlGraphMainButtons
+            // 
+            this.pnlGraphMainButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphMainButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphMainButtons.Controls.Add(this.btnGraphMainClearGraph);
+            this.pnlGraphMainButtons.Controls.Add(this.btnGraphMainGenerateGraph);
+            this.pnlGraphMainButtons.Location = new System.Drawing.Point(4, 228);
+            this.pnlGraphMainButtons.Name = "pnlGraphMainButtons";
+            this.pnlGraphMainButtons.Size = new System.Drawing.Size(193, 163);
+            this.pnlGraphMainButtons.TabIndex = 2;
+            // 
+            // btnGraphMainClearGraph
+            // 
+            this.btnGraphMainClearGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGraphMainClearGraph.AutoSize = false;
+            this.btnGraphMainClearGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGraphMainClearGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnGraphMainClearGraph.Depth = 0;
+            this.btnGraphMainClearGraph.HighEmphasis = true;
+            this.btnGraphMainClearGraph.Icon = null;
+            this.btnGraphMainClearGraph.Location = new System.Drawing.Point(18, 72);
+            this.btnGraphMainClearGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGraphMainClearGraph.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGraphMainClearGraph.Name = "btnGraphMainClearGraph";
+            this.btnGraphMainClearGraph.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnGraphMainClearGraph.Size = new System.Drawing.Size(154, 36);
+            this.btnGraphMainClearGraph.TabIndex = 1;
+            this.btnGraphMainClearGraph.Text = "Clear Graph";
+            this.btnGraphMainClearGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGraphMainClearGraph.UseAccentColor = false;
+            this.btnGraphMainClearGraph.UseVisualStyleBackColor = true;
+            // 
+            // btnGraphMainGenerateGraph
+            // 
+            this.btnGraphMainGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGraphMainGenerateGraph.AutoSize = false;
+            this.btnGraphMainGenerateGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGraphMainGenerateGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnGraphMainGenerateGraph.Depth = 0;
+            this.btnGraphMainGenerateGraph.HighEmphasis = true;
+            this.btnGraphMainGenerateGraph.Icon = null;
+            this.btnGraphMainGenerateGraph.Location = new System.Drawing.Point(18, 28);
+            this.btnGraphMainGenerateGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGraphMainGenerateGraph.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGraphMainGenerateGraph.Name = "btnGraphMainGenerateGraph";
+            this.btnGraphMainGenerateGraph.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnGraphMainGenerateGraph.Size = new System.Drawing.Size(154, 36);
+            this.btnGraphMainGenerateGraph.TabIndex = 0;
+            this.btnGraphMainGenerateGraph.Text = "Generate Graph";
+            this.btnGraphMainGenerateGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGraphMainGenerateGraph.UseAccentColor = false;
+            this.btnGraphMainGenerateGraph.UseVisualStyleBackColor = true;
+            // 
+            // pnlGraphMainDate
+            // 
+            this.pnlGraphMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphMainDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphMainDate.Controls.Add(this.lblGraphMainSetDate);
+            this.pnlGraphMainDate.Controls.Add(this.dtpGraphMainDate);
+            this.pnlGraphMainDate.Location = new System.Drawing.Point(3, 139);
+            this.pnlGraphMainDate.Name = "pnlGraphMainDate";
+            this.pnlGraphMainDate.Size = new System.Drawing.Size(194, 82);
+            this.pnlGraphMainDate.TabIndex = 1;
+            // 
+            // lblGraphMainSetDate
+            // 
+            this.lblGraphMainSetDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGraphMainSetDate.Depth = 0;
+            this.lblGraphMainSetDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblGraphMainSetDate.Location = new System.Drawing.Point(3, 17);
+            this.lblGraphMainSetDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblGraphMainSetDate.Name = "lblGraphMainSetDate";
+            this.lblGraphMainSetDate.Size = new System.Drawing.Size(184, 19);
+            this.lblGraphMainSetDate.TabIndex = 1;
+            this.lblGraphMainSetDate.Text = "Set Date";
+            this.lblGraphMainSetDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpGraphMainDate
+            // 
+            this.dtpGraphMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpGraphMainDate.CustomFormat = "ddd dd\'/\'MM\'/\'yyyy";
+            this.dtpGraphMainDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpGraphMainDate.Location = new System.Drawing.Point(0, 39);
+            this.dtpGraphMainDate.Name = "dtpGraphMainDate";
+            this.dtpGraphMainDate.Size = new System.Drawing.Size(190, 20);
+            this.dtpGraphMainDate.TabIndex = 0;
+            // 
+            // pnlGraphMainUnits
+            // 
+            this.pnlGraphMainUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphMainUnits.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphMainUnits.Controls.Add(this.cmbGraphMainUnits);
+            this.pnlGraphMainUnits.Controls.Add(this.lblGraphMainChooseUnit);
+            this.pnlGraphMainUnits.Location = new System.Drawing.Point(3, 14);
+            this.pnlGraphMainUnits.Name = "pnlGraphMainUnits";
+            this.pnlGraphMainUnits.Size = new System.Drawing.Size(194, 119);
+            this.pnlGraphMainUnits.TabIndex = 0;
+            // 
+            // cmbGraphMainUnits
+            // 
+            this.cmbGraphMainUnits.AutoResize = false;
+            this.cmbGraphMainUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbGraphMainUnits.Depth = 0;
+            this.cmbGraphMainUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbGraphMainUnits.DropDownHeight = 174;
+            this.cmbGraphMainUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGraphMainUnits.DropDownWidth = 121;
+            this.cmbGraphMainUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbGraphMainUnits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbGraphMainUnits.FormattingEnabled = true;
+            this.cmbGraphMainUnits.IntegralHeight = false;
+            this.cmbGraphMainUnits.ItemHeight = 43;
+            this.cmbGraphMainUnits.Items.AddRange(new object[] {
+            "Force",
+            "Acceleration"});
+            this.cmbGraphMainUnits.Location = new System.Drawing.Point(15, 39);
+            this.cmbGraphMainUnits.MaxDropDownItems = 4;
+            this.cmbGraphMainUnits.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbGraphMainUnits.Name = "cmbGraphMainUnits";
+            this.cmbGraphMainUnits.Size = new System.Drawing.Size(162, 49);
+            this.cmbGraphMainUnits.StartIndex = 0;
+            this.cmbGraphMainUnits.TabIndex = 2;
+            // 
+            // lblGraphMainChooseUnit
+            // 
+            this.lblGraphMainChooseUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGraphMainChooseUnit.Depth = 0;
+            this.lblGraphMainChooseUnit.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblGraphMainChooseUnit.Location = new System.Drawing.Point(15, 17);
+            this.lblGraphMainChooseUnit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblGraphMainChooseUnit.Name = "lblGraphMainChooseUnit";
+            this.lblGraphMainChooseUnit.Size = new System.Drawing.Size(158, 19);
+            this.lblGraphMainChooseUnit.TabIndex = 1;
+            this.lblGraphMainChooseUnit.Text = "Choose Unit";
+            this.lblGraphMainChooseUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabGraphHitCounter
+            // 
+            this.tabGraphHitCounter.Controls.Add(this.pnlGraphHitCounter);
+            this.tabGraphHitCounter.Location = new System.Drawing.Point(4, 22);
+            this.tabGraphHitCounter.Name = "tabGraphHitCounter";
+            this.tabGraphHitCounter.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGraphHitCounter.Size = new System.Drawing.Size(1045, 406);
+            this.tabGraphHitCounter.TabIndex = 1;
+            this.tabGraphHitCounter.Text = "Hit Counter";
+            this.tabGraphHitCounter.UseVisualStyleBackColor = true;
+            // 
+            // pnlGraphHitCounter
+            // 
+            this.pnlGraphHitCounter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphHitCounter.Controls.Add(this.pnlGraphHitCounterButtons);
+            this.pnlGraphHitCounter.Controls.Add(this.pnlGraphHitCounterDate);
+            this.pnlGraphHitCounter.Controls.Add(this.pnlGraphHitCounterUnits);
+            this.pnlGraphHitCounter.Location = new System.Drawing.Point(839, 6);
+            this.pnlGraphHitCounter.Name = "pnlGraphHitCounter";
+            this.pnlGraphHitCounter.Size = new System.Drawing.Size(200, 394);
+            this.pnlGraphHitCounter.TabIndex = 1;
+            // 
+            // pnlGraphHitCounterButtons
+            // 
+            this.pnlGraphHitCounterButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphHitCounterButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphHitCounterButtons.Controls.Add(this.btnGraphHitCounterClearGraph);
+            this.pnlGraphHitCounterButtons.Controls.Add(this.btnGraphHitCounterGenerateGraph);
+            this.pnlGraphHitCounterButtons.Location = new System.Drawing.Point(4, 228);
+            this.pnlGraphHitCounterButtons.Name = "pnlGraphHitCounterButtons";
+            this.pnlGraphHitCounterButtons.Size = new System.Drawing.Size(193, 163);
+            this.pnlGraphHitCounterButtons.TabIndex = 2;
+            // 
+            // btnGraphHitCounterClearGraph
+            // 
+            this.btnGraphHitCounterClearGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGraphHitCounterClearGraph.AutoSize = false;
+            this.btnGraphHitCounterClearGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGraphHitCounterClearGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnGraphHitCounterClearGraph.Depth = 0;
+            this.btnGraphHitCounterClearGraph.HighEmphasis = true;
+            this.btnGraphHitCounterClearGraph.Icon = null;
+            this.btnGraphHitCounterClearGraph.Location = new System.Drawing.Point(18, 72);
+            this.btnGraphHitCounterClearGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGraphHitCounterClearGraph.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGraphHitCounterClearGraph.Name = "btnGraphHitCounterClearGraph";
+            this.btnGraphHitCounterClearGraph.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnGraphHitCounterClearGraph.Size = new System.Drawing.Size(154, 36);
+            this.btnGraphHitCounterClearGraph.TabIndex = 1;
+            this.btnGraphHitCounterClearGraph.Text = "Clear Graph";
+            this.btnGraphHitCounterClearGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGraphHitCounterClearGraph.UseAccentColor = false;
+            this.btnGraphHitCounterClearGraph.UseVisualStyleBackColor = true;
+            // 
+            // btnGraphHitCounterGenerateGraph
+            // 
+            this.btnGraphHitCounterGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGraphHitCounterGenerateGraph.AutoSize = false;
+            this.btnGraphHitCounterGenerateGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGraphHitCounterGenerateGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnGraphHitCounterGenerateGraph.Depth = 0;
+            this.btnGraphHitCounterGenerateGraph.HighEmphasis = true;
+            this.btnGraphHitCounterGenerateGraph.Icon = null;
+            this.btnGraphHitCounterGenerateGraph.Location = new System.Drawing.Point(18, 28);
+            this.btnGraphHitCounterGenerateGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGraphHitCounterGenerateGraph.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGraphHitCounterGenerateGraph.Name = "btnGraphHitCounterGenerateGraph";
+            this.btnGraphHitCounterGenerateGraph.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnGraphHitCounterGenerateGraph.Size = new System.Drawing.Size(154, 36);
+            this.btnGraphHitCounterGenerateGraph.TabIndex = 0;
+            this.btnGraphHitCounterGenerateGraph.Text = "Generate Graph";
+            this.btnGraphHitCounterGenerateGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGraphHitCounterGenerateGraph.UseAccentColor = false;
+            this.btnGraphHitCounterGenerateGraph.UseVisualStyleBackColor = true;
+            // 
+            // pnlGraphHitCounterDate
+            // 
+            this.pnlGraphHitCounterDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphHitCounterDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphHitCounterDate.Controls.Add(this.lblGraphHitCounterDate);
+            this.pnlGraphHitCounterDate.Controls.Add(this.dtpGraphHitCounterDate);
+            this.pnlGraphHitCounterDate.Location = new System.Drawing.Point(3, 139);
+            this.pnlGraphHitCounterDate.Name = "pnlGraphHitCounterDate";
+            this.pnlGraphHitCounterDate.Size = new System.Drawing.Size(194, 82);
+            this.pnlGraphHitCounterDate.TabIndex = 1;
+            // 
+            // lblGraphHitCounterDate
+            // 
+            this.lblGraphHitCounterDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGraphHitCounterDate.Depth = 0;
+            this.lblGraphHitCounterDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblGraphHitCounterDate.Location = new System.Drawing.Point(3, 17);
+            this.lblGraphHitCounterDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblGraphHitCounterDate.Name = "lblGraphHitCounterDate";
+            this.lblGraphHitCounterDate.Size = new System.Drawing.Size(184, 19);
+            this.lblGraphHitCounterDate.TabIndex = 1;
+            this.lblGraphHitCounterDate.Text = "Set Date";
+            this.lblGraphHitCounterDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpGraphHitCounterDate
+            // 
+            this.dtpGraphHitCounterDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpGraphHitCounterDate.CustomFormat = "ddd dd\'/\'MM\'/\'yyyy";
+            this.dtpGraphHitCounterDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpGraphHitCounterDate.Location = new System.Drawing.Point(0, 39);
+            this.dtpGraphHitCounterDate.Name = "dtpGraphHitCounterDate";
+            this.dtpGraphHitCounterDate.Size = new System.Drawing.Size(190, 20);
+            this.dtpGraphHitCounterDate.TabIndex = 0;
+            // 
+            // pnlGraphHitCounterUnits
+            // 
+            this.pnlGraphHitCounterUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphHitCounterUnits.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphHitCounterUnits.Controls.Add(this.cbGraphHitCounterUnits);
+            this.pnlGraphHitCounterUnits.Controls.Add(this.lblGraphHitCounterChooseUnit);
+            this.pnlGraphHitCounterUnits.Location = new System.Drawing.Point(3, 3);
+            this.pnlGraphHitCounterUnits.Name = "pnlGraphHitCounterUnits";
+            this.pnlGraphHitCounterUnits.Size = new System.Drawing.Size(194, 130);
+            this.pnlGraphHitCounterUnits.TabIndex = 0;
+            // 
+            // cbGraphHitCounterUnits
+            // 
+            this.cbGraphHitCounterUnits.AutoResize = false;
+            this.cbGraphHitCounterUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbGraphHitCounterUnits.Depth = 0;
+            this.cbGraphHitCounterUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbGraphHitCounterUnits.DropDownHeight = 174;
+            this.cbGraphHitCounterUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGraphHitCounterUnits.DropDownWidth = 121;
+            this.cbGraphHitCounterUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cbGraphHitCounterUnits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbGraphHitCounterUnits.FormattingEnabled = true;
+            this.cbGraphHitCounterUnits.IntegralHeight = false;
+            this.cbGraphHitCounterUnits.ItemHeight = 43;
+            this.cbGraphHitCounterUnits.Items.AddRange(new object[] {
+            "Force",
+            "Acceleration"});
+            this.cbGraphHitCounterUnits.Location = new System.Drawing.Point(15, 39);
+            this.cbGraphHitCounterUnits.MaxDropDownItems = 4;
+            this.cbGraphHitCounterUnits.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbGraphHitCounterUnits.Name = "cbGraphHitCounterUnits";
+            this.cbGraphHitCounterUnits.Size = new System.Drawing.Size(162, 49);
+            this.cbGraphHitCounterUnits.StartIndex = 0;
+            this.cbGraphHitCounterUnits.TabIndex = 2;
+            // 
+            // lblGraphHitCounterChooseUnit
+            // 
+            this.lblGraphHitCounterChooseUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGraphHitCounterChooseUnit.Depth = 0;
+            this.lblGraphHitCounterChooseUnit.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblGraphHitCounterChooseUnit.Location = new System.Drawing.Point(15, 17);
+            this.lblGraphHitCounterChooseUnit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblGraphHitCounterChooseUnit.Name = "lblGraphHitCounterChooseUnit";
+            this.lblGraphHitCounterChooseUnit.Size = new System.Drawing.Size(158, 19);
+            this.lblGraphHitCounterChooseUnit.TabIndex = 1;
+            this.lblGraphHitCounterChooseUnit.Text = "Choose Unit";
+            this.lblGraphHitCounterChooseUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabGraphControl
+            // 
+            this.tabGraphControl.Controls.Add(this.pnlGraphControl);
+            this.tabGraphControl.Location = new System.Drawing.Point(4, 22);
+            this.tabGraphControl.Name = "tabGraphControl";
+            this.tabGraphControl.Size = new System.Drawing.Size(1045, 406);
+            this.tabGraphControl.TabIndex = 2;
+            this.tabGraphControl.Text = "Control";
+            this.tabGraphControl.UseVisualStyleBackColor = true;
+            // 
+            // pnlGraphControl
+            // 
+            this.pnlGraphControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphControl.Controls.Add(this.pnlGraphControlButtons);
+            this.pnlGraphControl.Controls.Add(this.pnlGraphControlDate);
+            this.pnlGraphControl.Controls.Add(this.pnlGraphControlUnits);
+            this.pnlGraphControl.Location = new System.Drawing.Point(842, 3);
+            this.pnlGraphControl.Name = "pnlGraphControl";
+            this.pnlGraphControl.Size = new System.Drawing.Size(200, 394);
+            this.pnlGraphControl.TabIndex = 1;
+            // 
+            // pnlGraphControlButtons
+            // 
+            this.pnlGraphControlButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphControlButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphControlButtons.Controls.Add(this.btnGraphControlClearGraph);
+            this.pnlGraphControlButtons.Controls.Add(this.btnGraphControlGenerateGraph);
+            this.pnlGraphControlButtons.Location = new System.Drawing.Point(4, 228);
+            this.pnlGraphControlButtons.Name = "pnlGraphControlButtons";
+            this.pnlGraphControlButtons.Size = new System.Drawing.Size(193, 163);
+            this.pnlGraphControlButtons.TabIndex = 2;
+            // 
+            // btnGraphControlClearGraph
+            // 
+            this.btnGraphControlClearGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGraphControlClearGraph.AutoSize = false;
+            this.btnGraphControlClearGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGraphControlClearGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnGraphControlClearGraph.Depth = 0;
+            this.btnGraphControlClearGraph.HighEmphasis = true;
+            this.btnGraphControlClearGraph.Icon = null;
+            this.btnGraphControlClearGraph.Location = new System.Drawing.Point(18, 72);
+            this.btnGraphControlClearGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGraphControlClearGraph.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGraphControlClearGraph.Name = "btnGraphControlClearGraph";
+            this.btnGraphControlClearGraph.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnGraphControlClearGraph.Size = new System.Drawing.Size(154, 36);
+            this.btnGraphControlClearGraph.TabIndex = 1;
+            this.btnGraphControlClearGraph.Text = "Clear Graph";
+            this.btnGraphControlClearGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGraphControlClearGraph.UseAccentColor = false;
+            this.btnGraphControlClearGraph.UseVisualStyleBackColor = true;
+            // 
+            // btnGraphControlGenerateGraph
+            // 
+            this.btnGraphControlGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGraphControlGenerateGraph.AutoSize = false;
+            this.btnGraphControlGenerateGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGraphControlGenerateGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnGraphControlGenerateGraph.Depth = 0;
+            this.btnGraphControlGenerateGraph.HighEmphasis = true;
+            this.btnGraphControlGenerateGraph.Icon = null;
+            this.btnGraphControlGenerateGraph.Location = new System.Drawing.Point(18, 28);
+            this.btnGraphControlGenerateGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGraphControlGenerateGraph.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGraphControlGenerateGraph.Name = "btnGraphControlGenerateGraph";
+            this.btnGraphControlGenerateGraph.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnGraphControlGenerateGraph.Size = new System.Drawing.Size(154, 36);
+            this.btnGraphControlGenerateGraph.TabIndex = 0;
+            this.btnGraphControlGenerateGraph.Text = "Generate Graph";
+            this.btnGraphControlGenerateGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGraphControlGenerateGraph.UseAccentColor = false;
+            this.btnGraphControlGenerateGraph.UseVisualStyleBackColor = true;
+            // 
+            // pnlGraphControlDate
+            // 
+            this.pnlGraphControlDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphControlDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphControlDate.Controls.Add(this.lblGraphControlDate);
+            this.pnlGraphControlDate.Controls.Add(this.dtpGraphControlDate);
+            this.pnlGraphControlDate.Location = new System.Drawing.Point(3, 139);
+            this.pnlGraphControlDate.Name = "pnlGraphControlDate";
+            this.pnlGraphControlDate.Size = new System.Drawing.Size(194, 82);
+            this.pnlGraphControlDate.TabIndex = 1;
+            // 
+            // lblGraphControlDate
+            // 
+            this.lblGraphControlDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGraphControlDate.Depth = 0;
+            this.lblGraphControlDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblGraphControlDate.Location = new System.Drawing.Point(3, 17);
+            this.lblGraphControlDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblGraphControlDate.Name = "lblGraphControlDate";
+            this.lblGraphControlDate.Size = new System.Drawing.Size(184, 19);
+            this.lblGraphControlDate.TabIndex = 1;
+            this.lblGraphControlDate.Text = "Set Date";
+            this.lblGraphControlDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpGraphControlDate
+            // 
+            this.dtpGraphControlDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpGraphControlDate.CustomFormat = "ddd dd\'/\'MM\'/\'yyyy";
+            this.dtpGraphControlDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpGraphControlDate.Location = new System.Drawing.Point(0, 39);
+            this.dtpGraphControlDate.Name = "dtpGraphControlDate";
+            this.dtpGraphControlDate.Size = new System.Drawing.Size(190, 20);
+            this.dtpGraphControlDate.TabIndex = 0;
+            // 
+            // pnlGraphControlUnits
+            // 
+            this.pnlGraphControlUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphControlUnits.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlGraphControlUnits.Controls.Add(this.cbGraphControlUnits);
+            this.pnlGraphControlUnits.Controls.Add(this.lblGraphControlChooseUnit);
+            this.pnlGraphControlUnits.Location = new System.Drawing.Point(3, 3);
+            this.pnlGraphControlUnits.Name = "pnlGraphControlUnits";
+            this.pnlGraphControlUnits.Size = new System.Drawing.Size(194, 130);
+            this.pnlGraphControlUnits.TabIndex = 0;
+            // 
+            // cbGraphControlUnits
+            // 
+            this.cbGraphControlUnits.AutoResize = false;
+            this.cbGraphControlUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbGraphControlUnits.Depth = 0;
+            this.cbGraphControlUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbGraphControlUnits.DropDownHeight = 174;
+            this.cbGraphControlUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGraphControlUnits.DropDownWidth = 121;
+            this.cbGraphControlUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cbGraphControlUnits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbGraphControlUnits.FormattingEnabled = true;
+            this.cbGraphControlUnits.IntegralHeight = false;
+            this.cbGraphControlUnits.ItemHeight = 43;
+            this.cbGraphControlUnits.Items.AddRange(new object[] {
+            "Force",
+            "Acceleration"});
+            this.cbGraphControlUnits.Location = new System.Drawing.Point(19, 39);
+            this.cbGraphControlUnits.MaxDropDownItems = 4;
+            this.cbGraphControlUnits.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbGraphControlUnits.Name = "cbGraphControlUnits";
+            this.cbGraphControlUnits.Size = new System.Drawing.Size(158, 49);
+            this.cbGraphControlUnits.StartIndex = 0;
+            this.cbGraphControlUnits.TabIndex = 2;
+            // 
+            // lblGraphControlChooseUnit
+            // 
+            this.lblGraphControlChooseUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGraphControlChooseUnit.Depth = 0;
+            this.lblGraphControlChooseUnit.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblGraphControlChooseUnit.Location = new System.Drawing.Point(19, 17);
+            this.lblGraphControlChooseUnit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblGraphControlChooseUnit.Name = "lblGraphControlChooseUnit";
+            this.lblGraphControlChooseUnit.Size = new System.Drawing.Size(158, 19);
+            this.lblGraphControlChooseUnit.TabIndex = 1;
+            this.lblGraphControlChooseUnit.Text = "Choose Unit";
+            this.lblGraphControlChooseUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tsGraphView
+            // 
+            this.tsGraphView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tsGraphView.BaseTabControl = this.tabsGraphView;
+            this.tsGraphView.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
+            this.tsGraphView.Depth = 0;
+            this.tsGraphView.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tsGraphView.Location = new System.Drawing.Point(-2, 0);
+            this.tsGraphView.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tsGraphView.Name = "tsGraphView";
+            this.tsGraphView.Size = new System.Drawing.Size(1073, 37);
+            this.tsGraphView.TabIndex = 3;
+            this.tsGraphView.Text = "materialTabSelector1";
+            // 
             // pnlClose
             // 
             this.pnlClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -837,6 +1370,7 @@
             // 
             // tabSettings
             // 
+            this.tabSettings.Controls.Add(this.panel1);
             this.tabSettings.Controls.Add(this.pnlSettingsClose);
             this.tabSettings.Controls.Add(this.pnlMassInput);
             this.tabSettings.Controls.Add(this.pnlCheck);
@@ -890,6 +1424,40 @@
             this.pnlMassInput.Name = "pnlMassInput";
             this.pnlMassInput.Size = new System.Drawing.Size(200, 247);
             this.pnlMassInput.TabIndex = 6;
+            // 
+            // txtCurrentMass
+            // 
+            this.txtCurrentMass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCurrentMass.AnimateReadOnly = false;
+            this.txtCurrentMass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCurrentMass.Depth = 0;
+            this.txtCurrentMass.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCurrentMass.LeadingIcon = null;
+            this.txtCurrentMass.Location = new System.Drawing.Point(23, 40);
+            this.txtCurrentMass.MaxLength = 50;
+            this.txtCurrentMass.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCurrentMass.Multiline = false;
+            this.txtCurrentMass.Name = "txtCurrentMass";
+            this.txtCurrentMass.ReadOnly = true;
+            this.txtCurrentMass.Size = new System.Drawing.Size(164, 50);
+            this.txtCurrentMass.TabIndex = 4;
+            this.txtCurrentMass.Text = "";
+            this.txtCurrentMass.TrailingIcon = null;
+            // 
+            // lblCurrentMass
+            // 
+            this.lblCurrentMass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentMass.Depth = 0;
+            this.lblCurrentMass.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCurrentMass.Location = new System.Drawing.Point(20, 13);
+            this.lblCurrentMass.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblCurrentMass.Name = "lblCurrentMass";
+            this.lblCurrentMass.Size = new System.Drawing.Size(167, 23);
+            this.lblCurrentMass.TabIndex = 3;
+            this.lblCurrentMass.Text = "Current Mass";
+            this.lblCurrentMass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnChangeMass
             // 
@@ -1079,568 +1647,52 @@
             this.imgList.Images.SetKeyName(4, "Hit Counter.png");
             this.imgList.Images.SetKeyName(5, "Control.png");
             // 
-            // lblCurrentMass
+            // panel1
             // 
-            this.lblCurrentMass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Controls.Add(this.btnDBCheck);
+            this.panel1.Controls.Add(this.lblDBCheck);
+            this.panel1.Location = new System.Drawing.Point(244, 269);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 209);
+            this.panel1.TabIndex = 8;
+            // 
+            // lblDBCheck
+            // 
+            this.lblDBCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCurrentMass.Depth = 0;
-            this.lblCurrentMass.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCurrentMass.Location = new System.Drawing.Point(20, 13);
-            this.lblCurrentMass.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblCurrentMass.Name = "lblCurrentMass";
-            this.lblCurrentMass.Size = new System.Drawing.Size(167, 23);
-            this.lblCurrentMass.TabIndex = 3;
-            this.lblCurrentMass.Text = "Current Mass";
-            this.lblCurrentMass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDBCheck.Depth = 0;
+            this.lblDBCheck.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDBCheck.Location = new System.Drawing.Point(20, 21);
+            this.lblDBCheck.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDBCheck.Name = "lblDBCheck";
+            this.lblDBCheck.Size = new System.Drawing.Size(167, 19);
+            this.lblDBCheck.TabIndex = 0;
+            this.lblDBCheck.Text = "Check DB Connection";
+            this.lblDBCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtCurrentMass
+            // btnDBCheck
             // 
-            this.txtCurrentMass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCurrentMass.AnimateReadOnly = false;
-            this.txtCurrentMass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCurrentMass.Depth = 0;
-            this.txtCurrentMass.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtCurrentMass.LeadingIcon = null;
-            this.txtCurrentMass.Location = new System.Drawing.Point(23, 40);
-            this.txtCurrentMass.MaxLength = 50;
-            this.txtCurrentMass.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCurrentMass.Multiline = false;
-            this.txtCurrentMass.Name = "txtCurrentMass";
-            this.txtCurrentMass.ReadOnly = true;
-            this.txtCurrentMass.Size = new System.Drawing.Size(164, 50);
-            this.txtCurrentMass.TabIndex = 4;
-            this.txtCurrentMass.Text = "";
-            this.txtCurrentMass.TrailingIcon = null;
-            // 
-            // tsGraphView
-            // 
-            this.tsGraphView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tsGraphView.BaseTabControl = this.tabsGraphView;
-            this.tsGraphView.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
-            this.tsGraphView.Depth = 0;
-            this.tsGraphView.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.tsGraphView.Location = new System.Drawing.Point(-2, 0);
-            this.tsGraphView.MouseState = MaterialSkin.MouseState.HOVER;
-            this.tsGraphView.Name = "tsGraphView";
-            this.tsGraphView.Size = new System.Drawing.Size(1073, 37);
-            this.tsGraphView.TabIndex = 3;
-            this.tsGraphView.Text = "materialTabSelector1";
-            // 
-            // tabsGraphView
-            // 
-            this.tabsGraphView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnDBCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabsGraphView.Controls.Add(this.tabGraphMain);
-            this.tabsGraphView.Controls.Add(this.tabGraphHitCounter);
-            this.tabsGraphView.Controls.Add(this.tabGraphControl);
-            this.tabsGraphView.Depth = 0;
-            this.tabsGraphView.Location = new System.Drawing.Point(3, 42);
-            this.tabsGraphView.MouseState = MaterialSkin.MouseState.HOVER;
-            this.tabsGraphView.Multiline = true;
-            this.tabsGraphView.Name = "tabsGraphView";
-            this.tabsGraphView.SelectedIndex = 0;
-            this.tabsGraphView.Size = new System.Drawing.Size(1053, 432);
-            this.tabsGraphView.TabIndex = 4;
-            // 
-            // tabGraphMain
-            // 
-            this.tabGraphMain.Controls.Add(this.pnlGraphMainControls);
-            this.tabGraphMain.Location = new System.Drawing.Point(4, 22);
-            this.tabGraphMain.Name = "tabGraphMain";
-            this.tabGraphMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGraphMain.Size = new System.Drawing.Size(1045, 406);
-            this.tabGraphMain.TabIndex = 0;
-            this.tabGraphMain.Text = "Main";
-            this.tabGraphMain.UseVisualStyleBackColor = true;
-            // 
-            // tabGraphHitCounter
-            // 
-            this.tabGraphHitCounter.Controls.Add(this.pnlGraphHitCounter);
-            this.tabGraphHitCounter.Location = new System.Drawing.Point(4, 22);
-            this.tabGraphHitCounter.Name = "tabGraphHitCounter";
-            this.tabGraphHitCounter.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGraphHitCounter.Size = new System.Drawing.Size(1045, 406);
-            this.tabGraphHitCounter.TabIndex = 1;
-            this.tabGraphHitCounter.Text = "Hit Counter";
-            this.tabGraphHitCounter.UseVisualStyleBackColor = true;
-            // 
-            // tabGraphControl
-            // 
-            this.tabGraphControl.Controls.Add(this.pnlGraphControl);
-            this.tabGraphControl.Location = new System.Drawing.Point(4, 22);
-            this.tabGraphControl.Name = "tabGraphControl";
-            this.tabGraphControl.Size = new System.Drawing.Size(1045, 406);
-            this.tabGraphControl.TabIndex = 2;
-            this.tabGraphControl.Text = "Control";
-            this.tabGraphControl.UseVisualStyleBackColor = true;
-            // 
-            // pnlGraphMainControls
-            // 
-            this.pnlGraphMainControls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphMainControls.Controls.Add(this.pnlGraphMainButtons);
-            this.pnlGraphMainControls.Controls.Add(this.pnlGraphMainDate);
-            this.pnlGraphMainControls.Controls.Add(this.pnlGraphMainUnits);
-            this.pnlGraphMainControls.Location = new System.Drawing.Point(839, 6);
-            this.pnlGraphMainControls.Name = "pnlGraphMainControls";
-            this.pnlGraphMainControls.Size = new System.Drawing.Size(200, 394);
-            this.pnlGraphMainControls.TabIndex = 0;
-            // 
-            // pnlGraphMainUnits
-            // 
-            this.pnlGraphMainUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphMainUnits.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlGraphMainUnits.Controls.Add(this.cmbGraphMainUnits);
-            this.pnlGraphMainUnits.Controls.Add(this.lblGraphMainChooseUnit);
-            this.pnlGraphMainUnits.Location = new System.Drawing.Point(3, 14);
-            this.pnlGraphMainUnits.Name = "pnlGraphMainUnits";
-            this.pnlGraphMainUnits.Size = new System.Drawing.Size(194, 119);
-            this.pnlGraphMainUnits.TabIndex = 0;
-            // 
-            // lblGraphMainChooseUnit
-            // 
-            this.lblGraphMainChooseUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGraphMainChooseUnit.Depth = 0;
-            this.lblGraphMainChooseUnit.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblGraphMainChooseUnit.Location = new System.Drawing.Point(15, 17);
-            this.lblGraphMainChooseUnit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblGraphMainChooseUnit.Name = "lblGraphMainChooseUnit";
-            this.lblGraphMainChooseUnit.Size = new System.Drawing.Size(158, 19);
-            this.lblGraphMainChooseUnit.TabIndex = 1;
-            this.lblGraphMainChooseUnit.Text = "Choose Unit";
-            this.lblGraphMainChooseUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cmbGraphMainUnits
-            // 
-            this.cmbGraphMainUnits.AutoResize = false;
-            this.cmbGraphMainUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cmbGraphMainUnits.Depth = 0;
-            this.cmbGraphMainUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbGraphMainUnits.DropDownHeight = 174;
-            this.cmbGraphMainUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGraphMainUnits.DropDownWidth = 121;
-            this.cmbGraphMainUnits.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cmbGraphMainUnits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cmbGraphMainUnits.FormattingEnabled = true;
-            this.cmbGraphMainUnits.IntegralHeight = false;
-            this.cmbGraphMainUnits.ItemHeight = 43;
-            this.cmbGraphMainUnits.Items.AddRange(new object[] {
-            "Force",
-            "Acceleration"});
-            this.cmbGraphMainUnits.Location = new System.Drawing.Point(15, 39);
-            this.cmbGraphMainUnits.MaxDropDownItems = 4;
-            this.cmbGraphMainUnits.MouseState = MaterialSkin.MouseState.OUT;
-            this.cmbGraphMainUnits.Name = "cmbGraphMainUnits";
-            this.cmbGraphMainUnits.Size = new System.Drawing.Size(162, 49);
-            this.cmbGraphMainUnits.StartIndex = 0;
-            this.cmbGraphMainUnits.TabIndex = 2;
-            // 
-            // pnlGraphMainDate
-            // 
-            this.pnlGraphMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphMainDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlGraphMainDate.Controls.Add(this.lblGraphMainSetDate);
-            this.pnlGraphMainDate.Controls.Add(this.dtpGraphMainDate);
-            this.pnlGraphMainDate.Location = new System.Drawing.Point(3, 139);
-            this.pnlGraphMainDate.Name = "pnlGraphMainDate";
-            this.pnlGraphMainDate.Size = new System.Drawing.Size(194, 82);
-            this.pnlGraphMainDate.TabIndex = 1;
-            // 
-            // dtpGraphMainDate
-            // 
-            this.dtpGraphMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpGraphMainDate.CustomFormat = "ddd dd\'/\'MM\'/\'yyyy";
-            this.dtpGraphMainDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpGraphMainDate.Location = new System.Drawing.Point(0, 39);
-            this.dtpGraphMainDate.Name = "dtpGraphMainDate";
-            this.dtpGraphMainDate.Size = new System.Drawing.Size(190, 20);
-            this.dtpGraphMainDate.TabIndex = 0;
-            // 
-            // lblGraphMainSetDate
-            // 
-            this.lblGraphMainSetDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGraphMainSetDate.Depth = 0;
-            this.lblGraphMainSetDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblGraphMainSetDate.Location = new System.Drawing.Point(3, 17);
-            this.lblGraphMainSetDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblGraphMainSetDate.Name = "lblGraphMainSetDate";
-            this.lblGraphMainSetDate.Size = new System.Drawing.Size(184, 19);
-            this.lblGraphMainSetDate.TabIndex = 1;
-            this.lblGraphMainSetDate.Text = "Set Date";
-            this.lblGraphMainSetDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlGraphMainButtons
-            // 
-            this.pnlGraphMainButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphMainButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlGraphMainButtons.Controls.Add(this.btnGraphMainClearGraph);
-            this.pnlGraphMainButtons.Controls.Add(this.btnGraphMainGenerateGraph);
-            this.pnlGraphMainButtons.Location = new System.Drawing.Point(4, 228);
-            this.pnlGraphMainButtons.Name = "pnlGraphMainButtons";
-            this.pnlGraphMainButtons.Size = new System.Drawing.Size(193, 163);
-            this.pnlGraphMainButtons.TabIndex = 2;
-            // 
-            // btnGraphMainGenerateGraph
-            // 
-            this.btnGraphMainGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGraphMainGenerateGraph.AutoSize = false;
-            this.btnGraphMainGenerateGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnGraphMainGenerateGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnGraphMainGenerateGraph.Depth = 0;
-            this.btnGraphMainGenerateGraph.HighEmphasis = true;
-            this.btnGraphMainGenerateGraph.Icon = null;
-            this.btnGraphMainGenerateGraph.Location = new System.Drawing.Point(18, 28);
-            this.btnGraphMainGenerateGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnGraphMainGenerateGraph.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnGraphMainGenerateGraph.Name = "btnGraphMainGenerateGraph";
-            this.btnGraphMainGenerateGraph.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnGraphMainGenerateGraph.Size = new System.Drawing.Size(154, 36);
-            this.btnGraphMainGenerateGraph.TabIndex = 0;
-            this.btnGraphMainGenerateGraph.Text = "Generate Graph";
-            this.btnGraphMainGenerateGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnGraphMainGenerateGraph.UseAccentColor = false;
-            this.btnGraphMainGenerateGraph.UseVisualStyleBackColor = true;
-            // 
-            // btnGraphMainClearGraph
-            // 
-            this.btnGraphMainClearGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGraphMainClearGraph.AutoSize = false;
-            this.btnGraphMainClearGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnGraphMainClearGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnGraphMainClearGraph.Depth = 0;
-            this.btnGraphMainClearGraph.HighEmphasis = true;
-            this.btnGraphMainClearGraph.Icon = null;
-            this.btnGraphMainClearGraph.Location = new System.Drawing.Point(18, 72);
-            this.btnGraphMainClearGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnGraphMainClearGraph.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnGraphMainClearGraph.Name = "btnGraphMainClearGraph";
-            this.btnGraphMainClearGraph.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnGraphMainClearGraph.Size = new System.Drawing.Size(154, 36);
-            this.btnGraphMainClearGraph.TabIndex = 1;
-            this.btnGraphMainClearGraph.Text = "Clear Graph";
-            this.btnGraphMainClearGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnGraphMainClearGraph.UseAccentColor = false;
-            this.btnGraphMainClearGraph.UseVisualStyleBackColor = true;
-            // 
-            // pnlGraphHitCounter
-            // 
-            this.pnlGraphHitCounter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphHitCounter.Controls.Add(this.pnlGraphHitCounterButtons);
-            this.pnlGraphHitCounter.Controls.Add(this.pnlGraphHitCounterDate);
-            this.pnlGraphHitCounter.Controls.Add(this.pnlGraphHitCounterUnits);
-            this.pnlGraphHitCounter.Location = new System.Drawing.Point(839, 6);
-            this.pnlGraphHitCounter.Name = "pnlGraphHitCounter";
-            this.pnlGraphHitCounter.Size = new System.Drawing.Size(200, 394);
-            this.pnlGraphHitCounter.TabIndex = 1;
-            // 
-            // pnlGraphHitCounterButtons
-            // 
-            this.pnlGraphHitCounterButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphHitCounterButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlGraphHitCounterButtons.Controls.Add(this.btnGraphHitCounterClearGraph);
-            this.pnlGraphHitCounterButtons.Controls.Add(this.btnGraphHitCounterGenerateGraph);
-            this.pnlGraphHitCounterButtons.Location = new System.Drawing.Point(4, 228);
-            this.pnlGraphHitCounterButtons.Name = "pnlGraphHitCounterButtons";
-            this.pnlGraphHitCounterButtons.Size = new System.Drawing.Size(193, 163);
-            this.pnlGraphHitCounterButtons.TabIndex = 2;
-            // 
-            // btnGraphHitCounterClearGraph
-            // 
-            this.btnGraphHitCounterClearGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGraphHitCounterClearGraph.AutoSize = false;
-            this.btnGraphHitCounterClearGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnGraphHitCounterClearGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnGraphHitCounterClearGraph.Depth = 0;
-            this.btnGraphHitCounterClearGraph.HighEmphasis = true;
-            this.btnGraphHitCounterClearGraph.Icon = null;
-            this.btnGraphHitCounterClearGraph.Location = new System.Drawing.Point(18, 72);
-            this.btnGraphHitCounterClearGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnGraphHitCounterClearGraph.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnGraphHitCounterClearGraph.Name = "btnGraphHitCounterClearGraph";
-            this.btnGraphHitCounterClearGraph.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnGraphHitCounterClearGraph.Size = new System.Drawing.Size(154, 36);
-            this.btnGraphHitCounterClearGraph.TabIndex = 1;
-            this.btnGraphHitCounterClearGraph.Text = "Clear Graph";
-            this.btnGraphHitCounterClearGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnGraphHitCounterClearGraph.UseAccentColor = false;
-            this.btnGraphHitCounterClearGraph.UseVisualStyleBackColor = true;
-            // 
-            // btnGraphHitCounterGenerateGraph
-            // 
-            this.btnGraphHitCounterGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGraphHitCounterGenerateGraph.AutoSize = false;
-            this.btnGraphHitCounterGenerateGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnGraphHitCounterGenerateGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnGraphHitCounterGenerateGraph.Depth = 0;
-            this.btnGraphHitCounterGenerateGraph.HighEmphasis = true;
-            this.btnGraphHitCounterGenerateGraph.Icon = null;
-            this.btnGraphHitCounterGenerateGraph.Location = new System.Drawing.Point(18, 28);
-            this.btnGraphHitCounterGenerateGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnGraphHitCounterGenerateGraph.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnGraphHitCounterGenerateGraph.Name = "btnGraphHitCounterGenerateGraph";
-            this.btnGraphHitCounterGenerateGraph.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnGraphHitCounterGenerateGraph.Size = new System.Drawing.Size(154, 36);
-            this.btnGraphHitCounterGenerateGraph.TabIndex = 0;
-            this.btnGraphHitCounterGenerateGraph.Text = "Generate Graph";
-            this.btnGraphHitCounterGenerateGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnGraphHitCounterGenerateGraph.UseAccentColor = false;
-            this.btnGraphHitCounterGenerateGraph.UseVisualStyleBackColor = true;
-            // 
-            // pnlGraphHitCounterDate
-            // 
-            this.pnlGraphHitCounterDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphHitCounterDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlGraphHitCounterDate.Controls.Add(this.lblGraphHitCounterDate);
-            this.pnlGraphHitCounterDate.Controls.Add(this.dtpGraphHitCounterDate);
-            this.pnlGraphHitCounterDate.Location = new System.Drawing.Point(3, 139);
-            this.pnlGraphHitCounterDate.Name = "pnlGraphHitCounterDate";
-            this.pnlGraphHitCounterDate.Size = new System.Drawing.Size(194, 82);
-            this.pnlGraphHitCounterDate.TabIndex = 1;
-            // 
-            // lblGraphHitCounterDate
-            // 
-            this.lblGraphHitCounterDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGraphHitCounterDate.Depth = 0;
-            this.lblGraphHitCounterDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblGraphHitCounterDate.Location = new System.Drawing.Point(3, 17);
-            this.lblGraphHitCounterDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblGraphHitCounterDate.Name = "lblGraphHitCounterDate";
-            this.lblGraphHitCounterDate.Size = new System.Drawing.Size(184, 19);
-            this.lblGraphHitCounterDate.TabIndex = 1;
-            this.lblGraphHitCounterDate.Text = "Set Date";
-            this.lblGraphHitCounterDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dtpGraphHitCounterDate
-            // 
-            this.dtpGraphHitCounterDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpGraphHitCounterDate.CustomFormat = "ddd dd\'/\'MM\'/\'yyyy";
-            this.dtpGraphHitCounterDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpGraphHitCounterDate.Location = new System.Drawing.Point(0, 39);
-            this.dtpGraphHitCounterDate.Name = "dtpGraphHitCounterDate";
-            this.dtpGraphHitCounterDate.Size = new System.Drawing.Size(190, 20);
-            this.dtpGraphHitCounterDate.TabIndex = 0;
-            // 
-            // pnlGraphHitCounterUnits
-            // 
-            this.pnlGraphHitCounterUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphHitCounterUnits.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlGraphHitCounterUnits.Controls.Add(this.cbGraphHitCounterUnits);
-            this.pnlGraphHitCounterUnits.Controls.Add(this.lblGraphHitCounterChooseUnit);
-            this.pnlGraphHitCounterUnits.Location = new System.Drawing.Point(3, 3);
-            this.pnlGraphHitCounterUnits.Name = "pnlGraphHitCounterUnits";
-            this.pnlGraphHitCounterUnits.Size = new System.Drawing.Size(194, 130);
-            this.pnlGraphHitCounterUnits.TabIndex = 0;
-            // 
-            // cbGraphHitCounterUnits
-            // 
-            this.cbGraphHitCounterUnits.AutoResize = false;
-            this.cbGraphHitCounterUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbGraphHitCounterUnits.Depth = 0;
-            this.cbGraphHitCounterUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbGraphHitCounterUnits.DropDownHeight = 174;
-            this.cbGraphHitCounterUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGraphHitCounterUnits.DropDownWidth = 121;
-            this.cbGraphHitCounterUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cbGraphHitCounterUnits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbGraphHitCounterUnits.FormattingEnabled = true;
-            this.cbGraphHitCounterUnits.IntegralHeight = false;
-            this.cbGraphHitCounterUnits.ItemHeight = 43;
-            this.cbGraphHitCounterUnits.Items.AddRange(new object[] {
-            "Force",
-            "Acceleration"});
-            this.cbGraphHitCounterUnits.Location = new System.Drawing.Point(15, 39);
-            this.cbGraphHitCounterUnits.MaxDropDownItems = 4;
-            this.cbGraphHitCounterUnits.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbGraphHitCounterUnits.Name = "cbGraphHitCounterUnits";
-            this.cbGraphHitCounterUnits.Size = new System.Drawing.Size(162, 49);
-            this.cbGraphHitCounterUnits.StartIndex = 0;
-            this.cbGraphHitCounterUnits.TabIndex = 2;
-            // 
-            // lblGraphHitCounterChooseUnit
-            // 
-            this.lblGraphHitCounterChooseUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGraphHitCounterChooseUnit.Depth = 0;
-            this.lblGraphHitCounterChooseUnit.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblGraphHitCounterChooseUnit.Location = new System.Drawing.Point(15, 17);
-            this.lblGraphHitCounterChooseUnit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblGraphHitCounterChooseUnit.Name = "lblGraphHitCounterChooseUnit";
-            this.lblGraphHitCounterChooseUnit.Size = new System.Drawing.Size(158, 19);
-            this.lblGraphHitCounterChooseUnit.TabIndex = 1;
-            this.lblGraphHitCounterChooseUnit.Text = "Choose Unit";
-            this.lblGraphHitCounterChooseUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlGraphControl
-            // 
-            this.pnlGraphControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphControl.Controls.Add(this.pnlGraphControlButtons);
-            this.pnlGraphControl.Controls.Add(this.pnlGraphControlDate);
-            this.pnlGraphControl.Controls.Add(this.pnlGraphControlUnits);
-            this.pnlGraphControl.Location = new System.Drawing.Point(842, 3);
-            this.pnlGraphControl.Name = "pnlGraphControl";
-            this.pnlGraphControl.Size = new System.Drawing.Size(200, 394);
-            this.pnlGraphControl.TabIndex = 1;
-            // 
-            // pnlGraphControlButtons
-            // 
-            this.pnlGraphControlButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphControlButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlGraphControlButtons.Controls.Add(this.btnGraphControlClearGraph);
-            this.pnlGraphControlButtons.Controls.Add(this.btnGraphControlGenerateGraph);
-            this.pnlGraphControlButtons.Location = new System.Drawing.Point(4, 228);
-            this.pnlGraphControlButtons.Name = "pnlGraphControlButtons";
-            this.pnlGraphControlButtons.Size = new System.Drawing.Size(193, 163);
-            this.pnlGraphControlButtons.TabIndex = 2;
-            // 
-            // btnGraphControlClearGraph
-            // 
-            this.btnGraphControlClearGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGraphControlClearGraph.AutoSize = false;
-            this.btnGraphControlClearGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnGraphControlClearGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnGraphControlClearGraph.Depth = 0;
-            this.btnGraphControlClearGraph.HighEmphasis = true;
-            this.btnGraphControlClearGraph.Icon = null;
-            this.btnGraphControlClearGraph.Location = new System.Drawing.Point(18, 72);
-            this.btnGraphControlClearGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnGraphControlClearGraph.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnGraphControlClearGraph.Name = "btnGraphControlClearGraph";
-            this.btnGraphControlClearGraph.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnGraphControlClearGraph.Size = new System.Drawing.Size(154, 36);
-            this.btnGraphControlClearGraph.TabIndex = 1;
-            this.btnGraphControlClearGraph.Text = "Clear Graph";
-            this.btnGraphControlClearGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnGraphControlClearGraph.UseAccentColor = false;
-            this.btnGraphControlClearGraph.UseVisualStyleBackColor = true;
-            // 
-            // btnGraphControlGenerateGraph
-            // 
-            this.btnGraphControlGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGraphControlGenerateGraph.AutoSize = false;
-            this.btnGraphControlGenerateGraph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnGraphControlGenerateGraph.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnGraphControlGenerateGraph.Depth = 0;
-            this.btnGraphControlGenerateGraph.HighEmphasis = true;
-            this.btnGraphControlGenerateGraph.Icon = null;
-            this.btnGraphControlGenerateGraph.Location = new System.Drawing.Point(18, 28);
-            this.btnGraphControlGenerateGraph.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnGraphControlGenerateGraph.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnGraphControlGenerateGraph.Name = "btnGraphControlGenerateGraph";
-            this.btnGraphControlGenerateGraph.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnGraphControlGenerateGraph.Size = new System.Drawing.Size(154, 36);
-            this.btnGraphControlGenerateGraph.TabIndex = 0;
-            this.btnGraphControlGenerateGraph.Text = "Generate Graph";
-            this.btnGraphControlGenerateGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnGraphControlGenerateGraph.UseAccentColor = false;
-            this.btnGraphControlGenerateGraph.UseVisualStyleBackColor = true;
-            // 
-            // pnlGraphControlDate
-            // 
-            this.pnlGraphControlDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphControlDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlGraphControlDate.Controls.Add(this.lblGraphControlDate);
-            this.pnlGraphControlDate.Controls.Add(this.dtpGraphControlDate);
-            this.pnlGraphControlDate.Location = new System.Drawing.Point(3, 139);
-            this.pnlGraphControlDate.Name = "pnlGraphControlDate";
-            this.pnlGraphControlDate.Size = new System.Drawing.Size(194, 82);
-            this.pnlGraphControlDate.TabIndex = 1;
-            // 
-            // lblGraphControlDate
-            // 
-            this.lblGraphControlDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGraphControlDate.Depth = 0;
-            this.lblGraphControlDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblGraphControlDate.Location = new System.Drawing.Point(3, 17);
-            this.lblGraphControlDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblGraphControlDate.Name = "lblGraphControlDate";
-            this.lblGraphControlDate.Size = new System.Drawing.Size(184, 19);
-            this.lblGraphControlDate.TabIndex = 1;
-            this.lblGraphControlDate.Text = "Set Date";
-            this.lblGraphControlDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dtpGraphControlDate
-            // 
-            this.dtpGraphControlDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpGraphControlDate.CustomFormat = "ddd dd\'/\'MM\'/\'yyyy";
-            this.dtpGraphControlDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpGraphControlDate.Location = new System.Drawing.Point(0, 39);
-            this.dtpGraphControlDate.Name = "dtpGraphControlDate";
-            this.dtpGraphControlDate.Size = new System.Drawing.Size(190, 20);
-            this.dtpGraphControlDate.TabIndex = 0;
-            // 
-            // pnlGraphControlUnits
-            // 
-            this.pnlGraphControlUnits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphControlUnits.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlGraphControlUnits.Controls.Add(this.cbGraphControlUnits);
-            this.pnlGraphControlUnits.Controls.Add(this.lblGraphControlChooseUnit);
-            this.pnlGraphControlUnits.Location = new System.Drawing.Point(3, 3);
-            this.pnlGraphControlUnits.Name = "pnlGraphControlUnits";
-            this.pnlGraphControlUnits.Size = new System.Drawing.Size(194, 130);
-            this.pnlGraphControlUnits.TabIndex = 0;
-            // 
-            // cbGraphControlUnits
-            // 
-            this.cbGraphControlUnits.AutoResize = false;
-            this.cbGraphControlUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbGraphControlUnits.Depth = 0;
-            this.cbGraphControlUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbGraphControlUnits.DropDownHeight = 174;
-            this.cbGraphControlUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGraphControlUnits.DropDownWidth = 121;
-            this.cbGraphControlUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cbGraphControlUnits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbGraphControlUnits.FormattingEnabled = true;
-            this.cbGraphControlUnits.IntegralHeight = false;
-            this.cbGraphControlUnits.ItemHeight = 43;
-            this.cbGraphControlUnits.Items.AddRange(new object[] {
-            "Force",
-            "Acceleration"});
-            this.cbGraphControlUnits.Location = new System.Drawing.Point(19, 39);
-            this.cbGraphControlUnits.MaxDropDownItems = 4;
-            this.cbGraphControlUnits.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbGraphControlUnits.Name = "cbGraphControlUnits";
-            this.cbGraphControlUnits.Size = new System.Drawing.Size(158, 49);
-            this.cbGraphControlUnits.StartIndex = 0;
-            this.cbGraphControlUnits.TabIndex = 2;
-            // 
-            // lblGraphControlChooseUnit
-            // 
-            this.lblGraphControlChooseUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGraphControlChooseUnit.Depth = 0;
-            this.lblGraphControlChooseUnit.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblGraphControlChooseUnit.Location = new System.Drawing.Point(19, 17);
-            this.lblGraphControlChooseUnit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblGraphControlChooseUnit.Name = "lblGraphControlChooseUnit";
-            this.lblGraphControlChooseUnit.Size = new System.Drawing.Size(158, 19);
-            this.lblGraphControlChooseUnit.TabIndex = 1;
-            this.lblGraphControlChooseUnit.Text = "Choose Unit";
-            this.lblGraphControlChooseUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDBCheck.AutoSize = false;
+            this.btnDBCheck.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDBCheck.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnDBCheck.Depth = 0;
+            this.btnDBCheck.HighEmphasis = true;
+            this.btnDBCheck.Icon = null;
+            this.btnDBCheck.Location = new System.Drawing.Point(20, 58);
+            this.btnDBCheck.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDBCheck.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnDBCheck.Name = "btnDBCheck";
+            this.btnDBCheck.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnDBCheck.Size = new System.Drawing.Size(167, 36);
+            this.btnDBCheck.TabIndex = 1;
+            this.btnDBCheck.Text = "Check DB Connection";
+            this.btnDBCheck.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnDBCheck.UseAccentColor = false;
+            this.btnDBCheck.UseVisualStyleBackColor = true;
+            this.btnDBCheck.Click += new System.EventHandler(this.btnDBCheck_Click);
             // 
             // MainForm
             // 
@@ -1668,6 +1720,22 @@
             this.pnlControlButtons.ResumeLayout(false);
             this.pnlControlButtons.PerformLayout();
             this.tabGraph.ResumeLayout(false);
+            this.tabsGraphView.ResumeLayout(false);
+            this.tabGraphMain.ResumeLayout(false);
+            this.pnlGraphMainControls.ResumeLayout(false);
+            this.pnlGraphMainButtons.ResumeLayout(false);
+            this.pnlGraphMainDate.ResumeLayout(false);
+            this.pnlGraphMainUnits.ResumeLayout(false);
+            this.tabGraphHitCounter.ResumeLayout(false);
+            this.pnlGraphHitCounter.ResumeLayout(false);
+            this.pnlGraphHitCounterButtons.ResumeLayout(false);
+            this.pnlGraphHitCounterDate.ResumeLayout(false);
+            this.pnlGraphHitCounterUnits.ResumeLayout(false);
+            this.tabGraphControl.ResumeLayout(false);
+            this.pnlGraphControl.ResumeLayout(false);
+            this.pnlGraphControlButtons.ResumeLayout(false);
+            this.pnlGraphControlDate.ResumeLayout(false);
+            this.pnlGraphControlUnits.ResumeLayout(false);
             this.pnlClose.ResumeLayout(false);
             this.pnlClose.PerformLayout();
             this.tabStatistics.ResumeLayout(false);
@@ -1681,22 +1749,7 @@
             this.pnlCheck.ResumeLayout(false);
             this.pnlCheck.PerformLayout();
             this.pnlTheme.ResumeLayout(false);
-            this.tabsGraphView.ResumeLayout(false);
-            this.tabGraphMain.ResumeLayout(false);
-            this.tabGraphHitCounter.ResumeLayout(false);
-            this.tabGraphControl.ResumeLayout(false);
-            this.pnlGraphMainControls.ResumeLayout(false);
-            this.pnlGraphMainUnits.ResumeLayout(false);
-            this.pnlGraphMainDate.ResumeLayout(false);
-            this.pnlGraphMainButtons.ResumeLayout(false);
-            this.pnlGraphHitCounter.ResumeLayout(false);
-            this.pnlGraphHitCounterButtons.ResumeLayout(false);
-            this.pnlGraphHitCounterDate.ResumeLayout(false);
-            this.pnlGraphHitCounterUnits.ResumeLayout(false);
-            this.pnlGraphControl.ResumeLayout(false);
-            this.pnlGraphControlButtons.ResumeLayout(false);
-            this.pnlGraphControlDate.ResumeLayout(false);
-            this.pnlGraphControlUnits.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1797,6 +1850,9 @@
         private System.Windows.Forms.Panel pnlGraphControlUnits;
         private MaterialSkin.Controls.MaterialComboBox cbGraphControlUnits;
         private MaterialSkin.Controls.MaterialLabel lblGraphControlChooseUnit;
+        private System.Windows.Forms.Panel panel1;
+        private MaterialSkin.Controls.MaterialButton btnDBCheck;
+        private MaterialSkin.Controls.MaterialLabel lblDBCheck;
     }
 }
 
