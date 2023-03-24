@@ -16,7 +16,14 @@ namespace David_Arduino
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Login login = new Login();
+            Application.Run(login);
+
+            if(login.isLoggedIn)
+            {
+                Application.Run(new MainForm());
+            }
         }
+        
     }
 }
