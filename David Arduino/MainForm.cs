@@ -14,6 +14,7 @@ using System.Web.UI.Design;
 using System.Windows.Forms;
 using System.Media;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace David_Arduino
 {
@@ -23,6 +24,8 @@ namespace David_Arduino
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
         public bool isRunning; //If Program is Running
         SqlConnection connection;
+        Task readArduinoThread;
+        CancellationTokenSource cts = new CancellationTokenSource();
 
         public MainForm(SqlConnection con)
         {
@@ -89,14 +92,14 @@ namespace David_Arduino
         private void startRunning()
         {
             checkDFunc(); //Check whether Data Function Object exists
-            Task readArduinoThread = new Task(() => //Create a new Thread to run the loop
+            readArduinoThread = new Task(() => //Create a new Thread to run the loop
             {
                 while (isRunning) //Continuously Read the Data from the Arduino
                 {
                     //dFunc.TestLabel();
                     dFunc.getArduinoOutput();
                 }
-            });
+            }); 
             readArduinoThread.Start(); //Start the Thread
         }
 
@@ -138,6 +141,7 @@ namespace David_Arduino
             btnStart.Visible = true;
 
             isRunning = false; //Stop the Loop and stop the reading of the data from the Arduino
+
             dFunc.closePort(); //Closes port to the Arduino
 
             CheckStatsDialog(tabMain);

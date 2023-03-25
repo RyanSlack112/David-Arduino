@@ -8,6 +8,7 @@ using System.IO.Ports;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Threading;
+using System.IO;
 
 namespace David_Arduino
 {
@@ -24,7 +25,7 @@ namespace David_Arduino
         public Data_Functions(MainForm mainForm) //Constructor
         {
             //portName = getPortName();
-            port = new SerialPort("COM4", 9600, Parity.None, 8, StopBits.One); //Intialize Port
+            port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One); //Intialize Port
 
             /*
              * Default Values
@@ -158,15 +159,15 @@ namespace David_Arduino
             float z = 0;
             try
             {
-                if(port.IsOpen)
+                if (port.IsOpen)
                 {
-                    port.NewLine = "\r\n";
-                    string data = port.ReadLine(); //Data from the Arduino
-                    string[] values = data.Split(','); //Split the String from the Arduino using comma as seperation char
+                    port.NewLine = "\r";
+                    string data = port.ReadLine().ToString(); //Data from the Arduino
+                    /*string[] values = data.Split(','); //Split the String from the Arduino using comma as seperation char
                     /*
-                     * If greater than 3 values after splitting use the first 3 elements to
-                     * populate the X, Y and Z values.
-                     */
+                    * If greater than 3 values after splitting use the first 3 elements to
+                    * populate the X, Y and Z values.
+
                     if(values.Length >= 3) 
                     {
                         x = float.Parse(values[0]);
@@ -176,6 +177,8 @@ namespace David_Arduino
                     acceleration = calcAccel(x, y, z); //Calculate Acceleration
                     force = calcForce(acceleration, mass); //Calculate Force
                     checkComboBox(force, acceleration);
+                    */
+                    changeMainLabel(data.Trim());
                 }
             }
             catch (TimeoutException) 
@@ -189,6 +192,13 @@ namespace David_Arduino
                 force = 0;
                 acceleration = 0;
                 MessageBox.Show("Format Exception");
+            }
+            catch (IOException ex)
+            {
+                if (ex.InnerException is InvalidOperationException)
+                {
+                    // The serial port was closed, exit the loop
+                }
             }
         }
     }

@@ -109,6 +109,9 @@
             this.pnlStatsButtons = new System.Windows.Forms.Panel();
             this.btnStatsClose = new MaterialSkin.Controls.MaterialButton();
             this.tabSettings = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDBCheck = new MaterialSkin.Controls.MaterialButton();
+            this.lblDBCheck = new MaterialSkin.Controls.MaterialLabel();
             this.pnlSettingsClose = new System.Windows.Forms.Panel();
             this.btnSettingsClose = new MaterialSkin.Controls.MaterialButton();
             this.pnlMassInput = new System.Windows.Forms.Panel();
@@ -125,9 +128,6 @@
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblDBCheck = new MaterialSkin.Controls.MaterialLabel();
-            this.btnDBCheck = new MaterialSkin.Controls.MaterialButton();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -160,11 +160,11 @@
             this.tabsStatistics.SuspendLayout();
             this.pnlStatsButtons.SuspendLayout();
             this.tabSettings.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pnlSettingsClose.SuspendLayout();
             this.pnlMassInput.SuspendLayout();
             this.pnlCheck.SuspendLayout();
             this.pnlTheme.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -409,7 +409,6 @@
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(655, 408);
             this.lblOutput.TabIndex = 0;
-            this.lblOutput.Text = "6000.56N";
             this.lblOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabHitCounter
@@ -1383,6 +1382,53 @@
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnDBCheck);
+            this.panel1.Controls.Add(this.lblDBCheck);
+            this.panel1.Location = new System.Drawing.Point(244, 269);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 209);
+            this.panel1.TabIndex = 8;
+            // 
+            // btnDBCheck
+            // 
+            this.btnDBCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDBCheck.AutoSize = false;
+            this.btnDBCheck.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDBCheck.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnDBCheck.Depth = 0;
+            this.btnDBCheck.HighEmphasis = true;
+            this.btnDBCheck.Icon = null;
+            this.btnDBCheck.Location = new System.Drawing.Point(20, 58);
+            this.btnDBCheck.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDBCheck.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnDBCheck.Name = "btnDBCheck";
+            this.btnDBCheck.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnDBCheck.Size = new System.Drawing.Size(167, 36);
+            this.btnDBCheck.TabIndex = 1;
+            this.btnDBCheck.Text = "Check DB Connection";
+            this.btnDBCheck.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnDBCheck.UseAccentColor = false;
+            this.btnDBCheck.UseVisualStyleBackColor = true;
+            this.btnDBCheck.Click += new System.EventHandler(this.btnDBCheck_Click);
+            // 
+            // lblDBCheck
+            // 
+            this.lblDBCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDBCheck.Depth = 0;
+            this.lblDBCheck.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDBCheck.Location = new System.Drawing.Point(20, 21);
+            this.lblDBCheck.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDBCheck.Name = "lblDBCheck";
+            this.lblDBCheck.Size = new System.Drawing.Size(167, 19);
+            this.lblDBCheck.TabIndex = 0;
+            this.lblDBCheck.Text = "Check DB Connection";
+            this.lblDBCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnlSettingsClose
             // 
             this.pnlSettingsClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -1647,53 +1693,6 @@
             this.imgList.Images.SetKeyName(4, "Hit Counter.png");
             this.imgList.Images.SetKeyName(5, "Control.png");
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnDBCheck);
-            this.panel1.Controls.Add(this.lblDBCheck);
-            this.panel1.Location = new System.Drawing.Point(244, 269);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 209);
-            this.panel1.TabIndex = 8;
-            // 
-            // lblDBCheck
-            // 
-            this.lblDBCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDBCheck.Depth = 0;
-            this.lblDBCheck.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblDBCheck.Location = new System.Drawing.Point(20, 21);
-            this.lblDBCheck.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblDBCheck.Name = "lblDBCheck";
-            this.lblDBCheck.Size = new System.Drawing.Size(167, 19);
-            this.lblDBCheck.TabIndex = 0;
-            this.lblDBCheck.Text = "Check DB Connection";
-            this.lblDBCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnDBCheck
-            // 
-            this.btnDBCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDBCheck.AutoSize = false;
-            this.btnDBCheck.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDBCheck.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnDBCheck.Depth = 0;
-            this.btnDBCheck.HighEmphasis = true;
-            this.btnDBCheck.Icon = null;
-            this.btnDBCheck.Location = new System.Drawing.Point(20, 58);
-            this.btnDBCheck.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnDBCheck.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnDBCheck.Name = "btnDBCheck";
-            this.btnDBCheck.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnDBCheck.Size = new System.Drawing.Size(167, 36);
-            this.btnDBCheck.TabIndex = 1;
-            this.btnDBCheck.Text = "Check DB Connection";
-            this.btnDBCheck.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnDBCheck.UseAccentColor = false;
-            this.btnDBCheck.UseVisualStyleBackColor = true;
-            this.btnDBCheck.Click += new System.EventHandler(this.btnDBCheck_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1743,13 +1742,13 @@
             this.pnlStatsButtons.ResumeLayout(false);
             this.pnlStatsButtons.PerformLayout();
             this.tabSettings.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.pnlSettingsClose.ResumeLayout(false);
             this.pnlSettingsClose.PerformLayout();
             this.pnlMassInput.ResumeLayout(false);
             this.pnlCheck.ResumeLayout(false);
             this.pnlCheck.PerformLayout();
             this.pnlTheme.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
