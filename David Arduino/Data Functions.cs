@@ -197,7 +197,7 @@ namespace David_Arduino
             {
                 if (ex.InnerException is InvalidOperationException)
                 {
-                    // The serial port was closed, exit the loop
+                    // The serial port was closed
                 }
             }
         }

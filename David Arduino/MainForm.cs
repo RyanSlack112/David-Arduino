@@ -261,7 +261,7 @@ namespace David_Arduino
                 checkDFunc(); //Check whether Data Function Object exists
                 dFunc.openPort(); //Opens Arduino Port
                 MessageBox.Show("The Arduino is connected", "Connection Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dFunc.port.Close(); //Closes Arduino Port
+                dFunc.closePort(); //Closes Arduino Port
             }
             catch (IOException) //Exception if Arduino is not connected
             {
