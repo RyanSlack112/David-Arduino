@@ -162,7 +162,7 @@ namespace David_Arduino
                 if (port.IsOpen)
                 {
                     port.NewLine = "\r";
-                    string data = port.ReadLine().ToString(); //Data from the Arduino
+                    string data = port.ReadLine(); //Data from the Arduino
                     /*string[] values = data.Split(','); //Split the String from the Arduino using comma as seperation char
                     /*
                     * If greater than 3 values after splitting use the first 3 elements to
