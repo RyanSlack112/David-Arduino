@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -96,15 +97,18 @@ namespace David_Arduino
             {
                 MessageBox.Show("Your Password Fields Don't Match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            startLogin();
+        }
+
+        private void startLogin()
+        {
             string username = txtLoginName.Text;
             string password = txtLoginPassword.Text;
-            if(userLogin(username, password) == true)
+            if (userLogin(username, password) == true)
             {
                 isLoggedIn = true;
             }

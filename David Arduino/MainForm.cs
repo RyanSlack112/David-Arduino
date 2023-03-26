@@ -24,8 +24,6 @@ namespace David_Arduino
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
         public bool isRunning; //If Program is Running
         SqlConnection connection;
-        Task readArduinoThread;
-        CancellationTokenSource cts = new CancellationTokenSource();
 
         public MainForm(SqlConnection con)
         {
@@ -40,16 +38,6 @@ namespace David_Arduino
             dFunc = new Data_Functions(this);
             txtCurrentMass.Text = dFunc.getMass().ToString() + " KGs";
             connection = con;
-            //connectToDB();
-            //connection.Open();
-        }
-
-        private void connectToDB()
-        {
-            connection = new SqlConnection();
-            connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;"
-                + "AttachDbFilename = E:\\Documents\\Visual Studio Projects\\David Arduino\\David Arduino\\DavidArduino.mdf;"
-                + "Integrated Security = True";
         }
 
         private void checkDFunc() //Checks if Data Function Object exists and creates it if it doesn't
@@ -91,8 +79,8 @@ namespace David_Arduino
          */
         private void startRunning()
         {
-            checkDFunc(); //Check whether Data Function Object exists
-            readArduinoThread = new Task(() => //Create a new Thread to run the loop
+            //checkDFunc(); //Check whether Data Function Object exists
+            Task readArduinoThread = new Task(() => //Create a new Thread to run the loop
             {
                 while (isRunning) //Continuously Read the Data from the Arduino
                 {
@@ -107,7 +95,7 @@ namespace David_Arduino
         {
             try
             {
-                checkDFunc();
+                //checkDFunc();
                 dFunc.openPort(); //Opens port to Arduino and connects
 
                 /*

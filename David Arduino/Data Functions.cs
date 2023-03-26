@@ -105,17 +105,27 @@ namespace David_Arduino
         {
             if(_mainForm.getMainComboBox().InvokeRequired)
             {
-                _mainForm.getMainComboBox().Invoke(new Func<string>(() => _mainForm.getComboUnitText()));
+                string comboBoxText = (string)_mainForm.getMainComboBox().Invoke(new Func<string>(() => _mainForm.getComboUnitText()));
+                if (comboBoxText == "Acceleration") //Check if Acceleration is Checked
+                {
+                    changeMainLabel(acceleration.ToString("N2") + " m/s^2");
+                }
+                else if (comboBoxText == "Force") //Check if Acceleration is Checked
+                {
+                    changeMainLabel(force.ToString("N2") + " N"); //Display the value of the acceleration on Screen
+                }
             }
             else
             {
-                if (_mainForm.getComboUnitText() == "Acceleration") //Check if Acceleration is Checked
+                if (_mainForm.getComboUnitText() == "Acceleration")
                 {
-                    changeMainLabel(acceleration.ToString() + " N");
+                    string accel = acceleration.ToString("N2") + " m/s^2";
+                    changeMainLabel(accel.Trim());
                 }
-                else if (_mainForm.getComboUnitText() == "Force") //Check if Acceleration is Checked
+                else if (_mainForm.getComboUnitText() == "Force")
                 {
-                    changeMainLabel(force.ToString() + " m/s^2"); //Display the value of the acceleration on Screen
+                    string forceText = force.ToString("N2") + " N";
+                    changeMainLabel(forceText.Trim());
                 }
             }
             
@@ -161,24 +171,26 @@ namespace David_Arduino
             {
                 if (port.IsOpen)
                 {
-                    port.NewLine = "\r";
+                    port.NewLine = "\r\n";
                     string data = port.ReadLine(); //Data from the Arduino
-                    /*string[] values = data.Split(','); //Split the String from the Arduino using comma as seperation char
+                    string[] values = data.Split(','); //Split the String from the Arduino using comma as seperation char
+                    
                     /*
                     * If greater than 3 values after splitting use the first 3 elements to
                     * populate the X, Y and Z values.
-
-                    if(values.Length >= 3) 
+                    */
+                    if(values.Length > 2) 
                     {
                         x = float.Parse(values[0]);
                         y = float.Parse(values[1]);
                         z = float.Parse(values[2]);
+                        acceleration = calcAccel(x, y, z); //Calculate Acceleration
+                        force = calcForce(acceleration, mass); //Calculate Force
+                        checkComboBox(force, acceleration);
                     }
-                    acceleration = calcAccel(x, y, z); //Calculate Acceleration
-                    force = calcForce(acceleration, mass); //Calculate Force
-                    checkComboBox(force, acceleration);
-                    */
-                    changeMainLabel(data.Trim());
+                    
+                    
+                    //changeMainLabel(data.Trim());
                 }
             }
             catch (TimeoutException) 

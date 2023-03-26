@@ -83,6 +83,7 @@
             this.tabsLogin.SelectedIndex = 0;
             this.tabsLogin.Size = new System.Drawing.Size(459, 568);
             this.tabsLogin.TabIndex = 1;
+            this.tabsLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabsLogin_KeyDown);
             // 
             // tabLogin
             // 
@@ -159,6 +160,8 @@
             this.txtLoginPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtLoginPassword.TrailingIcon = null;
             this.txtLoginPassword.UseSystemPasswordChar = true;
+            this.txtLoginPassword.Enter += new System.EventHandler(this.txtLoginPassword_GotFocus);
+            this.txtLoginPassword.Leave += new System.EventHandler(this.txtLoginPassword_LoseFocus);
             // 
             // txtLoginName
             // 
@@ -190,6 +193,8 @@
             this.txtLoginName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtLoginName.TrailingIcon = null;
             this.txtLoginName.UseSystemPasswordChar = false;
+            this.txtLoginName.Enter += new System.EventHandler(this.txtLoginName_GotFocus);
+            this.txtLoginName.Leave += new System.EventHandler(this.txtLoginName_LoseFocus);
             // 
             // lblLoginPassword
             // 
