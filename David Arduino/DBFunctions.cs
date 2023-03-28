@@ -12,12 +12,18 @@ namespace David_Arduino
     internal class DBFunctions
     {
         private Login login;
+        private MainForm mainForm;
         SqlConnection connection;
 
         public DBFunctions(Login _login, SqlConnection _connection) 
         {
             login = _login;
             connection = _connection;
+        }
+
+        public DBFunctions(MainForm _mainForm, SqlConnection _connection)
+        {
+            mainForm = _mainForm;
         }
 
         public SqlConnection ConnectToDB()

@@ -21,6 +21,7 @@ namespace David_Arduino
     public partial class MainForm : MaterialForm
     {
         Data_Functions dFunc; //Data Function Object
+        DBFunctions dbFunctions; //Database Functions Object
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
         public bool isRunning; //If Program is Running
         SqlConnection connection;
@@ -36,6 +37,7 @@ namespace David_Arduino
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             dFunc = new Data_Functions(this);
+            dbFunctions = new DBFunctions(this, connection);
             txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
             connection = con;
         }
