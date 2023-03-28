@@ -35,7 +35,7 @@ namespace David_Arduino
             _mainForm = mainForm;
         }
 
-        private string getPortName()
+        private string GetPortName()
         {
             string portStr = "COM3";
             string[] ports = SerialPort.GetPortNames();
@@ -51,32 +51,32 @@ namespace David_Arduino
             return portStr;
         }
 
-        public void openPort() //Opens Port to Arduino
+        public void OpenPort() //Opens Port to Arduino
         { 
             port.Open();
         }
 
-        public void closePort() //Closes Port to Arduino
+        public void ClosePort() //Closes Port to Arduino
         {
             port.Close();
         }
 
-        public float getMass() //Mass Getter
+        public float GetMass() //Mass Getter
         {
             return mass;
         }
 
-        public void setMass(float mass) //Mass Setter
+        public void SetMass(float mass) //Mass Setter
         {
             this.mass = mass;
         }
 
-        public float getAccel() //Acceleration Getter
+        public float GetAccel() //Acceleration Getter
         {
             return acceleration; 
         }
 
-        public float getForce() //Force Getter
+        public float GetForce() //Force Getter
         {
             return force;
         }
@@ -84,7 +84,7 @@ namespace David_Arduino
         /*
          * Calculates the Acceleration from the X, Y, Z inputs from Accelerometer
          */
-        private float calcAccel(float accel_x, float accel_y, float accel_z)
+        private float CalcAccel(float accel_x, float accel_y, float accel_z)
         {
             accel_z -= gravity;
             float accel = (float)Math.Sqrt(accel_x * accel_x + accel_y * accel_y + accel_z * accel_z);
@@ -95,51 +95,51 @@ namespace David_Arduino
          * Calculates the Force using the Acceleration from the Accelerometer
          * and Mass defined within the program
          */
-        private float calcForce(float accel, float mass)
+        private float CalcForce(float accel, float mass)
         {
             float force = accel * mass;
             return force;
         }
 
-        private void checkComboBox(float force, float acceleration)
+        private void CheckComboBox(float force, float acceleration)
         {
-            if(_mainForm.getMainComboBox().InvokeRequired)
+            if(_mainForm.GetMainComboBox().InvokeRequired)
             {
-                string comboBoxText = (string)_mainForm.getMainComboBox().Invoke(new Func<string>(() => _mainForm.getComboUnitText()));
+                string comboBoxText = (string)_mainForm.GetMainComboBox().Invoke(new Func<string>(() => _mainForm.GetComboUnitText()));
                 if (comboBoxText == "Acceleration") //Check if Acceleration is Checked
                 {
-                    changeMainLabel(acceleration.ToString("N2") + " m/s^2");
+                    ChangeMainLabel(acceleration.ToString("N2") + " m/s^2");
                 }
                 else if (comboBoxText == "Force") //Check if Acceleration is Checked
                 {
-                    changeMainLabel(force.ToString("N2") + " N"); //Display the value of the acceleration on Screen
+                    ChangeMainLabel(force.ToString("N2") + " N"); //Display the value of the acceleration on Screen
                 }
             }
             else
             {
-                if (_mainForm.getComboUnitText() == "Acceleration")
+                if (_mainForm.GetComboUnitText() == "Acceleration")
                 {
                     string accel = acceleration.ToString("N2") + " m/s^2";
-                    changeMainLabel(accel.Trim());
+                    ChangeMainLabel(accel.Trim());
                 }
-                else if (_mainForm.getComboUnitText() == "Force")
+                else if (_mainForm.GetComboUnitText() == "Force")
                 {
                     string forceText = force.ToString("N2") + " N";
-                    changeMainLabel(forceText.Trim());
+                    ChangeMainLabel(forceText.Trim());
                 }
             }
             
         }
 
-        private void changeMainLabel(string labelText)
+        private void ChangeMainLabel(string labelText)
         {
-            if(_mainForm.getMainLabel().InvokeRequired)
+            if(_mainForm.GetMainLabel().InvokeRequired)
             {
-                _mainForm.getMainLabel().Invoke(new Action<string>(changeMainLabel), labelText);
+                _mainForm.GetMainLabel().Invoke(new Action<string>(ChangeMainLabel), labelText);
             }
             else
             {
-                _mainForm.setOutputLabel(labelText); //Display the value of the acceleration on Screen
+                _mainForm.SetOutputLabel(labelText); //Display the value of the acceleration on Screen
             }
         }
 
@@ -151,7 +151,7 @@ namespace David_Arduino
                 Random rnd = new Random();
                 int testVal = rnd.Next();
                 Thread.Sleep(1000);
-                changeMainLabel(testVal.ToString());
+                ChangeMainLabel(testVal.ToString());
             }
         }
 
@@ -159,7 +159,7 @@ namespace David_Arduino
          * Populates the X, Y and Z values from the Arduino data and performs calculations
          * of Acceleration and Force.
          */
-        public void getArduinoOutput()
+        public void GetArduinoOutput()
         {
             /*
              * Default Values
@@ -184,9 +184,9 @@ namespace David_Arduino
                         x = float.Parse(values[0]);
                         y = float.Parse(values[1]);
                         z = float.Parse(values[2]);
-                        acceleration = calcAccel(x, y, z); //Calculate Acceleration
-                        force = calcForce(acceleration, mass); //Calculate Force
-                        checkComboBox(force, acceleration);
+                        acceleration = CalcAccel(x, y, z); //Calculate Acceleration
+                        force = CalcForce(acceleration, mass); //Calculate Force
+                        CheckComboBox(force, acceleration);
                     }
                     
                     

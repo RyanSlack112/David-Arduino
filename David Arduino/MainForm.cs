@@ -36,40 +36,31 @@ namespace David_Arduino
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             dFunc = new Data_Functions(this);
-            txtCurrentMass.Text = dFunc.getMass().ToString() + " KGs";
+            txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
             connection = con;
         }
 
-        private void checkDFunc() //Checks if Data Function Object exists and creates it if it doesn't
-        {
-            if (dFunc == null)
-            {
-                dFunc = new Data_Functions(this); //Arduino Data and Connection Object
-                Console.WriteLine("Created");
-            }
-        }
-
-        public MaterialLabel getMainLabel()
+        public MaterialLabel GetMainLabel()
         {
             return lblOutput;
         }
 
-        public string getOutputLabelText() //Output Label Getter
+        public string GetOutputLabelText() //Output Label Getter
         {
             return lblOutput.Text;
         }
 
-        public void setOutputLabel(string outputText) //Output Label Setter
+        public void SetOutputLabel(string outputText) //Output Label Setter
         {
             lblOutput.Text = outputText;
         }
 
-        public MaterialComboBox getMainComboBox()
+        public MaterialComboBox GetMainComboBox()
         {
             return cmbUnit;
         }
 
-        public string getComboUnitText() //Returns the value of the combo box on the page
+        public string GetComboUnitText() //Returns the value of the combo box on the page
         {
             return cmbUnit.SelectedItem.ToString();
         }
@@ -77,15 +68,14 @@ namespace David_Arduino
         /*
          * Start Running the Program and initiate the Thread for the background
          */
-        private void startRunning()
+        private void StartRunning()
         {
-            //checkDFunc(); //Check whether Data Function Object exists
             Task readArduinoThread = new Task(() => //Create a new Thread to run the loop
             {
                 while (isRunning) //Continuously Read the Data from the Arduino
                 {
                     //dFunc.TestLabel();
-                    dFunc.getArduinoOutput();
+                    dFunc.GetArduinoOutput();
                 }
             }); 
             readArduinoThread.Start(); //Start the Thread
@@ -95,8 +85,7 @@ namespace David_Arduino
         {
             try
             {
-                //checkDFunc();
-                dFunc.openPort(); //Opens port to Arduino and connects
+                dFunc.OpenPort(); //Opens port to Arduino and connects
 
                 /*
                  * Button Visibility and Enabling Changes
@@ -110,7 +99,7 @@ namespace David_Arduino
                  * Enable the reading of the Data from the Arduino
                  */
                 isRunning = true;
-                startRunning(); //Start reading from the Arduino
+                StartRunning(); //Start reading from the Arduino
             }
             catch (IOException)
             {
@@ -130,7 +119,7 @@ namespace David_Arduino
 
             isRunning = false; //Stop the Loop and stop the reading of the data from the Arduino
 
-            dFunc.closePort(); //Closes port to the Arduino
+            dFunc.ClosePort(); //Closes port to the Arduino
 
             CheckStatsDialog(tabMain);
         }
@@ -246,10 +235,9 @@ namespace David_Arduino
         {
             try
             {
-                checkDFunc(); //Check whether Data Function Object exists
-                dFunc.openPort(); //Opens Arduino Port
+                dFunc.OpenPort(); //Opens Arduino Port
                 MessageBox.Show("The Arduino is connected", "Connection Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dFunc.closePort(); //Closes Arduino Port
+                dFunc.ClosePort(); //Closes Arduino Port
             }
             catch (IOException) //Exception if Arduino is not connected
             {
@@ -259,17 +247,16 @@ namespace David_Arduino
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            setOutputLabel(getComboUnitText());
+            SetOutputLabel(GetComboUnitText());
         }
 
         private void btnChangeMass_Click(object sender, EventArgs e)
         {
             try
             {
-                checkDFunc(); //Check whether Data Function Object exists
                 float newMass = float.Parse(txtMassInput.Text); //Take the input from the Mass Input Textbox
-                dFunc.setMass(newMass); //Set the new Mass
-                txtCurrentMass.Text = dFunc.getMass().ToString() + " KGs";
+                dFunc.SetMass(newMass); //Set the new Mass
+                txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
                 MessageBox.Show("Mass Changed Successfully to " + newMass.ToString() + " KGs", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); //Display a MessageBox indicating the successful changing of the Mass
             }
             catch (FormatException) //Invalid Input
@@ -280,13 +267,11 @@ namespace David_Arduino
 
         private void btnTestMass_Click(object sender, EventArgs e)
         {
-            setOutputLabel(dFunc.getMass().ToString());
+            SetOutputLabel(dFunc.GetMass().ToString());
         }
 
         private void btnHitCounterStart_Click(object sender, EventArgs e)
         {
-            checkDFunc(); //Check whether Data Function Object exists
-
             /*
              * Button Visibilty
              */
@@ -312,8 +297,6 @@ namespace David_Arduino
 
         private void btnControlStart_Click(object sender, EventArgs e)
         {
-            checkDFunc(); //Check whether Data Function Object exists
-
             /*
              * Button Visibility
              */
