@@ -25,8 +25,9 @@ namespace David_Arduino
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
         public bool isRunning; //If Program is Running
         SqlConnection connection;
+        string username;
 
-        public MainForm(SqlConnection con)
+        public MainForm(SqlConnection con, string username)
         {
             InitializeComponent();
 
@@ -36,10 +37,12 @@ namespace David_Arduino
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-            dFunc = new Data_Functions(this);
-            dbFunctions = new DBFunctions(this, connection);
-            txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
+            
             connection = con;
+            this.username = username;
+            dbFunctions = new DBFunctions(this, connection, username);
+            dFunc = new Data_Functions(this, dbFunctions);
+            txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
         }
 
         public MaterialLabel GetMainLabel()
@@ -77,7 +80,7 @@ namespace David_Arduino
                 while (isRunning) //Continuously Read the Data from the Arduino
                 {
                     //dFunc.TestLabel();
-                    dFunc.GetArduinoOutput();
+                    dFunc.GetArduinoOutput(username);
                 }
             }); 
             readArduinoThread.Start(); //Start the Thread
@@ -122,6 +125,7 @@ namespace David_Arduino
             isRunning = false; //Stop the Loop and stop the reading of the data from the Arduino
 
             dFunc.ClosePort(); //Closes port to the Arduino
+            dFunc.AddHitData();
 
             CheckStatsDialog(tabMain);
         }

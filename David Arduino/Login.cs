@@ -53,7 +53,7 @@ namespace David_Arduino
             {
                 MessageBox.Show("Login Failed", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            main = new MainForm(connection);
+            main = new MainForm(connection, username);
             Close();
         }
 

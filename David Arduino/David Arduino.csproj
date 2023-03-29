@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Data Functions.cs" />
     <Compile Include="DBFunctions.cs" />
+    <Compile Include="HitData.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

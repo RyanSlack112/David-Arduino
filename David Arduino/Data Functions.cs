@@ -21,8 +21,10 @@ namespace David_Arduino
         private float acceleration; //Acceleration Variable
         private float force; //Force Variable
         MainForm _mainForm;
+        DBFunctions dbFunctions;
+        List<HitData> hitDataList;
 
-        public Data_Functions(MainForm mainForm) //Constructor
+        public Data_Functions(MainForm mainForm, DBFunctions dbFunctions) //Constructor
         {
             //portName = getPortName();
             port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One); //Intialize Port
@@ -33,6 +35,8 @@ namespace David_Arduino
             acceleration = 0;
             force = 0;
             _mainForm = mainForm;
+            this.dbFunctions = dbFunctions;
+            hitDataList = new List<HitData>();
         }
 
         private string GetPortName()
@@ -143,6 +147,14 @@ namespace David_Arduino
             }
         }
 
+        public void AddHitData()
+        {
+            foreach(HitData hitData in hitDataList)
+            {
+                dbFunctions.AddToHitData(hitData);
+            }
+        }
+
         public void TestLabel()
         {
 
@@ -159,7 +171,7 @@ namespace David_Arduino
          * Populates the X, Y and Z values from the Arduino data and performs calculations
          * of Acceleration and Force.
          */
-        public void GetArduinoOutput()
+        public void GetArduinoOutput(string username)
         {
             /*
              * Default Values
@@ -186,10 +198,11 @@ namespace David_Arduino
                         z = float.Parse(values[2]);
                         acceleration = CalcAccel(x, y, z); //Calculate Acceleration
                         force = CalcForce(acceleration, mass); //Calculate Force
+                        DateTime dateTime = DateTime.Now;
+                        HitData hitData = new HitData(username, dateTime, force, acceleration);
+                        hitDataList.Add(hitData);
                         CheckComboBox(force, acceleration);
                     }
-                    
-                    
                     //changeMainLabel(data.Trim());
                 }
             }
