@@ -12,24 +12,35 @@ namespace David_Arduino
 {
     internal class DBFunctions
     {
-        private Login login;
-        private MainForm mainForm;
-        SqlConnection connection;
-        string username;
+        private Login login; //Login Form Object
+        private MainForm mainForm; //Main Form Object
+        SqlConnection connection; //Database Connection
+        string username; //Signed In Username
 
+        /*
+         * Login Form Constructor
+         */
         public DBFunctions(Login _login, SqlConnection _connection)
         {
+            //Default Values
             login = _login;
             connection = _connection;
         }
 
+        /*
+         * Main Form Constructor
+         */
         public DBFunctions(MainForm _mainForm, SqlConnection _connection, string username)
         {
+            //Default Values
             mainForm = _mainForm;
             this.username = username;
             this.connection = _connection;
         }
 
+        /*
+         * Establish a connection to the Database
+         */
         public SqlConnection ConnectToDB()
         {
             connection = new SqlConnection();
@@ -40,34 +51,46 @@ namespace David_Arduino
             return connection;
         }
 
+        /*
+         * Collects Information from form and assigns a new user to the Database
+         */
         public void Register()
         {
-            if (login.GetTxtRegisterPass() == login.GetTxtRegisterPassConfirm())
+            if (login.GetTxtRegisterPass() == login.GetTxtRegisterPassConfirm()) //Password check
             {
+                /*
+                 * SQL Statements to add a User to the Database
+                 */
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO Users (username, firstName, lastName, email, password) VALUES (@username, @firstName, @lastName, @email, @password)", connection))
                 {
+                    //Username
                     SqlParameter uNameParam = new SqlParameter("@username", SqlDbType.VarChar, 50);
                     uNameParam.Value = login.GetTxtRegisterUsername();
                     cmd.Parameters.Add(uNameParam);
 
+                    //First Name
                     SqlParameter fNameParam = new SqlParameter("@firstName", SqlDbType.VarChar, 50);
                     fNameParam.Value = login.GetTxtRegisterFirstName();
                     cmd.Parameters.Add(fNameParam);
 
+                    //Last Name
                     SqlParameter lNameParam = new SqlParameter("@lastName", SqlDbType.VarChar, 50);
                     lNameParam.Value = login.GetTxtRegisterLastName();
                     cmd.Parameters.Add(lNameParam);
 
+                    //Email
                     SqlParameter emailParam = new SqlParameter("@email", SqlDbType.VarChar, 50);
                     emailParam.Value = login.GetTxtRegisterEmail();
                     cmd.Parameters.Add(emailParam);
 
+                    //Password
                     SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.VarChar, 50);
                     passwordParam.Value = login.GetTxtRegisterPass();
                     cmd.Parameters.Add(passwordParam);
 
-                    cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery(); //Send Data to the Database
 
+                    //Acknowledge successful addition of new User
                     MessageBox.Show("You have successfully registered your account", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -77,10 +100,17 @@ namespace David_Arduino
             }
         }
 
+        /*
+         * Gather information from Login Form and check database if information matches and Sign User in
+         */
         public bool Login(string user, string pass)
         {
+            /*
+             * SQL Statements to check if Login information matches and return true if it does
+             */
             using (SqlCommand sqlCommand = new SqlCommand("SELECT username, password FROM Users WHERE username = @username", connection))
             {
+                //Username
                 SqlParameter param = new SqlParameter("@username", SqlDbType.VarChar, 50);
                 param.Value = user;
                 sqlCommand.Parameters.Add(param);
@@ -89,31 +119,40 @@ namespace David_Arduino
                 {
                     if (reader.Read())
                     {
-                        string username = reader.GetString(0);
-                        string password = reader.GetString(1);
+                        string username = reader.GetString(0); //Username from Database
+                        string password = reader.GetString(1); //Password from Database
 
-                        if (username == user && password == pass)
+                        if (username == user && password == pass) //Username and Password Match Check
                         {
-                            return true;
+                            return true; //Successful Login
                         }
                     }
                 }
-                return false;
+                return false; //Unsuccessful Login
             }
         }
 
+        /*
+         * Take Information about HitData from HitData object and add it to the database
+         */
         public void AddToHitData(HitData hitData)
         {
+            /*
+             * SQL Statements for adding HitData to Database
+             */
             using (SqlCommand cmd = new SqlCommand("INSERT INTO HitData(username, day, time, force, acceleration) VALUES (@username, @day, @time, @force, @acceleration)", connection))
             {
+                //Username
                 SqlParameter userParam = new SqlParameter("@username", SqlDbType.VarChar, 50);
                 userParam.Value = hitData.getUsername();
                 cmd.Parameters.Add(userParam);
 
+                //Day
                 SqlParameter dateParam = new SqlParameter("@day", SqlDbType.Date);
                 dateParam.Value = hitData.getDate();
                 cmd.Parameters.Add(dateParam);
 
+                //Time Of Hit
                 SqlParameter timeParam = new SqlParameter("@time", SqlDbType.Time, 7);
                 TimeSpan time = TimeSpan.ParseExact(hitData.getTime().Substring(0, 8), "hh\\:mm\\:ss", null);
                 int millis = int.Parse(hitData.getTime().Substring(9));
@@ -121,31 +160,45 @@ namespace David_Arduino
                 timeParam.Value = time;
                 cmd.Parameters.Add(timeParam);
 
+                //Force Recorded for Hit
                 SqlParameter forceParam = new SqlParameter("@force", SqlDbType.Float);
                 forceParam.Value = hitData.getForce();
                 cmd.Parameters.Add(forceParam);
 
+                //Acceleration
                 SqlParameter accelParam = new SqlParameter("@acceleration", SqlDbType.Float);
                 accelParam.Value = hitData.getAcceleration();
                 cmd.Parameters.Add(accelParam);
 
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery(); //Send Data to the Database
             }
         }
 
+        /*
+         * Get List of HitData Points to add to a Graph
+         */
         public List<HitDataPoint> GetHitDataFromDb(string username, string day)
         {
-            List<HitDataPoint> hitDataPoints = new List<HitDataPoint>();
+            List<HitDataPoint> hitDataPoints = new List<HitDataPoint>(); //List of HitData Point
+
+            /*
+             * SQL Statements to Retrieve HitData from Database according to Username and Day and add to the list
+             */
             using(SqlCommand cmd = new SqlCommand("SELECT time, force, acceleration FROM HitData WHERE username = @username AND day = @day", connection))
             {
+                //Username
                 SqlParameter userParam = new SqlParameter("username", SqlDbType.VarChar, 50);
                 userParam.Value = username;
                 cmd.Parameters.Add(userParam);
 
+                //Day
                 SqlParameter dayParam = new SqlParameter("day", SqlDbType.Date);
                 dayParam.Value = day;
                 cmd.Parameters.Add(dayParam);
 
+                /*
+                 * Read Data from Database and add to List of HitData Points
+                 */
                 using(SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())

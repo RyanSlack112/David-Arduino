@@ -20,10 +20,10 @@ namespace David_Arduino
         private string portName; //Port Name
         private float acceleration; //Acceleration Variable
         private float force; //Force Variable
-        MainForm _mainForm;
-        DBFunctions dbFunctions;
-        List<HitData> hitDataList;
-        string username;
+        MainForm _mainForm; //Main Form Object
+        DBFunctions dbFunctions; //Data Base Functions Object
+        List<HitData> hitDataList; //List of HitData Objects for Graph
+        string username; //Signed in Username
 
         public Data_Functions(MainForm mainForm, DBFunctions dbFunctions, string username) //Constructor
         {
@@ -41,6 +41,9 @@ namespace David_Arduino
             this.username = username;
         }
 
+        /*
+         * Programmatically Assign Portname(TODO)
+         */
         private string GetPortName()
         {
             string portStr = "COM3";
@@ -107,6 +110,11 @@ namespace David_Arduino
             return force;
         }
 
+        /*
+         * Check if ComboBox needs to be checked on other thread than current
+         * If so, complete check on other thread then pass Text to ChangeMainLabel Function
+         * Otherwise, check what option is checked in ComboBox and pass appropriate Text to ChangeMainLabel Function
+         */
         private void CheckComboBox(float force, float acceleration)
         {
             if(_mainForm.GetMainComboBox().InvokeRequired)
@@ -114,21 +122,23 @@ namespace David_Arduino
                 string comboBoxText = (string)_mainForm.GetMainComboBox().Invoke(new Func<string>(() => _mainForm.GetComboUnitText()));
                 if (comboBoxText == "Acceleration") //Check if Acceleration is Checked
                 {
-                    ChangeMainLabel(acceleration.ToString("N2") + " m/s^2");
+                    string accel = acceleration.ToString() + " m/s^2";
+                    ChangeMainLabel(accel.Trim());
                 }
-                else if (comboBoxText == "Force") //Check if Acceleration is Checked
+                else if (comboBoxText == "Force") //Check if Force is Checked
                 {
-                    ChangeMainLabel(force.ToString("N2") + " N"); //Display the value of the acceleration on Screen
+                    string forceText = force.ToString("N2") + " N";
+                    ChangeMainLabel(forceText.Trim()); //Display the value of the acceleration on Screen
                 }
             }
             else
             {
-                if (_mainForm.GetComboUnitText() == "Acceleration")
+                if (_mainForm.GetComboUnitText() == "Acceleration") //Check if Acceleration is Checked
                 {
                     string accel = acceleration.ToString("N2") + " m/s^2";
                     ChangeMainLabel(accel.Trim());
                 }
-                else if (_mainForm.GetComboUnitText() == "Force")
+                else if (_mainForm.GetComboUnitText() == "Force") //Check if Force is Checked
                 {
                     string forceText = force.ToString("N2") + " N";
                     ChangeMainLabel(forceText.Trim());
@@ -137,6 +147,11 @@ namespace David_Arduino
             
         }
 
+        /*
+         * Check if the Main Label needs to be changed on a different thread than current
+         * If so, complete the Change of Label Text on other thread
+         * Otherwise Change Label Text
+         */
         private void ChangeMainLabel(string labelText)
         {
             if(_mainForm.GetMainLabel().InvokeRequired)
@@ -149,6 +164,9 @@ namespace David_Arduino
             }
         }
 
+        /*
+         * Add the List of Hit Data Values to the Database
+         */
         public void AddHitData()
         {
             foreach(HitData hitData in hitDataList)
@@ -229,12 +247,17 @@ namespace David_Arduino
             }
         }
 
+        /*
+         * Retrieves the data from the Database to populate the Data Points
+         * Return the List of the Data Points
+         * Map the List of Data Points to the Graph
+         */
         public void GenerateMainGraph()
         {
-            string day = _mainForm.GetGraphMainDate();
-            List<HitDataPoint> hitDataPoints = dbFunctions.GetHitDataFromDb(username, day);
+            string day = _mainForm.GetGraphMainDate(); //Return the Day selected in the Graph Main View
+            List<HitDataPoint> hitDataPoints = dbFunctions.GetHitDataFromDb(username, day); //Return a List of Data Points according to Signed in User and Day selected.
             
-            _mainForm.MapHitDataSeries(hitDataPoints);
+            _mainForm.MapHitDataSeries(hitDataPoints); //Map the List of Data Points to the Graph.
         }
     }
 }

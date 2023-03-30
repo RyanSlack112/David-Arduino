@@ -28,66 +28,76 @@ namespace David_Arduino
         {
             InitializeComponent();
 
+            /*
+             * Material Skin Initialization Code
+             */
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            
+            //Default Values
             dbFunctions = new DBFunctions(this, connection);
             connection = dbFunctions.ConnectToDB();
-            connection.Open();
+            connection.Open(); //Open Database Connection
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            startLogin();
+            startLogin(); //Login Function
         }
 
+        /*
+         * Gather Information from Login Screen and Pass into Function to check for Successful Login
+         * If successful, Open Main Form and Close Login Screen.
+         */
         private void startLogin()
         {
-            string username = txtLoginName.Text;
-            string password = txtLoginPassword.Text;
-            if (dbFunctions.Login(username, password) == true)
+            string username = txtLoginName.Text; //Username
+            string password = txtLoginPassword.Text; //Password
+            if (dbFunctions.Login(username, password) == true) //Check if Username and Password are correct
             {
-                isLoggedIn = true;
+                isLoggedIn = true; //Logged in
+                main = new MainForm(connection, username); //Create Main Form Object
+                Close(); //Close Login Form
             }
             else
             {
                 MessageBox.Show("Login Failed", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            main = new MainForm(connection, username);
-            Close();
+            
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            dbFunctions.Register();
+            dbFunctions.Register(); //Register Function
         }
 
-        public string GetTxtRegisterPass()
+        public string GetTxtRegisterPass() //Return Text from Password Field on Register Tab
         {
             return txtRegisterPass.Text; 
         }
 
-        public string GetTxtRegisterPassConfirm()
+        public string GetTxtRegisterPassConfirm() //Return Text from Password Confirm Field on Register Tab
         {
             return txtRegisterPassConfirm.Text;
         }
 
-        public string GetTxtRegisterUsername()
+        public string GetTxtRegisterUsername() //Return Text from Username Field on Register Tab
         {
             return txtRegisterUsername.Text;
         }
 
-        public string GetTxtRegisterFirstName()
+        public string GetTxtRegisterFirstName() //Return Text from First Name Field on Register Tab
         {
             return txtRegisterFirstName.Text;
         }
 
-        public string GetTxtRegisterLastName()
+        public string GetTxtRegisterLastName() //Return Text from Last Name Fiel on Register Tab
         {
             return txtRegisterLastName.Text;
         }
 
-        public string GetTxtRegisterEmail()
+        public string GetTxtRegisterEmail() //Return Text from Email Field On Register Tab
         {
             return txtRegisterEmail.Text;
         }

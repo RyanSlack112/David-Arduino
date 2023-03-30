@@ -25,9 +25,9 @@ namespace David_Arduino
         DBFunctions dbFunctions; //Database Functions Object
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
         public bool isRunning; //If Program is Running
-        SqlConnection connection;
-        string username;
-        Series hitDataSeries;
+        SqlConnection connection; //Database Connection
+        string username; //Signed In Username
+        Series hitDataSeries; //Points for Graph
 
         public MainForm(SqlConnection con, string username)
         {
@@ -40,6 +40,7 @@ namespace David_Arduino
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             
+            //Default Values
             connection = con;
             this.username = username;
             dbFunctions = new DBFunctions(this, connection, username);
@@ -47,7 +48,7 @@ namespace David_Arduino
             txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
         }
 
-        public MaterialLabel GetMainLabel()
+        public MaterialLabel GetMainLabel() //Returns the Label on the Main Page
         {
             return lblOutput;
         }
@@ -62,7 +63,7 @@ namespace David_Arduino
             lblOutput.Text = outputText;
         }
 
-        public MaterialComboBox GetMainComboBox()
+        public MaterialComboBox GetMainComboBox() //Returns the Combo Box from the Main Page
         {
             return cmbUnit;
         }
@@ -72,7 +73,7 @@ namespace David_Arduino
             return cmbUnit.SelectedItem.ToString();
         }
 
-        public string GetGraphMainDate()
+        public string GetGraphMainDate() //Returns the Date Selected in the Graph Main View
         {
             return dtpGraphMainDate.Text;
         }
@@ -166,43 +167,47 @@ namespace David_Arduino
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            connection.Close();
+            connection.Close(); //Closes Database Connections
             Close(); //Closes Program
         }
 
         private void btnHitCounterClose_Click(object sender, EventArgs e)
         {
-            connection.Close();
+            connection.Close(); //Closes Database Connections
             Close(); //Closes Program
         }
 
         private void btnControlClose_Click(object sender, EventArgs e)
         {
-            connection.Close();
+            connection.Close(); //Closes Database Connections
             Close(); //Closes Program
         }
 
         private void btnGraphClose_Click(object sender, EventArgs e)
         {
-            connection.Close();
+            connection.Close(); //Closes Database Connections
             Close(); //Closes Program
         }
 
         private void btnStatsClose_Click(object sender, EventArgs e)
         {
-            connection.Close();
+            connection.Close(); //Closes Database Connections
             Close(); //Closes Program
         }
 
         private void btnSettingsClose_Click(object sender, EventArgs e)
         {
-            connection.Close();
+            connection.Close(); //Closes Database Connections
             Close(); //Closes Program
         }
 
         private void btnLight_Click(object sender, EventArgs e)
         {
             skinManager.Theme = MaterialSkinManager.Themes.LIGHT; //Changes Material Skin Theme to Light
+            
+            /*
+             * Change Graph Text Colour
+             */
             crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
             crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
             crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
@@ -212,6 +217,10 @@ namespace David_Arduino
         private void btnDark_Click(object sender, EventArgs e)
         {
             skinManager.Theme = MaterialSkinManager.Themes.DARK; //Changes Material Skin Theme to Dark
+
+            /*
+             * Change Graph Text Colour
+             */
             crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
             crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
             crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.White;
@@ -343,6 +352,7 @@ namespace David_Arduino
 
         private void cbHitTimer_CheckedChanged(object sender, EventArgs e)
         {
+            //Enables Controls for setting and using a Timer
             if(cbHitTimer.Checked)
             {
                 lblHitTimer.Enabled = true;
@@ -362,7 +372,7 @@ namespace David_Arduino
 
         }
 
-        private void btnDBCheck_Click(object sender, EventArgs e)
+        private void btnDBCheck_Click(object sender, EventArgs e) //Check Database Connection
         {
             if(connection.State == ConnectionState.Open)
             {
@@ -372,26 +382,33 @@ namespace David_Arduino
 
         private void btnGraphMainGenerateGraph_Click(object sender, EventArgs e)
         {
-            if(hitDataSeries != null)
+            if(hitDataSeries != null) //Checks if Graph is already populated and clears then repopulates
             {
                 hitDataSeries.Points.Clear();
                 dFunc.GenerateMainGraph();
             }
-            else
+            else //If it's clear, just populates it.
             {
                 dFunc.GenerateMainGraph();
             }
             
         }
 
+        /*
+         * Map Data Points to the graph
+         */
         public void MapHitDataSeries(List<HitDataPoint> hitDataPoints)
         {
-            hitDataSeries = crtGraphMain.Series["HitData"];
+            hitDataSeries = crtGraphMain.Series["HitData"]; //Object that Data Points are added to.
 
-            if(cmbGraphMainUnits.SelectedItem.ToString() == "Force")
+            if(cmbGraphMainUnits.SelectedItem.ToString() == "Force") //Force is selected in Combo Box
             {
+                /*
+                 * Set Axis Title and Text Colour according to Current Theme.
+                 */
                 crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
-                if(skinManager.Theme == MaterialSkinManager.Themes.DARK)
+                crtGraphMain.ChartAreas[0].AxisY.Title = "Force";
+                if (skinManager.Theme == MaterialSkinManager.Themes.DARK)
                 {
                     crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
                     crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
@@ -405,7 +422,10 @@ namespace David_Arduino
                     crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
                     crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
                 }
-                crtGraphMain.ChartAreas[0].AxisY.Title = "Force";
+
+                /*
+                 * Loop through List of Data Points and add them to the Points of the Graph.
+                 */
                 foreach (HitDataPoint point in hitDataPoints)
                 {
                     hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetForce());
@@ -413,8 +433,30 @@ namespace David_Arduino
             }
             else if(cmbGraphMainUnits.SelectedItem.ToString() == "Acceleration")
             {
+
+                /*
+                 * Set Axis Title and Text Colour according to Current Theme.
+                 */
                 crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
                 crtGraphMain.ChartAreas[0].AxisY.Title = "Acceleration";
+                if (skinManager.Theme == MaterialSkinManager.Themes.DARK)
+                {
+                    crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
+                    crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
+                    crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.White;
+                    crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+                }
+                else if (skinManager.Theme == MaterialSkinManager.Themes.LIGHT)
+                {
+                    crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
+                    crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
+                    crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
+                    crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
+                }
+
+                /*
+                 * Loop through List of Data Points and add them to the Points of the Graph.
+                 */
                 foreach (HitDataPoint point in hitDataPoints)
                 {
                     hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetAccel());
@@ -424,7 +466,7 @@ namespace David_Arduino
 
         private void btnGraphMainClearGraph_Click(object sender, EventArgs e)
         {
-            hitDataSeries.Points.Clear();
+            hitDataSeries.Points.Clear(); //Clears the Graph of any points
         }
     }
 }
