@@ -204,14 +204,18 @@ namespace David_Arduino
         {
             skinManager.Theme = MaterialSkinManager.Themes.LIGHT; //Changes Material Skin Theme to Light
             crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
+            crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
             crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
+            crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
         }
 
         private void btnDark_Click(object sender, EventArgs e)
         {
             skinManager.Theme = MaterialSkinManager.Themes.DARK; //Changes Material Skin Theme to Dark
             crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
+            crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
             crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.White;
+            crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
         }
 
         /*
@@ -393,6 +397,13 @@ namespace David_Arduino
                     crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
                     crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.White;
                     crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+                }
+                else if(skinManager.Theme == MaterialSkinManager.Themes.LIGHT)
+                {
+                    crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
+                    crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
+                    crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
+                    crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
                 }
                 crtGraphMain.ChartAreas[0].AxisY.Title = "Force";
                 foreach (HitDataPoint point in hitDataPoints)
