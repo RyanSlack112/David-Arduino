@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace David_Arduino
 {
@@ -130,6 +131,33 @@ namespace David_Arduino
 
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public List<HitDataPoint> GetHitDataFromDb(string username, string day)
+        {
+            List<HitDataPoint> hitDataPoints = new List<HitDataPoint>();
+            using(SqlCommand cmd = new SqlCommand("SELECT time, force, acceleration FROM HitData WHERE username = @username AND day = @day", connection))
+            {
+                SqlParameter userParam = new SqlParameter("username", SqlDbType.VarChar, 50);
+                userParam.Value = username;
+                cmd.Parameters.Add(userParam);
+
+                SqlParameter dayParam = new SqlParameter("day", SqlDbType.Date);
+                dayParam.Value = day;
+                cmd.Parameters.Add(dayParam);
+
+                using(SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        HitDataPoint hitDataPoint = new HitDataPoint();
+                        hitDataPoint.SetTime(reader.GetTimeSpan(0));hitDataPoint.SetForce(Convert.ToSingle(reader.GetDouble(1)));
+                        hitDataPoint.SetAccel(Convert.ToSingle(reader.GetDouble(2)));
+                        hitDataPoints.Add(hitDataPoint);
+                    }
+                }
+            }
+            return hitDataPoints;
         }
     }
 }

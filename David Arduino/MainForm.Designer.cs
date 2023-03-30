@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +68,8 @@
             this.tabGraph = new System.Windows.Forms.TabPage();
             this.tabsGraphView = new MaterialSkin.Controls.MaterialTabControl();
             this.tabGraphMain = new System.Windows.Forms.TabPage();
+            this.pnlGraphMiain = new System.Windows.Forms.Panel();
+            this.crtGraphMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlGraphMainControls = new System.Windows.Forms.Panel();
             this.pnlGraphMainButtons = new System.Windows.Forms.Panel();
             this.btnGraphMainClearGraph = new MaterialSkin.Controls.MaterialButton();
@@ -109,7 +114,7 @@
             this.pnlStatsButtons = new System.Windows.Forms.Panel();
             this.btnStatsClose = new MaterialSkin.Controls.MaterialButton();
             this.tabSettings = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDBCheck = new System.Windows.Forms.Panel();
             this.btnDBCheck = new MaterialSkin.Controls.MaterialButton();
             this.lblDBCheck = new MaterialSkin.Controls.MaterialLabel();
             this.pnlSettingsClose = new System.Windows.Forms.Panel();
@@ -141,6 +146,8 @@
             this.tabGraph.SuspendLayout();
             this.tabsGraphView.SuspendLayout();
             this.tabGraphMain.SuspendLayout();
+            this.pnlGraphMiain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.crtGraphMain)).BeginInit();
             this.pnlGraphMainControls.SuspendLayout();
             this.pnlGraphMainButtons.SuspendLayout();
             this.pnlGraphMainDate.SuspendLayout();
@@ -160,7 +167,7 @@
             this.tabsStatistics.SuspendLayout();
             this.pnlStatsButtons.SuspendLayout();
             this.tabSettings.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlDBCheck.SuspendLayout();
             this.pnlSettingsClose.SuspendLayout();
             this.pnlMassInput.SuspendLayout();
             this.pnlCheck.SuspendLayout();
@@ -720,6 +727,7 @@
             // 
             // tabGraphMain
             // 
+            this.tabGraphMain.Controls.Add(this.pnlGraphMiain);
             this.tabGraphMain.Controls.Add(this.pnlGraphMainControls);
             this.tabGraphMain.Location = new System.Drawing.Point(4, 22);
             this.tabGraphMain.Name = "tabGraphMain";
@@ -728,6 +736,37 @@
             this.tabGraphMain.TabIndex = 0;
             this.tabGraphMain.Text = "Main";
             this.tabGraphMain.UseVisualStyleBackColor = true;
+            // 
+            // pnlGraphMiain
+            // 
+            this.pnlGraphMiain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphMiain.Controls.Add(this.crtGraphMain);
+            this.pnlGraphMiain.Location = new System.Drawing.Point(6, 3);
+            this.pnlGraphMiain.Name = "pnlGraphMiain";
+            this.pnlGraphMiain.Size = new System.Drawing.Size(827, 397);
+            this.pnlGraphMiain.TabIndex = 1;
+            // 
+            // crtGraphMain
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.crtGraphMain.ChartAreas.Add(chartArea2);
+            this.crtGraphMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.crtGraphMain.Legends.Add(legend2);
+            this.crtGraphMain.Location = new System.Drawing.Point(0, 0);
+            this.crtGraphMain.Name = "crtGraphMain";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.MarkerColor = System.Drawing.Color.Black;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series2.Name = "HitData";
+            this.crtGraphMain.Series.Add(series2);
+            this.crtGraphMain.Size = new System.Drawing.Size(827, 397);
+            this.crtGraphMain.TabIndex = 0;
             // 
             // pnlGraphMainControls
             // 
@@ -774,6 +813,7 @@
             this.btnGraphMainClearGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnGraphMainClearGraph.UseAccentColor = false;
             this.btnGraphMainClearGraph.UseVisualStyleBackColor = true;
+            this.btnGraphMainClearGraph.Click += new System.EventHandler(this.btnGraphMainClearGraph_Click);
             // 
             // btnGraphMainGenerateGraph
             // 
@@ -796,6 +836,7 @@
             this.btnGraphMainGenerateGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnGraphMainGenerateGraph.UseAccentColor = false;
             this.btnGraphMainGenerateGraph.UseVisualStyleBackColor = true;
+            this.btnGraphMainGenerateGraph.Click += new System.EventHandler(this.btnGraphMainGenerateGraph_Click);
             // 
             // pnlGraphMainDate
             // 
@@ -840,9 +881,9 @@
             this.pnlGraphMainUnits.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGraphMainUnits.Controls.Add(this.cmbGraphMainUnits);
             this.pnlGraphMainUnits.Controls.Add(this.lblGraphMainChooseUnit);
-            this.pnlGraphMainUnits.Location = new System.Drawing.Point(3, 14);
+            this.pnlGraphMainUnits.Location = new System.Drawing.Point(3, 1);
             this.pnlGraphMainUnits.Name = "pnlGraphMainUnits";
-            this.pnlGraphMainUnits.Size = new System.Drawing.Size(194, 119);
+            this.pnlGraphMainUnits.Size = new System.Drawing.Size(194, 132);
             this.pnlGraphMainUnits.TabIndex = 0;
             // 
             // cmbGraphMainUnits
@@ -1369,7 +1410,7 @@
             // 
             // tabSettings
             // 
-            this.tabSettings.Controls.Add(this.panel1);
+            this.tabSettings.Controls.Add(this.pnlDBCheck);
             this.tabSettings.Controls.Add(this.pnlSettingsClose);
             this.tabSettings.Controls.Add(this.pnlMassInput);
             this.tabSettings.Controls.Add(this.pnlCheck);
@@ -1382,14 +1423,14 @@
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // pnlDBCheck
             // 
-            this.panel1.Controls.Add(this.btnDBCheck);
-            this.panel1.Controls.Add(this.lblDBCheck);
-            this.panel1.Location = new System.Drawing.Point(244, 269);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 209);
-            this.panel1.TabIndex = 8;
+            this.pnlDBCheck.Controls.Add(this.btnDBCheck);
+            this.pnlDBCheck.Controls.Add(this.lblDBCheck);
+            this.pnlDBCheck.Location = new System.Drawing.Point(244, 269);
+            this.pnlDBCheck.Name = "pnlDBCheck";
+            this.pnlDBCheck.Size = new System.Drawing.Size(200, 209);
+            this.pnlDBCheck.TabIndex = 8;
             // 
             // btnDBCheck
             // 
@@ -1721,6 +1762,8 @@
             this.tabGraph.ResumeLayout(false);
             this.tabsGraphView.ResumeLayout(false);
             this.tabGraphMain.ResumeLayout(false);
+            this.pnlGraphMiain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.crtGraphMain)).EndInit();
             this.pnlGraphMainControls.ResumeLayout(false);
             this.pnlGraphMainButtons.ResumeLayout(false);
             this.pnlGraphMainDate.ResumeLayout(false);
@@ -1742,7 +1785,7 @@
             this.pnlStatsButtons.ResumeLayout(false);
             this.pnlStatsButtons.PerformLayout();
             this.tabSettings.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pnlDBCheck.ResumeLayout(false);
             this.pnlSettingsClose.ResumeLayout(false);
             this.pnlSettingsClose.PerformLayout();
             this.pnlMassInput.ResumeLayout(false);
@@ -1849,9 +1892,11 @@
         private System.Windows.Forms.Panel pnlGraphControlUnits;
         private MaterialSkin.Controls.MaterialComboBox cbGraphControlUnits;
         private MaterialSkin.Controls.MaterialLabel lblGraphControlChooseUnit;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlDBCheck;
         private MaterialSkin.Controls.MaterialButton btnDBCheck;
         private MaterialSkin.Controls.MaterialLabel lblDBCheck;
+        private System.Windows.Forms.Panel pnlGraphMiain;
+        private System.Windows.Forms.DataVisualization.Charting.Chart crtGraphMain;
     }
 }
 

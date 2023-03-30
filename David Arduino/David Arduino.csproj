@@ -54,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Data Functions.cs" />
     <Compile Include="DBFunctions.cs" />
+    <Compile Include="GraphClasses.cs" />
     <Compile Include="HitData.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>

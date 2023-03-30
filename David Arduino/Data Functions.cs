@@ -23,8 +23,9 @@ namespace David_Arduino
         MainForm _mainForm;
         DBFunctions dbFunctions;
         List<HitData> hitDataList;
+        string username;
 
-        public Data_Functions(MainForm mainForm, DBFunctions dbFunctions) //Constructor
+        public Data_Functions(MainForm mainForm, DBFunctions dbFunctions, string username) //Constructor
         {
             //portName = getPortName();
             port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One); //Intialize Port
@@ -37,6 +38,7 @@ namespace David_Arduino
             _mainForm = mainForm;
             this.dbFunctions = dbFunctions;
             hitDataList = new List<HitData>();
+            this.username = username;
         }
 
         private string GetPortName()
@@ -225,6 +227,14 @@ namespace David_Arduino
                     // The serial port was closed
                 }
             }
+        }
+
+        public void GenerateMainGraph()
+        {
+            string day = _mainForm.GetGraphMainDate();
+            List<HitDataPoint> hitDataPoints = dbFunctions.GetHitDataFromDb(username, day);
+            
+            _mainForm.MapHitDataSeries(hitDataPoints);
         }
     }
 }

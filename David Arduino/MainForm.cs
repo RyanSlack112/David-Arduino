@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using System.Media;
 using System.Data.SqlClient;
 using System.Threading;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace David_Arduino
 {
@@ -26,6 +27,7 @@ namespace David_Arduino
         public bool isRunning; //If Program is Running
         SqlConnection connection;
         string username;
+        Series hitDataSeries;
 
         public MainForm(SqlConnection con, string username)
         {
@@ -41,7 +43,7 @@ namespace David_Arduino
             connection = con;
             this.username = username;
             dbFunctions = new DBFunctions(this, connection, username);
-            dFunc = new Data_Functions(this, dbFunctions);
+            dFunc = new Data_Functions(this, dbFunctions, username);
             txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
         }
 
@@ -68,6 +70,11 @@ namespace David_Arduino
         public string GetComboUnitText() //Returns the value of the combo box on the page
         {
             return cmbUnit.SelectedItem.ToString();
+        }
+
+        public string GetGraphMainDate()
+        {
+            return dtpGraphMainDate.Text;
         }
 
         /*
@@ -196,11 +203,15 @@ namespace David_Arduino
         private void btnLight_Click(object sender, EventArgs e)
         {
             skinManager.Theme = MaterialSkinManager.Themes.LIGHT; //Changes Material Skin Theme to Light
+            crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
+            crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
         }
 
         private void btnDark_Click(object sender, EventArgs e)
         {
             skinManager.Theme = MaterialSkinManager.Themes.DARK; //Changes Material Skin Theme to Dark
+            crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
+            crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.White;
         }
 
         /*
@@ -353,6 +364,56 @@ namespace David_Arduino
             {
                 MessageBox.Show("The Database is connected", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnGraphMainGenerateGraph_Click(object sender, EventArgs e)
+        {
+            if(hitDataSeries != null)
+            {
+                hitDataSeries.Points.Clear();
+                dFunc.GenerateMainGraph();
+            }
+            else
+            {
+                dFunc.GenerateMainGraph();
+            }
+            
+        }
+
+        public void MapHitDataSeries(List<HitDataPoint> hitDataPoints)
+        {
+            hitDataSeries = crtGraphMain.Series["HitData"];
+
+            if(cmbGraphMainUnits.SelectedItem.ToString() == "Force")
+            {
+                crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
+                if(skinManager.Theme == MaterialSkinManager.Themes.DARK)
+                {
+                    crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
+                    crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
+                    crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.White;
+                    crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+                }
+                crtGraphMain.ChartAreas[0].AxisY.Title = "Force";
+                foreach (HitDataPoint point in hitDataPoints)
+                {
+                    hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetForce());
+                }
+            }
+            else if(cmbGraphMainUnits.SelectedItem.ToString() == "Acceleration")
+            {
+                crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
+                crtGraphMain.ChartAreas[0].AxisY.Title = "Acceleration";
+                foreach (HitDataPoint point in hitDataPoints)
+                {
+                    hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetAccel());
+                }
+            }
+        }
+
+        private void btnGraphMainClearGraph_Click(object sender, EventArgs e)
+        {
+            hitDataSeries.Points.Clear();
         }
     }
 }
