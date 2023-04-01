@@ -437,6 +437,7 @@ namespace David_Arduino
          */
         public void MapControlDataSeries(List<ControlDataPoint> controlDataPoints)
         {
+            controlDataSeries = crtGraphControl.Series["ControlData"];
             if (cmbGraphControlUnits.SelectedItem.ToString() == "Force") //Force is selected in Combo Box
             {
                 /*

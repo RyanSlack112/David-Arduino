@@ -175,18 +175,6 @@ namespace David_Arduino
             }
         }
 
-        public void TestLabel()
-        {
-
-            while(_mainForm.isMainRunning)
-            {
-                Random rnd = new Random();
-                int testVal = rnd.Next();
-                Thread.Sleep(1000);
-                ChangeMainLabel(testVal.ToString());
-            }
-        }
-
         /*
          * Populates the X, Y and Z values from the Arduino data and performs calculations
          * of Acceleration and Force.

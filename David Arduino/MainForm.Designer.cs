@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -527,24 +527,24 @@
             // 
             // crtGraphMain
             // 
-            chartArea11.Name = "ChartArea1";
-            this.crtGraphMain.ChartAreas.Add(chartArea11);
+            chartArea1.Name = "ChartArea1";
+            this.crtGraphMain.ChartAreas.Add(chartArea1);
             this.crtGraphMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend11.Enabled = false;
-            legend11.Name = "Legend1";
-            this.crtGraphMain.Legends.Add(legend11);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.crtGraphMain.Legends.Add(legend1);
             this.crtGraphMain.Location = new System.Drawing.Point(0, 0);
             this.crtGraphMain.Name = "crtGraphMain";
-            series11.BorderWidth = 5;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Color = System.Drawing.Color.DimGray;
-            series11.Legend = "Legend1";
-            series11.MarkerColor = System.Drawing.Color.Black;
-            series11.MarkerSize = 8;
-            series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series11.Name = "HitData";
-            this.crtGraphMain.Series.Add(series11);
+            series1.BorderWidth = 5;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.DimGray;
+            series1.Legend = "Legend1";
+            series1.MarkerColor = System.Drawing.Color.Black;
+            series1.MarkerSize = 8;
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series1.Name = "HitData";
+            this.crtGraphMain.Series.Add(series1);
             this.crtGraphMain.Size = new System.Drawing.Size(827, 360);
             this.crtGraphMain.TabIndex = 0;
             // 
@@ -895,26 +895,26 @@
             // 
             // crtGraphControl
             // 
-            chartArea12.Name = "ChartArea1";
-            this.crtGraphControl.ChartAreas.Add(chartArea12);
+            chartArea2.Name = "ChartArea1";
+            this.crtGraphControl.ChartAreas.Add(chartArea2);
             this.crtGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend12.Enabled = false;
-            legend12.Name = "Legend1";
-            this.crtGraphControl.Legends.Add(legend12);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.crtGraphControl.Legends.Add(legend2);
             this.crtGraphControl.Location = new System.Drawing.Point(0, 0);
             this.crtGraphControl.Name = "crtGraphControl";
-            series12.BorderColor = System.Drawing.Color.Transparent;
-            series12.BorderWidth = 5;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Color = System.Drawing.Color.DimGray;
-            series12.Legend = "Legend1";
-            series12.MarkerColor = System.Drawing.Color.Black;
-            series12.MarkerSize = 8;
-            series12.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series12.Name = "controlDataSeries";
-            series12.ShadowColor = System.Drawing.Color.Transparent;
-            this.crtGraphControl.Series.Add(series12);
+            series2.BorderColor = System.Drawing.Color.Transparent;
+            series2.BorderWidth = 5;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.DimGray;
+            series2.Legend = "Legend1";
+            series2.MarkerColor = System.Drawing.Color.Black;
+            series2.MarkerSize = 8;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series2.Name = "ControlData";
+            series2.ShadowColor = System.Drawing.Color.Transparent;
+            this.crtGraphControl.Series.Add(series2);
             this.crtGraphControl.Size = new System.Drawing.Size(832, 354);
             this.crtGraphControl.TabIndex = 0;
             this.crtGraphControl.Text = "chart1";

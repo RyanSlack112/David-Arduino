@@ -67,40 +67,19 @@ namespace David_Arduino
             
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            dbFunctions.Register(); //Register Function
-        }
+        private void btnRegister_Click(object sender, EventArgs e) { dbFunctions.Register(); /*Register Function*/}
 
-        public string GetTxtRegisterPass() //Return Text from Password Field on Register Tab
-        {
-            return txtRegisterPass.Text; 
-        }
+        public string GetTxtRegisterPass() { return txtRegisterPass.Text; } //Return Text from Password Field on Register Tab
 
-        public string GetTxtRegisterPassConfirm() //Return Text from Password Confirm Field on Register Tab
-        {
-            return txtRegisterPassConfirm.Text;
-        }
+        public string GetTxtRegisterPassConfirm() { return txtRegisterPassConfirm.Text; } //Return Text from Password Confirm Field on Register Tab
 
-        public string GetTxtRegisterUsername() //Return Text from Username Field on Register Tab
-        {
-            return txtRegisterUsername.Text;
-        }
+        public string GetTxtRegisterUsername() { return txtRegisterUsername.Text; } //Return Text from Username Field on Register Tab
 
-        public string GetTxtRegisterFirstName() //Return Text from First Name Field on Register Tab
-        {
-            return txtRegisterFirstName.Text;
-        }
+        public string GetTxtRegisterFirstName() { return txtRegisterFirstName.Text; } //Return Text from First Name Field on Register Tab
 
-        public string GetTxtRegisterLastName() //Return Text from Last Name Fiel on Register Tab
-        {
-            return txtRegisterLastName.Text;
-        }
+        public string GetTxtRegisterLastName() { return txtRegisterLastName.Text; } //Return Text from Last Name Fiel on Register Tab
 
-        public string GetTxtRegisterEmail() //Return Text from Email Field On Register Tab
-        {
-            return txtRegisterEmail.Text;
-        }
+        public string GetTxtRegisterEmail() { return txtRegisterEmail.Text; } //Return Text from Email Field On Register Tab
     }
 }
 
