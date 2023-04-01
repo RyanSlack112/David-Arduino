@@ -24,7 +24,9 @@ namespace David_Arduino
         Data_Functions dFunc; //Data Function Object
         DBFunctions dbFunctions; //Database Functions Object
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
-        public bool isRunning; //If Program is Running
+        public bool isMainRunning; //If Main Page is Running
+        public bool isHitCounterRunning; //If Hit Counter Is Running
+        public bool isControlRunning; //If Control Is Running
         SqlConnection connection; //Database Connection
         string username; //Signed In Username
         Series hitDataSeries; //Points for Main Graph
@@ -40,54 +42,28 @@ namespace David_Arduino
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkinManager.Themes.DARK;
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-            
+
             //Default Values
-            connection = con;
-            this.username = username;
-            dbFunctions = new DBFunctions(this, connection, username);
-            dFunc = new Data_Functions(this, dbFunctions, username);
-            txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
-
-            /*crtGraphMain.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-            crtGraphMain.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
-            crtGraphMain.ChartAreas[0].AxisX.MinorGrid.Enabled = false;
-            crtGraphMain.ChartAreas[0].AxisY.MinorGrid.Enabled = false;*/
+            connection = con; //DB Connection
+            this.username = username; //Signed in Username
+            dbFunctions = new DBFunctions(this, connection, username); //Database Functions
+            dFunc = new Data_Functions(this, dbFunctions, username); //Data Functions
+            txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs"; //Sets Current Mass Text Box
         }
 
-        public MaterialLabel GetMainLabel() //Returns the Label on the Main Page
-        {
-            return lblOutput;
-        }
+        public MaterialLabel GetMainLabel() { return lblOutput; } //Returns the Label on the Main Page
 
-        public string GetOutputLabelText() //Output Label Getter
-        {
-            return lblOutput.Text;
-        }
+        public string GetOutputLabelText() { return lblOutput.Text; } //Output Label Getter
 
-        public void SetOutputLabel(string outputText) //Output Label Setter
-        {
-            lblOutput.Text = outputText;
-        }
+        public void SetOutputLabel(string outputText) { lblOutput.Text = outputText; } //Output Label Setter
 
-        public MaterialComboBox GetMainComboBox() //Returns the Combo Box from the Main Page
-        {
-            return cmbUnit;
-        }
+        public MaterialComboBox GetMainComboBox() { return cmbUnit; } //Returns the Combo Box from the Main Page
 
-        public string GetComboUnitText() //Returns the value of the combo box on the page
-        {
-            return cmbUnit.SelectedItem.ToString();
-        }
+        public string GetComboUnitText() { return cmbUnit.SelectedItem.ToString(); } //Returns the value of the combo box on the page
 
-        public string GetGraphMainDate() //Returns the Date Selected in the Graph Main View
-        {
-            return dtpGraphMainDate.Text;
-        }
+        public string GetGraphMainDate() { return dtpGraphMainDate.Text; } //Returns the Date Selected in the Graph Main View
 
-        public string GetGraphControlDate() //Returns the Date Selected in the Graph Control View
-        {
-            return dtpGraphControlDate.Text;
-        }
+        public string GetGraphControlDate() { return dtpGraphControlDate.Text; } //Returns the Date Selected in the Graph Control View
 
         /*
          * Start Running the Program and initiate the Thread for the background
@@ -96,12 +72,11 @@ namespace David_Arduino
         {
             Task readArduinoThread = new Task(() => //Create a new Thread to run the loop
             {
-                while (isRunning) //Continuously Read the Data from the Arduino
+                while (isMainRunning) //Continuously Read the Data from the Arduino
                 {
-                    //dFunc.TestLabel();
                     dFunc.GetArduinoOutput(username);
                 }
-            }); 
+            });
             readArduinoThread.Start(); //Start the Thread
         }
 
@@ -122,7 +97,7 @@ namespace David_Arduino
                 /*
                  * Enable the reading of the Data from the Arduino
                  */
-                isRunning = true;
+                isMainRunning = true;
                 StartRunning(); //Start reading from the Arduino
             }
             catch (IOException)
@@ -141,7 +116,7 @@ namespace David_Arduino
             btnStart.Enabled = true;
             btnStart.Visible = true;
 
-            isRunning = false; //Stop the Loop and stop the reading of the data from the Arduino
+            isMainRunning = false; //Stop the Loop and stop the reading of the data from the Arduino
 
             dFunc.ClosePort(); //Closes port to the Arduino
             dFunc.AddHitData();
@@ -152,15 +127,15 @@ namespace David_Arduino
         private void CheckStatsDialog(TabPage currentTab)
         {
             TabPage switchTab = null; //Variable to store the tab within Statistics to switch to.
-            if(currentTab == tabMain) //switchTab is Main Page
+            if (currentTab == tabMain) //switchTab is Main Page
             {
                 switchTab = tabStatsMain;
             }
-            else if(currentTab == tabHitCounter) //switchTab is Hit Counter
+            else if (currentTab == tabHitCounter) //switchTab is Hit Counter
             {
                 switchTab = tabStatsHitCounter;
             }
-            else if(currentTab == tabControl) //switchTab is Control
+            else if (currentTab == tabControl) //switchTab is Control
             {
                 switchTab = tabStatsControl;
             }
@@ -215,14 +190,12 @@ namespace David_Arduino
         private void btnLight_Click(object sender, EventArgs e)
         {
             skinManager.Theme = MaterialSkinManager.Themes.LIGHT; //Changes Material Skin Theme to Light
-            
+
             /*
              * Change Graph Text Colour
              */
-            crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
-            crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
-            crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
-            crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
+            GraphFunctions.ChangeGraphColours(crtGraphMain);
+            GraphFunctions.ChangeGraphColours(crtGraphControl);
         }
 
         private void btnDark_Click(object sender, EventArgs e)
@@ -232,10 +205,8 @@ namespace David_Arduino
             /*
              * Change Graph Text Colour
              */
-            crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
-            crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
-            crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.White;
-            crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+            GraphFunctions.ChangeGraphColours(crtGraphMain);
+            GraphFunctions.ChangeGraphColours(crtGraphControl);
         }
 
         /*
@@ -243,19 +214,19 @@ namespace David_Arduino
          */
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabs.SelectedTab == tabMain)
+            if (tabs.SelectedTab == tabMain)
             {
                 this.Text = "Main Page";
             }
-            else if(tabs.SelectedTab == tabHitCounter)
+            else if (tabs.SelectedTab == tabHitCounter)
             {
                 this.Text = "Hit Counter";
             }
-            else if(tabs.SelectedTab == tabControl)
+            else if (tabs.SelectedTab == tabControl)
             {
                 this.Text = "Control";
             }
-            else if (tabs.SelectedTab == tabGraph) 
+            else if (tabs.SelectedTab == tabGraph)
             {
                 this.Text = "Graph View";
             }
@@ -286,11 +257,6 @@ namespace David_Arduino
             }
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            SetOutputLabel(GetComboUnitText());
-        }
-
         private void btnChangeMass_Click(object sender, EventArgs e)
         {
             try
@@ -306,11 +272,6 @@ namespace David_Arduino
             }
         }
 
-        private void btnTestMass_Click(object sender, EventArgs e)
-        {
-            SetOutputLabel(dFunc.GetMass().ToString());
-        }
-
         private void btnHitCounterStart_Click(object sender, EventArgs e)
         {
             /*
@@ -324,7 +285,6 @@ namespace David_Arduino
 
         private void btnHitCounterStop_Click(object sender, EventArgs e)
         {
-
             /*
              * Button Visibility
              */
@@ -349,7 +309,6 @@ namespace David_Arduino
 
         private void btnControlStop_Click(object sender, EventArgs e)
         {
-
             /*
              * Button Visibility
              */
@@ -364,13 +323,13 @@ namespace David_Arduino
         private void cbHitTimer_CheckedChanged(object sender, EventArgs e)
         {
             //Enables Controls for setting and using a Timer
-            if(cbHitTimer.Checked)
+            if (cbHitTimer.Checked)
             {
                 lblHitTimer.Enabled = true;
                 txtHitTimer.Enabled = true;
                 btnHitTimer.Enabled = true;
             }
-            else if(!cbHitTimer.Checked)
+            else if (!cbHitTimer.Checked)
             {
                 lblHitTimer.Enabled = false;
                 txtHitTimer.Enabled = false;
@@ -385,7 +344,7 @@ namespace David_Arduino
 
         private void btnDBCheck_Click(object sender, EventArgs e) //Check Database Connection
         {
-            if(connection.State == ConnectionState.Open)
+            if (connection.State == ConnectionState.Open)
             {
                 MessageBox.Show("The Database is connected", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -393,7 +352,7 @@ namespace David_Arduino
 
         private void btnGraphMainGenerateGraph_Click(object sender, EventArgs e)
         {
-            if(hitDataSeries != null) //Checks if Graph is already populated and clears then repopulates
+            if (hitDataSeries != null) //Checks if Graph is already populated and clears then repopulates
             {
                 hitDataSeries.Points.Clear();
                 dFunc.GenerateMainGraph();
@@ -402,7 +361,6 @@ namespace David_Arduino
             {
                 dFunc.GenerateMainGraph();
             }
-            
         }
 
         private void btnGraphMainClearGraph_Click(object sender, EventArgs e)
@@ -429,33 +387,20 @@ namespace David_Arduino
         }
 
         /*
-         * Map Data Points to the graph
+         * Map Hit Data Points to the Graph
          */
         public void MapHitDataSeries(List<HitDataPoint> hitDataPoints)
         {
             hitDataSeries = crtGraphMain.Series["HitData"]; //Object that Data Points are added to.
 
-            if(cmbGraphMainUnits.SelectedItem.ToString() == "Force") //Force is selected in Combo Box
+            if (cmbGraphMainUnits.SelectedItem.ToString() == "Force") //Force is selected in Combo Box
             {
                 /*
                  * Set Axis Title and Text Colour according to Current Theme.
                  */
                 crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
                 crtGraphMain.ChartAreas[0].AxisY.Title = "Force [N]";
-                if (skinManager.Theme == MaterialSkinManager.Themes.DARK)
-                {
-                    crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
-                    crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
-                    crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.White;
-                    crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
-                }
-                else if(skinManager.Theme == MaterialSkinManager.Themes.LIGHT)
-                {
-                    crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
-                    crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
-                    crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
-                    crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
-                }
+                GraphFunctions.ChangeGraphColours(crtGraphMain);
 
                 /*
                  * Loop through List of Data Points and add them to the Points of the Graph.
@@ -465,28 +410,14 @@ namespace David_Arduino
                     hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetForce());
                 }
             }
-            else if(cmbGraphMainUnits.SelectedItem.ToString() == "Acceleration")
+            else if (cmbGraphMainUnits.SelectedItem.ToString() == "Acceleration")
             {
-
                 /*
                  * Set Axis Title and Text Colour according to Current Theme.
                  */
                 crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
                 crtGraphMain.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
-                if (skinManager.Theme == MaterialSkinManager.Themes.DARK)
-                {
-                    crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
-                    crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
-                    crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.White;
-                    crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
-                }
-                else if (skinManager.Theme == MaterialSkinManager.Themes.LIGHT)
-                {
-                    crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
-                    crtGraphMain.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
-                    crtGraphMain.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
-                    crtGraphMain.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
-                }
+                GraphFunctions.ChangeGraphColours(crtGraphMain);
 
                 /*
                  * Loop through List of Data Points and add them to the Points of the Graph.
@@ -498,24 +429,42 @@ namespace David_Arduino
             }
         }
 
+        /*
+         * Map Control Data Points to the Graph
+         */
         public void MapControlDataSeries(List<ControlDataPoint> controlDataPoints)
         {
-            crtGraphControl.ChartAreas[0].AxisX.Title = "Time";
-            crtGraphControl.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
-            if (skinManager.Theme == MaterialSkinManager.Themes.DARK)
+            if (cmbGraphControlUnits.SelectedItem.ToString() == "Force") //Force is selected in Combo Box
             {
-                crtGraphControl.ChartAreas[0].AxisX.TitleForeColor = Color.White;
-                crtGraphControl.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
-                crtGraphControl.ChartAreas[0].AxisY.TitleForeColor = Color.White;
-                crtGraphControl.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+                /*
+                 * Set Axis Title and Text Colour according to Current Theme.
+                 */
+                crtGraphControl.ChartAreas[0].AxisX.Title = "Time";
+                crtGraphControl.ChartAreas[0].AxisY.Title = "Force [N]";
+                GraphFunctions.ChangeGraphColours(crtGraphControl);
+
+                /*
+                 * Loop through List of Data Points and add them to the Points of the Graph.
+                 */
+                foreach (ControlDataPoint point in controlDataPoints)
+                {
+                    //controlDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetForce());
+                }
             }
-            else if (skinManager.Theme == MaterialSkinManager.Themes.LIGHT)
+            else if (cmbGraphControlUnits.SelectedItem.ToString() == "Acceleration")
             {
-                crtGraphControl.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
-                crtGraphControl.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
-                crtGraphControl.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
-                crtGraphControl.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
+                /*
+                 * Set Axis Title and Text Colour according to Current Theme.
+                 */
+                crtGraphControl.ChartAreas[0].AxisX.Title = "Time";
+                crtGraphControl.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
+                GraphFunctions.ChangeGraphColours(crtGraphControl);
+
+                foreach (ControlDataPoint point in controlDataPoints)
+                {
+                    //controlDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetAccel());
+                }
             }
         }
-    }
+    } 
 }

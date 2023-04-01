@@ -178,7 +178,7 @@ namespace David_Arduino
         public void TestLabel()
         {
 
-            while(_mainForm.isRunning)
+            while(_mainForm.isMainRunning)
             {
                 Random rnd = new Random();
                 int testVal = rnd.Next();
