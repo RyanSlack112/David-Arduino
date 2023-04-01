@@ -27,7 +27,8 @@ namespace David_Arduino
         public bool isRunning; //If Program is Running
         SqlConnection connection; //Database Connection
         string username; //Signed In Username
-        Series hitDataSeries; //Points for Graph
+        Series hitDataSeries; //Points for Main Graph
+        Series controlDataSeries; //Points for Control Graph
 
         public MainForm(SqlConnection con, string username)
         {
@@ -46,6 +47,11 @@ namespace David_Arduino
             dbFunctions = new DBFunctions(this, connection, username);
             dFunc = new Data_Functions(this, dbFunctions, username);
             txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
+
+            /*crtGraphMain.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            crtGraphMain.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+            crtGraphMain.ChartAreas[0].AxisX.MinorGrid.Enabled = false;
+            crtGraphMain.ChartAreas[0].AxisY.MinorGrid.Enabled = false;*/
         }
 
         public MaterialLabel GetMainLabel() //Returns the Label on the Main Page
@@ -76,6 +82,11 @@ namespace David_Arduino
         public string GetGraphMainDate() //Returns the Date Selected in the Graph Main View
         {
             return dtpGraphMainDate.Text;
+        }
+
+        public string GetGraphControlDate() //Returns the Date Selected in the Graph Control View
+        {
+            return dtpGraphControlDate.Text;
         }
 
         /*
@@ -394,6 +405,29 @@ namespace David_Arduino
             
         }
 
+        private void btnGraphMainClearGraph_Click(object sender, EventArgs e)
+        {
+            hitDataSeries.Points.Clear(); //Clears the Graph of any points
+        }
+
+        private void btnGraphControlGenerateGraph_Click(object sender, EventArgs e)
+        {
+            if (controlDataSeries != null) //Checks if Graph is already populated and clears then repopulates
+            {
+                controlDataSeries.Points.Clear();
+                dFunc.GenerateControlGraph();
+            }
+            else //If it's clear, just populates it.
+            {
+                dFunc.GenerateControlGraph();
+            }
+        }
+
+        private void btnGraphControlClearGraph_Click(object sender, EventArgs e)
+        {
+            controlDataSeries.Points.Clear();
+        }
+
         /*
          * Map Data Points to the graph
          */
@@ -407,7 +441,7 @@ namespace David_Arduino
                  * Set Axis Title and Text Colour according to Current Theme.
                  */
                 crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
-                crtGraphMain.ChartAreas[0].AxisY.Title = "Force";
+                crtGraphMain.ChartAreas[0].AxisY.Title = "Force [N]";
                 if (skinManager.Theme == MaterialSkinManager.Themes.DARK)
                 {
                     crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
@@ -438,7 +472,7 @@ namespace David_Arduino
                  * Set Axis Title and Text Colour according to Current Theme.
                  */
                 crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
-                crtGraphMain.ChartAreas[0].AxisY.Title = "Acceleration";
+                crtGraphMain.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
                 if (skinManager.Theme == MaterialSkinManager.Themes.DARK)
                 {
                     crtGraphMain.ChartAreas[0].AxisX.TitleForeColor = Color.White;
@@ -464,9 +498,24 @@ namespace David_Arduino
             }
         }
 
-        private void btnGraphMainClearGraph_Click(object sender, EventArgs e)
+        public void MapControlDataSeries(List<ControlDataPoint> controlDataPoints)
         {
-            hitDataSeries.Points.Clear(); //Clears the Graph of any points
+            crtGraphControl.ChartAreas[0].AxisX.Title = "Time";
+            crtGraphControl.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
+            if (skinManager.Theme == MaterialSkinManager.Themes.DARK)
+            {
+                crtGraphControl.ChartAreas[0].AxisX.TitleForeColor = Color.White;
+                crtGraphControl.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
+                crtGraphControl.ChartAreas[0].AxisY.TitleForeColor = Color.White;
+                crtGraphControl.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+            }
+            else if (skinManager.Theme == MaterialSkinManager.Themes.LIGHT)
+            {
+                crtGraphControl.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
+                crtGraphControl.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
+                crtGraphControl.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
+                crtGraphControl.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
+            }
         }
     }
 }

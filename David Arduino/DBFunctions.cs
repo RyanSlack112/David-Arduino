@@ -212,5 +212,11 @@ namespace David_Arduino
             }
             return hitDataPoints;
         }
+
+        public List<ControlDataPoint> GetControlDataFromDb(string username, string day)
+        {
+            List<ControlDataPoint> controlDataPoints = new List<ControlDataPoint>();
+            return controlDataPoints;
+        }
     }
 }

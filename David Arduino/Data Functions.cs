@@ -248,7 +248,7 @@ namespace David_Arduino
         }
 
         /*
-         * Retrieves the data from the Database to populate the Data Points
+         * Retrieves the hit data from the Database to populate the Data Points
          * Return the List of the Data Points
          * Map the List of Data Points to the Graph
          */
@@ -258,6 +258,19 @@ namespace David_Arduino
             List<HitDataPoint> hitDataPoints = dbFunctions.GetHitDataFromDb(username, day); //Return a List of Data Points according to Signed in User and Day selected.
             
             _mainForm.MapHitDataSeries(hitDataPoints); //Map the List of Data Points to the Graph.
+        }
+
+        /*
+         * Retrieves the control data from the Database to populate the Data Points
+         * Return the List of the Data Points
+         * Map the List of Data Points to the Graph
+         */
+        public void GenerateControlGraph()
+        {
+            string day = _mainForm.GetGraphControlDate();
+            List<ControlDataPoint> controlDataPoints = dbFunctions.GetControlDataFromDb(username, day);
+
+            _mainForm.MapControlDataSeries(controlDataPoints);
         }
     }
 }

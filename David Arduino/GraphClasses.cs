@@ -42,4 +42,9 @@ namespace David_Arduino
             this.accel = accel;
         }
     }
+
+    public class ControlDataPoint
+    {
+
+    }
 }

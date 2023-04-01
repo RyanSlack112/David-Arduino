@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +95,7 @@
             this.cbGraphHitCounterUnits = new MaterialSkin.Controls.MaterialComboBox();
             this.lblGraphHitCounterChooseUnit = new MaterialSkin.Controls.MaterialLabel();
             this.tabGraphControl = new System.Windows.Forms.TabPage();
-            this.pnlGraphControl = new System.Windows.Forms.Panel();
+            this.pnlGraphControlControls = new System.Windows.Forms.Panel();
             this.pnlGraphControlButtons = new System.Windows.Forms.Panel();
             this.btnGraphControlClearGraph = new MaterialSkin.Controls.MaterialButton();
             this.btnGraphControlGenerateGraph = new MaterialSkin.Controls.MaterialButton();
@@ -133,6 +136,8 @@
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
+            this.pnlGraphControl = new System.Windows.Forms.Panel();
+            this.crtGraphControl = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -158,7 +163,7 @@
             this.pnlGraphHitCounterDate.SuspendLayout();
             this.pnlGraphHitCounterUnits.SuspendLayout();
             this.tabGraphControl.SuspendLayout();
-            this.pnlGraphControl.SuspendLayout();
+            this.pnlGraphControlControls.SuspendLayout();
             this.pnlGraphControlButtons.SuspendLayout();
             this.pnlGraphControlDate.SuspendLayout();
             this.pnlGraphControlUnits.SuspendLayout();
@@ -172,6 +177,8 @@
             this.pnlMassInput.SuspendLayout();
             this.pnlCheck.SuspendLayout();
             this.pnlTheme.SuspendLayout();
+            this.pnlGraphControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.crtGraphControl)).BeginInit();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -210,7 +217,7 @@
             this.tabs.Multiline = true;
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(1067, 575);
+            this.tabs.Size = new System.Drawing.Size(1067, 487);
             this.tabs.TabIndex = 3;
             this.tabs.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
@@ -703,7 +710,7 @@
             this.tabGraph.Location = new System.Drawing.Point(4, 39);
             this.tabGraph.Name = "tabGraph";
             this.tabGraph.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGraph.Size = new System.Drawing.Size(1059, 532);
+            this.tabGraph.Size = new System.Drawing.Size(1059, 444);
             this.tabGraph.TabIndex = 1;
             this.tabGraph.Text = "Graph View";
             this.tabGraph.UseVisualStyleBackColor = true;
@@ -722,7 +729,7 @@
             this.tabsGraphView.Multiline = true;
             this.tabsGraphView.Name = "tabsGraphView";
             this.tabsGraphView.SelectedIndex = 0;
-            this.tabsGraphView.Size = new System.Drawing.Size(1053, 432);
+            this.tabsGraphView.Size = new System.Drawing.Size(1053, 344);
             this.tabsGraphView.TabIndex = 4;
             // 
             // tabGraphMain
@@ -732,7 +739,7 @@
             this.tabGraphMain.Location = new System.Drawing.Point(4, 22);
             this.tabGraphMain.Name = "tabGraphMain";
             this.tabGraphMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGraphMain.Size = new System.Drawing.Size(1045, 406);
+            this.tabGraphMain.Size = new System.Drawing.Size(1045, 318);
             this.tabGraphMain.TabIndex = 0;
             this.tabGraphMain.Text = "Main";
             this.tabGraphMain.UseVisualStyleBackColor = true;
@@ -745,29 +752,30 @@
             this.pnlGraphMiain.Controls.Add(this.crtGraphMain);
             this.pnlGraphMiain.Location = new System.Drawing.Point(6, 3);
             this.pnlGraphMiain.Name = "pnlGraphMiain";
-            this.pnlGraphMiain.Size = new System.Drawing.Size(827, 397);
+            this.pnlGraphMiain.Size = new System.Drawing.Size(827, 309);
             this.pnlGraphMiain.TabIndex = 1;
             // 
             // crtGraphMain
             // 
-            chartArea1.Name = "ChartArea1";
-            this.crtGraphMain.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.crtGraphMain.ChartAreas.Add(chartArea3);
             this.crtGraphMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.crtGraphMain.Legends.Add(legend1);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.crtGraphMain.Legends.Add(legend3);
             this.crtGraphMain.Location = new System.Drawing.Point(0, 0);
             this.crtGraphMain.Name = "crtGraphMain";
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.DimGray;
-            series1.Legend = "Legend1";
-            series1.MarkerColor = System.Drawing.Color.Black;
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series1.Name = "HitData";
-            this.crtGraphMain.Series.Add(series1);
-            this.crtGraphMain.Size = new System.Drawing.Size(827, 397);
+            series3.BorderWidth = 5;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.DimGray;
+            series3.Legend = "Legend1";
+            series3.MarkerColor = System.Drawing.Color.Black;
+            series3.MarkerSize = 8;
+            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series3.Name = "HitData";
+            this.crtGraphMain.Series.Add(series3);
+            this.crtGraphMain.Size = new System.Drawing.Size(827, 309);
             this.crtGraphMain.TabIndex = 0;
             // 
             // pnlGraphMainControls
@@ -779,7 +787,7 @@
             this.pnlGraphMainControls.Controls.Add(this.pnlGraphMainUnits);
             this.pnlGraphMainControls.Location = new System.Drawing.Point(839, 6);
             this.pnlGraphMainControls.Name = "pnlGraphMainControls";
-            this.pnlGraphMainControls.Size = new System.Drawing.Size(200, 394);
+            this.pnlGraphMainControls.Size = new System.Drawing.Size(200, 306);
             this.pnlGraphMainControls.TabIndex = 0;
             // 
             // pnlGraphMainButtons
@@ -789,7 +797,7 @@
             this.pnlGraphMainButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGraphMainButtons.Controls.Add(this.btnGraphMainClearGraph);
             this.pnlGraphMainButtons.Controls.Add(this.btnGraphMainGenerateGraph);
-            this.pnlGraphMainButtons.Location = new System.Drawing.Point(4, 228);
+            this.pnlGraphMainButtons.Location = new System.Drawing.Point(4, 140);
             this.pnlGraphMainButtons.Name = "pnlGraphMainButtons";
             this.pnlGraphMainButtons.Size = new System.Drawing.Size(193, 163);
             this.pnlGraphMainButtons.TabIndex = 2;
@@ -846,7 +854,7 @@
             this.pnlGraphMainDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGraphMainDate.Controls.Add(this.lblGraphMainSetDate);
             this.pnlGraphMainDate.Controls.Add(this.dtpGraphMainDate);
-            this.pnlGraphMainDate.Location = new System.Drawing.Point(3, 139);
+            this.pnlGraphMainDate.Location = new System.Drawing.Point(3, 95);
             this.pnlGraphMainDate.Name = "pnlGraphMainDate";
             this.pnlGraphMainDate.Size = new System.Drawing.Size(194, 82);
             this.pnlGraphMainDate.TabIndex = 1;
@@ -1096,24 +1104,25 @@
             // tabGraphControl
             // 
             this.tabGraphControl.Controls.Add(this.pnlGraphControl);
+            this.tabGraphControl.Controls.Add(this.pnlGraphControlControls);
             this.tabGraphControl.Location = new System.Drawing.Point(4, 22);
             this.tabGraphControl.Name = "tabGraphControl";
-            this.tabGraphControl.Size = new System.Drawing.Size(1045, 406);
+            this.tabGraphControl.Size = new System.Drawing.Size(1045, 318);
             this.tabGraphControl.TabIndex = 2;
             this.tabGraphControl.Text = "Control";
             this.tabGraphControl.UseVisualStyleBackColor = true;
             // 
-            // pnlGraphControl
+            // pnlGraphControlControls
             // 
-            this.pnlGraphControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlGraphControlControls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGraphControl.Controls.Add(this.pnlGraphControlButtons);
-            this.pnlGraphControl.Controls.Add(this.pnlGraphControlDate);
-            this.pnlGraphControl.Controls.Add(this.pnlGraphControlUnits);
-            this.pnlGraphControl.Location = new System.Drawing.Point(842, 3);
-            this.pnlGraphControl.Name = "pnlGraphControl";
-            this.pnlGraphControl.Size = new System.Drawing.Size(200, 394);
-            this.pnlGraphControl.TabIndex = 1;
+            this.pnlGraphControlControls.Controls.Add(this.pnlGraphControlButtons);
+            this.pnlGraphControlControls.Controls.Add(this.pnlGraphControlDate);
+            this.pnlGraphControlControls.Controls.Add(this.pnlGraphControlUnits);
+            this.pnlGraphControlControls.Location = new System.Drawing.Point(842, 3);
+            this.pnlGraphControlControls.Name = "pnlGraphControlControls";
+            this.pnlGraphControlControls.Size = new System.Drawing.Size(200, 306);
+            this.pnlGraphControlControls.TabIndex = 1;
             // 
             // pnlGraphControlButtons
             // 
@@ -1122,7 +1131,7 @@
             this.pnlGraphControlButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGraphControlButtons.Controls.Add(this.btnGraphControlClearGraph);
             this.pnlGraphControlButtons.Controls.Add(this.btnGraphControlGenerateGraph);
-            this.pnlGraphControlButtons.Location = new System.Drawing.Point(4, 228);
+            this.pnlGraphControlButtons.Location = new System.Drawing.Point(4, 140);
             this.pnlGraphControlButtons.Name = "pnlGraphControlButtons";
             this.pnlGraphControlButtons.Size = new System.Drawing.Size(193, 163);
             this.pnlGraphControlButtons.TabIndex = 2;
@@ -1148,6 +1157,7 @@
             this.btnGraphControlClearGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnGraphControlClearGraph.UseAccentColor = false;
             this.btnGraphControlClearGraph.UseVisualStyleBackColor = true;
+            this.btnGraphControlClearGraph.Click += new System.EventHandler(this.btnGraphControlClearGraph_Click);
             // 
             // btnGraphControlGenerateGraph
             // 
@@ -1170,6 +1180,7 @@
             this.btnGraphControlGenerateGraph.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnGraphControlGenerateGraph.UseAccentColor = false;
             this.btnGraphControlGenerateGraph.UseVisualStyleBackColor = true;
+            this.btnGraphControlGenerateGraph.Click += new System.EventHandler(this.btnGraphControlGenerateGraph_Click);
             // 
             // pnlGraphControlDate
             // 
@@ -1177,7 +1188,7 @@
             this.pnlGraphControlDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGraphControlDate.Controls.Add(this.lblGraphControlDate);
             this.pnlGraphControlDate.Controls.Add(this.dtpGraphControlDate);
-            this.pnlGraphControlDate.Location = new System.Drawing.Point(3, 139);
+            this.pnlGraphControlDate.Location = new System.Drawing.Point(3, 95);
             this.pnlGraphControlDate.Name = "pnlGraphControlDate";
             this.pnlGraphControlDate.Size = new System.Drawing.Size(194, 82);
             this.pnlGraphControlDate.TabIndex = 1;
@@ -1277,7 +1288,7 @@
             // 
             this.pnlClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlClose.Controls.Add(this.btnGraphClose);
-            this.pnlClose.Location = new System.Drawing.Point(898, 480);
+            this.pnlClose.Location = new System.Drawing.Point(898, 392);
             this.pnlClose.Name = "pnlClose";
             this.pnlClose.Size = new System.Drawing.Size(158, 49);
             this.pnlClose.TabIndex = 2;
@@ -1736,11 +1747,45 @@
             this.imgList.Images.SetKeyName(4, "Hit Counter.png");
             this.imgList.Images.SetKeyName(5, "Control.png");
             // 
+            // pnlGraphControl
+            // 
+            this.pnlGraphControl.Controls.Add(this.crtGraphControl);
+            this.pnlGraphControl.Location = new System.Drawing.Point(4, 6);
+            this.pnlGraphControl.Name = "pnlGraphControl";
+            this.pnlGraphControl.Size = new System.Drawing.Size(832, 303);
+            this.pnlGraphControl.TabIndex = 2;
+            // 
+            // crtGraphControl
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.crtGraphControl.ChartAreas.Add(chartArea4);
+            this.crtGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.crtGraphControl.Legends.Add(legend4);
+            this.crtGraphControl.Location = new System.Drawing.Point(0, 0);
+            this.crtGraphControl.Name = "crtGraphControl";
+            series4.BorderColor = System.Drawing.Color.Transparent;
+            series4.BorderWidth = 5;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.DimGray;
+            series4.Legend = "Legend1";
+            series4.MarkerColor = System.Drawing.Color.Black;
+            series4.MarkerSize = 8;
+            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series4.Name = "controlDataSeries";
+            series4.ShadowColor = System.Drawing.Color.Transparent;
+            this.crtGraphControl.Series.Add(series4);
+            this.crtGraphControl.Size = new System.Drawing.Size(832, 303);
+            this.crtGraphControl.TabIndex = 0;
+            this.crtGraphControl.Text = "chart1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 642);
+            this.ClientSize = new System.Drawing.Size(1073, 554);
             this.Controls.Add(this.tabs);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.tabs;
@@ -1776,7 +1821,7 @@
             this.pnlGraphHitCounterDate.ResumeLayout(false);
             this.pnlGraphHitCounterUnits.ResumeLayout(false);
             this.tabGraphControl.ResumeLayout(false);
-            this.pnlGraphControl.ResumeLayout(false);
+            this.pnlGraphControlControls.ResumeLayout(false);
             this.pnlGraphControlButtons.ResumeLayout(false);
             this.pnlGraphControlDate.ResumeLayout(false);
             this.pnlGraphControlUnits.ResumeLayout(false);
@@ -1794,6 +1839,8 @@
             this.pnlCheck.ResumeLayout(false);
             this.pnlCheck.PerformLayout();
             this.pnlTheme.ResumeLayout(false);
+            this.pnlGraphControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.crtGraphControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1884,7 +1931,7 @@
         private System.Windows.Forms.Panel pnlGraphHitCounterUnits;
         private MaterialSkin.Controls.MaterialComboBox cbGraphHitCounterUnits;
         private MaterialSkin.Controls.MaterialLabel lblGraphHitCounterChooseUnit;
-        private System.Windows.Forms.Panel pnlGraphControl;
+        private System.Windows.Forms.Panel pnlGraphControlControls;
         private System.Windows.Forms.Panel pnlGraphControlButtons;
         private MaterialSkin.Controls.MaterialButton btnGraphControlClearGraph;
         private MaterialSkin.Controls.MaterialButton btnGraphControlGenerateGraph;
@@ -1899,6 +1946,8 @@
         private MaterialSkin.Controls.MaterialLabel lblDBCheck;
         private System.Windows.Forms.Panel pnlGraphMiain;
         private System.Windows.Forms.DataVisualization.Charting.Chart crtGraphMain;
+        private System.Windows.Forms.Panel pnlGraphControl;
+        private System.Windows.Forms.DataVisualization.Charting.Chart crtGraphControl;
     }
 }
 
