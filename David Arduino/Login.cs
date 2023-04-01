@@ -77,10 +77,7 @@ namespace David_Arduino
 
         public string GetTxtRegisterEmail() { return txtRegisterEmail.Text; } //Return Text from Email Field On Register Tab
 
-        public bool GetIsLoggedIn()
-        {
-            return isLoggedIn;
-        }
+        public bool GetIsLoggedIn() { return isLoggedIn; } //Returns the IsLoggedIn Variable value.
     }
 }
 

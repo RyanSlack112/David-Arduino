@@ -13,7 +13,7 @@ namespace David_Arduino
     {
         public static void ChangeGraphColours(Chart chart)
         {
-            MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager Instance
+            MaterialSkinManager skinManager = MaterialSkinManager.Instance;//Material Skin Manager Instance
 
             switch (skinManager.Theme)
             {
