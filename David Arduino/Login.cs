@@ -21,7 +21,7 @@ namespace David_Arduino
         SqlConnection connection;
         public MainForm main;
         MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager
-        public bool isLoggedIn { get; set; }
+        private bool isLoggedIn;
         private DBFunctions dbFunctions;
 
         public Login()
@@ -39,11 +39,6 @@ namespace David_Arduino
             dbFunctions = new DBFunctions(this, connection);
             connection = dbFunctions.ConnectToDB();
             connection.Open(); //Open Database Connection
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            startLogin(); //Login Function
         }
 
         /*
@@ -64,8 +59,9 @@ namespace David_Arduino
             {
                 MessageBox.Show("Login Failed", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
+
+        private void btnLogin_Click(object sender, EventArgs e) { startLogin(); } //Login Function
 
         private void btnRegister_Click(object sender, EventArgs e) { dbFunctions.Register(); /*Register Function*/}
 
@@ -80,6 +76,11 @@ namespace David_Arduino
         public string GetTxtRegisterLastName() { return txtRegisterLastName.Text; } //Return Text from Last Name Fiel on Register Tab
 
         public string GetTxtRegisterEmail() { return txtRegisterEmail.Text; } //Return Text from Email Field On Register Tab
+
+        public bool GetIsLoggedIn()
+        {
+            return isLoggedIn;
+        }
     }
 }
 

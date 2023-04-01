@@ -119,24 +119,24 @@ namespace David_Arduino
             isMainRunning = false; //Stop the Loop and stop the reading of the data from the Arduino
 
             dFunc.ClosePort(); //Closes port to the Arduino
-            dFunc.AddHitData();
+            dFunc.AddHitData(); //Add HitData from the List To The Database
 
-            CheckStatsDialog(tabMain);
+            CheckStatsDialog(tabMain); //Show Dialog asking to show Statistics for Main Page
         }
 
         private void CheckStatsDialog(TabPage currentTab)
         {
             TabPage switchTab = null; //Variable to store the tab within Statistics to switch to.
             
-            switch (currentTab.Name)
+            switch (currentTab.Name) //Tab that has just finished it's Function
             {
-                case "tabMain":
+                case "tabMain": //Main Page
                     switchTab = tabStatsMain;
                     break;
-                case "tabHitCounter":
+                case "tabHitCounter": //Hit Counter Page
                     switchTab = tabStatsHitCounter;
                     break;
-                case "tabControl":
+                case "tabControl": //Control Page
                     switchTab = tabStatsControl;
                     break;
                 default:
@@ -336,15 +336,14 @@ namespace David_Arduino
 
         private void cbHitTimer_CheckedChanged(object sender, EventArgs e)
         {
-            //Enables Controls for setting and using a Timer
             switch (cbHitTimer.Checked)
             {
-                case true:
+                case true: //Enables Controls for setting and using a Timer
                     lblHitTimer.Enabled = true;
                     txtHitTimer.Enabled = true;
                     btnHitTimer.Enabled = true;
                     break;
-                case false:
+                case false: //Disables Controls for setting and using a Timer
                     lblHitTimer.Enabled = false;
                     txtHitTimer.Enabled = false;
                     btnHitTimer.Enabled = false;

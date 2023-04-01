@@ -241,5 +241,18 @@ namespace David_Arduino
 
             _mainForm.MapControlDataSeries(controlDataPoints);
         }
+
+        /*
+         * Retrieves the control data from the Database to populate the Data Points
+         * Return the List of the Data Points
+         * Map the List of Data Points to the Graph
+         */
+        public void GenerateHitCounterGraph()
+        {
+            //string day = _mainForm.GetGraphHitCounterDate();
+            //List<HitCounterDataPoint> hitCounterDataPoints = dbFunctions.GetHitCounterDataFromDb(username, day);
+
+            //_mainForm.MapHitCounterDataSeries(hitCounterDataPoints);
+        }
     }
 }
