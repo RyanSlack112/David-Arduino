@@ -170,7 +170,7 @@
             this.txtLoginName.Depth = 0;
             this.txtLoginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtLoginName.HideSelection = true;
-            this.txtLoginName.Hint = "Enter Username or Email";
+            this.txtLoginName.Hint = "Enter Username";
             this.txtLoginName.LeadingIcon = null;
             this.txtLoginName.Location = new System.Drawing.Point(19, 52);
             this.txtLoginName.MaxLength = 32767;
@@ -217,7 +217,7 @@
             this.lblLoginName.Name = "lblLoginName";
             this.lblLoginName.Size = new System.Drawing.Size(372, 19);
             this.lblLoginName.TabIndex = 5;
-            this.lblLoginName.Text = "Username or Email ";
+            this.lblLoginName.Text = "Username";
             this.lblLoginName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabRegister
