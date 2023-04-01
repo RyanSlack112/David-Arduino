@@ -365,7 +365,10 @@ namespace David_Arduino
 
         private void btnGraphMainClearGraph_Click(object sender, EventArgs e)
         {
-            hitDataSeries.Points.Clear(); //Clears the Graph of any points
+            if(hitDataSeries != null)
+            {
+                hitDataSeries.Points.Clear(); //Clears the Graph of any points
+            }
         }
 
         private void btnGraphControlGenerateGraph_Click(object sender, EventArgs e)
