@@ -13,20 +13,24 @@ namespace David_Arduino
     {
         public static void ChangeGraphColours(Chart chart)
         {
-            MaterialSkinManager skinManager = MaterialSkinManager.Instance;
-            if (skinManager.Theme == MaterialSkinManager.Themes.DARK)
+            MaterialSkinManager skinManager = MaterialSkinManager.Instance; //Material Skin Manager Instance
+
+            switch (skinManager.Theme)
             {
-                chart.ChartAreas[0].AxisX.TitleForeColor = Color.White;
-                chart.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
-                chart.ChartAreas[0].AxisY.TitleForeColor = Color.White;
-                chart.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
-            }
-            else if (skinManager.Theme == MaterialSkinManager.Themes.LIGHT)
-            {
-                chart.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
-                chart.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
-                chart.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
-                chart.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
+                case MaterialSkinManager.Themes.LIGHT: //Light Theme turns Text Black
+                    chart.ChartAreas[0].AxisX.TitleForeColor = Color.Black;
+                    chart.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.Black;
+                    chart.ChartAreas[0].AxisY.TitleForeColor = Color.Black;
+                    chart.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.Black;
+                    break;
+                case MaterialSkinManager.Themes.DARK: //Dark Theme turns Text White
+                    chart.ChartAreas[0].AxisX.TitleForeColor = Color.White;
+                    chart.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
+                    chart.ChartAreas[0].AxisY.TitleForeColor = Color.White;
+                    chart.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -37,35 +41,22 @@ namespace David_Arduino
         private float force; //Force Of Hit
         private float accel; //Acceleration Of Hit
 
-        public TimeSpan GetTime() //Return Time of Hit
-        {
-            return time;
-        }
+        public TimeSpan GetTime() { return time; } //Return Time of Hit
 
-        public void SetTime(TimeSpan time) //Set Time of Hit
-        {
-            this.time = time;
-        }
+        public void SetTime(TimeSpan time) { this.time = time; } //Set Time of Hit
 
-        public float GetForce() //Return Force of Hit
-        {
-            return force;
-        }
+        public float GetForce() { return force; } //Return Force of Hit
 
-        public void SetForce(float force) //Set Force of Hit
-        {
-            this.force = force;
-        }
+        public void SetForce(float force) { this.force = force; } //Set Force of Hit
 
-        public float GetAccel() //Get Acceleration of Hit
-        {
-            return accel;
-        }
+        public float GetAccel() { return accel; } //Get Acceleration of Hit
 
-        public void SetAccel(float accel) //Set Acceleration of Hit
-        {
-            this.accel = accel;
-        }
+        public void SetAccel(float accel) { this.accel = accel; } //Set Acceleration of Hit
+    }
+
+    public class HitCounterDataPoint
+    {
+
     }
 
     public class ControlDataPoint

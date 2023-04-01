@@ -60,35 +60,17 @@ namespace David_Arduino
             return portStr;
         }
 
-        public void OpenPort() //Opens Port to Arduino
-        { 
-            port.Open();
-        }
+        public void OpenPort() { port.Open(); } //Opens Port to Arduino
 
-        public void ClosePort() //Closes Port to Arduino
-        {
-            port.Close();
-        }
+        public void ClosePort() { port.Close(); } //Closes Port to Arduino
 
-        public float GetMass() //Mass Getter
-        {
-            return mass;
-        }
+        public float GetMass() { return mass; } //Mass Getter
 
-        public void SetMass(float mass) //Mass Setter
-        {
-            this.mass = mass;
-        }
+        public void SetMass(float mass) { this.mass = mass; } //Mass Setter
 
-        public float GetAccel() //Acceleration Getter
-        {
-            return acceleration; 
-        }
+        public float GetAccel() { return acceleration; } //Acceleration Getter
 
-        public float GetForce() //Force Getter
-        {
-            return force;
-        }
+        public float GetForce() { return force; } //Force Getter
 
         /*
          * Calculates the Acceleration from the X, Y, Z inputs from Accelerometer
@@ -211,7 +193,6 @@ namespace David_Arduino
                         hitDataList.Add(hitData);
                         CheckComboBox(force, acceleration);
                     }
-                    //changeMainLabel(data.Trim());
                 }
             }
             catch (TimeoutException) 

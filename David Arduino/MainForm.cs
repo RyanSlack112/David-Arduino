@@ -127,17 +127,20 @@ namespace David_Arduino
         private void CheckStatsDialog(TabPage currentTab)
         {
             TabPage switchTab = null; //Variable to store the tab within Statistics to switch to.
-            if (currentTab == tabMain) //switchTab is Main Page
+            
+            switch (currentTab.Name)
             {
-                switchTab = tabStatsMain;
-            }
-            else if (currentTab == tabHitCounter) //switchTab is Hit Counter
-            {
-                switchTab = tabStatsHitCounter;
-            }
-            else if (currentTab == tabControl) //switchTab is Control
-            {
-                switchTab = tabStatsControl;
+                case "tabMain":
+                    switchTab = tabStatsMain;
+                    break;
+                case "tabHitCounter":
+                    switchTab = tabStatsHitCounter;
+                    break;
+                case "tabControl":
+                    switchTab = tabStatsControl;
+                    break;
+                default:
+                    break;
             }
 
             /*
@@ -181,6 +184,18 @@ namespace David_Arduino
             Close(); //Closes Program
         }
 
+        private void btnStatsHitCounterClose_Click(object sender, EventArgs e)
+        {
+            connection.Close(); //Closes Database Connections
+            Close(); //Closes Program
+        }
+
+        private void btnStatsControlClose_Click(object sender, EventArgs e)
+        {
+            connection.Close(); //Closes Database Connections
+            Close(); //Closes Program
+        }
+
         private void btnSettingsClose_Click(object sender, EventArgs e)
         {
             connection.Close(); //Closes Database Connections
@@ -214,29 +229,28 @@ namespace David_Arduino
          */
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabs.SelectedTab == tabMain)
+            switch (tabs.SelectedTab.Name)
             {
-                this.Text = "Main Page";
-            }
-            else if (tabs.SelectedTab == tabHitCounter)
-            {
-                this.Text = "Hit Counter";
-            }
-            else if (tabs.SelectedTab == tabControl)
-            {
-                this.Text = "Control";
-            }
-            else if (tabs.SelectedTab == tabGraph)
-            {
-                this.Text = "Graph View";
-            }
-            else if (tabs.SelectedTab == tabStatistics)
-            {
-                this.Text = "Statistics";
-            }
-            else if (tabs.SelectedTab == tabSettings)
-            {
-                this.Text = "Settings";
+                case "tabMain": //Main Page Name
+                    this.Text = "Main Page";
+                    break;
+                case "tabHitCounter": //Hit Counter Page Name
+                    this.Text = "Hit Counter";
+                    break;
+                case "tabControl": //Control Page Name
+                    this.Text = "Control";
+                    break;
+                case "tabGraph": //Graph View Page Name
+                    this.Text = "Graph View";
+                    break;
+                case "tabStatistics": //Statistics Page Name
+                    this.Text = "Statistics";
+                    break;
+                case "tabSettings": //Settings Page Name
+                    this.Text = "Settings";
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -323,17 +337,20 @@ namespace David_Arduino
         private void cbHitTimer_CheckedChanged(object sender, EventArgs e)
         {
             //Enables Controls for setting and using a Timer
-            if (cbHitTimer.Checked)
+            switch (cbHitTimer.Checked)
             {
-                lblHitTimer.Enabled = true;
-                txtHitTimer.Enabled = true;
-                btnHitTimer.Enabled = true;
-            }
-            else if (!cbHitTimer.Checked)
-            {
-                lblHitTimer.Enabled = false;
-                txtHitTimer.Enabled = false;
-                btnHitTimer.Enabled = false;
+                case true:
+                    lblHitTimer.Enabled = true;
+                    txtHitTimer.Enabled = true;
+                    btnHitTimer.Enabled = true;
+                    break;
+                case false:
+                    lblHitTimer.Enabled = false;
+                    txtHitTimer.Enabled = false;
+                    btnHitTimer.Enabled = false;
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -395,40 +412,46 @@ namespace David_Arduino
         public void MapHitDataSeries(List<HitDataPoint> hitDataPoints)
         {
             hitDataSeries = crtGraphMain.Series["HitData"]; //Object that Data Points are added to.
-
-            if (cmbGraphMainUnits.SelectedItem.ToString() == "Force") //Force is selected in Combo Box
+            switch (cmbGraphMainUnits.SelectedItem.ToString())
             {
-                /*
-                 * Set Axis Title and Text Colour according to Current Theme.
-                 */
-                crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
-                crtGraphMain.ChartAreas[0].AxisY.Title = "Force [N]";
-                GraphFunctions.ChangeGraphColours(crtGraphMain);
+                case "Force":
+                    {
+                        /*
+                        * Set Axis Title and Text Colour according to Current Theme.
+                        */
+                        crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
+                        crtGraphMain.ChartAreas[0].AxisY.Title = "Force [N]";
+                        GraphFunctions.ChangeGraphColours(crtGraphMain);
 
-                /*
-                 * Loop through List of Data Points and add them to the Points of the Graph.
-                 */
-                foreach (HitDataPoint point in hitDataPoints)
-                {
-                    hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetForce());
-                }
-            }
-            else if (cmbGraphMainUnits.SelectedItem.ToString() == "Acceleration")
-            {
-                /*
-                 * Set Axis Title and Text Colour according to Current Theme.
-                 */
-                crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
-                crtGraphMain.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
-                GraphFunctions.ChangeGraphColours(crtGraphMain);
+                        /*
+                        * Loop through List of Data Points and add them to the Points of the Graph.
+                        */
+                        foreach (HitDataPoint point in hitDataPoints)
+                        {
+                            hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetForce());
+                        }
+                        break;
+                    }
+                case "Acceleration":
+                    {
+                        /*
+                         * Set Axis Title and Text Colour according to Current Theme.
+                         */
+                        crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
+                        crtGraphMain.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
+                        GraphFunctions.ChangeGraphColours(crtGraphMain);
 
-                /*
-                 * Loop through List of Data Points and add them to the Points of the Graph.
-                 */
-                foreach (HitDataPoint point in hitDataPoints)
-                {
-                    hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetAccel());
-                }
+                        /*
+                         * Loop through List of Data Points and add them to the Points of the Graph.
+                         */
+                        foreach (HitDataPoint point in hitDataPoints)
+                        {
+                            hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetAccel());
+                        }
+                        break;
+                    }
+                default:
+                    break;
             }
         }
 
@@ -438,36 +461,43 @@ namespace David_Arduino
         public void MapControlDataSeries(List<ControlDataPoint> controlDataPoints)
         {
             controlDataSeries = crtGraphControl.Series["ControlData"];
-            if (cmbGraphControlUnits.SelectedItem.ToString() == "Force") //Force is selected in Combo Box
+            switch (cmbGraphControlUnits.SelectedItem.ToString())
             {
-                /*
-                 * Set Axis Title and Text Colour according to Current Theme.
-                 */
-                crtGraphControl.ChartAreas[0].AxisX.Title = "Time";
-                crtGraphControl.ChartAreas[0].AxisY.Title = "Force [N]";
-                GraphFunctions.ChangeGraphColours(crtGraphControl);
+                case "Force":
+                    {
+                        /*
+                        * Set Axis Title and Text Colour according to Current Theme.
+                        */
+                        crtGraphControl.ChartAreas[0].AxisX.Title = "Time";
+                        crtGraphControl.ChartAreas[0].AxisY.Title = "Force [N]";
+                        GraphFunctions.ChangeGraphColours(crtGraphControl);
 
-                /*
-                 * Loop through List of Data Points and add them to the Points of the Graph.
-                 */
-                foreach (ControlDataPoint point in controlDataPoints)
-                {
-                    //controlDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetForce());
-                }
-            }
-            else if (cmbGraphControlUnits.SelectedItem.ToString() == "Acceleration")
-            {
-                /*
-                 * Set Axis Title and Text Colour according to Current Theme.
-                 */
-                crtGraphControl.ChartAreas[0].AxisX.Title = "Time";
-                crtGraphControl.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
-                GraphFunctions.ChangeGraphColours(crtGraphControl);
+                        /*
+                        * Loop through List of Data Points and add them to the Points of the Graph.
+                        */
+                        foreach (ControlDataPoint point in controlDataPoints)
+                        {
+                            //controlDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetForce());
+                        }
+                        break;
+                    }
+                case "Acceleration":
+                    {
+                        /*
+                        * Set Axis Title and Text Colour according to Current Theme.
+                        */
+                        crtGraphControl.ChartAreas[0].AxisX.Title = "Time";
+                        crtGraphControl.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
+                        GraphFunctions.ChangeGraphColours(crtGraphControl);
 
-                foreach (ControlDataPoint point in controlDataPoints)
-                {
-                    //controlDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetAccel());
-                }
+                        foreach (ControlDataPoint point in controlDataPoints)
+                        {
+                            //controlDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetAccel());
+                        }
+                        break;
+                    }
+                default:
+                    break;
             }
         }
     } 
