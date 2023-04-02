@@ -437,7 +437,7 @@ namespace David_Arduino
                          * Set Axis Title and Text Colour according to Current Theme.
                          */
                         crtGraphMain.ChartAreas[0].AxisX.Title = "Time";
-                        crtGraphMain.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
+                        crtGraphMain.ChartAreas[0].AxisY.Title = "Acceleration (m/s" + '\u00B2' + ")";
                         GraphFunctions.ChangeGraphColours(crtGraphMain);
 
                         /*
@@ -486,7 +486,7 @@ namespace David_Arduino
                         * Set Axis Title and Text Colour according to Current Theme.
                         */
                         crtGraphControl.ChartAreas[0].AxisX.Title = "Time";
-                        crtGraphControl.ChartAreas[0].AxisY.Title = "Acceleration (m/s^2)";
+                        crtGraphControl.ChartAreas[0].AxisY.Title = "Acceleration (m/s" + '\u00B2' + ")";
                         GraphFunctions.ChangeGraphColours(crtGraphControl);
 
                         foreach (ControlDataPoint point in controlDataPoints)

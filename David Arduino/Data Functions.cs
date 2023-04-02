@@ -104,7 +104,7 @@ namespace David_Arduino
                 string comboBoxText = (string)_mainForm.GetMainComboBox().Invoke(new Func<string>(() => _mainForm.GetComboUnitText()));
                 if (comboBoxText == "Acceleration") //Check if Acceleration is Checked
                 {
-                    string accel = acceleration.ToString("N2") + " m/s^2";
+                    string accel = acceleration.ToString("N2") + " m/s" + '\u00B2';
                     ChangeMainLabel(accel.Trim());
                 }
                 else if (comboBoxText == "Force") //Check if Force is Checked
@@ -117,7 +117,7 @@ namespace David_Arduino
             {
                 if (_mainForm.GetComboUnitText() == "Acceleration") //Check if Acceleration is Checked
                 {
-                    string accel = acceleration.ToString("N2") + " m/s^2";
+                    string accel = acceleration.ToString("N2") + " m/s" + '\u00B2';
                     ChangeMainLabel(accel.Trim());
                 }
                 else if (_mainForm.GetComboUnitText() == "Force") //Check if Force is Checked
