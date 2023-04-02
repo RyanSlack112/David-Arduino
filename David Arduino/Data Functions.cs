@@ -104,7 +104,7 @@ namespace David_Arduino
                 string comboBoxText = (string)_mainForm.GetMainComboBox().Invoke(new Func<string>(() => _mainForm.GetComboUnitText()));
                 if (comboBoxText == "Acceleration") //Check if Acceleration is Checked
                 {
-                    string accel = acceleration.ToString() + " m/s^2";
+                    string accel = acceleration.ToString("N2") + " m/s^2";
                     ChangeMainLabel(accel.Trim());
                 }
                 else if (comboBoxText == "Force") //Check if Force is Checked
@@ -188,10 +188,18 @@ namespace David_Arduino
                         z = float.Parse(values[2]);
                         acceleration = CalcAccel(x, y, z); //Calculate Acceleration
                         force = CalcForce(acceleration, mass); //Calculate Force
-                        DateTime dateTime = DateTime.Now;
-                        HitData hitData = new HitData(username, dateTime, force, acceleration);
-                        hitDataList.Add(hitData);
-                        CheckComboBox(force, acceleration);
+
+                        if(force > 50)
+                        {
+                            DateTime dateTime = DateTime.Now;
+                            HitData hitData = new HitData(username, dateTime, force, acceleration);
+                            hitDataList.Add(hitData);
+                            CheckComboBox(force, acceleration);
+                        }
+                        else
+                        {
+                            CheckComboBox(0, 0);
+                        }
                     }
                 }
             }
