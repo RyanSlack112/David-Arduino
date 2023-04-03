@@ -69,6 +69,12 @@ namespace David_Arduino
 
         public void SetPortsComboBox(string portName) { cmbPorts.Items.Add(portName); } //Add the Port Names to the Combo Box
 
+        public DataGridView GetStatsMainDGV() { return dgvStatsMain; }
+
+        public DateTime GetStatsMainDate() { return dtpStatsMainDate.Value; }
+
+        public void SetStatsMainDataSource(DataTable hitData) { dgvStatsMain.DataSource = hitData; }
+
         public string GetPortComboBoxText()  //Returns the value of the selected port in the Combo Box
         {
             if (cmbPorts.SelectedItem == null)
@@ -143,6 +149,78 @@ namespace David_Arduino
             CheckStatsDialog(tabMain); //Show Dialog asking to show Statistics for Main Page
         }
 
+        private void btnHitCounterStart_Click(object sender, EventArgs e)
+        {
+            /*
+             * Button Visibilty
+             */
+            btnHitCounterStart.Enabled = false;
+            btnHitCounterStart.Visible = false;
+            btnHitCounterStop.Enabled = true;
+            btnHitCounterStop.Visible = true;
+        }
+
+        private void btnHitCounterStop_Click(object sender, EventArgs e)
+        {
+            /*
+             * Button Visibility
+             */
+            btnHitCounterStart.Enabled = true;
+            btnHitCounterStart.Visible = true;
+            btnHitCounterStop.Enabled = false;
+            btnHitCounterStop.Visible = false;
+
+            CheckStatsDialog(tabHitCounter); //Checks current tab and switches to the Stats tab if Dialog is Yes
+        }
+
+        private void cbHitTimer_CheckedChanged(object sender, EventArgs e)
+        {
+            switch (cbHitTimer.Checked)
+            {
+                case true: //Enables Controls for setting and using a Timer
+                    lblHitTimer.Enabled = true;
+                    txtHitTimer.Enabled = true;
+                    btnHitTimer.Enabled = true;
+                    break;
+                case false: //Disables Controls for setting and using a Timer
+                    lblHitTimer.Enabled = false;
+                    txtHitTimer.Enabled = false;
+                    btnHitTimer.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void btnHitTimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnControlStart_Click(object sender, EventArgs e)
+        {
+            /*
+             * Button Visibility
+             */
+            btnControlStart.Enabled = false;
+            btnControlStart.Visible = false;
+            btnControlStop.Enabled = true;
+            btnControlStop.Visible = true;
+        }
+
+        private void btnControlStop_Click(object sender, EventArgs e)
+        {
+            /*
+             * Button Visibility
+             */
+            btnControlStart.Enabled = true;
+            btnControlStart.Visible = true;
+            btnControlStop.Enabled = false;
+            btnControlStop.Visible = false;
+
+            CheckStatsDialog(tabControl); //Checks current tab and switches to the Stats tab if Dialog is Yes
+        }
+
         private void CheckStatsDialog(TabPage currentTab)
         {
             TabPage switchTab = null; //Variable to store the tab within Statistics to switch to.
@@ -189,6 +267,45 @@ namespace David_Arduino
         {
             connection.Close(); //Closes Database Connections
             Close(); //Closes Program
+        }
+
+        private void btnGraphMainGenerateGraph_Click(object sender, EventArgs e)
+        {
+            if (hitDataSeries != null) //Checks if Graph is already populated and clears then repopulates
+            {
+                hitDataSeries.Points.Clear();
+                dFunc.GenerateMainGraph();
+            }
+            else //If it's clear, just populates it.
+            {
+                dFunc.GenerateMainGraph();
+            }
+        }
+
+        private void btnGraphMainClearGraph_Click(object sender, EventArgs e)
+        {
+            if (hitDataSeries != null)
+            {
+                hitDataSeries.Points.Clear(); //Clears the Graph of any points
+            }
+        }
+
+        private void btnGraphControlGenerateGraph_Click(object sender, EventArgs e)
+        {
+            if (controlDataSeries != null) //Checks if Graph is already populated and clears then repopulates
+            {
+                controlDataSeries.Points.Clear();
+                dFunc.GenerateControlGraph();
+            }
+            else //If it's clear, just populates it.
+            {
+                dFunc.GenerateControlGraph();
+            }
+        }
+
+        private void btnGraphControlClearGraph_Click(object sender, EventArgs e)
+        {
+            controlDataSeries.Points.Clear();
         }
 
         private void btnGraphClose_Click(object sender, EventArgs e)
@@ -244,6 +361,64 @@ namespace David_Arduino
         }
 
         /*
+         * Checks the connection of the Arduino
+         */
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dFunc.OpenPort(); //Opens Arduino Port
+                MessageBox.Show("The Arduino is connected", "Connection Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dFunc.ClosePort(); //Closes Arduino Port
+            }
+            catch (IOException) //Exception if Arduino is not connected
+            {
+                MessageBox.Show("The Arduino is not connected", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnDBCheck_Click(object sender, EventArgs e) //Check Database Connection
+        {
+            if (connection.State == ConnectionState.Open)
+            {
+                MessageBox.Show("The Database is connected", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnChangeMass_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float newMass = float.Parse(txtMassInput.Text); //Take the input from the Mass Input Textbox
+                dFunc.SetMass(newMass); //Set the new Mass
+                txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
+                MessageBox.Show("Mass Changed Successfully to " + newMass.ToString() + " KGs", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); //Display a MessageBox indicating the successful changing of the Mass
+            }
+            catch (FormatException) //Invalid Input
+            {
+                MessageBox.Show("Please input a number in Kilograms", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnOpenPort_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string portName = GetPortComboBoxText(); //Get Port Name from Combo Box
+                dFunc.SetPort(dFunc.CreatePort(portName)); //Set the name of the Port and Create The Port and Connect
+                SetCurrentPortText(portName); //Set the Current Port Name on Settings Page
+                if (dFunc.port.PortName == portName) //Successful Port Creation
+                {
+                    MessageBox.Show("Connection to port: " + portName + " was successful", "Connection Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (ArgumentException)
+            {
+                //No Device Connected but Message Box already spawns.
+            }
+        }
+
+        /*
          * Changes the Title Text of the program depending on the selected Tab
          */
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
@@ -271,157 +446,6 @@ namespace David_Arduino
                 default:
                     break;
             }
-        }
-
-        /*
-         * Checks the connection of the Arduino
-         */
-        private void btnCheck_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dFunc.OpenPort(); //Opens Arduino Port
-                MessageBox.Show("The Arduino is connected", "Connection Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dFunc.ClosePort(); //Closes Arduino Port
-            }
-            catch (IOException) //Exception if Arduino is not connected
-            {
-                MessageBox.Show("The Arduino is not connected", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-        private void btnChangeMass_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                float newMass = float.Parse(txtMassInput.Text); //Take the input from the Mass Input Textbox
-                dFunc.SetMass(newMass); //Set the new Mass
-                txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs";
-                MessageBox.Show("Mass Changed Successfully to " + newMass.ToString() + " KGs", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); //Display a MessageBox indicating the successful changing of the Mass
-            }
-            catch (FormatException) //Invalid Input
-            {
-                MessageBox.Show("Please input a number in Kilograms", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnHitCounterStart_Click(object sender, EventArgs e)
-        {
-            /*
-             * Button Visibilty
-             */
-            btnHitCounterStart.Enabled = false;
-            btnHitCounterStart.Visible = false;
-            btnHitCounterStop.Enabled = true;
-            btnHitCounterStop.Visible = true;
-        }
-
-        private void btnHitCounterStop_Click(object sender, EventArgs e)
-        {
-            /*
-             * Button Visibility
-             */
-            btnHitCounterStart.Enabled = true;
-            btnHitCounterStart.Visible = true;
-            btnHitCounterStop.Enabled = false;
-            btnHitCounterStop.Visible = false;
-
-            CheckStatsDialog(tabHitCounter); //Checks current tab and switches to the Stats tab if Dialog is Yes
-        }
-
-        private void btnControlStart_Click(object sender, EventArgs e)
-        {
-            /*
-             * Button Visibility
-             */
-            btnControlStart.Enabled = false;
-            btnControlStart.Visible = false;
-            btnControlStop.Enabled = true;
-            btnControlStop.Visible = true;
-        }
-
-        private void btnControlStop_Click(object sender, EventArgs e)
-        {
-            /*
-             * Button Visibility
-             */
-            btnControlStart.Enabled = true;
-            btnControlStart.Visible = true;
-            btnControlStop.Enabled = false;
-            btnControlStop.Visible = false;
-
-            CheckStatsDialog(tabControl); //Checks current tab and switches to the Stats tab if Dialog is Yes
-        }
-
-        private void cbHitTimer_CheckedChanged(object sender, EventArgs e)
-        {
-            switch (cbHitTimer.Checked)
-            {
-                case true: //Enables Controls for setting and using a Timer
-                    lblHitTimer.Enabled = true;
-                    txtHitTimer.Enabled = true;
-                    btnHitTimer.Enabled = true;
-                    break;
-                case false: //Disables Controls for setting and using a Timer
-                    lblHitTimer.Enabled = false;
-                    txtHitTimer.Enabled = false;
-                    btnHitTimer.Enabled = false;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void btnHitTimer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDBCheck_Click(object sender, EventArgs e) //Check Database Connection
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                MessageBox.Show("The Database is connected", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnGraphMainGenerateGraph_Click(object sender, EventArgs e)
-        {
-            if (hitDataSeries != null) //Checks if Graph is already populated and clears then repopulates
-            {
-                hitDataSeries.Points.Clear();
-                dFunc.GenerateMainGraph();
-            }
-            else //If it's clear, just populates it.
-            {
-                dFunc.GenerateMainGraph();
-            }
-        }
-
-        private void btnGraphMainClearGraph_Click(object sender, EventArgs e)
-        {
-            if(hitDataSeries != null)
-            {
-                hitDataSeries.Points.Clear(); //Clears the Graph of any points
-            }
-        }
-
-        private void btnGraphControlGenerateGraph_Click(object sender, EventArgs e)
-        {
-            if (controlDataSeries != null) //Checks if Graph is already populated and clears then repopulates
-            {
-                controlDataSeries.Points.Clear();
-                dFunc.GenerateControlGraph();
-            }
-            else //If it's clear, just populates it.
-            {
-                dFunc.GenerateControlGraph();
-            }
-        }
-
-        private void btnGraphControlClearGraph_Click(object sender, EventArgs e)
-        {
-            controlDataSeries.Points.Clear();
         }
 
         /*
@@ -519,22 +543,18 @@ namespace David_Arduino
             }
         }
 
-        private void btnOpenPort_Click(object sender, EventArgs e)
+        private void btnStatsMainGenerate_Click(object sender, EventArgs e)
         {
-            try
+            if(dgvStatsMain != null)
             {
-                string portName = GetPortComboBoxText();
-                dFunc.SetPort(dFunc.CreatePort(portName));
-                SetCurrentPortText(portName);
-                if (dFunc.port.PortName == portName)
-                {
-                    MessageBox.Show("Connection to port: " + portName + " was successful", "Connection Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                dgvStatsMain.DataSource = null;
             }
-            catch (ArgumentException)
-            {
-                //No Device Connected but Message Box already spawns.
-            }
+            dbFunctions.GenerateMainStats();
+        }
+
+        private void btnStatsMainClear_Click(object sender, EventArgs e)
+        {
+            dgvStatsMain.DataSource = null;
         }
     } 
 }

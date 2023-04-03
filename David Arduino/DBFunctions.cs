@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -212,7 +213,8 @@ namespace David_Arduino
                     while (reader.Read())
                     {
                         HitDataPoint hitDataPoint = new HitDataPoint();
-                        hitDataPoint.SetTime(reader.GetTimeSpan(0));hitDataPoint.SetForce(Convert.ToSingle(reader.GetDouble(1)));
+                        hitDataPoint.SetTime(reader.GetTimeSpan(0));
+                        hitDataPoint.SetForce(Convert.ToSingle(reader.GetDouble(1)));
                         hitDataPoint.SetAccel(Convert.ToSingle(reader.GetDouble(2)));
                         hitDataPoints.Add(hitDataPoint);
                     }
@@ -225,6 +227,53 @@ namespace David_Arduino
         {
             List<ControlDataPoint> controlDataPoints = new List<ControlDataPoint>();
             return controlDataPoints;
+        }
+
+        public void GenerateMainStats()
+        {
+            SqlCommand command = new SqlCommand("SELECT username, force, acceleration, day, time FROM HitData WHERE username = @username AND day = @day", connection);
+
+            SqlParameter userParam = new SqlParameter("@username", SqlDbType.VarChar, 50);
+            userParam.Value = username;
+            command.Parameters.Add(userParam);
+
+            SqlParameter dayParam = new SqlParameter("@day", SqlDbType.Date);
+            dayParam.Value = mainForm.GetStatsMainDate();
+            command.Parameters.Add(dayParam);
+
+            DataTable hitDataTable = new DataTable();
+            hitDataTable.Columns.Add("Username");
+            hitDataTable.Columns.Add("Force");
+            hitDataTable.Columns.Add("Acceleration");
+            hitDataTable.Columns.Add("Date");
+            hitDataTable.Columns.Add("Time");
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string usernameValue = reader.GetString(0);
+                    string forceValue = Convert.ToSingle(reader.GetDouble(1)).ToString("N2").Trim() + "N";
+                    string accelValue = Convert.ToSingle(reader.GetDouble(2)).ToString("N2").Trim() + "m/s" + '\u00B2';
+                    string dayValue = reader.GetDateTime(3).ToString("dd/MM/yyyy");
+                    TimeSpan timeValue = reader.GetTimeSpan(4);
+                    DateTime timeValDt = DateTime.MinValue.Add(timeValue);
+                    string formattedTime = timeValDt.ToString("hh:mm:ss tt");
+
+                    DataRow hitDataRow = hitDataTable.NewRow();
+                    hitDataRow["Username"] = usernameValue;
+                    hitDataRow["Force"] = forceValue;
+                    hitDataRow["Acceleration"] = accelValue;
+                    hitDataRow["Date"] = dayValue;
+                    hitDataRow["Time"] = formattedTime;
+                    hitDataTable.Rows.Add(hitDataRow);
+                }
+            }
+
+            mainForm.SetStatsMainDataSource(hitDataTable);
+            mainForm.GetStatsMainDGV().ForeColor = Color.Black;
+            mainForm.GetStatsMainDGV().AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            mainForm.GetStatsMainDGV().AutoResizeColumns();
         }
     }
 }

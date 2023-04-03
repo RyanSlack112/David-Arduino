@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,6 +121,12 @@
             this.pnlStatsControlClose = new System.Windows.Forms.Panel();
             this.btnStatsControlClose = new MaterialSkin.Controls.MaterialButton();
             this.tabSettings = new System.Windows.Forms.TabPage();
+            this.pnlChoosePort = new System.Windows.Forms.Panel();
+            this.txtCurrentPort = new MaterialSkin.Controls.MaterialTextBox();
+            this.lblCurrentPort = new MaterialSkin.Controls.MaterialLabel();
+            this.btnOpenPort = new MaterialSkin.Controls.MaterialButton();
+            this.cmbPorts = new MaterialSkin.Controls.MaterialComboBox();
+            this.lblChoosePort = new MaterialSkin.Controls.MaterialLabel();
             this.pnlDBCheck = new System.Windows.Forms.Panel();
             this.btnDBCheck = new MaterialSkin.Controls.MaterialButton();
             this.lblDBCheck = new MaterialSkin.Controls.MaterialLabel();
@@ -140,12 +146,13 @@
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
-            this.pnlChoosePort = new System.Windows.Forms.Panel();
-            this.lblChoosePort = new MaterialSkin.Controls.MaterialLabel();
-            this.cmbPorts = new MaterialSkin.Controls.MaterialComboBox();
-            this.btnOpenPort = new MaterialSkin.Controls.MaterialButton();
-            this.lblCurrentPort = new MaterialSkin.Controls.MaterialLabel();
-            this.txtCurrentPort = new MaterialSkin.Controls.MaterialTextBox();
+            this.pnlStatsMainButtons = new System.Windows.Forms.Panel();
+            this.lblStatsMainDate = new MaterialSkin.Controls.MaterialLabel();
+            this.dtpStatsMainDate = new System.Windows.Forms.DateTimePicker();
+            this.btnStatsMainGenerate = new MaterialSkin.Controls.MaterialButton();
+            this.pnlStatsMainListView = new System.Windows.Forms.Panel();
+            this.dgvStatsMain = new System.Windows.Forms.DataGridView();
+            this.btnStatsMainClear = new MaterialSkin.Controls.MaterialButton();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -187,12 +194,15 @@
             this.tabStatsControl.SuspendLayout();
             this.pnlStatsControlClose.SuspendLayout();
             this.tabSettings.SuspendLayout();
+            this.pnlChoosePort.SuspendLayout();
             this.pnlDBCheck.SuspendLayout();
             this.pnlSettingsClose.SuspendLayout();
             this.pnlMassInput.SuspendLayout();
             this.pnlCheck.SuspendLayout();
             this.pnlTheme.SuspendLayout();
-            this.pnlChoosePort.SuspendLayout();
+            this.pnlStatsMainButtons.SuspendLayout();
+            this.pnlStatsMainListView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsMain)).BeginInit();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -743,24 +753,24 @@
             // 
             // crtGraphMain
             // 
-            chartArea5.Name = "ChartArea1";
-            this.crtGraphMain.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartArea1";
+            this.crtGraphMain.ChartAreas.Add(chartArea1);
             this.crtGraphMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.crtGraphMain.Legends.Add(legend5);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.crtGraphMain.Legends.Add(legend1);
             this.crtGraphMain.Location = new System.Drawing.Point(0, 0);
             this.crtGraphMain.Name = "crtGraphMain";
-            series5.BorderWidth = 5;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.DimGray;
-            series5.Legend = "Legend1";
-            series5.MarkerColor = System.Drawing.Color.Black;
-            series5.MarkerSize = 8;
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series5.Name = "HitData";
-            this.crtGraphMain.Series.Add(series5);
+            series1.BorderWidth = 5;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.DimGray;
+            series1.Legend = "Legend1";
+            series1.MarkerColor = System.Drawing.Color.Black;
+            series1.MarkerSize = 8;
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series1.Name = "HitData";
+            this.crtGraphMain.Series.Add(series1);
             this.crtGraphMain.Size = new System.Drawing.Size(827, 360);
             this.crtGraphMain.TabIndex = 0;
             // 
@@ -1111,26 +1121,26 @@
             // 
             // crtGraphControl
             // 
-            chartArea6.Name = "ChartArea1";
-            this.crtGraphControl.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.crtGraphControl.ChartAreas.Add(chartArea2);
             this.crtGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            this.crtGraphControl.Legends.Add(legend6);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.crtGraphControl.Legends.Add(legend2);
             this.crtGraphControl.Location = new System.Drawing.Point(0, 0);
             this.crtGraphControl.Name = "crtGraphControl";
-            series6.BorderColor = System.Drawing.Color.Transparent;
-            series6.BorderWidth = 5;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Color = System.Drawing.Color.DimGray;
-            series6.Legend = "Legend1";
-            series6.MarkerColor = System.Drawing.Color.Black;
-            series6.MarkerSize = 8;
-            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series6.Name = "ControlData";
-            series6.ShadowColor = System.Drawing.Color.Transparent;
-            this.crtGraphControl.Series.Add(series6);
+            series2.BorderColor = System.Drawing.Color.Transparent;
+            series2.BorderWidth = 5;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.DimGray;
+            series2.Legend = "Legend1";
+            series2.MarkerColor = System.Drawing.Color.Black;
+            series2.MarkerSize = 8;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series2.Name = "ControlData";
+            series2.ShadowColor = System.Drawing.Color.Transparent;
+            this.crtGraphControl.Series.Add(series2);
             this.crtGraphControl.Size = new System.Drawing.Size(832, 354);
             this.crtGraphControl.TabIndex = 0;
             this.crtGraphControl.Text = "chart1";
@@ -1383,6 +1393,8 @@
             // 
             // tabStatsMain
             // 
+            this.tabStatsMain.Controls.Add(this.pnlStatsMainListView);
+            this.tabStatsMain.Controls.Add(this.pnlStatsMainButtons);
             this.tabStatsMain.Controls.Add(this.pnlStatsButtons);
             this.tabStatsMain.ImageKey = "home.png";
             this.tabStatsMain.Location = new System.Drawing.Point(4, 22);
@@ -1521,6 +1533,117 @@
             this.tabSettings.TabIndex = 3;
             this.tabSettings.Text = "Settings";
             this.tabSettings.UseVisualStyleBackColor = true;
+            // 
+            // pnlChoosePort
+            // 
+            this.pnlChoosePort.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlChoosePort.Controls.Add(this.txtCurrentPort);
+            this.pnlChoosePort.Controls.Add(this.lblCurrentPort);
+            this.pnlChoosePort.Controls.Add(this.btnOpenPort);
+            this.pnlChoosePort.Controls.Add(this.cmbPorts);
+            this.pnlChoosePort.Controls.Add(this.lblChoosePort);
+            this.pnlChoosePort.Location = new System.Drawing.Point(469, 15);
+            this.pnlChoosePort.Name = "pnlChoosePort";
+            this.pnlChoosePort.Size = new System.Drawing.Size(200, 247);
+            this.pnlChoosePort.TabIndex = 9;
+            // 
+            // txtCurrentPort
+            // 
+            this.txtCurrentPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCurrentPort.AnimateReadOnly = false;
+            this.txtCurrentPort.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCurrentPort.Depth = 0;
+            this.txtCurrentPort.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCurrentPort.LeadingIcon = null;
+            this.txtCurrentPort.Location = new System.Drawing.Point(25, 40);
+            this.txtCurrentPort.MaxLength = 50;
+            this.txtCurrentPort.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCurrentPort.Multiline = false;
+            this.txtCurrentPort.Name = "txtCurrentPort";
+            this.txtCurrentPort.ReadOnly = true;
+            this.txtCurrentPort.Size = new System.Drawing.Size(149, 50);
+            this.txtCurrentPort.TabIndex = 4;
+            this.txtCurrentPort.Text = "";
+            this.txtCurrentPort.TrailingIcon = null;
+            // 
+            // lblCurrentPort
+            // 
+            this.lblCurrentPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentPort.Depth = 0;
+            this.lblCurrentPort.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCurrentPort.Location = new System.Drawing.Point(22, 13);
+            this.lblCurrentPort.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblCurrentPort.Name = "lblCurrentPort";
+            this.lblCurrentPort.Size = new System.Drawing.Size(152, 19);
+            this.lblCurrentPort.TabIndex = 3;
+            this.lblCurrentPort.Text = "Current Port";
+            this.lblCurrentPort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnOpenPort
+            // 
+            this.btnOpenPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpenPort.AutoSize = false;
+            this.btnOpenPort.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnOpenPort.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnOpenPort.Depth = 0;
+            this.btnOpenPort.HighEmphasis = true;
+            this.btnOpenPort.Icon = null;
+            this.btnOpenPort.Location = new System.Drawing.Point(20, 194);
+            this.btnOpenPort.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnOpenPort.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnOpenPort.Name = "btnOpenPort";
+            this.btnOpenPort.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnOpenPort.Size = new System.Drawing.Size(154, 36);
+            this.btnOpenPort.TabIndex = 2;
+            this.btnOpenPort.Text = "Open Port";
+            this.btnOpenPort.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnOpenPort.UseAccentColor = false;
+            this.btnOpenPort.UseVisualStyleBackColor = true;
+            this.btnOpenPort.Click += new System.EventHandler(this.btnOpenPort_Click);
+            // 
+            // cmbPorts
+            // 
+            this.cmbPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbPorts.AutoResize = false;
+            this.cmbPorts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbPorts.Depth = 0;
+            this.cmbPorts.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbPorts.DropDownHeight = 174;
+            this.cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPorts.DropDownWidth = 121;
+            this.cmbPorts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbPorts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbPorts.FormattingEnabled = true;
+            this.cmbPorts.Hint = "Port Name";
+            this.cmbPorts.IntegralHeight = false;
+            this.cmbPorts.ItemHeight = 43;
+            this.cmbPorts.Location = new System.Drawing.Point(20, 136);
+            this.cmbPorts.MaxDropDownItems = 4;
+            this.cmbPorts.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbPorts.Name = "cmbPorts";
+            this.cmbPorts.Size = new System.Drawing.Size(154, 49);
+            this.cmbPorts.StartIndex = 0;
+            this.cmbPorts.TabIndex = 1;
+            // 
+            // lblChoosePort
+            // 
+            this.lblChoosePort.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblChoosePort.Depth = 0;
+            this.lblChoosePort.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblChoosePort.Location = new System.Drawing.Point(19, 110);
+            this.lblChoosePort.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblChoosePort.Name = "lblChoosePort";
+            this.lblChoosePort.Size = new System.Drawing.Size(155, 23);
+            this.lblChoosePort.TabIndex = 0;
+            this.lblChoosePort.Text = "Choose Port";
+            this.lblChoosePort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlDBCheck
             // 
@@ -1850,116 +1973,108 @@
             this.imgList.Images.SetKeyName(4, "Hit Counter.png");
             this.imgList.Images.SetKeyName(5, "Control.png");
             // 
-            // pnlChoosePort
+            // pnlStatsMainButtons
             // 
-            this.pnlChoosePort.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlChoosePort.Controls.Add(this.txtCurrentPort);
-            this.pnlChoosePort.Controls.Add(this.lblCurrentPort);
-            this.pnlChoosePort.Controls.Add(this.btnOpenPort);
-            this.pnlChoosePort.Controls.Add(this.cmbPorts);
-            this.pnlChoosePort.Controls.Add(this.lblChoosePort);
-            this.pnlChoosePort.Location = new System.Drawing.Point(469, 15);
-            this.pnlChoosePort.Name = "pnlChoosePort";
-            this.pnlChoosePort.Size = new System.Drawing.Size(200, 247);
-            this.pnlChoosePort.TabIndex = 9;
+            this.pnlStatsMainButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStatsMainButtons.Controls.Add(this.btnStatsMainClear);
+            this.pnlStatsMainButtons.Controls.Add(this.btnStatsMainGenerate);
+            this.pnlStatsMainButtons.Controls.Add(this.dtpStatsMainDate);
+            this.pnlStatsMainButtons.Controls.Add(this.lblStatsMainDate);
+            this.pnlStatsMainButtons.Location = new System.Drawing.Point(812, 3);
+            this.pnlStatsMainButtons.Name = "pnlStatsMainButtons";
+            this.pnlStatsMainButtons.Size = new System.Drawing.Size(233, 364);
+            this.pnlStatsMainButtons.TabIndex = 2;
             // 
-            // lblChoosePort
+            // lblStatsMainDate
             // 
-            this.lblChoosePort.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblStatsMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatsMainDate.Depth = 0;
+            this.lblStatsMainDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblStatsMainDate.Location = new System.Drawing.Point(3, 13);
+            this.lblStatsMainDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblStatsMainDate.Name = "lblStatsMainDate";
+            this.lblStatsMainDate.Size = new System.Drawing.Size(226, 19);
+            this.lblStatsMainDate.TabIndex = 0;
+            this.lblStatsMainDate.Text = "Select Date";
+            this.lblStatsMainDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpStatsMainDate
+            // 
+            this.dtpStatsMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpStatsMainDate.Location = new System.Drawing.Point(3, 35);
+            this.dtpStatsMainDate.Name = "dtpStatsMainDate";
+            this.dtpStatsMainDate.Size = new System.Drawing.Size(226, 20);
+            this.dtpStatsMainDate.TabIndex = 1;
+            // 
+            // btnStatsMainGenerate
+            // 
+            this.btnStatsMainGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStatsMainGenerate.AutoSize = false;
+            this.btnStatsMainGenerate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsMainGenerate.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsMainGenerate.Depth = 0;
+            this.btnStatsMainGenerate.HighEmphasis = true;
+            this.btnStatsMainGenerate.Icon = null;
+            this.btnStatsMainGenerate.Location = new System.Drawing.Point(30, 64);
+            this.btnStatsMainGenerate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsMainGenerate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsMainGenerate.Name = "btnStatsMainGenerate";
+            this.btnStatsMainGenerate.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsMainGenerate.Size = new System.Drawing.Size(175, 36);
+            this.btnStatsMainGenerate.TabIndex = 2;
+            this.btnStatsMainGenerate.Text = "Generate Report";
+            this.btnStatsMainGenerate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsMainGenerate.UseAccentColor = false;
+            this.btnStatsMainGenerate.UseVisualStyleBackColor = true;
+            this.btnStatsMainGenerate.Click += new System.EventHandler(this.btnStatsMainGenerate_Click);
+            // 
+            // pnlStatsMainListView
+            // 
+            this.pnlStatsMainListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblChoosePort.Depth = 0;
-            this.lblChoosePort.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblChoosePort.Location = new System.Drawing.Point(19, 110);
-            this.lblChoosePort.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblChoosePort.Name = "lblChoosePort";
-            this.lblChoosePort.Size = new System.Drawing.Size(155, 23);
-            this.lblChoosePort.TabIndex = 0;
-            this.lblChoosePort.Text = "Choose Port";
-            this.lblChoosePort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pnlStatsMainListView.Controls.Add(this.dgvStatsMain);
+            this.pnlStatsMainListView.Location = new System.Drawing.Point(54, 6);
+            this.pnlStatsMainListView.Name = "pnlStatsMainListView";
+            this.pnlStatsMainListView.Size = new System.Drawing.Size(719, 415);
+            this.pnlStatsMainListView.TabIndex = 3;
             // 
-            // cmbPorts
+            // dgvStatsMain
             // 
-            this.cmbPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvStatsMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStatsMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvStatsMain.Location = new System.Drawing.Point(0, 0);
+            this.dgvStatsMain.Name = "dgvStatsMain";
+            this.dgvStatsMain.ReadOnly = true;
+            this.dgvStatsMain.Size = new System.Drawing.Size(719, 415);
+            this.dgvStatsMain.TabIndex = 0;
+            // 
+            // btnStatsMainClear
+            // 
+            this.btnStatsMainClear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbPorts.AutoResize = false;
-            this.cmbPorts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cmbPorts.Depth = 0;
-            this.cmbPorts.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbPorts.DropDownHeight = 174;
-            this.cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPorts.DropDownWidth = 121;
-            this.cmbPorts.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cmbPorts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cmbPorts.FormattingEnabled = true;
-            this.cmbPorts.Hint = "Port Name";
-            this.cmbPorts.IntegralHeight = false;
-            this.cmbPorts.ItemHeight = 43;
-            this.cmbPorts.Location = new System.Drawing.Point(20, 136);
-            this.cmbPorts.MaxDropDownItems = 4;
-            this.cmbPorts.MouseState = MaterialSkin.MouseState.OUT;
-            this.cmbPorts.Name = "cmbPorts";
-            this.cmbPorts.Size = new System.Drawing.Size(154, 49);
-            this.cmbPorts.StartIndex = 0;
-            this.cmbPorts.TabIndex = 1;
-            // 
-            // btnOpenPort
-            // 
-            this.btnOpenPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenPort.AutoSize = false;
-            this.btnOpenPort.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnOpenPort.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnOpenPort.Depth = 0;
-            this.btnOpenPort.HighEmphasis = true;
-            this.btnOpenPort.Icon = null;
-            this.btnOpenPort.Location = new System.Drawing.Point(20, 194);
-            this.btnOpenPort.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnOpenPort.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnOpenPort.Name = "btnOpenPort";
-            this.btnOpenPort.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnOpenPort.Size = new System.Drawing.Size(154, 36);
-            this.btnOpenPort.TabIndex = 2;
-            this.btnOpenPort.Text = "Open Port";
-            this.btnOpenPort.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnOpenPort.UseAccentColor = false;
-            this.btnOpenPort.UseVisualStyleBackColor = true;
-            this.btnOpenPort.Click += new System.EventHandler(this.btnOpenPort_Click);
-            // 
-            // lblCurrentPort
-            // 
-            this.lblCurrentPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCurrentPort.Depth = 0;
-            this.lblCurrentPort.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCurrentPort.Location = new System.Drawing.Point(22, 13);
-            this.lblCurrentPort.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblCurrentPort.Name = "lblCurrentPort";
-            this.lblCurrentPort.Size = new System.Drawing.Size(152, 19);
-            this.lblCurrentPort.TabIndex = 3;
-            this.lblCurrentPort.Text = "Current Port";
-            this.lblCurrentPort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtCurrentPort
-            // 
-            this.txtCurrentPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCurrentPort.AnimateReadOnly = false;
-            this.txtCurrentPort.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCurrentPort.Depth = 0;
-            this.txtCurrentPort.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtCurrentPort.LeadingIcon = null;
-            this.txtCurrentPort.Location = new System.Drawing.Point(25, 40);
-            this.txtCurrentPort.MaxLength = 50;
-            this.txtCurrentPort.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCurrentPort.Multiline = false;
-            this.txtCurrentPort.Name = "txtCurrentPort";
-            this.txtCurrentPort.ReadOnly = true;
-            this.txtCurrentPort.Size = new System.Drawing.Size(149, 50);
-            this.txtCurrentPort.TabIndex = 4;
-            this.txtCurrentPort.Text = "";
-            this.txtCurrentPort.TrailingIcon = null;
+            this.btnStatsMainClear.AutoSize = false;
+            this.btnStatsMainClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsMainClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsMainClear.Depth = 0;
+            this.btnStatsMainClear.HighEmphasis = true;
+            this.btnStatsMainClear.Icon = null;
+            this.btnStatsMainClear.Location = new System.Drawing.Point(30, 110);
+            this.btnStatsMainClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsMainClear.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsMainClear.Name = "btnStatsMainClear";
+            this.btnStatsMainClear.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsMainClear.Size = new System.Drawing.Size(175, 36);
+            this.btnStatsMainClear.TabIndex = 3;
+            this.btnStatsMainClear.Text = "Clear Report";
+            this.btnStatsMainClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsMainClear.UseAccentColor = false;
+            this.btnStatsMainClear.UseVisualStyleBackColor = true;
+            this.btnStatsMainClear.Click += new System.EventHandler(this.btnStatsMainClear_Click);
             // 
             // MainForm
             // 
@@ -2020,6 +2135,7 @@
             this.pnlStatsControlClose.ResumeLayout(false);
             this.pnlStatsControlClose.PerformLayout();
             this.tabSettings.ResumeLayout(false);
+            this.pnlChoosePort.ResumeLayout(false);
             this.pnlDBCheck.ResumeLayout(false);
             this.pnlSettingsClose.ResumeLayout(false);
             this.pnlSettingsClose.PerformLayout();
@@ -2027,7 +2143,9 @@
             this.pnlCheck.ResumeLayout(false);
             this.pnlCheck.PerformLayout();
             this.pnlTheme.ResumeLayout(false);
-            this.pnlChoosePort.ResumeLayout(false);
+            this.pnlStatsMainButtons.ResumeLayout(false);
+            this.pnlStatsMainListView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2143,6 +2261,13 @@
         private MaterialSkin.Controls.MaterialLabel lblChoosePort;
         private MaterialSkin.Controls.MaterialTextBox txtCurrentPort;
         private MaterialSkin.Controls.MaterialLabel lblCurrentPort;
+        private System.Windows.Forms.Panel pnlStatsMainListView;
+        private System.Windows.Forms.DataGridView dgvStatsMain;
+        private System.Windows.Forms.Panel pnlStatsMainButtons;
+        private MaterialSkin.Controls.MaterialButton btnStatsMainGenerate;
+        private System.Windows.Forms.DateTimePicker dtpStatsMainDate;
+        private MaterialSkin.Controls.MaterialLabel lblStatsMainDate;
+        private MaterialSkin.Controls.MaterialButton btnStatsMainClear;
     }
 }
 
