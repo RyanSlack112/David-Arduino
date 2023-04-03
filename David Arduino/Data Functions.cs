@@ -9,6 +9,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Threading;
 using System.IO;
+using System.Web.UI.Design;
 
 namespace David_Arduino
 {
@@ -27,8 +28,15 @@ namespace David_Arduino
 
         public Data_Functions(MainForm mainForm, DBFunctions dbFunctions, string username) //Constructor
         {
-            portName = GetDefaultPort();
-            port = CreatePort(portName);
+            try
+            {
+                portName = GetDefaultPort();
+                port = CreatePort(portName);
+            }
+            catch(ArgumentException)
+            {
+                MessageBox.Show("There is no Device Connected.\r\nPlease Connect a Device before continuing.", "Device Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             /*
              * Default Values
@@ -45,6 +53,10 @@ namespace David_Arduino
 
         public SerialPort CreatePort(string portName)
         {
+            if(String.IsNullOrEmpty(portName))
+            {
+                throw new ArgumentException();
+            }
             SerialPort port = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One); //Intialize Port
             return port;
         }
@@ -52,8 +64,16 @@ namespace David_Arduino
         private string GetDefaultPort()
         {
             string[] ports = SerialPort.GetPortNames();
-            string defaultPort = ports[0];
-            return defaultPort;
+
+            if(ports.Length > 0)
+            {
+                string defaultPort = ports[0];
+                return defaultPort;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /*
