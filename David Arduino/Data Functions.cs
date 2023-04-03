@@ -27,8 +27,8 @@ namespace David_Arduino
 
         public Data_Functions(MainForm mainForm, DBFunctions dbFunctions, string username) //Constructor
         {
-            //portName = getPortName();
-            port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One); //Intialize Port
+            portName = GetDefaultPort();
+            port = CreatePort(portName);
 
             /*
              * Default Values
@@ -39,30 +39,42 @@ namespace David_Arduino
             this.dbFunctions = dbFunctions;
             hitDataList = new List<HitData>();
             this.username = username;
+            GetPortNames();
+            _mainForm.SetCurrentPortText(portName);
+        }
+
+        public SerialPort CreatePort(string portName)
+        {
+            SerialPort port = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One); //Intialize Port
+            return port;
+        }
+
+        private string GetDefaultPort()
+        {
+            string[] ports = SerialPort.GetPortNames();
+            string defaultPort = ports[0];
+            return defaultPort;
         }
 
         /*
          * Programmatically Assign Portname(TODO)
          */
-        private string GetPortName()
+        private void GetPortNames()
         {
-            string portStr = "COM3";
             string[] ports = SerialPort.GetPortNames();
             foreach (string _port in ports)
             {
-                if (_port.Contains("Arduino") || _port.StartsWith("COM"))
-                {
-                    Console.WriteLine(_port);
-                    portStr = _port;
-                    return portStr;
-                }            
+             _mainForm.SetPortsComboBox(_port);
             }
-            return portStr;
         }
+
+        public void SetPort(SerialPort port) { this.port = port; }
 
         public void OpenPort() { port.Open(); } //Opens Port to Arduino
 
         public void ClosePort() { port.Close(); } //Closes Port to Arduino
+
+        public void DeletePort() { port.Dispose(); }
 
         public float GetMass() { return mass; } //Mass Getter
 

@@ -65,6 +65,14 @@ namespace David_Arduino
 
         public string GetGraphControlDate() { return dtpGraphControlDate.Text; } //Returns the Date Selected in the Graph Control View
 
+        public MaterialComboBox GetPortsComboBox() { return cmbPorts; } //Returns the Combo box for selecting Port for Arduino
+
+        public void SetPortsComboBox(string portName) { cmbPorts.Items.Add(portName); } //Add the Port Names to the Combo Box
+
+        public string GetPortComboBoxText() { return cmbPorts.SelectedItem.ToString(); } //Returns the value of the selected port in the Combo Box
+
+        public void SetCurrentPortText(string portName) { txtCurrentPort.Text = portName; } //Sets the current Port to the Text Box
+
         /*
          * Start Running the Program and initiate the Thread for the background
          */
@@ -497,6 +505,17 @@ namespace David_Arduino
                     }
                 default:
                     break;
+            }
+        }
+
+        private void btnOpenPort_Click(object sender, EventArgs e)
+        {
+            string portName = GetPortComboBoxText();
+            dFunc.SetPort(dFunc.CreatePort(portName));
+            SetCurrentPortText(portName);
+            if(dFunc.port.PortName == portName)
+            {
+                MessageBox.Show("Connection to port: " + portName + " was successful", "Connection Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     } 

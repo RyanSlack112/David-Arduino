@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,7 +115,11 @@
             this.pnlStatsButtons = new System.Windows.Forms.Panel();
             this.btnStatsClose = new MaterialSkin.Controls.MaterialButton();
             this.tabStatsHitCounter = new System.Windows.Forms.TabPage();
+            this.pnlStatsHitCounterClose = new System.Windows.Forms.Panel();
+            this.btnStatsHitCounterClose = new MaterialSkin.Controls.MaterialButton();
             this.tabStatsControl = new System.Windows.Forms.TabPage();
+            this.pnlStatsControlClose = new System.Windows.Forms.Panel();
+            this.btnStatsControlClose = new MaterialSkin.Controls.MaterialButton();
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.pnlDBCheck = new System.Windows.Forms.Panel();
             this.btnDBCheck = new MaterialSkin.Controls.MaterialButton();
@@ -136,10 +140,12 @@
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
-            this.pnlStatsHitCounterClose = new System.Windows.Forms.Panel();
-            this.btnStatsHitCounterClose = new MaterialSkin.Controls.MaterialButton();
-            this.pnlStatsControlClose = new System.Windows.Forms.Panel();
-            this.btnStatsControlClose = new MaterialSkin.Controls.MaterialButton();
+            this.pnlChoosePort = new System.Windows.Forms.Panel();
+            this.lblChoosePort = new MaterialSkin.Controls.MaterialLabel();
+            this.cmbPorts = new MaterialSkin.Controls.MaterialComboBox();
+            this.btnOpenPort = new MaterialSkin.Controls.MaterialButton();
+            this.lblCurrentPort = new MaterialSkin.Controls.MaterialLabel();
+            this.txtCurrentPort = new MaterialSkin.Controls.MaterialTextBox();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -177,15 +183,16 @@
             this.tabStatsMain.SuspendLayout();
             this.pnlStatsButtons.SuspendLayout();
             this.tabStatsHitCounter.SuspendLayout();
+            this.pnlStatsHitCounterClose.SuspendLayout();
             this.tabStatsControl.SuspendLayout();
+            this.pnlStatsControlClose.SuspendLayout();
             this.tabSettings.SuspendLayout();
             this.pnlDBCheck.SuspendLayout();
             this.pnlSettingsClose.SuspendLayout();
             this.pnlMassInput.SuspendLayout();
             this.pnlCheck.SuspendLayout();
             this.pnlTheme.SuspendLayout();
-            this.pnlStatsHitCounterClose.SuspendLayout();
-            this.pnlStatsControlClose.SuspendLayout();
+            this.pnlChoosePort.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -736,24 +743,24 @@
             // 
             // crtGraphMain
             // 
-            chartArea15.Name = "ChartArea1";
-            this.crtGraphMain.ChartAreas.Add(chartArea15);
+            chartArea5.Name = "ChartArea1";
+            this.crtGraphMain.ChartAreas.Add(chartArea5);
             this.crtGraphMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend15.Enabled = false;
-            legend15.Name = "Legend1";
-            this.crtGraphMain.Legends.Add(legend15);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.crtGraphMain.Legends.Add(legend5);
             this.crtGraphMain.Location = new System.Drawing.Point(0, 0);
             this.crtGraphMain.Name = "crtGraphMain";
-            series15.BorderWidth = 5;
-            series15.ChartArea = "ChartArea1";
-            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series15.Color = System.Drawing.Color.DimGray;
-            series15.Legend = "Legend1";
-            series15.MarkerColor = System.Drawing.Color.Black;
-            series15.MarkerSize = 8;
-            series15.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series15.Name = "HitData";
-            this.crtGraphMain.Series.Add(series15);
+            series5.BorderWidth = 5;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.DimGray;
+            series5.Legend = "Legend1";
+            series5.MarkerColor = System.Drawing.Color.Black;
+            series5.MarkerSize = 8;
+            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series5.Name = "HitData";
+            this.crtGraphMain.Series.Add(series5);
             this.crtGraphMain.Size = new System.Drawing.Size(827, 360);
             this.crtGraphMain.TabIndex = 0;
             // 
@@ -1104,26 +1111,26 @@
             // 
             // crtGraphControl
             // 
-            chartArea16.Name = "ChartArea1";
-            this.crtGraphControl.ChartAreas.Add(chartArea16);
+            chartArea6.Name = "ChartArea1";
+            this.crtGraphControl.ChartAreas.Add(chartArea6);
             this.crtGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend16.Enabled = false;
-            legend16.Name = "Legend1";
-            this.crtGraphControl.Legends.Add(legend16);
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.crtGraphControl.Legends.Add(legend6);
             this.crtGraphControl.Location = new System.Drawing.Point(0, 0);
             this.crtGraphControl.Name = "crtGraphControl";
-            series16.BorderColor = System.Drawing.Color.Transparent;
-            series16.BorderWidth = 5;
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series16.Color = System.Drawing.Color.DimGray;
-            series16.Legend = "Legend1";
-            series16.MarkerColor = System.Drawing.Color.Black;
-            series16.MarkerSize = 8;
-            series16.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series16.Name = "ControlData";
-            series16.ShadowColor = System.Drawing.Color.Transparent;
-            this.crtGraphControl.Series.Add(series16);
+            series6.BorderColor = System.Drawing.Color.Transparent;
+            series6.BorderWidth = 5;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Color = System.Drawing.Color.DimGray;
+            series6.Legend = "Legend1";
+            series6.MarkerColor = System.Drawing.Color.Black;
+            series6.MarkerSize = 8;
+            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series6.Name = "ControlData";
+            series6.ShadowColor = System.Drawing.Color.Transparent;
+            this.crtGraphControl.Series.Add(series6);
             this.crtGraphControl.Size = new System.Drawing.Size(832, 354);
             this.crtGraphControl.TabIndex = 0;
             this.crtGraphControl.Text = "chart1";
@@ -1428,6 +1435,36 @@
             this.tabStatsHitCounter.Text = "Hit Counter";
             this.tabStatsHitCounter.UseVisualStyleBackColor = true;
             // 
+            // pnlStatsHitCounterClose
+            // 
+            this.pnlStatsHitCounterClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStatsHitCounterClose.Controls.Add(this.btnStatsHitCounterClose);
+            this.pnlStatsHitCounterClose.Location = new System.Drawing.Point(954, 370);
+            this.pnlStatsHitCounterClose.Name = "pnlStatsHitCounterClose";
+            this.pnlStatsHitCounterClose.Size = new System.Drawing.Size(88, 51);
+            this.pnlStatsHitCounterClose.TabIndex = 2;
+            // 
+            // btnStatsHitCounterClose
+            // 
+            this.btnStatsHitCounterClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStatsHitCounterClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsHitCounterClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsHitCounterClose.Depth = 0;
+            this.btnStatsHitCounterClose.HighEmphasis = true;
+            this.btnStatsHitCounterClose.Icon = null;
+            this.btnStatsHitCounterClose.Location = new System.Drawing.Point(18, 12);
+            this.btnStatsHitCounterClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsHitCounterClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsHitCounterClose.Name = "btnStatsHitCounterClose";
+            this.btnStatsHitCounterClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsHitCounterClose.Size = new System.Drawing.Size(66, 36);
+            this.btnStatsHitCounterClose.TabIndex = 0;
+            this.btnStatsHitCounterClose.Text = "Close";
+            this.btnStatsHitCounterClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsHitCounterClose.UseAccentColor = false;
+            this.btnStatsHitCounterClose.UseVisualStyleBackColor = true;
+            this.btnStatsHitCounterClose.Click += new System.EventHandler(this.btnStatsHitCounterClose_Click);
+            // 
             // tabStatsControl
             // 
             this.tabStatsControl.Controls.Add(this.pnlStatsControlClose);
@@ -1439,8 +1476,39 @@
             this.tabStatsControl.Text = "Control";
             this.tabStatsControl.UseVisualStyleBackColor = true;
             // 
+            // pnlStatsControlClose
+            // 
+            this.pnlStatsControlClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStatsControlClose.Controls.Add(this.btnStatsControlClose);
+            this.pnlStatsControlClose.Location = new System.Drawing.Point(957, 373);
+            this.pnlStatsControlClose.Name = "pnlStatsControlClose";
+            this.pnlStatsControlClose.Size = new System.Drawing.Size(88, 51);
+            this.pnlStatsControlClose.TabIndex = 3;
+            // 
+            // btnStatsControlClose
+            // 
+            this.btnStatsControlClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStatsControlClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsControlClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsControlClose.Depth = 0;
+            this.btnStatsControlClose.HighEmphasis = true;
+            this.btnStatsControlClose.Icon = null;
+            this.btnStatsControlClose.Location = new System.Drawing.Point(18, 12);
+            this.btnStatsControlClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsControlClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsControlClose.Name = "btnStatsControlClose";
+            this.btnStatsControlClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsControlClose.Size = new System.Drawing.Size(66, 36);
+            this.btnStatsControlClose.TabIndex = 0;
+            this.btnStatsControlClose.Text = "Close";
+            this.btnStatsControlClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsControlClose.UseAccentColor = false;
+            this.btnStatsControlClose.UseVisualStyleBackColor = true;
+            this.btnStatsControlClose.Click += new System.EventHandler(this.btnStatsControlClose_Click);
+            // 
             // tabSettings
             // 
+            this.tabSettings.Controls.Add(this.pnlChoosePort);
             this.tabSettings.Controls.Add(this.pnlDBCheck);
             this.tabSettings.Controls.Add(this.pnlSettingsClose);
             this.tabSettings.Controls.Add(this.pnlMassInput);
@@ -1782,65 +1850,116 @@
             this.imgList.Images.SetKeyName(4, "Hit Counter.png");
             this.imgList.Images.SetKeyName(5, "Control.png");
             // 
-            // pnlStatsHitCounterClose
+            // pnlChoosePort
             // 
-            this.pnlStatsHitCounterClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlStatsHitCounterClose.Controls.Add(this.btnStatsHitCounterClose);
-            this.pnlStatsHitCounterClose.Location = new System.Drawing.Point(954, 370);
-            this.pnlStatsHitCounterClose.Name = "pnlStatsHitCounterClose";
-            this.pnlStatsHitCounterClose.Size = new System.Drawing.Size(88, 51);
-            this.pnlStatsHitCounterClose.TabIndex = 2;
+            this.pnlChoosePort.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlChoosePort.Controls.Add(this.txtCurrentPort);
+            this.pnlChoosePort.Controls.Add(this.lblCurrentPort);
+            this.pnlChoosePort.Controls.Add(this.btnOpenPort);
+            this.pnlChoosePort.Controls.Add(this.cmbPorts);
+            this.pnlChoosePort.Controls.Add(this.lblChoosePort);
+            this.pnlChoosePort.Location = new System.Drawing.Point(469, 15);
+            this.pnlChoosePort.Name = "pnlChoosePort";
+            this.pnlChoosePort.Size = new System.Drawing.Size(200, 247);
+            this.pnlChoosePort.TabIndex = 9;
             // 
-            // btnStatsHitCounterClose
+            // lblChoosePort
             // 
-            this.btnStatsHitCounterClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStatsHitCounterClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnStatsHitCounterClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnStatsHitCounterClose.Depth = 0;
-            this.btnStatsHitCounterClose.HighEmphasis = true;
-            this.btnStatsHitCounterClose.Icon = null;
-            this.btnStatsHitCounterClose.Location = new System.Drawing.Point(18, 12);
-            this.btnStatsHitCounterClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnStatsHitCounterClose.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnStatsHitCounterClose.Name = "btnStatsHitCounterClose";
-            this.btnStatsHitCounterClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnStatsHitCounterClose.Size = new System.Drawing.Size(66, 36);
-            this.btnStatsHitCounterClose.TabIndex = 0;
-            this.btnStatsHitCounterClose.Text = "Close";
-            this.btnStatsHitCounterClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnStatsHitCounterClose.UseAccentColor = false;
-            this.btnStatsHitCounterClose.UseVisualStyleBackColor = true;
-            this.btnStatsHitCounterClose.Click += new System.EventHandler(this.btnStatsHitCounterClose_Click);
+            this.lblChoosePort.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblChoosePort.Depth = 0;
+            this.lblChoosePort.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblChoosePort.Location = new System.Drawing.Point(19, 110);
+            this.lblChoosePort.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblChoosePort.Name = "lblChoosePort";
+            this.lblChoosePort.Size = new System.Drawing.Size(155, 23);
+            this.lblChoosePort.TabIndex = 0;
+            this.lblChoosePort.Text = "Choose Port";
+            this.lblChoosePort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlStatsControlClose
+            // cmbPorts
             // 
-            this.pnlStatsControlClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlStatsControlClose.Controls.Add(this.btnStatsControlClose);
-            this.pnlStatsControlClose.Location = new System.Drawing.Point(957, 373);
-            this.pnlStatsControlClose.Name = "pnlStatsControlClose";
-            this.pnlStatsControlClose.Size = new System.Drawing.Size(88, 51);
-            this.pnlStatsControlClose.TabIndex = 3;
+            this.cmbPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbPorts.AutoResize = false;
+            this.cmbPorts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbPorts.Depth = 0;
+            this.cmbPorts.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbPorts.DropDownHeight = 174;
+            this.cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPorts.DropDownWidth = 121;
+            this.cmbPorts.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbPorts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbPorts.FormattingEnabled = true;
+            this.cmbPorts.Hint = "Port Name";
+            this.cmbPorts.IntegralHeight = false;
+            this.cmbPorts.ItemHeight = 43;
+            this.cmbPorts.Location = new System.Drawing.Point(20, 136);
+            this.cmbPorts.MaxDropDownItems = 4;
+            this.cmbPorts.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbPorts.Name = "cmbPorts";
+            this.cmbPorts.Size = new System.Drawing.Size(154, 49);
+            this.cmbPorts.StartIndex = 0;
+            this.cmbPorts.TabIndex = 1;
             // 
-            // btnStatsControlClose
+            // btnOpenPort
             // 
-            this.btnStatsControlClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStatsControlClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnStatsControlClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnStatsControlClose.Depth = 0;
-            this.btnStatsControlClose.HighEmphasis = true;
-            this.btnStatsControlClose.Icon = null;
-            this.btnStatsControlClose.Location = new System.Drawing.Point(18, 12);
-            this.btnStatsControlClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnStatsControlClose.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnStatsControlClose.Name = "btnStatsControlClose";
-            this.btnStatsControlClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnStatsControlClose.Size = new System.Drawing.Size(66, 36);
-            this.btnStatsControlClose.TabIndex = 0;
-            this.btnStatsControlClose.Text = "Close";
-            this.btnStatsControlClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnStatsControlClose.UseAccentColor = false;
-            this.btnStatsControlClose.UseVisualStyleBackColor = true;
-            this.btnStatsControlClose.Click += new System.EventHandler(this.btnStatsControlClose_Click);
+            this.btnOpenPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpenPort.AutoSize = false;
+            this.btnOpenPort.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnOpenPort.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnOpenPort.Depth = 0;
+            this.btnOpenPort.HighEmphasis = true;
+            this.btnOpenPort.Icon = null;
+            this.btnOpenPort.Location = new System.Drawing.Point(20, 194);
+            this.btnOpenPort.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnOpenPort.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnOpenPort.Name = "btnOpenPort";
+            this.btnOpenPort.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnOpenPort.Size = new System.Drawing.Size(154, 36);
+            this.btnOpenPort.TabIndex = 2;
+            this.btnOpenPort.Text = "Open Port";
+            this.btnOpenPort.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnOpenPort.UseAccentColor = false;
+            this.btnOpenPort.UseVisualStyleBackColor = true;
+            this.btnOpenPort.Click += new System.EventHandler(this.btnOpenPort_Click);
+            // 
+            // lblCurrentPort
+            // 
+            this.lblCurrentPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentPort.Depth = 0;
+            this.lblCurrentPort.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCurrentPort.Location = new System.Drawing.Point(22, 13);
+            this.lblCurrentPort.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblCurrentPort.Name = "lblCurrentPort";
+            this.lblCurrentPort.Size = new System.Drawing.Size(152, 19);
+            this.lblCurrentPort.TabIndex = 3;
+            this.lblCurrentPort.Text = "Current Port";
+            this.lblCurrentPort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtCurrentPort
+            // 
+            this.txtCurrentPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCurrentPort.AnimateReadOnly = false;
+            this.txtCurrentPort.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCurrentPort.Depth = 0;
+            this.txtCurrentPort.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCurrentPort.LeadingIcon = null;
+            this.txtCurrentPort.Location = new System.Drawing.Point(25, 40);
+            this.txtCurrentPort.MaxLength = 50;
+            this.txtCurrentPort.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCurrentPort.Multiline = false;
+            this.txtCurrentPort.Name = "txtCurrentPort";
+            this.txtCurrentPort.ReadOnly = true;
+            this.txtCurrentPort.Size = new System.Drawing.Size(149, 50);
+            this.txtCurrentPort.TabIndex = 4;
+            this.txtCurrentPort.Text = "";
+            this.txtCurrentPort.TrailingIcon = null;
             // 
             // MainForm
             // 
@@ -1895,7 +2014,11 @@
             this.pnlStatsButtons.ResumeLayout(false);
             this.pnlStatsButtons.PerformLayout();
             this.tabStatsHitCounter.ResumeLayout(false);
+            this.pnlStatsHitCounterClose.ResumeLayout(false);
+            this.pnlStatsHitCounterClose.PerformLayout();
             this.tabStatsControl.ResumeLayout(false);
+            this.pnlStatsControlClose.ResumeLayout(false);
+            this.pnlStatsControlClose.PerformLayout();
             this.tabSettings.ResumeLayout(false);
             this.pnlDBCheck.ResumeLayout(false);
             this.pnlSettingsClose.ResumeLayout(false);
@@ -1904,10 +2027,7 @@
             this.pnlCheck.ResumeLayout(false);
             this.pnlCheck.PerformLayout();
             this.pnlTheme.ResumeLayout(false);
-            this.pnlStatsHitCounterClose.ResumeLayout(false);
-            this.pnlStatsHitCounterClose.PerformLayout();
-            this.pnlStatsControlClose.ResumeLayout(false);
-            this.pnlStatsControlClose.PerformLayout();
+            this.pnlChoosePort.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2017,6 +2137,12 @@
         private MaterialSkin.Controls.MaterialButton btnStatsHitCounterClose;
         private System.Windows.Forms.Panel pnlStatsControlClose;
         private MaterialSkin.Controls.MaterialButton btnStatsControlClose;
+        private System.Windows.Forms.Panel pnlChoosePort;
+        private MaterialSkin.Controls.MaterialButton btnOpenPort;
+        private MaterialSkin.Controls.MaterialComboBox cmbPorts;
+        private MaterialSkin.Controls.MaterialLabel lblChoosePort;
+        private MaterialSkin.Controls.MaterialTextBox txtCurrentPort;
+        private MaterialSkin.Controls.MaterialLabel lblCurrentPort;
     }
 }
 
