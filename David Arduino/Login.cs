@@ -37,8 +37,7 @@ namespace David_Arduino
             
             //Default Values
             dbFunctions = new DBFunctions(this, connection);
-            connection = dbFunctions.ConnectToDB();
-            connection.Open(); //Open Database Connection
+            connection = dbFunctions.ConnectToDB(); //Connects to the Database
         }
 
         /*

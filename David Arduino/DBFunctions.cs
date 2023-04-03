@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,9 +45,16 @@ namespace David_Arduino
         public SqlConnection ConnectToDB()
         {
             connection = new SqlConnection();
-            connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;"
-                + "AttachDbFilename = E:\\Documents\\Visual Studio Projects\\David Arduino\\David Arduino\\DavidArduino.mdf;"
-                + "Integrated Security = True";
+            string dataDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+            AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
+            string relativePath = @"|DataDirectory|\DavidArduino.mdf";
+            connection.ConnectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={relativePath};Integrated Security=True;";
+
+            /*connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;"
+            + "AttachDbFilename = E:\\Documents\\Visual Studio Projects\\David Arduino\\David Arduino\\DavidArduino.mdf;"
+                + "Integrated Security = True";*/
+
+            connection.Open(); //Opens Database Connection
 
             return connection;
         }
