@@ -69,7 +69,18 @@ namespace David_Arduino
 
         public void SetPortsComboBox(string portName) { cmbPorts.Items.Add(portName); } //Add the Port Names to the Combo Box
 
-        public string GetPortComboBoxText() { return cmbPorts.SelectedItem.ToString(); } //Returns the value of the selected port in the Combo Box
+        public string GetPortComboBoxText()  //Returns the value of the selected port in the Combo Box
+        {
+            if (cmbPorts.SelectedItem == null)
+            {
+                MessageBox.Show("There is no Device Connected.\r\nPlease Connect a Device before continuing.", "Device Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
+            }
+            else
+            {
+                return cmbPorts.SelectedItem.ToString();
+            }
+        }
 
         public void SetCurrentPortText(string portName) { txtCurrentPort.Text = portName; } //Sets the current Port to the Text Box
 
@@ -510,12 +521,19 @@ namespace David_Arduino
 
         private void btnOpenPort_Click(object sender, EventArgs e)
         {
-            string portName = GetPortComboBoxText();
-            dFunc.SetPort(dFunc.CreatePort(portName));
-            SetCurrentPortText(portName);
-            if(dFunc.port.PortName == portName)
+            try
             {
-                MessageBox.Show("Connection to port: " + portName + " was successful", "Connection Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string portName = GetPortComboBoxText();
+                dFunc.SetPort(dFunc.CreatePort(portName));
+                SetCurrentPortText(portName);
+                if (dFunc.port.PortName == portName)
+                {
+                    MessageBox.Show("Connection to port: " + portName + " was successful", "Connection Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (ArgumentException)
+            {
+                //No Device Connected but Message Box already spawns.
             }
         }
     } 
