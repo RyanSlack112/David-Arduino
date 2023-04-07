@@ -275,5 +275,23 @@ namespace David_Arduino
             mainForm.GetStatsMainDGV().AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             mainForm.GetStatsMainDGV().AutoResizeColumns();
         }
+
+        public void GenerateHitCounterStats()
+        {
+            DataTable hitCounterData = new DataTable();
+            mainForm.SetStatsHitCounterDataSource(hitCounterData);
+            mainForm.GetStatsHitCounterDGV().ForeColor = Color.Black;
+            mainForm.GetStatsHitCounterDGV().AutoSizeColumnsMode= DataGridViewAutoSizeColumnsMode.Fill;
+            mainForm.GetStatsHitCounterDGV().AutoResizeColumns();
+        }
+
+        public void GenerateControlStats()
+        {
+            DataTable controlData = new DataTable();
+            mainForm.SetStatsControlDataSource(controlData);
+            mainForm.GetStatsControlDGV().ForeColor = Color.Black;
+            mainForm.GetStatsControlDGV().AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            mainForm.GetStatsControlDGV().AutoResizeColumns();
+        }
     }
 }

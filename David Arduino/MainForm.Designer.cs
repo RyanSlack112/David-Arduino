@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -773,24 +773,24 @@
             // 
             // crtGraphMain
             // 
-            chartArea5.Name = "ChartArea1";
-            this.crtGraphMain.ChartAreas.Add(chartArea5);
+            chartArea13.Name = "ChartArea1";
+            this.crtGraphMain.ChartAreas.Add(chartArea13);
             this.crtGraphMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.crtGraphMain.Legends.Add(legend5);
+            legend13.Enabled = false;
+            legend13.Name = "Legend1";
+            this.crtGraphMain.Legends.Add(legend13);
             this.crtGraphMain.Location = new System.Drawing.Point(0, 0);
             this.crtGraphMain.Name = "crtGraphMain";
-            series5.BorderWidth = 5;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.DimGray;
-            series5.Legend = "Legend1";
-            series5.MarkerColor = System.Drawing.Color.Black;
-            series5.MarkerSize = 8;
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series5.Name = "HitData";
-            this.crtGraphMain.Series.Add(series5);
+            series13.BorderWidth = 5;
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Color = System.Drawing.Color.DimGray;
+            series13.Legend = "Legend1";
+            series13.MarkerColor = System.Drawing.Color.Black;
+            series13.MarkerSize = 8;
+            series13.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series13.Name = "HitData";
+            this.crtGraphMain.Series.Add(series13);
             this.crtGraphMain.Size = new System.Drawing.Size(827, 360);
             this.crtGraphMain.TabIndex = 0;
             // 
@@ -1141,26 +1141,26 @@
             // 
             // crtGraphControl
             // 
-            chartArea6.Name = "ChartArea1";
-            this.crtGraphControl.ChartAreas.Add(chartArea6);
+            chartArea14.Name = "ChartArea1";
+            this.crtGraphControl.ChartAreas.Add(chartArea14);
             this.crtGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            this.crtGraphControl.Legends.Add(legend6);
+            legend14.Enabled = false;
+            legend14.Name = "Legend1";
+            this.crtGraphControl.Legends.Add(legend14);
             this.crtGraphControl.Location = new System.Drawing.Point(0, 0);
             this.crtGraphControl.Name = "crtGraphControl";
-            series6.BorderColor = System.Drawing.Color.Transparent;
-            series6.BorderWidth = 5;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Color = System.Drawing.Color.DimGray;
-            series6.Legend = "Legend1";
-            series6.MarkerColor = System.Drawing.Color.Black;
-            series6.MarkerSize = 8;
-            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series6.Name = "ControlData";
-            series6.ShadowColor = System.Drawing.Color.Transparent;
-            this.crtGraphControl.Series.Add(series6);
+            series14.BorderColor = System.Drawing.Color.Transparent;
+            series14.BorderWidth = 5;
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series14.Color = System.Drawing.Color.DimGray;
+            series14.Legend = "Legend1";
+            series14.MarkerColor = System.Drawing.Color.Black;
+            series14.MarkerSize = 8;
+            series14.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series14.Name = "ControlData";
+            series14.ShadowColor = System.Drawing.Color.Transparent;
+            this.crtGraphControl.Series.Add(series14);
             this.crtGraphControl.Size = new System.Drawing.Size(832, 354);
             this.crtGraphControl.TabIndex = 0;
             this.crtGraphControl.Text = "chart1";
@@ -2155,6 +2155,7 @@
             this.btnStatsHitCounterClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnStatsHitCounterClear.UseAccentColor = false;
             this.btnStatsHitCounterClear.UseVisualStyleBackColor = true;
+            this.btnStatsHitCounterClear.Click += new System.EventHandler(this.btnStatsHitCounterClear_Click);
             // 
             // btnStatsHitCounterGenerate
             // 
@@ -2177,6 +2178,7 @@
             this.btnStatsHitCounterGenerate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnStatsHitCounterGenerate.UseAccentColor = false;
             this.btnStatsHitCounterGenerate.UseVisualStyleBackColor = true;
+            this.btnStatsHitCounterGenerate.Click += new System.EventHandler(this.btnStatsHitCounterGenerate_Click);
             // 
             // dtpStatsHitCounterDate
             // 
@@ -2256,6 +2258,7 @@
             this.btnStatsControlClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnStatsControlClear.UseAccentColor = false;
             this.btnStatsControlClear.UseVisualStyleBackColor = true;
+            this.btnStatsControlClear.Click += new System.EventHandler(this.btnStatsControlClear_Click);
             // 
             // btnStatsControlGenerate
             // 
@@ -2278,6 +2281,7 @@
             this.btnStatsControlGenerate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnStatsControlGenerate.UseAccentColor = false;
             this.btnStatsControlGenerate.UseVisualStyleBackColor = true;
+            this.btnStatsControlGenerate.Click += new System.EventHandler(this.btnStatsControlGenerate_Click);
             // 
             // dtpStatsControlDate
             // 

@@ -69,11 +69,19 @@ namespace David_Arduino
 
         public void SetPortsComboBox(string portName) { cmbPorts.Items.Add(portName); } //Add the Port Names to the Combo Box
 
-        public DataGridView GetStatsMainDGV() { return dgvStatsMain; }
+        public DataGridView GetStatsMainDGV() { return dgvStatsMain; } //Returns the DataGridView from the Main Tab of the Stats Page
+
+        public DataGridView GetStatsControlDGV() { return dgvStatsControl; } //Returns the DataGridView from the Control Tab of the Stats Page
+
+        public DataGridView GetStatsHitCounterDGV() { return dgvStatsHitCounter; } //Returns the DataGridView from the Hit Counter Tab of the Stats Page 
 
         public DateTime GetStatsMainDate() { return dtpStatsMainDate.Value; }
 
         public void SetStatsMainDataSource(DataTable hitData) { dgvStatsMain.DataSource = hitData; }
+
+        public void SetStatsHitCounterDataSource(DataTable hitCounterData) { dgvStatsHitCounter.DataSource = hitCounterData; }
+
+        public void SetStatsControlDataSource(DataTable controlData) { dgvStatsControl.DataSource = controlData; }
 
         public string GetPortComboBoxText()  //Returns the value of the selected port in the Combo Box
         {
@@ -555,6 +563,34 @@ namespace David_Arduino
         private void btnStatsMainClear_Click(object sender, EventArgs e)
         {
             dgvStatsMain.DataSource = null;
+        }
+
+        private void btnStatsHitCounterGenerate_Click(object sender, EventArgs e)
+        {
+            if(dgvStatsHitCounter != null)
+            {
+                dgvStatsHitCounter.DataSource = null;
+            }
+            dbFunctions.GenerateHitCounterStats();
+        }
+
+        private void btnStatsHitCounterClear_Click(object sender, EventArgs e)
+        {
+            dgvStatsHitCounter.DataSource = null;
+        }
+
+        private void btnStatsControlGenerate_Click(object sender, EventArgs e)
+        {
+            if(dgvStatsControl != null)
+            {
+                dgvStatsControl.DataSource = null;
+            }
+            dbFunctions.GenerateControlStats();
+        }
+
+        private void btnStatsControlClear_Click(object sender, EventArgs e)
+        {
+            dgvStatsControl.DataSource = null;
         }
     } 
 }
