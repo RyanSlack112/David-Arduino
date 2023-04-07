@@ -51,10 +51,6 @@ namespace David_Arduino
             string relativePath = @"|DataDirectory|\DavidArduino.mdf";
             connection.ConnectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={relativePath};Integrated Security=True;";
 
-            /*connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;"
-            + "AttachDbFilename = E:\\Documents\\Visual Studio Projects\\David Arduino\\David Arduino\\DavidArduino.mdf;"
-                + "Integrated Security = True";*/
-
             connection.Open(); //Opens Database Connection
 
             return connection;
@@ -183,6 +179,16 @@ namespace David_Arduino
             }
         }
 
+        public void AddToHitCounterData(HitCounterData hitCounterData)
+        {
+
+        }
+
+        public void AddToControlData(ControlData controlData)
+        {
+
+        }
+
         /*
          * Get List of HitData Points to add to a Graph
          */
@@ -223,14 +229,32 @@ namespace David_Arduino
             return hitDataPoints;
         }
 
+        /*
+         * Get List of Hit Counter Data and add to the Graph
+         */
+        public List<HitCounterDataPoint> GetHitCounterDataFromDb(string username, string day)
+        {
+            List<HitCounterDataPoint> hitCounterDataPoints = new List<HitCounterDataPoint>();
+            return hitCounterDataPoints;
+        }
+
+        /*
+         * Get List of Control Data and add to the Graph
+         */
         public List<ControlDataPoint> GetControlDataFromDb(string username, string day)
         {
             List<ControlDataPoint> controlDataPoints = new List<ControlDataPoint>();
             return controlDataPoints;
         }
 
+        /*
+         * Retrieve the hit data from the Database and print it to the DataGridView
+         */
         public void GenerateMainStats()
         {
+            /*
+             * SQL Statements to Retrieve HitData from Database according to Username and Day and print to the DataGridView
+             */
             SqlCommand command = new SqlCommand("SELECT username, force, acceleration, day, time FROM HitData WHERE username = @username AND day = @day", connection);
 
             SqlParameter userParam = new SqlParameter("@username", SqlDbType.VarChar, 50);
@@ -241,6 +265,9 @@ namespace David_Arduino
             dayParam.Value = mainForm.GetStatsMainDate();
             command.Parameters.Add(dayParam);
 
+            /*
+             * Create Data table and Add Data Columns
+             */
             DataTable hitDataTable = new DataTable();
             hitDataTable.Columns.Add("Username");
             hitDataTable.Columns.Add("Force");
@@ -248,6 +275,9 @@ namespace David_Arduino
             hitDataTable.Columns.Add("Date");
             hitDataTable.Columns.Add("Time");
 
+            /*
+             * Retrieve the data and add the data to rows
+             */
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
@@ -270,12 +300,18 @@ namespace David_Arduino
                 }
             }
 
+            /*
+             * Add the data to the Stats Page and Format the DataGridView
+             */
             mainForm.SetStatsMainDataSource(hitDataTable);
             mainForm.GetStatsMainDGV().ForeColor = Color.Black;
             mainForm.GetStatsMainDGV().AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             mainForm.GetStatsMainDGV().AutoResizeColumns();
         }
 
+        /*
+         * Retrieve the Hit Counter Data from the Database and print it to the DataGridView
+         */
         public void GenerateHitCounterStats()
         {
             DataTable hitCounterData = new DataTable();
@@ -285,6 +321,9 @@ namespace David_Arduino
             mainForm.GetStatsHitCounterDGV().AutoResizeColumns();
         }
 
+        /*
+         * Retrieve the Control Data from the Database and print it to the DataGridView
+         */
         public void GenerateControlStats()
         {
             DataTable controlData = new DataTable();
