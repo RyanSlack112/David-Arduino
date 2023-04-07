@@ -221,7 +221,7 @@ namespace David_Arduino
                         acceleration = CalcAccel(x, y, z); //Calculate Acceleration
                         force = CalcForce(acceleration, mass); //Calculate Force
 
-                        if(force > 50)
+                        if(force > 60)
                         {
                             DateTime dateTime = DateTime.Now;
                             HitData hitData = new HitData(username, dateTime, force, acceleration);

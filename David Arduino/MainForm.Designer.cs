@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,6 +112,13 @@
             this.tsStats = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabsStatistics = new MaterialSkin.Controls.MaterialTabControl();
             this.tabStatsMain = new System.Windows.Forms.TabPage();
+            this.pnlStatsMainListView = new System.Windows.Forms.Panel();
+            this.dgvStatsMain = new System.Windows.Forms.DataGridView();
+            this.pnlStatsMainButtons = new System.Windows.Forms.Panel();
+            this.btnStatsMainClear = new MaterialSkin.Controls.MaterialButton();
+            this.btnStatsMainGenerate = new MaterialSkin.Controls.MaterialButton();
+            this.dtpStatsMainDate = new System.Windows.Forms.DateTimePicker();
+            this.lblStatsMainDate = new MaterialSkin.Controls.MaterialLabel();
             this.pnlStatsButtons = new System.Windows.Forms.Panel();
             this.btnStatsClose = new MaterialSkin.Controls.MaterialButton();
             this.tabStatsHitCounter = new System.Windows.Forms.TabPage();
@@ -146,13 +153,20 @@
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
-            this.pnlStatsMainButtons = new System.Windows.Forms.Panel();
-            this.lblStatsMainDate = new MaterialSkin.Controls.MaterialLabel();
-            this.dtpStatsMainDate = new System.Windows.Forms.DateTimePicker();
-            this.btnStatsMainGenerate = new MaterialSkin.Controls.MaterialButton();
-            this.pnlStatsMainListView = new System.Windows.Forms.Panel();
-            this.dgvStatsMain = new System.Windows.Forms.DataGridView();
-            this.btnStatsMainClear = new MaterialSkin.Controls.MaterialButton();
+            this.pnlStatsHitCounter = new System.Windows.Forms.Panel();
+            this.dgvStatsHitCounter = new System.Windows.Forms.DataGridView();
+            this.pnlStatsHitCounterControls = new System.Windows.Forms.Panel();
+            this.btnStatsHitCounterClear = new MaterialSkin.Controls.MaterialButton();
+            this.btnStatsHitCounterGenerate = new MaterialSkin.Controls.MaterialButton();
+            this.dtpStatsHitCounterDate = new System.Windows.Forms.DateTimePicker();
+            this.lblStatsHitCounterDate = new MaterialSkin.Controls.MaterialLabel();
+            this.pnlStatsControl = new System.Windows.Forms.Panel();
+            this.dgvStatsControl = new System.Windows.Forms.DataGridView();
+            this.pnlStatsControlControls = new System.Windows.Forms.Panel();
+            this.btnStatsControlClear = new MaterialSkin.Controls.MaterialButton();
+            this.btnStatsControlGenerate = new MaterialSkin.Controls.MaterialButton();
+            this.dtpStatsControlDate = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -188,6 +202,9 @@
             this.tabStatistics.SuspendLayout();
             this.tabsStatistics.SuspendLayout();
             this.tabStatsMain.SuspendLayout();
+            this.pnlStatsMainListView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsMain)).BeginInit();
+            this.pnlStatsMainButtons.SuspendLayout();
             this.pnlStatsButtons.SuspendLayout();
             this.tabStatsHitCounter.SuspendLayout();
             this.pnlStatsHitCounterClose.SuspendLayout();
@@ -200,9 +217,12 @@
             this.pnlMassInput.SuspendLayout();
             this.pnlCheck.SuspendLayout();
             this.pnlTheme.SuspendLayout();
-            this.pnlStatsMainButtons.SuspendLayout();
-            this.pnlStatsMainListView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsMain)).BeginInit();
+            this.pnlStatsHitCounter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsHitCounter)).BeginInit();
+            this.pnlStatsHitCounterControls.SuspendLayout();
+            this.pnlStatsControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsControl)).BeginInit();
+            this.pnlStatsControlControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileToolStripMenuItem
@@ -753,24 +773,24 @@
             // 
             // crtGraphMain
             // 
-            chartArea1.Name = "ChartArea1";
-            this.crtGraphMain.ChartAreas.Add(chartArea1);
+            chartArea5.Name = "ChartArea1";
+            this.crtGraphMain.ChartAreas.Add(chartArea5);
             this.crtGraphMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.crtGraphMain.Legends.Add(legend1);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.crtGraphMain.Legends.Add(legend5);
             this.crtGraphMain.Location = new System.Drawing.Point(0, 0);
             this.crtGraphMain.Name = "crtGraphMain";
-            series1.BorderWidth = 5;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.DimGray;
-            series1.Legend = "Legend1";
-            series1.MarkerColor = System.Drawing.Color.Black;
-            series1.MarkerSize = 8;
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series1.Name = "HitData";
-            this.crtGraphMain.Series.Add(series1);
+            series5.BorderWidth = 5;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.DimGray;
+            series5.Legend = "Legend1";
+            series5.MarkerColor = System.Drawing.Color.Black;
+            series5.MarkerSize = 8;
+            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series5.Name = "HitData";
+            this.crtGraphMain.Series.Add(series5);
             this.crtGraphMain.Size = new System.Drawing.Size(827, 360);
             this.crtGraphMain.TabIndex = 0;
             // 
@@ -1121,26 +1141,26 @@
             // 
             // crtGraphControl
             // 
-            chartArea2.Name = "ChartArea1";
-            this.crtGraphControl.ChartAreas.Add(chartArea2);
+            chartArea6.Name = "ChartArea1";
+            this.crtGraphControl.ChartAreas.Add(chartArea6);
             this.crtGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.crtGraphControl.Legends.Add(legend2);
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.crtGraphControl.Legends.Add(legend6);
             this.crtGraphControl.Location = new System.Drawing.Point(0, 0);
             this.crtGraphControl.Name = "crtGraphControl";
-            series2.BorderColor = System.Drawing.Color.Transparent;
-            series2.BorderWidth = 5;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Color = System.Drawing.Color.DimGray;
-            series2.Legend = "Legend1";
-            series2.MarkerColor = System.Drawing.Color.Black;
-            series2.MarkerSize = 8;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series2.Name = "ControlData";
-            series2.ShadowColor = System.Drawing.Color.Transparent;
-            this.crtGraphControl.Series.Add(series2);
+            series6.BorderColor = System.Drawing.Color.Transparent;
+            series6.BorderWidth = 5;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Color = System.Drawing.Color.DimGray;
+            series6.Legend = "Legend1";
+            series6.MarkerColor = System.Drawing.Color.Black;
+            series6.MarkerSize = 8;
+            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series6.Name = "ControlData";
+            series6.ShadowColor = System.Drawing.Color.Transparent;
+            this.crtGraphControl.Series.Add(series6);
             this.crtGraphControl.Size = new System.Drawing.Size(832, 354);
             this.crtGraphControl.TabIndex = 0;
             this.crtGraphControl.Text = "chart1";
@@ -1383,7 +1403,7 @@
             this.tabsStatistics.Controls.Add(this.tabStatsHitCounter);
             this.tabsStatistics.Controls.Add(this.tabStatsControl);
             this.tabsStatistics.Depth = 0;
-            this.tabsStatistics.Location = new System.Drawing.Point(3, 36);
+            this.tabsStatistics.Location = new System.Drawing.Point(3, 37);
             this.tabsStatistics.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabsStatistics.Multiline = true;
             this.tabsStatistics.Name = "tabsStatistics";
@@ -1404,6 +1424,109 @@
             this.tabStatsMain.TabIndex = 0;
             this.tabStatsMain.Text = "Main";
             this.tabStatsMain.UseVisualStyleBackColor = true;
+            // 
+            // pnlStatsMainListView
+            // 
+            this.pnlStatsMainListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStatsMainListView.Controls.Add(this.dgvStatsMain);
+            this.pnlStatsMainListView.Location = new System.Drawing.Point(54, 6);
+            this.pnlStatsMainListView.Name = "pnlStatsMainListView";
+            this.pnlStatsMainListView.Size = new System.Drawing.Size(719, 415);
+            this.pnlStatsMainListView.TabIndex = 3;
+            // 
+            // dgvStatsMain
+            // 
+            this.dgvStatsMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStatsMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvStatsMain.Location = new System.Drawing.Point(0, 0);
+            this.dgvStatsMain.Name = "dgvStatsMain";
+            this.dgvStatsMain.ReadOnly = true;
+            this.dgvStatsMain.Size = new System.Drawing.Size(719, 415);
+            this.dgvStatsMain.TabIndex = 0;
+            // 
+            // pnlStatsMainButtons
+            // 
+            this.pnlStatsMainButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStatsMainButtons.Controls.Add(this.btnStatsMainClear);
+            this.pnlStatsMainButtons.Controls.Add(this.btnStatsMainGenerate);
+            this.pnlStatsMainButtons.Controls.Add(this.dtpStatsMainDate);
+            this.pnlStatsMainButtons.Controls.Add(this.lblStatsMainDate);
+            this.pnlStatsMainButtons.Location = new System.Drawing.Point(812, 3);
+            this.pnlStatsMainButtons.Name = "pnlStatsMainButtons";
+            this.pnlStatsMainButtons.Size = new System.Drawing.Size(233, 364);
+            this.pnlStatsMainButtons.TabIndex = 2;
+            // 
+            // btnStatsMainClear
+            // 
+            this.btnStatsMainClear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStatsMainClear.AutoSize = false;
+            this.btnStatsMainClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsMainClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsMainClear.Depth = 0;
+            this.btnStatsMainClear.HighEmphasis = true;
+            this.btnStatsMainClear.Icon = null;
+            this.btnStatsMainClear.Location = new System.Drawing.Point(30, 110);
+            this.btnStatsMainClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsMainClear.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsMainClear.Name = "btnStatsMainClear";
+            this.btnStatsMainClear.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsMainClear.Size = new System.Drawing.Size(175, 36);
+            this.btnStatsMainClear.TabIndex = 3;
+            this.btnStatsMainClear.Text = "Clear Report";
+            this.btnStatsMainClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsMainClear.UseAccentColor = false;
+            this.btnStatsMainClear.UseVisualStyleBackColor = true;
+            this.btnStatsMainClear.Click += new System.EventHandler(this.btnStatsMainClear_Click);
+            // 
+            // btnStatsMainGenerate
+            // 
+            this.btnStatsMainGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStatsMainGenerate.AutoSize = false;
+            this.btnStatsMainGenerate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsMainGenerate.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsMainGenerate.Depth = 0;
+            this.btnStatsMainGenerate.HighEmphasis = true;
+            this.btnStatsMainGenerate.Icon = null;
+            this.btnStatsMainGenerate.Location = new System.Drawing.Point(30, 64);
+            this.btnStatsMainGenerate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsMainGenerate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsMainGenerate.Name = "btnStatsMainGenerate";
+            this.btnStatsMainGenerate.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsMainGenerate.Size = new System.Drawing.Size(175, 36);
+            this.btnStatsMainGenerate.TabIndex = 2;
+            this.btnStatsMainGenerate.Text = "Generate Report";
+            this.btnStatsMainGenerate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsMainGenerate.UseAccentColor = false;
+            this.btnStatsMainGenerate.UseVisualStyleBackColor = true;
+            this.btnStatsMainGenerate.Click += new System.EventHandler(this.btnStatsMainGenerate_Click);
+            // 
+            // dtpStatsMainDate
+            // 
+            this.dtpStatsMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpStatsMainDate.Location = new System.Drawing.Point(3, 35);
+            this.dtpStatsMainDate.Name = "dtpStatsMainDate";
+            this.dtpStatsMainDate.Size = new System.Drawing.Size(226, 20);
+            this.dtpStatsMainDate.TabIndex = 1;
+            // 
+            // lblStatsMainDate
+            // 
+            this.lblStatsMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatsMainDate.Depth = 0;
+            this.lblStatsMainDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblStatsMainDate.Location = new System.Drawing.Point(3, 13);
+            this.lblStatsMainDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblStatsMainDate.Name = "lblStatsMainDate";
+            this.lblStatsMainDate.Size = new System.Drawing.Size(226, 19);
+            this.lblStatsMainDate.TabIndex = 0;
+            this.lblStatsMainDate.Text = "Select Date";
+            this.lblStatsMainDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlStatsButtons
             // 
@@ -1437,6 +1560,8 @@
             // 
             // tabStatsHitCounter
             // 
+            this.tabStatsHitCounter.Controls.Add(this.pnlStatsHitCounter);
+            this.tabStatsHitCounter.Controls.Add(this.pnlStatsHitCounterControls);
             this.tabStatsHitCounter.Controls.Add(this.pnlStatsHitCounterClose);
             this.tabStatsHitCounter.ImageKey = "Hit Counter.png";
             this.tabStatsHitCounter.Location = new System.Drawing.Point(4, 22);
@@ -1479,6 +1604,8 @@
             // 
             // tabStatsControl
             // 
+            this.tabStatsControl.Controls.Add(this.pnlStatsControl);
+            this.tabStatsControl.Controls.Add(this.pnlStatsControlControls);
             this.tabStatsControl.Controls.Add(this.pnlStatsControlClose);
             this.tabStatsControl.ImageKey = "Control.png";
             this.tabStatsControl.Location = new System.Drawing.Point(4, 22);
@@ -1973,108 +2100,207 @@
             this.imgList.Images.SetKeyName(4, "Hit Counter.png");
             this.imgList.Images.SetKeyName(5, "Control.png");
             // 
-            // pnlStatsMainButtons
+            // pnlStatsHitCounter
             // 
-            this.pnlStatsMainButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlStatsMainButtons.Controls.Add(this.btnStatsMainClear);
-            this.pnlStatsMainButtons.Controls.Add(this.btnStatsMainGenerate);
-            this.pnlStatsMainButtons.Controls.Add(this.dtpStatsMainDate);
-            this.pnlStatsMainButtons.Controls.Add(this.lblStatsMainDate);
-            this.pnlStatsMainButtons.Location = new System.Drawing.Point(812, 3);
-            this.pnlStatsMainButtons.Name = "pnlStatsMainButtons";
-            this.pnlStatsMainButtons.Size = new System.Drawing.Size(233, 364);
-            this.pnlStatsMainButtons.TabIndex = 2;
-            // 
-            // lblStatsMainDate
-            // 
-            this.lblStatsMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStatsMainDate.Depth = 0;
-            this.lblStatsMainDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblStatsMainDate.Location = new System.Drawing.Point(3, 13);
-            this.lblStatsMainDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblStatsMainDate.Name = "lblStatsMainDate";
-            this.lblStatsMainDate.Size = new System.Drawing.Size(226, 19);
-            this.lblStatsMainDate.TabIndex = 0;
-            this.lblStatsMainDate.Text = "Select Date";
-            this.lblStatsMainDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dtpStatsMainDate
-            // 
-            this.dtpStatsMainDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpStatsMainDate.Location = new System.Drawing.Point(3, 35);
-            this.dtpStatsMainDate.Name = "dtpStatsMainDate";
-            this.dtpStatsMainDate.Size = new System.Drawing.Size(226, 20);
-            this.dtpStatsMainDate.TabIndex = 1;
-            // 
-            // btnStatsMainGenerate
-            // 
-            this.btnStatsMainGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStatsMainGenerate.AutoSize = false;
-            this.btnStatsMainGenerate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnStatsMainGenerate.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnStatsMainGenerate.Depth = 0;
-            this.btnStatsMainGenerate.HighEmphasis = true;
-            this.btnStatsMainGenerate.Icon = null;
-            this.btnStatsMainGenerate.Location = new System.Drawing.Point(30, 64);
-            this.btnStatsMainGenerate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnStatsMainGenerate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnStatsMainGenerate.Name = "btnStatsMainGenerate";
-            this.btnStatsMainGenerate.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnStatsMainGenerate.Size = new System.Drawing.Size(175, 36);
-            this.btnStatsMainGenerate.TabIndex = 2;
-            this.btnStatsMainGenerate.Text = "Generate Report";
-            this.btnStatsMainGenerate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnStatsMainGenerate.UseAccentColor = false;
-            this.btnStatsMainGenerate.UseVisualStyleBackColor = true;
-            this.btnStatsMainGenerate.Click += new System.EventHandler(this.btnStatsMainGenerate_Click);
-            // 
-            // pnlStatsMainListView
-            // 
-            this.pnlStatsMainListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlStatsHitCounter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlStatsMainListView.Controls.Add(this.dgvStatsMain);
-            this.pnlStatsMainListView.Location = new System.Drawing.Point(54, 6);
-            this.pnlStatsMainListView.Name = "pnlStatsMainListView";
-            this.pnlStatsMainListView.Size = new System.Drawing.Size(719, 415);
-            this.pnlStatsMainListView.TabIndex = 3;
+            this.pnlStatsHitCounter.Controls.Add(this.dgvStatsHitCounter);
+            this.pnlStatsHitCounter.Location = new System.Drawing.Point(54, 6);
+            this.pnlStatsHitCounter.Name = "pnlStatsHitCounter";
+            this.pnlStatsHitCounter.Size = new System.Drawing.Size(719, 415);
+            this.pnlStatsHitCounter.TabIndex = 5;
             // 
-            // dgvStatsMain
+            // dgvStatsHitCounter
             // 
-            this.dgvStatsMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStatsMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvStatsMain.Location = new System.Drawing.Point(0, 0);
-            this.dgvStatsMain.Name = "dgvStatsMain";
-            this.dgvStatsMain.ReadOnly = true;
-            this.dgvStatsMain.Size = new System.Drawing.Size(719, 415);
-            this.dgvStatsMain.TabIndex = 0;
+            this.dgvStatsHitCounter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStatsHitCounter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvStatsHitCounter.Location = new System.Drawing.Point(0, 0);
+            this.dgvStatsHitCounter.Name = "dgvStatsHitCounter";
+            this.dgvStatsHitCounter.ReadOnly = true;
+            this.dgvStatsHitCounter.Size = new System.Drawing.Size(719, 415);
+            this.dgvStatsHitCounter.TabIndex = 0;
             // 
-            // btnStatsMainClear
+            // pnlStatsHitCounterControls
             // 
-            this.btnStatsMainClear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlStatsHitCounterControls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStatsMainClear.AutoSize = false;
-            this.btnStatsMainClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnStatsMainClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnStatsMainClear.Depth = 0;
-            this.btnStatsMainClear.HighEmphasis = true;
-            this.btnStatsMainClear.Icon = null;
-            this.btnStatsMainClear.Location = new System.Drawing.Point(30, 110);
-            this.btnStatsMainClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnStatsMainClear.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnStatsMainClear.Name = "btnStatsMainClear";
-            this.btnStatsMainClear.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnStatsMainClear.Size = new System.Drawing.Size(175, 36);
-            this.btnStatsMainClear.TabIndex = 3;
-            this.btnStatsMainClear.Text = "Clear Report";
-            this.btnStatsMainClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnStatsMainClear.UseAccentColor = false;
-            this.btnStatsMainClear.UseVisualStyleBackColor = true;
-            this.btnStatsMainClear.Click += new System.EventHandler(this.btnStatsMainClear_Click);
+            this.pnlStatsHitCounterControls.Controls.Add(this.btnStatsHitCounterClear);
+            this.pnlStatsHitCounterControls.Controls.Add(this.btnStatsHitCounterGenerate);
+            this.pnlStatsHitCounterControls.Controls.Add(this.dtpStatsHitCounterDate);
+            this.pnlStatsHitCounterControls.Controls.Add(this.lblStatsHitCounterDate);
+            this.pnlStatsHitCounterControls.Location = new System.Drawing.Point(812, 3);
+            this.pnlStatsHitCounterControls.Name = "pnlStatsHitCounterControls";
+            this.pnlStatsHitCounterControls.Size = new System.Drawing.Size(233, 364);
+            this.pnlStatsHitCounterControls.TabIndex = 4;
+            // 
+            // btnStatsHitCounterClear
+            // 
+            this.btnStatsHitCounterClear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStatsHitCounterClear.AutoSize = false;
+            this.btnStatsHitCounterClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsHitCounterClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsHitCounterClear.Depth = 0;
+            this.btnStatsHitCounterClear.HighEmphasis = true;
+            this.btnStatsHitCounterClear.Icon = null;
+            this.btnStatsHitCounterClear.Location = new System.Drawing.Point(30, 110);
+            this.btnStatsHitCounterClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsHitCounterClear.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsHitCounterClear.Name = "btnStatsHitCounterClear";
+            this.btnStatsHitCounterClear.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsHitCounterClear.Size = new System.Drawing.Size(175, 36);
+            this.btnStatsHitCounterClear.TabIndex = 3;
+            this.btnStatsHitCounterClear.Text = "Clear Report";
+            this.btnStatsHitCounterClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsHitCounterClear.UseAccentColor = false;
+            this.btnStatsHitCounterClear.UseVisualStyleBackColor = true;
+            // 
+            // btnStatsHitCounterGenerate
+            // 
+            this.btnStatsHitCounterGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStatsHitCounterGenerate.AutoSize = false;
+            this.btnStatsHitCounterGenerate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsHitCounterGenerate.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsHitCounterGenerate.Depth = 0;
+            this.btnStatsHitCounterGenerate.HighEmphasis = true;
+            this.btnStatsHitCounterGenerate.Icon = null;
+            this.btnStatsHitCounterGenerate.Location = new System.Drawing.Point(30, 64);
+            this.btnStatsHitCounterGenerate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsHitCounterGenerate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsHitCounterGenerate.Name = "btnStatsHitCounterGenerate";
+            this.btnStatsHitCounterGenerate.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsHitCounterGenerate.Size = new System.Drawing.Size(175, 36);
+            this.btnStatsHitCounterGenerate.TabIndex = 2;
+            this.btnStatsHitCounterGenerate.Text = "Generate Report";
+            this.btnStatsHitCounterGenerate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsHitCounterGenerate.UseAccentColor = false;
+            this.btnStatsHitCounterGenerate.UseVisualStyleBackColor = true;
+            // 
+            // dtpStatsHitCounterDate
+            // 
+            this.dtpStatsHitCounterDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpStatsHitCounterDate.Location = new System.Drawing.Point(3, 35);
+            this.dtpStatsHitCounterDate.Name = "dtpStatsHitCounterDate";
+            this.dtpStatsHitCounterDate.Size = new System.Drawing.Size(226, 20);
+            this.dtpStatsHitCounterDate.TabIndex = 1;
+            // 
+            // lblStatsHitCounterDate
+            // 
+            this.lblStatsHitCounterDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatsHitCounterDate.Depth = 0;
+            this.lblStatsHitCounterDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblStatsHitCounterDate.Location = new System.Drawing.Point(3, 13);
+            this.lblStatsHitCounterDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblStatsHitCounterDate.Name = "lblStatsHitCounterDate";
+            this.lblStatsHitCounterDate.Size = new System.Drawing.Size(226, 19);
+            this.lblStatsHitCounterDate.TabIndex = 0;
+            this.lblStatsHitCounterDate.Text = "Select Date";
+            this.lblStatsHitCounterDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlStatsControl
+            // 
+            this.pnlStatsControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStatsControl.Controls.Add(this.dgvStatsControl);
+            this.pnlStatsControl.Location = new System.Drawing.Point(54, 6);
+            this.pnlStatsControl.Name = "pnlStatsControl";
+            this.pnlStatsControl.Size = new System.Drawing.Size(719, 415);
+            this.pnlStatsControl.TabIndex = 5;
+            // 
+            // dgvStatsControl
+            // 
+            this.dgvStatsControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStatsControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvStatsControl.Location = new System.Drawing.Point(0, 0);
+            this.dgvStatsControl.Name = "dgvStatsControl";
+            this.dgvStatsControl.ReadOnly = true;
+            this.dgvStatsControl.Size = new System.Drawing.Size(719, 415);
+            this.dgvStatsControl.TabIndex = 0;
+            // 
+            // pnlStatsControlControls
+            // 
+            this.pnlStatsControlControls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStatsControlControls.Controls.Add(this.btnStatsControlClear);
+            this.pnlStatsControlControls.Controls.Add(this.btnStatsControlGenerate);
+            this.pnlStatsControlControls.Controls.Add(this.dtpStatsControlDate);
+            this.pnlStatsControlControls.Controls.Add(this.materialLabel2);
+            this.pnlStatsControlControls.Location = new System.Drawing.Point(812, 3);
+            this.pnlStatsControlControls.Name = "pnlStatsControlControls";
+            this.pnlStatsControlControls.Size = new System.Drawing.Size(233, 364);
+            this.pnlStatsControlControls.TabIndex = 4;
+            // 
+            // btnStatsControlClear
+            // 
+            this.btnStatsControlClear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStatsControlClear.AutoSize = false;
+            this.btnStatsControlClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsControlClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsControlClear.Depth = 0;
+            this.btnStatsControlClear.HighEmphasis = true;
+            this.btnStatsControlClear.Icon = null;
+            this.btnStatsControlClear.Location = new System.Drawing.Point(30, 110);
+            this.btnStatsControlClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsControlClear.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsControlClear.Name = "btnStatsControlClear";
+            this.btnStatsControlClear.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsControlClear.Size = new System.Drawing.Size(175, 36);
+            this.btnStatsControlClear.TabIndex = 3;
+            this.btnStatsControlClear.Text = "Clear Report";
+            this.btnStatsControlClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsControlClear.UseAccentColor = false;
+            this.btnStatsControlClear.UseVisualStyleBackColor = true;
+            // 
+            // btnStatsControlGenerate
+            // 
+            this.btnStatsControlGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStatsControlGenerate.AutoSize = false;
+            this.btnStatsControlGenerate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatsControlGenerate.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnStatsControlGenerate.Depth = 0;
+            this.btnStatsControlGenerate.HighEmphasis = true;
+            this.btnStatsControlGenerate.Icon = null;
+            this.btnStatsControlGenerate.Location = new System.Drawing.Point(30, 64);
+            this.btnStatsControlGenerate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnStatsControlGenerate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnStatsControlGenerate.Name = "btnStatsControlGenerate";
+            this.btnStatsControlGenerate.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnStatsControlGenerate.Size = new System.Drawing.Size(175, 36);
+            this.btnStatsControlGenerate.TabIndex = 2;
+            this.btnStatsControlGenerate.Text = "Generate Report";
+            this.btnStatsControlGenerate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnStatsControlGenerate.UseAccentColor = false;
+            this.btnStatsControlGenerate.UseVisualStyleBackColor = true;
+            // 
+            // dtpStatsControlDate
+            // 
+            this.dtpStatsControlDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpStatsControlDate.Location = new System.Drawing.Point(3, 35);
+            this.dtpStatsControlDate.Name = "dtpStatsControlDate";
+            this.dtpStatsControlDate.Size = new System.Drawing.Size(226, 20);
+            this.dtpStatsControlDate.TabIndex = 1;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(3, 13);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(226, 19);
+            this.materialLabel2.TabIndex = 0;
+            this.materialLabel2.Text = "Select Date";
+            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -2126,6 +2352,9 @@
             this.tabStatistics.ResumeLayout(false);
             this.tabsStatistics.ResumeLayout(false);
             this.tabStatsMain.ResumeLayout(false);
+            this.pnlStatsMainListView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsMain)).EndInit();
+            this.pnlStatsMainButtons.ResumeLayout(false);
             this.pnlStatsButtons.ResumeLayout(false);
             this.pnlStatsButtons.PerformLayout();
             this.tabStatsHitCounter.ResumeLayout(false);
@@ -2143,9 +2372,12 @@
             this.pnlCheck.ResumeLayout(false);
             this.pnlCheck.PerformLayout();
             this.pnlTheme.ResumeLayout(false);
-            this.pnlStatsMainButtons.ResumeLayout(false);
-            this.pnlStatsMainListView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsMain)).EndInit();
+            this.pnlStatsHitCounter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsHitCounter)).EndInit();
+            this.pnlStatsHitCounterControls.ResumeLayout(false);
+            this.pnlStatsControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStatsControl)).EndInit();
+            this.pnlStatsControlControls.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2268,6 +2500,20 @@
         private System.Windows.Forms.DateTimePicker dtpStatsMainDate;
         private MaterialSkin.Controls.MaterialLabel lblStatsMainDate;
         private MaterialSkin.Controls.MaterialButton btnStatsMainClear;
+        private System.Windows.Forms.Panel pnlStatsHitCounter;
+        private System.Windows.Forms.DataGridView dgvStatsHitCounter;
+        private System.Windows.Forms.Panel pnlStatsHitCounterControls;
+        private MaterialSkin.Controls.MaterialButton btnStatsHitCounterClear;
+        private MaterialSkin.Controls.MaterialButton btnStatsHitCounterGenerate;
+        private System.Windows.Forms.DateTimePicker dtpStatsHitCounterDate;
+        private MaterialSkin.Controls.MaterialLabel lblStatsHitCounterDate;
+        private System.Windows.Forms.Panel pnlStatsControl;
+        private System.Windows.Forms.DataGridView dgvStatsControl;
+        private System.Windows.Forms.Panel pnlStatsControlControls;
+        private MaterialSkin.Controls.MaterialButton btnStatsControlClear;
+        private MaterialSkin.Controls.MaterialButton btnStatsControlGenerate;
+        private System.Windows.Forms.DateTimePicker dtpStatsControlDate;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }
 
