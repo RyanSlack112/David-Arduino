@@ -58,6 +58,7 @@ namespace David_Arduino
             }
             catch (Exception ex) 
             {
+                MessageBox.Show("Connection failed. Rerouting to local Database");
                 string dataDirectory = Path.GetDirectoryName(Application.ExecutablePath);
                 AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
                 string relativePath = @"|DataDirectory|\DavidArduino.mdf";
