@@ -59,6 +59,20 @@ namespace David_Arduino
 
     }
 
+    public class HitCounterSessionData
+    {
+        private TimeSpan startTime;
+        private TimeSpan endTime;
+        private int amountOfHits;
+
+        public TimeSpan GetStartTime() { return startTime; }
+        public void SetStartTime(TimeSpan startTime) { this.startTime = startTime; }
+        public TimeSpan GetEndTime() { return endTime; }
+        public void SetEndTime(TimeSpan endTime) { this.endTime = endTime; }
+        public int GetAmountOfHits() { return amountOfHits; }
+        public void SetAmountOfHits(int amountOfHits) { this.amountOfHits = amountOfHits; }
+    }
+
     public class ControlDataPoint
     {
 

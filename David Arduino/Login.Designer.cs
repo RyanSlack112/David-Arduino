@@ -83,6 +83,8 @@
             this.tabsLogin.SelectedIndex = 0;
             this.tabsLogin.Size = new System.Drawing.Size(459, 568);
             this.tabsLogin.TabIndex = 1;
+            this.tabsLogin.SelectedIndexChanged += new System.EventHandler(this.tabsLogin_SelectedIndexChanged);
+            this.tabsLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabsLogin_KeyPress);
             // 
             // tabLogin
             // 

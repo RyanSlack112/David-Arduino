@@ -238,10 +238,10 @@ namespace David_Arduino
             return hitCounterDataPoints;
         }
 
-        public List<string> GetHitCounterSessions(string username, string day)
+        public List<HitCounterSessionData> GetHitCounterSessions(string username, string day)
         {
-            List<string> sessions = new List<string>();
-            using (SqlCommand cmd = new SqlCommand("SELECT id, startTime, endTime FROM HitCounterSessionData WHERE username = @username AND day = @day", connection))
+            List<HitCounterSessionData> sessions = new List<HitCounterSessionData>();
+            using (SqlCommand cmd = new SqlCommand("SELECT startTime, endTime, amountOfHits FROM HitCounterSessionData WHERE username = @username AND day = @day", connection))
             {
                 //Username
                 SqlParameter userParam = new SqlParameter("username", SqlDbType.VarChar, 50);
@@ -250,10 +250,9 @@ namespace David_Arduino
 
                 //Day
                 SqlParameter dayParam = new SqlParameter("day", SqlDbType.Date);
-                dayParam.Value = day;
+                dayParam.Value = DateTime.Parse(day);
                 cmd.Parameters.Add(dayParam);
 
-                
                 /*
                  * Read Data from Database and add to List of HitData Points
                  */
@@ -261,11 +260,11 @@ namespace David_Arduino
                 {
                     while (reader.Read())
                     {
-                        int id = reader.GetInt32(0);
-                        TimeSpan startTime = reader.GetTimeSpan(1);
-                        TimeSpan endTime = reader.GetTimeSpan(2);
-                        string sessionText = startTime.ToString(@"hh\:mm") + " - " + endTime.ToString(@"hh\:mm");
-                        sessions.Add(sessionText);
+                        HitCounterSessionData hitCounterSessionData = new HitCounterSessionData();
+                        hitCounterSessionData.SetStartTime(reader.GetTimeSpan(0));
+                        hitCounterSessionData.SetEndTime(reader.GetTimeSpan(1));
+                        hitCounterSessionData.SetAmountOfHits(reader.GetInt32(2));
+                        sessions.Add(hitCounterSessionData);
                     }
                 }
             }

@@ -77,6 +77,30 @@ namespace David_Arduino
         public string GetTxtRegisterEmail() { return txtRegisterEmail.Text; } //Return Text from Email Field On Register Tab
 
         public bool GetIsLoggedIn() { return isLoggedIn; } //Returns the IsLoggedIn Variable value.
+
+        private void tabsLogin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabsLogin.SelectedIndex == 0)
+            {
+                this.AcceptButton = btnLogin;
+            }
+            else if(tabsLogin.SelectedIndex == 1)
+            {
+                this.AcceptButton = btnRegister;
+            }
+        }
+
+        private void tabsLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (tabsLogin.SelectedIndex == 0 && e.KeyChar == (char)Keys.Enter)
+            {
+                startLogin();
+            }
+            else if (tabsLogin.SelectedIndex == 1 && e.KeyChar == (char)Keys.Enter)
+            {
+                dbFunctions.Register();
+            }
+        }
     }
 }
 

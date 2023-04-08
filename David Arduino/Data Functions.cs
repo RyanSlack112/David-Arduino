@@ -294,5 +294,17 @@ namespace David_Arduino
 
             //_mainForm.MapHitCounterDataSeries(hitCounterDataPoints);
         }
+
+        public static List<string> GetSessionList(List<HitCounterSessionData> sessions)
+        {
+            List<string> sessionTexts = new List<string>();
+            foreach (HitCounterSessionData session in sessions)
+            {
+                string sessionText = session.GetStartTime().ToString(@"hh\:mm") + " - " + session.GetEndTime().ToString(@"hh\:mm");
+                sessionTexts.Add(sessionText);
+            }
+            
+            return sessionTexts;
+        }
     }
 }

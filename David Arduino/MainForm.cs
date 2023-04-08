@@ -49,6 +49,7 @@ namespace David_Arduino
             dbFunctions = new DBFunctions(this, connection, username); //Database Functions
             dFunc = new Data_Functions(this, dbFunctions, username); //Data Functions
             txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs"; //Sets Current Mass Text Box
+            PopulateGraphHitCounterComboBox();
         }
 
         public MaterialLabel GetMainLabel() { return lblOutput; } //Returns the Label on the Main Page
@@ -595,12 +596,27 @@ namespace David_Arduino
             dgvStatsControl.DataSource = null;
         }
 
-        private async void dtpGraphHitCounterDate_ValueChanged(object sender, EventArgs e)
+        private async void PopulateGraphHitCounterComboBox()
         {
             string day = dtpGraphHitCounterDate.Text;
-            List<string> sessionTexts = await Task.Run(() => dbFunctions.GetHitCounterSessions(username, day));
+            if (string.IsNullOrEmpty(day))
+            {
+                // set default value to today
+                day = DateTime.Now.ToString("yyyy-MM-dd");
+            }
+            List<HitCounterSessionData> sessions = await Task.Run(() => dbFunctions.GetHitCounterSessions(username, day));
+            List<string> sessionTexts = Data_Functions.GetSessionList(sessions);
             cmbGraphHitCounterSessions.Items.Clear();
             cmbGraphHitCounterSessions.Items.AddRange(sessionTexts.ToArray());
+            if(cmbGraphHitCounterSessions != null)
+            {
+                cmbGraphHitCounterSessions.SelectedIndex = 0;
+            }
+        }
+
+        private void dtpGraphHitCounterDate_ValueChanged(object sender, EventArgs e)
+        {
+            PopulateGraphHitCounterComboBox();
         }
 
     } 
