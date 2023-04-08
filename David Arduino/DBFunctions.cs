@@ -45,14 +45,26 @@ namespace David_Arduino
          */
         public SqlConnection ConnectToDB()
         {
-            connection = new SqlConnection();
-            string dataDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-            AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
-            string relativePath = @"|DataDirectory|\DavidArduino.mdf";
-            connection.ConnectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={relativePath};Integrated Security=True;";
+            string serverName = "davidprojects.database.windows.net";
+            string databaseName = "DavidArduino";
+            string username = "RyanSlack";
+            string password = "Carol!ne34";
 
-            connection.Open(); //Opens Database Connection
+            string connectionString = $"Server={serverName};Database={databaseName};User ID={username};Password={password};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception ex) 
+            {
+                string dataDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+                AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
+                string relativePath = @"|DataDirectory|\DavidArduino.mdf";
+                connection.ConnectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={relativePath};Integrated Security=True;";
 
+                connection.Open(); //Opens Database Connection
+            }
             return connection;
         }
 

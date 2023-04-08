@@ -94,8 +94,8 @@ namespace David_Arduino
         {
             if (tabsLogin.SelectedIndex == 0 && e.KeyChar == (char)Keys.Enter)
             {
-                MessageBox.Show("Did you really think I was going to implement this feature.\r\nYou absolute fucking idiot");
-                //startLogin();
+                //MessageBox.Show("Did you really think I was going to implement this feature.\r\nYou absolute fucking idiot");
+                startLogin();
             }
             else if (tabsLogin.SelectedIndex == 1 && e.KeyChar == (char)Keys.Enter)
             {

@@ -608,7 +608,7 @@ namespace David_Arduino
             List<string> sessionTexts = Data_Functions.GetSessionList(sessions);
             cmbGraphHitCounterSessions.Items.Clear();
             cmbGraphHitCounterSessions.Items.AddRange(sessionTexts.ToArray());
-            if(cmbGraphHitCounterSessions != null)
+            if(cmbGraphHitCounterSessions.Items.Count > 0)
             {
                 cmbGraphHitCounterSessions.SelectedIndex = 0;
             }
