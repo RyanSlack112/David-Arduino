@@ -83,6 +83,8 @@ namespace David_Arduino
 
         public void SetStatsControlDataSource(DataTable controlData) { dgvStatsControl.DataSource = controlData; }
 
+        public MaterialComboBox GetGraphHitCounterSessionsComboBox() { return cmbGraphHitCounterSessions; }
+
         public string GetPortComboBoxText()  //Returns the value of the selected port in the Combo Box
         {
             if (cmbPorts.SelectedItem == null)
@@ -592,5 +594,14 @@ namespace David_Arduino
         {
             dgvStatsControl.DataSource = null;
         }
+
+        private async void dtpGraphHitCounterDate_ValueChanged(object sender, EventArgs e)
+        {
+            string day = dtpGraphHitCounterDate.Text;
+            List<string> sessionTexts = await Task.Run(() => dbFunctions.GetHitCounterSessions(username, day));
+            cmbGraphHitCounterSessions.Items.Clear();
+            cmbGraphHitCounterSessions.Items.AddRange(sessionTexts.ToArray());
+        }
+
     } 
 }

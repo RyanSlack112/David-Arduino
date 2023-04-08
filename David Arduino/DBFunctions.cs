@@ -238,6 +238,40 @@ namespace David_Arduino
             return hitCounterDataPoints;
         }
 
+        public List<string> GetHitCounterSessions(string username, string day)
+        {
+            List<string> sessions = new List<string>();
+            using (SqlCommand cmd = new SqlCommand("SELECT id, startTime, endTime FROM HitCounterSessionData WHERE username = @username AND day = @day", connection))
+            {
+                //Username
+                SqlParameter userParam = new SqlParameter("username", SqlDbType.VarChar, 50);
+                userParam.Value = username;
+                cmd.Parameters.Add(userParam);
+
+                //Day
+                SqlParameter dayParam = new SqlParameter("day", SqlDbType.Date);
+                dayParam.Value = day;
+                cmd.Parameters.Add(dayParam);
+
+                
+                /*
+                 * Read Data from Database and add to List of HitData Points
+                 */
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        TimeSpan startTime = reader.GetTimeSpan(1);
+                        TimeSpan endTime = reader.GetTimeSpan(2);
+                        string sessionText = startTime.ToString(@"hh\:mm") + " - " + endTime.ToString(@"hh\:mm");
+                        sessions.Add(sessionText);
+                    }
+                }
+            }
+            return sessions;
+        }
+
         /*
          * Get List of Control Data and add to the Graph
          */
