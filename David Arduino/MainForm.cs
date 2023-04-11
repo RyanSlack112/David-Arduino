@@ -31,6 +31,7 @@ namespace David_Arduino
         string username; //Signed In Username
         Series hitDataSeries; //Points for Main Graph
         Series controlDataSeries; //Points for Control Graph
+        ToolTip toolTip;
 
         public MainForm(SqlConnection con, string username)
         {
@@ -49,6 +50,7 @@ namespace David_Arduino
             dbFunctions = new DBFunctions(this, connection, username); //Database Functions
             dFunc = new Data_Functions(this, dbFunctions, username); //Data Functions
             txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs"; //Sets Current Mass Text Box
+            toolTip = new ToolTip(); //ToolTip for Graph Value
             PopulateGraphHitCounterComboBox();
         }
 
@@ -118,25 +120,25 @@ namespace David_Arduino
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            try
+            if(dFunc.CheckDeviceConnection())
             {
                 dFunc.OpenPort(); //Opens port to Arduino and connects
 
                 /*
-                 * Button Visibility and Enabling Changes
-                 */
+                * Button Visibility and Enabling Changes
+                */
                 btnStart.Enabled = false;
                 btnStart.Visible = false;
                 btnStop.Enabled = true;
                 btnStop.Visible = true;
 
                 /*
-                 * Enable the reading of the Data from the Arduino
-                 */
+                * Enable the reading of the Data from the Arduino
+                */
                 isMainRunning = true;
                 StartRunning(); //Start reading from the Arduino
             }
-            catch (IOException)
+            else
             {
                 MessageBox.Show("Please Connect The Arduino Before Proceeding", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -162,13 +164,16 @@ namespace David_Arduino
 
         private void btnHitCounterStart_Click(object sender, EventArgs e)
         {
-            /*
+            if(dFunc.CheckDeviceConnection())
+            {
+                /*
              * Button Visibilty
              */
-            btnHitCounterStart.Enabled = false;
-            btnHitCounterStart.Visible = false;
-            btnHitCounterStop.Enabled = true;
-            btnHitCounterStop.Visible = true;
+                btnHitCounterStart.Enabled = false;
+                btnHitCounterStart.Visible = false;
+                btnHitCounterStop.Enabled = true;
+                btnHitCounterStop.Visible = true;
+            }
         }
 
         private void btnHitCounterStop_Click(object sender, EventArgs e)
@@ -210,13 +215,16 @@ namespace David_Arduino
 
         private void btnControlStart_Click(object sender, EventArgs e)
         {
-            /*
+            if(dFunc.CheckDeviceConnection())
+            {
+             /*
              * Button Visibility
              */
-            btnControlStart.Enabled = false;
-            btnControlStart.Visible = false;
-            btnControlStop.Enabled = true;
-            btnControlStop.Visible = true;
+                btnControlStart.Enabled = false;
+                btnControlStart.Visible = false;
+                btnControlStop.Enabled = true;
+                btnControlStop.Visible = true;
+            }
         }
 
         private void btnControlStop_Click(object sender, EventArgs e)
@@ -376,13 +384,11 @@ namespace David_Arduino
          */
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            try
+            if(dFunc.CheckDeviceConnection())
             {
-                dFunc.OpenPort(); //Opens Arduino Port
                 MessageBox.Show("The Arduino is connected", "Connection Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dFunc.ClosePort(); //Closes Arduino Port
             }
-            catch (IOException) //Exception if Arduino is not connected
+            else
             {
                 MessageBox.Show("The Arduino is not connected", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -481,7 +487,8 @@ namespace David_Arduino
                         */
                         foreach (HitDataPoint point in hitDataPoints)
                         {
-                            hitDataSeries.Points.AddXY(point.GetTime().ToString(), point.GetForce());
+                            TimeSpan time = Data_Functions.GetDuration(point.GetTime(), hitDataPoints[0].GetTime());
+                            hitDataSeries.Points.AddXY(time.ToString(), point.GetForce());
                         }
                         break;
                     }
@@ -619,5 +626,38 @@ namespace David_Arduino
             PopulateGraphHitCounterComboBox();
         }
 
+        private void crtGraphMain_MouseMove(object sender, MouseEventArgs e)
+        {
+            bool toolTipShown = false;
+            HitTestResult result = crtGraphMain.HitTest(e.X, e.Y);
+
+            if(result.ChartElementType == ChartElementType.DataPoint)
+            {
+                DataPoint dataPoint = crtGraphMain.Series[0].Points[result.PointIndex];
+                if (!toolTipShown)
+                {
+                    toolTip.Show($"Value: {GetGraphMainUnit(dataPoint)}", crtGraphMain, e.Location.X + 10, e.Location.Y + 10);
+                    toolTipShown = true;
+                }
+            }
+            else
+            {
+                toolTip.Hide(crtGraphMain);
+                toolTipShown = false;
+            }
+        }
+
+        private string GetGraphMainUnit(DataPoint dataPoint)
+        {
+            if(cmbGraphMainUnits.SelectedItem.ToString() == "Force")
+            {
+                return dataPoint.YValues[0].ToString("N2") + " N";
+            }
+            else if(cmbGraphMainUnits.SelectedItem.ToString() == "Acceleration")
+            {
+                return dataPoint.YValues[0].ToString("N2") + " m/s" + '\u00B2';
+            }
+            return "";
+        }
     } 
 }

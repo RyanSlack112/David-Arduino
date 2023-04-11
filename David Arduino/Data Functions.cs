@@ -25,6 +25,7 @@ namespace David_Arduino
         DBFunctions dbFunctions; //Data Base Functions Object
         List<HitData> hitDataList; //List of HitData Objects for Graph
         string username; //Signed in Username
+        bool deviceConnected;
 
         public Data_Functions(MainForm mainForm, DBFunctions dbFunctions, string username) //Constructor
         {
@@ -32,9 +33,11 @@ namespace David_Arduino
             {
                 portName = GetDefaultPort();
                 port = CreatePort(portName);
+                deviceConnected = true;
             }
             catch(ArgumentException)
             {
+                deviceConnected = false;
                 MessageBox.Show("There is no Device Connected.\r\nPlease Connect a Device before continuing.", "Device Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -103,6 +106,18 @@ namespace David_Arduino
         public float GetAccel() { return acceleration; } //Acceleration Getter
 
         public float GetForce() { return force; } //Force Getter
+
+        public bool CheckDeviceConnection()
+        {
+            if(deviceConnected)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         /*
          * Calculates the Acceleration from the X, Y, Z inputs from Accelerometer
@@ -305,6 +320,12 @@ namespace David_Arduino
             }
             
             return sessionTexts;
+        }
+
+        public static TimeSpan GetDuration(TimeSpan start, TimeSpan end)
+        {
+            TimeSpan duration = start - end;
+            return duration;
         }
     }
 }
