@@ -174,6 +174,10 @@ namespace David_Arduino
                 btnHitCounterStop.Enabled = true;
                 btnHitCounterStop.Visible = true;
             }
+            else
+            {
+                MessageBox.Show("Please Connect The Arduino Before Proceeding", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnHitCounterStop_Click(object sender, EventArgs e)
@@ -224,6 +228,10 @@ namespace David_Arduino
                 btnControlStart.Visible = false;
                 btnControlStop.Enabled = true;
                 btnControlStop.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Please Connect The Arduino Before Proceeding", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -399,6 +407,10 @@ namespace David_Arduino
             if (connection.State == ConnectionState.Open)
             {
                 MessageBox.Show("The Database is connected", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("The Database is not connected", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
