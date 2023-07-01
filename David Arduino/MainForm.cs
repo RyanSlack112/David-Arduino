@@ -1,20 +1,11 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
-using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.Design;
-using System.Windows.Forms;
-using System.Media;
 using System.Data.SqlClient;
-using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace David_Arduino
@@ -51,6 +42,7 @@ namespace David_Arduino
             dFunc = new Data_Functions(this, dbFunctions, username); //Data Functions
             txtCurrentMass.Text = dFunc.GetMass().ToString() + " KGs"; //Sets Current Mass Text Box
             toolTip = new ToolTip(); //ToolTip for Graph Value
+
             PopulateGraphHitCounterComboBox();
         }
 
@@ -426,6 +418,19 @@ namespace David_Arduino
             catch (FormatException) //Invalid Input
             {
                 MessageBox.Show("Please input a number in Kilograms", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRefreshPorts_Click(object sender, EventArgs e)
+        {
+            dFunc.GetPortNames();
+            if(cmbPorts.Items.Count == 0)
+            {
+                MessageBox.Show("There are no connected devices", "No Devices", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Ports Refreshed", "Ports Refreshed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

@@ -4,11 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace David_Arduino
 {
@@ -45,26 +41,33 @@ namespace David_Arduino
          */
         public SqlConnection ConnectToDB()
         {
-            string serverName = "davidprojects.database.windows.net";
+            /*string serverName = "davidprojects.database.windows.net";
             string databaseName = "DavidArduino";
             string username = "RyanSlack";
             string password = "Carol!ne34";
 
-            string connectionString = $"Server={serverName};Database={databaseName};User ID={username};Password={password};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            connection = new SqlConnection(connectionString);
+            string connectionString = $"Server={serverName};Database={databaseName};User ID={username};Password={password};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";*/
+            
+            connection = new SqlConnection();
+            string dataDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+            AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
+            string relativePath = @"|DataDirectory|\DavidArduino.mdf";
+            connection.ConnectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={relativePath};Integrated Security=True;";
+
+            //connection = new SqlConnection(connectionString);
             try
             {
                 connection.Open();
             }
-            catch (Exception ex) 
+            catch (Exception) 
             {
                 MessageBox.Show("Connection failed. Rerouting to local Database");
-                string dataDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+                /*string dataDirectory = Path.GetDirectoryName(Application.ExecutablePath);
                 AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
                 string relativePath = @"|DataDirectory|\DavidArduino.mdf";
                 connection.ConnectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={relativePath};Integrated Security=True;";
 
-                connection.Open(); //Opens Database Connection
+                connection.Open(); //Opens Database Connection*/
             }
             return connection;
         }
@@ -377,6 +380,26 @@ namespace David_Arduino
             mainForm.GetStatsControlDGV().ForeColor = Color.Black;
             mainForm.GetStatsControlDGV().AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             mainForm.GetStatsControlDGV().AutoResizeColumns();
+        }
+
+        public List<DateTime> GetGraphMainDataDates()
+        {
+            List<DateTime> data = new List<DateTime>();
+            SqlCommand command = new SqlCommand("SELECT day FROM HitData WHERE username = @username", connection);
+
+            SqlParameter userParam = new SqlParameter("@username", SqlDbType.VarChar, 50);
+            userParam.Value = username;
+            command.Parameters.Add(userParam);
+
+            using(SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    DateTime date = ((DateTime)reader["day"]);
+                    data.Add(date);
+                }
+            }
+            return data;
         }
     }
 }

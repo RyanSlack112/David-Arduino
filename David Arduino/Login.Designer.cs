@@ -68,7 +68,7 @@
             this.tsLoginForm.MouseState = MaterialSkin.MouseState.HOVER;
             this.tsLoginForm.Name = "tsLoginForm";
             this.tsLoginForm.Size = new System.Drawing.Size(459, 44);
-            this.tsLoginForm.TabIndex = 0;
+            this.tsLoginForm.TabIndex = 4;
             // 
             // tabsLogin
             // 
@@ -82,7 +82,7 @@
             this.tabsLogin.Name = "tabsLogin";
             this.tabsLogin.SelectedIndex = 0;
             this.tabsLogin.Size = new System.Drawing.Size(459, 568);
-            this.tabsLogin.TabIndex = 1;
+            this.tabsLogin.TabIndex = 3;
             this.tabsLogin.SelectedIndexChanged += new System.EventHandler(this.tabsLogin_SelectedIndexChanged);
             this.tabsLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabsLogin_KeyPress);
             // 
@@ -107,7 +107,7 @@
             this.pnlLoginControls.Location = new System.Drawing.Point(25, 20);
             this.pnlLoginControls.Name = "pnlLoginControls";
             this.pnlLoginControls.Size = new System.Drawing.Size(405, 498);
-            this.pnlLoginControls.TabIndex = 5;
+            this.pnlLoginControls.TabIndex = 50;
             // 
             // btnLogin
             // 
@@ -126,7 +126,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnLogin.Size = new System.Drawing.Size(158, 36);
-            this.btnLogin.TabIndex = 9;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnLogin.UseAccentColor = false;
@@ -156,7 +156,7 @@
             this.txtLoginPassword.SelectionStart = 0;
             this.txtLoginPassword.ShortcutsEnabled = true;
             this.txtLoginPassword.Size = new System.Drawing.Size(369, 48);
-            this.txtLoginPassword.TabIndex = 8;
+            this.txtLoginPassword.TabIndex = 1;
             this.txtLoginPassword.TabStop = false;
             this.txtLoginPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtLoginPassword.TrailingIcon = null;
@@ -187,7 +187,7 @@
             this.txtLoginName.SelectionStart = 0;
             this.txtLoginName.ShortcutsEnabled = true;
             this.txtLoginName.Size = new System.Drawing.Size(372, 48);
-            this.txtLoginName.TabIndex = 7;
+            this.txtLoginName.TabIndex = 0;
             this.txtLoginName.TabStop = false;
             this.txtLoginName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtLoginName.TrailingIcon = null;
@@ -249,7 +249,7 @@
             this.pnlRegisterControls.Location = new System.Drawing.Point(24, 22);
             this.pnlRegisterControls.Name = "pnlRegisterControls";
             this.pnlRegisterControls.Size = new System.Drawing.Size(404, 496);
-            this.pnlRegisterControls.TabIndex = 0;
+            this.pnlRegisterControls.TabIndex = 51;
             // 
             // btnRegister
             // 
@@ -267,7 +267,7 @@
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnRegister.Size = new System.Drawing.Size(158, 36);
-            this.btnRegister.TabIndex = 10;
+            this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "Register";
             this.btnRegister.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnRegister.UseAccentColor = false;
@@ -298,7 +298,7 @@
             this.txtRegisterPassConfirm.SelectionStart = 0;
             this.txtRegisterPassConfirm.ShortcutsEnabled = true;
             this.txtRegisterPassConfirm.Size = new System.Drawing.Size(174, 48);
-            this.txtRegisterPassConfirm.TabIndex = 9;
+            this.txtRegisterPassConfirm.TabIndex = 10;
             this.txtRegisterPassConfirm.TabStop = false;
             this.txtRegisterPassConfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtRegisterPassConfirm.TrailingIcon = null;
@@ -328,7 +328,7 @@
             this.txtRegisterPass.SelectionStart = 0;
             this.txtRegisterPass.ShortcutsEnabled = true;
             this.txtRegisterPass.Size = new System.Drawing.Size(174, 48);
-            this.txtRegisterPass.TabIndex = 8;
+            this.txtRegisterPass.TabIndex = 9;
             this.txtRegisterPass.TabStop = false;
             this.txtRegisterPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtRegisterPass.TrailingIcon = null;
@@ -372,7 +372,7 @@
             this.txtRegisterEmail.SelectionStart = 0;
             this.txtRegisterEmail.ShortcutsEnabled = true;
             this.txtRegisterEmail.Size = new System.Drawing.Size(356, 48);
-            this.txtRegisterEmail.TabIndex = 6;
+            this.txtRegisterEmail.TabIndex = 7;
             this.txtRegisterEmail.TabStop = false;
             this.txtRegisterEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtRegisterEmail.TrailingIcon = null;
@@ -418,7 +418,7 @@
             this.txtRegisterLastName.SelectionStart = 0;
             this.txtRegisterLastName.ShortcutsEnabled = true;
             this.txtRegisterLastName.Size = new System.Drawing.Size(176, 48);
-            this.txtRegisterLastName.TabIndex = 4;
+            this.txtRegisterLastName.TabIndex = 6;
             this.txtRegisterLastName.TabStop = false;
             this.txtRegisterLastName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtRegisterLastName.TrailingIcon = null;
@@ -449,7 +449,7 @@
             this.txtRegisterFirstName.SelectionStart = 0;
             this.txtRegisterFirstName.ShortcutsEnabled = true;
             this.txtRegisterFirstName.Size = new System.Drawing.Size(174, 48);
-            this.txtRegisterFirstName.TabIndex = 3;
+            this.txtRegisterFirstName.TabIndex = 5;
             this.txtRegisterFirstName.TabStop = false;
             this.txtRegisterFirstName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtRegisterFirstName.TrailingIcon = null;
@@ -465,7 +465,7 @@
             this.lblRegisterName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblRegisterName.Name = "lblRegisterName";
             this.lblRegisterName.Size = new System.Drawing.Size(359, 19);
-            this.lblRegisterName.TabIndex = 2;
+            this.lblRegisterName.TabIndex = 52;
             this.lblRegisterName.Text = "Name";
             this.lblRegisterName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -494,7 +494,7 @@
             this.txtRegisterUsername.SelectionStart = 0;
             this.txtRegisterUsername.ShortcutsEnabled = true;
             this.txtRegisterUsername.Size = new System.Drawing.Size(359, 48);
-            this.txtRegisterUsername.TabIndex = 1;
+            this.txtRegisterUsername.TabIndex = 4;
             this.txtRegisterUsername.TabStop = false;
             this.txtRegisterUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtRegisterUsername.TrailingIcon = null;
@@ -510,7 +510,7 @@
             this.lblRegisterUsername.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblRegisterUsername.Name = "lblRegisterUsername";
             this.lblRegisterUsername.Size = new System.Drawing.Size(359, 19);
-            this.lblRegisterUsername.TabIndex = 0;
+            this.lblRegisterUsername.TabIndex = 50;
             this.lblRegisterUsername.Text = "Username";
             this.lblRegisterUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -525,6 +525,7 @@
             this.Name = "Login";
             this.Padding = new System.Windows.Forms.Padding(3, 24, 3, 3);
             this.Text = "login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.tabsLogin.ResumeLayout(false);
             this.tabLogin.ResumeLayout(false);
             this.pnlLoginControls.ResumeLayout(false);

@@ -181,6 +181,7 @@
             this.btnDark = new MaterialSkin.Controls.MaterialButton();
             this.btnLight = new MaterialSkin.Controls.MaterialButton();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
+            this.btnRefreshPorts = new MaterialSkin.Controls.MaterialButton();
             this.tabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -1148,7 +1149,7 @@
             this.pnlGraphHitCounterSession.Controls.Add(this.lblGraphHitCounterSession);
             this.pnlGraphHitCounterSession.Location = new System.Drawing.Point(3, 179);
             this.pnlGraphHitCounterSession.Name = "pnlGraphHitCounterSession";
-            this.pnlGraphHitCounterSession.Size = new System.Drawing.Size(193, 79);
+            this.pnlGraphHitCounterSession.Size = new System.Drawing.Size(193, 84);
             this.pnlGraphHitCounterSession.TabIndex = 2;
             // 
             // cmbGraphHitCounterSessions
@@ -1166,7 +1167,7 @@
             this.cmbGraphHitCounterSessions.FormattingEnabled = true;
             this.cmbGraphHitCounterSessions.IntegralHeight = false;
             this.cmbGraphHitCounterSessions.ItemHeight = 43;
-            this.cmbGraphHitCounterSessions.Location = new System.Drawing.Point(15, 30);
+            this.cmbGraphHitCounterSessions.Location = new System.Drawing.Point(15, 33);
             this.cmbGraphHitCounterSessions.MaxDropDownItems = 4;
             this.cmbGraphHitCounterSessions.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbGraphHitCounterSessions.Name = "cmbGraphHitCounterSessions";
@@ -1179,7 +1180,7 @@
             this.lblGraphHitCounterSession.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGraphHitCounterSession.Depth = 0;
             this.lblGraphHitCounterSession.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblGraphHitCounterSession.Location = new System.Drawing.Point(14, 8);
+            this.lblGraphHitCounterSession.Location = new System.Drawing.Point(14, 11);
             this.lblGraphHitCounterSession.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblGraphHitCounterSession.Name = "lblGraphHitCounterSession";
             this.lblGraphHitCounterSession.Size = new System.Drawing.Size(162, 19);
@@ -1195,7 +1196,7 @@
             this.pnlGraphHitCounterButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGraphHitCounterButtons.Controls.Add(this.btnGraphHitCounterClearGraph);
             this.pnlGraphHitCounterButtons.Controls.Add(this.btnGraphHitCounterGenerateGraph);
-            this.pnlGraphHitCounterButtons.Location = new System.Drawing.Point(3, 264);
+            this.pnlGraphHitCounterButtons.Location = new System.Drawing.Point(3, 269);
             this.pnlGraphHitCounterButtons.Name = "pnlGraphHitCounterButtons";
             this.pnlGraphHitCounterButtons.Size = new System.Drawing.Size(193, 90);
             this.pnlGraphHitCounterButtons.TabIndex = 2;
@@ -2056,6 +2057,7 @@
             // pnlChoosePort
             // 
             this.pnlChoosePort.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlChoosePort.Controls.Add(this.btnRefreshPorts);
             this.pnlChoosePort.Controls.Add(this.txtCurrentPort);
             this.pnlChoosePort.Controls.Add(this.lblCurrentPort);
             this.pnlChoosePort.Controls.Add(this.btnOpenPort);
@@ -2063,7 +2065,7 @@
             this.pnlChoosePort.Controls.Add(this.lblChoosePort);
             this.pnlChoosePort.Location = new System.Drawing.Point(469, 15);
             this.pnlChoosePort.Name = "pnlChoosePort";
-            this.pnlChoosePort.Size = new System.Drawing.Size(200, 247);
+            this.pnlChoosePort.Size = new System.Drawing.Size(200, 352);
             this.pnlChoosePort.TabIndex = 9;
             // 
             // txtCurrentPort
@@ -2110,7 +2112,7 @@
             this.btnOpenPort.Depth = 0;
             this.btnOpenPort.HighEmphasis = true;
             this.btnOpenPort.Icon = null;
-            this.btnOpenPort.Location = new System.Drawing.Point(20, 194);
+            this.btnOpenPort.Location = new System.Drawing.Point(20, 299);
             this.btnOpenPort.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnOpenPort.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnOpenPort.Name = "btnOpenPort";
@@ -2141,7 +2143,7 @@
             this.cmbPorts.Hint = "Port Name";
             this.cmbPorts.IntegralHeight = false;
             this.cmbPorts.ItemHeight = 43;
-            this.cmbPorts.Location = new System.Drawing.Point(20, 136);
+            this.cmbPorts.Location = new System.Drawing.Point(20, 183);
             this.cmbPorts.MaxDropDownItems = 4;
             this.cmbPorts.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbPorts.Name = "cmbPorts";
@@ -2156,10 +2158,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblChoosePort.Depth = 0;
             this.lblChoosePort.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblChoosePort.Location = new System.Drawing.Point(19, 110);
+            this.lblChoosePort.Location = new System.Drawing.Point(19, 129);
             this.lblChoosePort.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblChoosePort.Name = "lblChoosePort";
-            this.lblChoosePort.Size = new System.Drawing.Size(155, 23);
+            this.lblChoosePort.Size = new System.Drawing.Size(155, 42);
             this.lblChoosePort.TabIndex = 0;
             this.lblChoosePort.Text = "Choose Port";
             this.lblChoosePort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2492,6 +2494,29 @@
             this.imgList.Images.SetKeyName(4, "Hit Counter.png");
             this.imgList.Images.SetKeyName(5, "Control.png");
             // 
+            // btnRefreshPorts
+            // 
+            this.btnRefreshPorts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefreshPorts.AutoSize = false;
+            this.btnRefreshPorts.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRefreshPorts.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnRefreshPorts.Depth = 0;
+            this.btnRefreshPorts.HighEmphasis = true;
+            this.btnRefreshPorts.Icon = null;
+            this.btnRefreshPorts.Location = new System.Drawing.Point(20, 252);
+            this.btnRefreshPorts.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRefreshPorts.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRefreshPorts.Name = "btnRefreshPorts";
+            this.btnRefreshPorts.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnRefreshPorts.Size = new System.Drawing.Size(154, 36);
+            this.btnRefreshPorts.TabIndex = 5;
+            this.btnRefreshPorts.Text = "Refresh Ports";
+            this.btnRefreshPorts.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnRefreshPorts.UseAccentColor = false;
+            this.btnRefreshPorts.UseVisualStyleBackColor = true;
+            this.btnRefreshPorts.Click += new System.EventHandler(this.btnRefreshPorts_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2722,6 +2747,7 @@
         private System.Windows.Forms.Panel pnlGraphControlButtons;
         private MaterialSkin.Controls.MaterialButton btnGraphControlClear;
         private MaterialSkin.Controls.MaterialButton btnGraphControlGenerate;
+        private MaterialSkin.Controls.MaterialButton btnRefreshPorts;
     }
 }
 

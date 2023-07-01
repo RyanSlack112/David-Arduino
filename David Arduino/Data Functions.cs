@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO.Ports;
-using MaterialSkin;
-using MaterialSkin.Controls;
-using System.Threading;
 using System.IO;
-using System.Web.UI.Design;
+using System.IO.Ports;
+using System.Windows.Forms;
 
 namespace David_Arduino
 {
@@ -80,14 +73,18 @@ namespace David_Arduino
         }
 
         /*
-         * Programmatically Assign Portname(TODO)
+         * Retrieve all ports and assigns them to a ComboBox for user selection.
          */
-        private void GetPortNames()
+        public void GetPortNames()
         {
             string[] ports = SerialPort.GetPortNames();
             foreach (string _port in ports)
             {
              _mainForm.SetPortsComboBox(_port);
+            }
+            if(_mainForm.GetPortsComboBox().Items.Count > 0)
+            {
+                _mainForm.GetPortsComboBox().SelectedIndex = 0;
             }
         }
 
@@ -107,17 +104,7 @@ namespace David_Arduino
 
         public float GetForce() { return force; } //Force Getter
 
-        public bool CheckDeviceConnection()
-        {
-            if(deviceConnected)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        public bool CheckDeviceConnection() { return deviceConnected; } //Return whether the device is connected
 
         /*
          * Calculates the Acceleration from the X, Y, Z inputs from Accelerometer
@@ -173,7 +160,7 @@ namespace David_Arduino
                     ChangeMainLabel(forceText.Trim());
                 }
             }
-            
+
         }
 
         /*
@@ -210,12 +197,7 @@ namespace David_Arduino
          */
         public void GetArduinoOutput(string username)
         {
-            /*
-             * Default Values
-             */
-            float x = 0;
-            float y = 0;
-            float z = 0;
+            
             try
             {
                 if (port.IsOpen)
@@ -228,11 +210,12 @@ namespace David_Arduino
                     * If greater than 3 values after splitting use the first 3 elements to
                     * populate the X, Y and Z values.
                     */
+                    float x, y, z;
                     if(values.Length > 2) 
                     {
-                        x = float.Parse(values[0]);
-                        y = float.Parse(values[1]);
-                        z = float.Parse(values[2]);
+                        float.TryParse(values[0], out x);
+                        float.TryParse(values[1], out y);
+                        float.TryParse(values[2], out z);
                         acceleration = CalcAccel(x, y, z); //Calculate Acceleration
                         force = CalcForce(acceleration, mass); //Calculate Force
 

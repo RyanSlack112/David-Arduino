@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MaterialSkin;
+﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using System;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace David_Arduino
 {
@@ -80,13 +70,15 @@ namespace David_Arduino
 
         private void tabsLogin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabsLogin.SelectedIndex == 0)
+            if(tabsLogin.SelectedTab == tabLogin)
             {
                 this.AcceptButton = btnLogin;
+                txtLoginName.Focus();
             }
-            else if(tabsLogin.SelectedIndex == 1)
+            else if(tabsLogin.SelectedTab == tabRegister)
             {
                 this.AcceptButton = btnRegister;
+                txtRegisterUsername.Focus();
             }
         }
 
@@ -101,6 +93,12 @@ namespace David_Arduino
             {
                 dbFunctions.Register();
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            tabsLogin.SelectedTab = tabLogin;
+            txtLoginName.Focus();
         }
     }
 }
