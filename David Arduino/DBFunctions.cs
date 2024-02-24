@@ -41,13 +41,6 @@ namespace David_Arduino
          */
         public SqlConnection ConnectToDB()
         {
-            /*string serverName = "davidprojects.database.windows.net";
-            string databaseName = "DavidArduino";
-            string username = "RyanSlack";
-            string password = "Carol!ne34";
-
-            string connectionString = $"Server={serverName};Database={databaseName};User ID={username};Password={password};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";*/
-            
             connection = new SqlConnection();
             string dataDirectory = Path.GetDirectoryName(Application.ExecutablePath);
             AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);

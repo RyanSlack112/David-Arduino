@@ -423,6 +423,7 @@ namespace David_Arduino
 
         private void btnRefreshPorts_Click(object sender, EventArgs e)
         {
+            cmbPorts.Items.Clear();
             dFunc.GetPortNames();
             if(cmbPorts.Items.Count == 0)
             {
